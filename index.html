@@ -1304,11 +1304,13 @@ function renderGrid() {
   document.getElementById('results-count').textContent = t('found', filtered.length);
 
   if (filtered.length === 0) {
+    grid.style.display = 'none';
     grid.innerHTML = '';
     empty.style.display = 'block';
     return;
   }
   empty.style.display = 'none';
+  grid.style.display = 'grid';
 
   grid.innerHTML = filtered.map(r => `
     <div class="card" onclick="openModal('${r.id}')">
