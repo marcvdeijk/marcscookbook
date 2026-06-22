@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marc's Cookbook</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #1a1a18;
+    --surface: #232320;
+    --surface2: #2c2c28;
+    --border: #3a3a34;
+    --accent: #c8a96e;
+    --accent2: #7a9e7e;
+    --text: #e8e4dc;
+    --text-muted: #8a8678;
+    --red: #c0392b;
+    --orange: #e67e22;
+    --green: #27ae60;
+    --tag-bg: #2e2e2a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    min-height: 100vh;
+  }
+
+  .header {
+    padding: 32px 40px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+  }
+  .header span { color: var(--text-muted); font-size: 13px; }
+
+  .app { display: flex; min-height: calc(100vh - 89px); }
+
+  .sidebar {
+    width: 220px;
+    min-width: 220px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 24px 16px;
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 89px);
+    overflow-y: auto;
+  }
+  .filter-group { margin-bottom: 24px; }
+  .filter-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .filter-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: var(--text-muted);
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-bottom: 2px;
+    transition: all 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+  .filter-btn:hover { color: var(--text); background: var(--surface2); }
+  .filter-btn.active { background: var(--surface2); border-color: var(--accent); color: var(--accent); }
+  .reset-btn {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+  }
+  .reset-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .main { flex: 1; padding: 24px 32px; }
+  .results-count { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .card:hover { border-color: var(--accent); background: var(--surface2); transform: translateY(-2px); }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .card-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .tag {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .tag.cuisine { border-color: #5a4a2a; color: var(--accent); }
+  .tag.protein { border-color: #2a3a2a; color: var(--accent2); }
+
+  .card-stats { display: flex; gap: 16px; border-top: 1px solid var(--border); padding-top: 12px; margin-top: 4px; }
+  .stat { display: flex; flex-direction: column; gap: 2px; }
+  .stat-label { font-size: 10px; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; }
+  .stat-value { font-size: 13px; font-weight: 600; color: var(--text); }
+
+  .effort-dots { display: flex; gap: 3px; align-items: center; margin-top: 2px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+  .dot.filled { background: var(--accent); }
+
+  .traffic-light { display: flex; gap: 4px; align-items: center; margin-top: 2px; }
+  .light { width: 10px; height: 10px; border-radius: 50%; opacity: 0.25; }
+  .light.active { opacity: 1; }
+  .light.red { background: var(--red); }
+  .light.orange { background: var(--orange); }
+  .light.green { background: var(--green); }
+
+  /* MODAL */
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 100;
+    overflow-y: auto;
+    padding: 40px 20px;
+  }
+  .overlay.open { display: flex; justify-content: center; align-items: flex-start; }
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    width: 100%;
+    max-width: 680px;
+    overflow: hidden;
+  }
+  .modal-header {
+    padding: 28px 32px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .modal-title { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--accent); }
+  .modal-subtitle { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .close-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .close-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .modal-body { padding: 24px 32px; }
+  .modal-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+
+  .section-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    margin-top: 24px;
+  }
+  .section-title:first-of-type { margin-top: 0; }
+
+  .ingredient-list { list-style: none; }
+  .ingredient-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .ingredient-item:last-child { border-bottom: none; }
+  .ingredient-item.checked { opacity: 0.35; text-decoration: line-through; }
+  .ingredient-item input[type="checkbox"] {
+    margin-top: 1px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    width: 15px; height: 15px;
+    flex-shrink: 0;
+  }
+  .ingredient-group-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 12px 0 4px;
+    display: block;
+  }
+
+  .steps-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 14px; line-height: 1.6; }
+  .step-number {
+    min-width: 26px; height: 26px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 600;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .nutrition-panel {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 8px;
+  }
+  .nutrition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+  .nutrition-item { display: flex; flex-direction: column; gap: 3px; }
+  .nutrition-key { font-size: 11px; color: var(--text-muted); }
+  .nutrition-val { font-size: 16px; font-weight: 600; color: var(--text); }
+
+  .nutri-score {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .score-badge {
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .score-badge.green { background: #1a3a1a; color: #4caf50; border: 1px solid #2a5a2a; }
+  .score-badge.orange { background: #3a2a0a; color: #ff9800; border: 1px solid #5a3a0a; }
+  .score-badge.red { background: #3a1a1a; color: #f44336; border: 1px solid #5a2a2a; }
+  .score-note { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+  .nutrition-toggle { display: flex; gap: 8px; margin-bottom: 12px; }
+  .ntoggle-btn {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 12px;
+    color: var(--text-muted);
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+  }
+  .ntoggle-btn.active { border-color: var(--accent); color: var(--accent); background: var(--surface); }
+
+  .incomplete-note {
+    background: #2a2010;
+    border: 1px solid #5a4010;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: #c8a060;
+    margin-bottom: 12px;
+  }
+
+  /* Loading state */
+  .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    gap: 16px;
+    color: var(--text-muted);
+  }
+  .loading-spinner {
+    width: 32px; height: 32px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .error-note {
+    background: #2a1010;
+    border: 1px solid #5a1010;
+    border-radius: 8px;
+    padding: 16px;
+    color: #e07070;
+    font-size: 13px;
+    margin: 20px 0;
+    line-height: 1.6;
+  }
+
+  .empty { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+  .empty h2 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 8px; color: var(--text); }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* ── TABS ── */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    padding: 0 40px;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-muted);
+    padding: 14px 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+    margin-bottom: -1px;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: flex; min-height: calc(100vh - 130px); }
+
+  /* ── WEEKPLANNER ── */
+  .planner-main {
+    flex: 1;
+    padding: 32px 40px;
+    overflow-y: auto;
+  }
+  .planner-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .week-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .week-nav-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-muted);
+    width: 32px; height: 32px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+  .week-nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .week-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--accent);
+    min-width: 200px;
+    text-align: center;
+  }
+  .week-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  .day-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+  }
+  .day-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .day-card.today { border-color: var(--accent); }
+  .day-name {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .day-date {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--text);
+    line-height: 1;
+  }
+  .day-card.today .day-date { color: var(--accent); }
+
+  .day-meal {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .meal-slot {
+    background: var(--surface2);
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 12px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+  }
+  .meal-slot:hover { border-color: var(--accent); color: var(--text); }
+  .meal-slot.filled {
+    background: #2a2a1a;
+    border: 1px solid #4a4a2a;
+    color: var(--text);
+  }
+  .meal-slot .meal-name { flex: 1; line-height: 1.3; }
+  .meal-clear {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1;
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+  .meal-clear:hover { opacity: 1; color: var(--red); }
+
+  /* Meal picker modal */
+  .meal-picker-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .meal-picker-overlay.open { display: flex; }
+  .meal-picker {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .meal-picker-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .meal-picker-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--accent);
+  }
+  .meal-picker-body { overflow-y: auto; padding: 16px 24px; flex: 1; }
+  .meal-picker-section {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    margin-top: 16px;
+  }
+  .meal-picker-section:first-child { margin-top: 0; }
+  .custom-input-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .custom-meal-input {
+    flex: 1;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    padding: 8px 12px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .custom-meal-input:focus { border-color: var(--accent); }
+  .custom-meal-input::placeholder { color: var(--text-muted); }
+  .add-custom-btn {
+    background: var(--accent);
+    border: none;
+    border-radius: 6px;
+    color: var(--bg);
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+  }
+  .recipe-pick-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    padding: 9px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-bottom: 6px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .recipe-pick-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .recipe-pick-cuisine {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* ICS download bar */
+  .planner-footer {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .ics-btn {
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    color: var(--bg);
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: opacity 0.15s;
+  }
+  .ics-btn:hover { opacity: 0.85; }
+  .ics-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+  .ics-hint { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Marc's Cookbook</h1>
+  <span id="total-count">laden...</span>
+</div>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('bibliotheek')">📚 Bibliotheek</button>
+  <button class="tab-btn" onclick="switchTab('weekplanner')">📅 Weekplanner</button>
+</nav>
+
+<!-- TAB: BIBLIOTHEEK -->
+<div class="tab-panel active" id="tab-bibliotheek">
+<div class="app">
+  <aside class="sidebar">
+    <div class="filter-group">
+      <span class="filter-label">Cuisine</span>
+      <button class="filter-btn active" data-filter="cuisine" data-value="all">Alle</button>
+      <button class="filter-btn" data-filter="cuisine" data-value="Indiaas">Indiaas</button>
+      <button class="filter-btn" data-filter="cuisine" data-value="Mexicaans">Mexicaans</button>
+      <button class="filter-btn" data-filter="cuisine" data-value="Hongaars">Hongaars</button>
+      <button class="filter-btn" data-filter="cuisine" data-value="Mediterraan">Mediterraan</button>
+      <button class="filter-btn" data-filter="cuisine" data-value="Italiaans">Italiaans</button>
+      <button class="filter-btn" data-filter="cuisine" data-value="Midden-Oosten">Midden-Oosten</button>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Eiwit</span>
+      <button class="filter-btn active" data-filter="protein" data-value="all">Alle</button>
+      <button class="filter-btn" data-filter="protein" data-value="Kip">Kip</button>
+      <button class="filter-btn" data-filter="protein" data-value="Rund">Rund</button>
+      <button class="filter-btn" data-filter="protein" data-value="Varken">Varken</button>
+      <button class="filter-btn" data-filter="protein" data-value="Vis/Schaaldieren">Vis/Schaaldieren</button>
+      <button class="filter-btn" data-filter="protein" data-value="Plantaardig">Plantaardig</button>
+      <button class="filter-btn" data-filter="protein" data-value="Geen">Geen</button>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Inspanning</span>
+      <button class="filter-btn active" data-filter="effort" data-value="all">Alle</button>
+      <button class="filter-btn" data-filter="effort" data-value="1">● Minimaal</button>
+      <button class="filter-btn" data-filter="effort" data-value="2">●● Licht</button>
+      <button class="filter-btn" data-filter="effort" data-value="3">●●● Gemiddeld</button>
+      <button class="filter-btn" data-filter="effort" data-value="4">●●●● Intensief</button>
+      <button class="filter-btn" data-filter="effort" data-value="5">●●●●● Zwaar</button>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Bereidingstijd</span>
+      <button class="filter-btn active" data-filter="time" data-value="all">Alle</button>
+      <button class="filter-btn" data-filter="time" data-value="snel">&lt; 30 min</button>
+      <button class="filter-btn" data-filter="time" data-value="middel">30–90 min</button>
+      <button class="filter-btn" data-filter="time" data-value="lang">&gt; 90 min</button>
+    </div>
+    <button class="reset-btn" onclick="resetFilters()">↺ Reset filters</button>
+  </aside>
+
+  <main class="main">
+    <div class="results-count" id="results-count"></div>
+    <div id="loading-state" class="loading">
+      <div class="loading-spinner"></div>
+      <span>Recepten laden...</span>
+    </div>
+    <div class="grid" id="recipe-grid" style="display:none;"></div>
+    <div class="empty" id="empty-state" style="display:none;">
+      <h2>Geen recepten gevonden</h2>
+      <p>Pas je filters aan.</p>
+    </div>
+  </main>
+</div>
+</div><!-- end tab-bibliotheek -->
+
+<!-- TAB: WEEKPLANNER -->
+<div class="tab-panel" id="tab-weekplanner">
+  <div class="planner-main">
+    <div class="planner-header">
+      <div class="week-nav">
+        <button class="week-nav-btn" onclick="changeWeek(-1)">‹</button>
+        <div>
+          <div class="week-label" id="week-label"></div>
+          <div class="week-sub" id="week-sub"></div>
+        </div>
+        <button class="week-nav-btn" onclick="changeWeek(1)">›</button>
+      </div>
+    </div>
+
+    <div class="day-grid" id="day-grid"></div>
+
+    <div class="planner-footer">
+      <button class="ics-btn" id="ics-btn" onclick="downloadICS()">📥 Download kalender (.ics)</button>
+      <span class="ics-hint">Open het bestand op je iPhone of iPad om de maaltijden toe te voegen aan iCloud Kalender.</span>
+    </div>
+  </div>
+</div><!-- end tab-weekplanner -->
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="modal-title"></div>
+        <div class="modal-subtitle" id="modal-subtitle"></div>
+      </div>
+      <button class="close-btn" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- MEAL PICKER MODAL -->
+<div class="meal-picker-overlay" id="meal-picker-overlay" onclick="handlePickerOverlayClick(event)">
+  <div class="meal-picker">
+    <div class="meal-picker-header">
+      <div class="meal-picker-title" id="picker-title">Kies een gerecht</div>
+      <button class="close-btn" onclick="closeMealPicker()">✕</button>
+    </div>
+    <div class="meal-picker-body">
+      <div class="meal-picker-section">Zelf typen</div>
+      <div class="custom-input-row">
+        <input type="text" class="custom-meal-input" id="custom-meal-input" placeholder="Gerecht naam..." onkeydown="if(event.key==='Enter') confirmCustomMeal()">
+        <button class="add-custom-btn" onclick="confirmCustomMeal()">Toevoegen</button>
+      </div>
+      <div class="meal-picker-section">Uit je bibliotheek</div>
+      <div id="picker-recipe-list"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────
+// TAB SWITCHING
+// ─────────────────────────────────────────
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach((b, i) => {
+    b.classList.toggle('active', ['bibliotheek','weekplanner'][i] === name);
+  });
+  document.querySelectorAll('.tab-panel').forEach(p => {
+    p.classList.toggle('active', p.id === `tab-${name}`);
+  });
+  if (name === 'weekplanner') renderPlanner();
+}
+
+// ─────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────
+let recipes = [];
+let filters = { cuisine: 'all', protein: 'all', effort: 'all', time: 'all' };
+let checkedIngredients = {};
+let nutritionMode = {};
+
+// ─────────────────────────────────────────
+// LOAD RECIPES FROM JSON FILES
+// ─────────────────────────────────────────
+async function loadRecipes() {
+  try {
+    const indexRes = await fetch('data/index.json');
+    if (!indexRes.ok) throw new Error(`index.json niet gevonden (${indexRes.status})`);
+    const fileList = await indexRes.json();
+
+    const results = await Promise.allSettled(
+      fileList.map(filename =>
+        fetch(`data/${filename}`)
+          .then(r => {
+            if (!r.ok) throw new Error(`${filename}: ${r.status}`);
+            return r.json();
+          })
+      )
+    );
+
+    const loaded = [];
+    const failed = [];
+    results.forEach((result, i) => {
+      if (result.status === 'fulfilled') {
+        loaded.push(result.value);
+      } else {
+        failed.push(`${fileList[i]}: ${result.reason.message}`);
+      }
+    });
+
+    if (failed.length > 0) {
+      console.warn('Sommige recepten konden niet worden geladen:', failed);
+    }
+
+    recipes = loaded;
+    document.getElementById('total-count').textContent = `${recipes.length} recepten`;
+    document.getElementById('loading-state').style.display = 'none';
+    document.getElementById('recipe-grid').style.display = 'grid';
+    renderGrid();
+
+  } catch (err) {
+    document.getElementById('loading-state').innerHTML = `
+      <div class="error-note">
+        <strong>Kan recepten niet laden.</strong><br><br>
+        ${err.message}<br><br>
+        <strong>Oplossing:</strong> Open dit bestand via een lokale server, niet direct vanuit de bestandsmanager.<br>
+        Gebruik in de terminal: <code>python3 -m http.server 8080</code><br>
+        Dan ga je naar: <code>http://localhost:8080</code>
+      </div>
+    `;
+  }
+}
+
+// ─────────────────────────────────────────
+// FILTER LOGIC
+// ─────────────────────────────────────────
+function applyFilters() {
+  return recipes.filter(r => {
+    if (filters.cuisine !== 'all' && r.cuisine !== filters.cuisine) return false;
+    if (filters.protein !== 'all' && r.protein !== filters.protein) return false;
+    if (filters.effort !== 'all' && r.effort !== parseInt(filters.effort)) return false;
+    if (filters.time !== 'all' && r.timeCategory !== filters.time) return false;
+    return true;
+  });
+}
+
+function resetFilters() {
+  filters = { cuisine: 'all', protein: 'all', effort: 'all', time: 'all' };
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.value === 'all');
+  });
+  renderGrid();
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const group = btn.dataset.filter;
+    const value = btn.dataset.value;
+    filters[group] = value;
+    document.querySelectorAll(`.filter-btn[data-filter="${group}"]`).forEach(b => {
+      b.classList.toggle('active', b.dataset.value === value);
+    });
+    renderGrid();
+  });
+});
+
+// ─────────────────────────────────────────
+// RENDER GRID
+// ─────────────────────────────────────────
+function effortDots(n) {
+  let html = '<div class="effort-dots">';
+  for (let i = 1; i <= 5; i++) html += `<div class="dot ${i <= n ? 'filled' : ''}"></div>`;
+  return html + '</div>';
+}
+
+function trafficLight(score) {
+  return ['red','orange','green'].map(c =>
+    `<div class="light ${c} ${c === score ? 'active' : ''}"></div>`
+  ).join('');
+}
+
+function formatTime(min) {
+  if (min < 60) return `${min} min`;
+  const h = Math.floor(min / 60), m = min % 60;
+  return m ? `${h}u ${m}m` : `${h}u`;
+}
+
+function renderGrid() {
+  const filtered = applyFilters();
+  const grid = document.getElementById('recipe-grid');
+  const empty = document.getElementById('empty-state');
+  document.getElementById('results-count').textContent =
+    `${filtered.length} recept${filtered.length !== 1 ? 'en' : ''} gevonden`;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  grid.innerHTML = filtered.map(r => `
+    <div class="card" onclick="openModal('${r.id}')">
+      <div class="card-title">${r.name}${!r.complete ? ' <span style="font-size:11px;color:var(--text-muted);">(incompleet)</span>' : ''}</div>
+      <div class="card-meta">
+        <span class="tag cuisine">${r.cuisine}</span>
+        <span class="tag protein">${r.protein}</span>
+        ${r.carbs !== 'Geen' ? `<span class="tag">${r.carbs}</span>` : ''}
+      </div>
+      <div class="card-stats">
+        <div class="stat"><span class="stat-label">Tijd</span><span class="stat-value">${formatTime(r.timeMin)}</span></div>
+        <div class="stat"><span class="stat-label">Inspanning</span>${effortDots(r.effort)}</div>
+        <div class="stat"><span class="stat-label">Kcal/portie</span><span class="stat-value">${r.nutrition.kcal}</span></div>
+        <div class="stat"><span class="stat-label">Nutriscore</span><div class="traffic-light">${trafficLight(r.nutrition.score)}</div></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ─────────────────────────────────────────
+// MODAL
+// ─────────────────────────────────────────
+function openModal(id) {
+  const r = recipes.find(x => x.id === id);
+  if (!r) return;
+  if (!checkedIngredients[id]) checkedIngredients[id] = {};
+  if (!nutritionMode[id]) nutritionMode[id] = 'portion';
+
+  document.getElementById('modal-title').textContent = r.name;
+  document.getElementById('modal-subtitle').textContent =
+    `${r.cuisine} · ${r.protein} · ${formatTime(r.timeMin)} · ${r.servings} personen`;
+
+  renderModalBody(r);
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function renderModalBody(r) {
+  const id = r.id;
+  const mode = nutritionMode[id];
+  const mult = mode === 'total' ? r.servings : 1;
+  const n = r.nutrition;
+
+  // Tags
+  const tagsHtml = `
+    <div class="modal-tags">
+      <span class="tag cuisine">${r.cuisine}</span>
+      <span class="tag protein">${r.protein}</span>
+      ${r.carbs !== 'Geen' ? `<span class="tag">${r.carbs}</span>` : ''}
+      <span class="tag">Inspanning: ${'●'.repeat(r.effort)}${'○'.repeat(5-r.effort)}</span>
+      <span class="tag">${formatTime(r.timeMin)}</span>
+    </div>`;
+
+  // Ingredients
+  let ingHtml = '<p class="section-title">Ingrediënten</p>';
+  r.ingredientGroups.forEach(group => {
+    if (group.label && r.ingredientGroups.length > 1) {
+      ingHtml += `<span class="ingredient-group-label">${group.label}</span>`;
+    }
+    ingHtml += '<ul class="ingredient-list">';
+    group.items.forEach((item, i) => {
+      const key = `${group.label}-${i}`;
+      const isChecked = !!checkedIngredients[id][key];
+      ingHtml += `
+        <li class="ingredient-item${isChecked ? ' checked' : ''}" onclick="toggleIngredient('${id}', '${key}', this)">
+          <input type="checkbox" ${isChecked ? 'checked' : ''} onclick="event.stopPropagation(); toggleIngredient('${id}', '${key}', this.parentElement)">
+          <span>${item}</span>
+        </li>`;
+    });
+    ingHtml += '</ul>';
+  });
+
+  // Steps
+  let stepsHtml = '<p class="section-title">Bereidingswijze</p><ol class="steps-list">';
+  r.steps.forEach((step, i) => {
+    stepsHtml += `<li class="step-item"><div class="step-number">${i+1}</div><div>${step}</div></li>`;
+  });
+  stepsHtml += '</ol>';
+
+  // Nutrition
+  const incompleteBanner = !r.complete
+    ? `<div class="incomplete-note">⚠️ Dit recept is incompleet — voedingswaarden zijn een ruwe schatting.</div>`
+    : '';
+
+  const scoreLabel = n.score === 'green' ? '✓ Goed' : n.score === 'orange' ? '~ Matig' : '✗ Zwaar';
+
+  const nutritionHtml = `
+    <p class="section-title">Voedingswijzer</p>
+    ${incompleteBanner}
+    <div class="nutrition-panel">
+      <div class="nutrition-toggle">
+        <button class="ntoggle-btn ${mode === 'portion' ? 'active' : ''}" onclick="setNutritionMode('${id}', 'portion')">Per portie</button>
+        <button class="ntoggle-btn ${mode === 'total' ? 'active' : ''}" onclick="setNutritionMode('${id}', 'total')">Totaal (${r.servings}p)</button>
+      </div>
+      <div class="nutrition-grid">
+        <div class="nutrition-item"><span class="nutrition-key">Calorieën</span><span class="nutrition-val">${Math.round(n.kcal * mult)} kcal</span></div>
+        <div class="nutrition-item"><span class="nutrition-key">Eiwit</span><span class="nutrition-val">${Math.round(n.protein * mult)} g</span></div>
+        <div class="nutrition-item"><span class="nutrition-key">Koolhydraten</span><span class="nutrition-val">${Math.round(n.carbs * mult)} g</span></div>
+        <div class="nutrition-item"><span class="nutrition-key">Vetten</span><span class="nutrition-val">${Math.round(n.fat * mult)} g</span></div>
+      </div>
+      <div class="nutri-score">
+        <span class="score-badge ${n.score}">${scoreLabel}</span>
+        <span class="score-note">${n.scoreNote}</span>
+      </div>
+    </div>`;
+
+  document.getElementById('modal-body').innerHTML = tagsHtml + ingHtml + stepsHtml + nutritionHtml;
+}
+
+function toggleIngredient(recipeId, key, el) {
+  const cb = el.querySelector('input[type="checkbox"]');
+  const newState = !checkedIngredients[recipeId][key];
+  checkedIngredients[recipeId][key] = newState;
+  if (cb) cb.checked = newState;
+  el.classList.toggle('checked', newState);
+}
+
+function setNutritionMode(id, mode) {
+  nutritionMode[id] = mode;
+  const r = recipes.find(x => x.id === id);
+  if (r) renderModalBody(r);
+}
+
+function closeModal() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('overlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ─────────────────────────────────────────
+// WEEKPLANNER
+// ─────────────────────────────────────────
+const DAYS_NL = ['Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag','Zondag'];
+const MONTHS_NL = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+
+let weekOffset = 0; // 0 = current week
+let weekPlan = {}; // { 'YYYY-MM-DD': 'Gerecht naam' }
+let pickerTargetDate = null;
+
+function getMondayOfWeek(offset) {
+  const now = new Date();
+  const day = now.getDay(); // 0=sun,1=mon,...6=sat
+  const diff = (day === 0 ? -6 : 1 - day); // days to monday
+  const monday = new Date(now);
+  monday.setDate(now.getDate() + diff + offset * 7);
+  monday.setHours(0,0,0,0);
+  return monday;
+}
+
+function getWeekDates(offset) {
+  const monday = getMondayOfWeek(offset);
+  return Array.from({length: 7}, (_, i) => {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    return d;
+  });
+}
+
+function getWeekNumber(date) {
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const dayNum = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+  return Math.ceil((((d - yearStart) / 86400000) + 1)/7);
+}
+
+function toDateKey(date) {
+  return date.toISOString().slice(0,10);
+}
+
+function isToday(date) {
+  const today = new Date();
+  return date.getDate() === today.getDate() &&
+    date.getMonth() === today.getMonth() &&
+    date.getFullYear() === today.getFullYear();
+}
+
+function changeWeek(delta) {
+  weekOffset += delta;
+  renderPlanner();
+}
+
+function renderPlanner() {
+  const dates = getWeekDates(weekOffset);
+  const monday = dates[0];
+  const sunday = dates[6];
+  const weekNum = getWeekNumber(monday);
+
+  // Header
+  document.getElementById('week-label').textContent = `Week ${weekNum}`;
+  document.getElementById('week-sub').textContent =
+    `${monday.getDate()} ${MONTHS_NL[monday.getMonth()]} – ${sunday.getDate()} ${MONTHS_NL[sunday.getMonth()]} ${sunday.getFullYear()}`;
+
+  // Day grid
+  const grid = document.getElementById('day-grid');
+  grid.innerHTML = dates.map((date, i) => {
+    const key = toDateKey(date);
+    const meal = weekPlan[key];
+    const todayClass = isToday(date) ? ' today' : '';
+    return `
+      <div class="day-card${todayClass}">
+        <div class="day-name">${DAYS_NL[i]}</div>
+        <div class="day-date">${date.getDate()} ${MONTHS_NL[date.getMonth()]}</div>
+        <div class="day-meal">
+          ${meal
+            ? `<div class="meal-slot filled">
+                <span class="meal-name">${meal}</span>
+                <span class="meal-clear" onclick="clearMeal('${key}', event)" title="Verwijder">✕</span>
+               </div>`
+            : `<div class="meal-slot" onclick="openMealPicker('${key}', '${DAYS_NL[i]}')">
+                <span>+ Gerecht kiezen</span>
+               </div>`
+          }
+        </div>
+      </div>`;
+  }).join('');
+
+  // ICS button state
+  const hasAnyMeal = Object.values(weekPlan).some(v => v);
+  document.getElementById('ics-btn').disabled = !hasAnyMeal;
+}
+
+function clearMeal(dateKey, event) {
+  event.stopPropagation();
+  delete weekPlan[dateKey];
+  renderPlanner();
+}
+
+// ── MEAL PICKER ──
+function openMealPicker(dateKey, dayName) {
+  pickerTargetDate = dateKey;
+  document.getElementById('picker-title').textContent = `Gerecht voor ${dayName}`;
+  document.getElementById('custom-meal-input').value = '';
+
+  // Populate recipe list
+  const list = document.getElementById('picker-recipe-list');
+  list.innerHTML = recipes.map(r => `
+    <button class="recipe-pick-btn" onclick="selectRecipe('${r.name.replace(/'/g,"\\'")}')">
+      <span>${r.name}</span>
+      <span class="recipe-pick-cuisine">${r.cuisine}</span>
+    </button>
+  `).join('');
+
+  document.getElementById('meal-picker-overlay').classList.add('open');
+  setTimeout(() => document.getElementById('custom-meal-input').focus(), 100);
+}
+
+function closeMealPicker() {
+  document.getElementById('meal-picker-overlay').classList.remove('open');
+  pickerTargetDate = null;
+}
+
+function handlePickerOverlayClick(e) {
+  if (e.target === document.getElementById('meal-picker-overlay')) closeMealPicker();
+}
+
+function selectRecipe(name) {
+  if (pickerTargetDate) {
+    weekPlan[pickerTargetDate] = name;
+    renderPlanner();
+  }
+  closeMealPicker();
+}
+
+function confirmCustomMeal() {
+  const val = document.getElementById('custom-meal-input').value.trim();
+  if (val && pickerTargetDate) {
+    weekPlan[pickerTargetDate] = val;
+    renderPlanner();
+    closeMealPicker();
+  }
+}
+
+// ── ICS GENERATOR ──
+function padTwo(n) { return String(n).padStart(2,'0'); }
+
+function toICSDate(date, hour) {
+  return `${date.getFullYear()}${padTwo(date.getMonth()+1)}${padTwo(date.getDate())}T${padTwo(hour)}0000`;
+}
+
+function escapeICS(str) {
+  return str.replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\n/g,'\\n');
+}
+
+function generateUID() {
+  return Math.random().toString(36).slice(2) + Date.now() + '@marcscookbook';
+}
+
+function downloadICS() {
+  const lines = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Marc\'s Cookbook//Weekplanner//NL',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+  ];
+
+  let count = 0;
+  Object.entries(weekPlan).forEach(([dateKey, meal]) => {
+    if (!meal) return;
+    const [y, m, d] = dateKey.split('-').map(Number);
+    const date = new Date(y, m-1, d);
+
+    const dtStart = toICSDate(date, 18); // 18:00
+    const dtEnd   = toICSDate(date, 19); // 19:00
+    const now = new Date();
+    const dtstamp = `${now.getFullYear()}${padTwo(now.getMonth()+1)}${padTwo(now.getDate())}T${padTwo(now.getHours())}${padTwo(now.getMinutes())}${padTwo(now.getSeconds())}Z`;
+
+    lines.push('BEGIN:VEVENT');
+    lines.push(`UID:${generateUID()}`);
+    lines.push(`DTSTAMP:${dtstamp}`);
+    lines.push(`DTSTART:${dtStart}`);
+    lines.push(`DTEND:${dtEnd}`);
+    lines.push(`SUMMARY:🍽 ${escapeICS(meal)}`);
+    lines.push('END:VEVENT');
+    count++;
+  });
+
+  lines.push('END:VCALENDAR');
+
+  const blob = new Blob([lines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `weekmenu-week${getWeekNumber(getMondayOfWeek(weekOffset))}.ics`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ─────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────
+loadRecipes();
+</script>
+</body>
+</html>
