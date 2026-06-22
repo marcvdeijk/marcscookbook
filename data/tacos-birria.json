@@ -1,0 +1,68 @@
+{
+  "id": "tacos-birria",
+  "name": "Tacos Birria",
+  "cuisine": "Mexicaans",
+  "protein": "Rund",
+  "carbs": "Tortilla",
+  "effort": 4,
+  "timeMin": 240,
+  "timeCategory": "lang",
+  "complete": true,
+  "servings": 5,
+  "nutrition": {
+    "kcal": 620,
+    "protein": 48,
+    "fat": 30,
+    "carbs": 28,
+    "score": "orange",
+    "scoreNote": "Caloriedicht maar eiwitrijk. De gedroogde pepers geven antioxidanten. Tortilla's voegen koolhydraten toe — houd de portiegrootte in de gaten als je bewust eet."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Vlees",
+      "items": [
+        "700 g runderschenkel",
+        "500 g runderriblappen",
+        "zout"
+      ]
+    },
+    {
+      "label": "Chilisaus/marinade",
+      "items": [
+        "4 gedroogde guajillo pepers",
+        "3 gedroogde chipotle pepers",
+        "2 gedroogde ancho pepers",
+        "250 ml water (voor weken pepers)",
+        "2 uien",
+        "4 tomaten",
+        "5 teentjes knoflook",
+        "5 cm verse gember",
+        "60 ml azijn",
+        "1 tl komijnpoeder",
+        "½ flesje Tia Lupita Hot Sauce (optioneel)"
+      ]
+    },
+    {
+      "label": "Kookpot",
+      "items": [
+        "750 ml runderbouillon",
+        "1 kaneelstokje",
+        "2 laurierblaadjes",
+        "6 kruidnagels",
+        "1½ tl gedroogde oregano",
+        "1½ tl gedroogde tijm"
+      ]
+    }
+  ],
+  "steps": [
+    "Knip de gedroogde pepers open en verwijder de zaadlijsten. Toast ze droog in een pan. Leg in 250 ml kokend water en laat 10–15 minuten weken (vuur uit).",
+    "Airfryer 15 minuten op 200°C: gehalveerde uien, tomaten en knoflook. Voeg oregano en tijm toe, nog 5 minuten.",
+    "Blend het pepermengsel (inclusief weekwater) met de gember, komijnpoeder, azijn, gebakken uien en tomaten tot een dikke saus.",
+    "Snijd het vlees in grote stukken. Breng op smaak met zout. Braad aan in een pan.",
+    "Voeg vlees en chilisaus samen in dezelfde pan.",
+    "Voeg laurierblaadjes, kaneelstokje, kruidnagels en runderbouillon toe.",
+    "Laat 3–4 uur zachtjes pruttelen op laag vuur of in de oven op 160°C.",
+    "Haal het vlees eruit en scheur in kleine stukken. Voeg wat kookvocht toe om het smeuïg te houden.",
+    "Breng op smaak met zout. Serveer in tortilla's. Dip de tacos in het kookvocht (consommé) voor de echte birria-ervaring."
+  ]
+}

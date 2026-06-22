@@ -1,0 +1,90 @@
+{
+  "id": "chicken-tikka-masala",
+  "name": "Chicken Tikka Masala",
+  "cuisine": "Indiaas",
+  "protein": "Kip",
+  "carbs": "Geen",
+  "effort": 5,
+  "timeMin": 480,
+  "timeCategory": "lang",
+  "complete": true,
+  "servings": 4,
+  "nutrition": {
+    "kcal": 550,
+    "protein": 44,
+    "fat": 28,
+    "carbs": 22,
+    "score": "green",
+    "scoreNote": "Uitstekende eiwitbron. De dubbele marinade zorgt voor diepe smaak zonder overdreven vet. Drie onderdelen (makhni gravy, onion tomato masala, kip) geven een goed uitgebalanceerd gerecht."
+  },
+  "ingredientGroups": [
+    {
+      "label": "1e marinade (60–90 min)",
+      "items": [
+        "1 kg kippendijenfilets",
+        "citroensap",
+        "zout",
+        "gember-knoflookpasta naar smaak",
+        "Kasjmiri chilipoeder naar smaak"
+      ]
+    },
+    {
+      "label": "2e marinade (4–6 uur)",
+      "items": [
+        "mosterdolie (verhit en afgekoeld)",
+        "Kasjmiri chilipoeder",
+        "kurkuma",
+        "gember-knoflookpasta naar smaak",
+        "garam masala",
+        "yoghurt",
+        "zout"
+      ]
+    },
+    {
+      "label": "Makhni gravy",
+      "items": [
+        "450 g tomaten (gehalveerd)",
+        "150 ml water",
+        "gember-knoflookpasta naar smaak",
+        "chilipoeder",
+        "groene chilipepers naar smaak",
+        "korianderstelen",
+        "kardemom + kruidnagel (in theezakje)",
+        "zout"
+      ]
+    },
+    {
+      "label": "Onion tomato masala",
+      "items": [
+        "2 rode uien (gesnipperd)",
+        "1 groene chilipeper",
+        "gember-knoflookpasta naar smaak",
+        "chilipoeder",
+        "225 g tomaten (in blokjes)"
+      ]
+    },
+    {
+      "label": "Final blend",
+      "items": [
+        "boter of ghee",
+        "komijnzaad",
+        "gedroogde rode chili",
+        "knoflook",
+        "garam masala",
+        "kasoori methi",
+        "zout"
+      ]
+    }
+  ],
+  "steps": [
+    "1e marinade: snijd de kip in hapklare stukjes. Meng met citroensap, zout, gember-knoflookpasta en Kasjmiri chilipoeder. Dek af en zet 60–90 minuten in de koelkast.",
+    "2e marinade: verhit mosterdolie tot het rookt, laat afkoelen. Meng met chilipoeder, kurkuma, gember-knoflookpasta, garam masala, yoghurt en zout. Voeg toe aan de gemarineerde kip. Dek af, minimaal 4–6 uur in de koelkast.",
+    "Makhni gravy: doe tomaten, water, gember-knoflookpasta, chilipoeder, groene chilis, zout, korianderstelen, kardemom en kruidnagel (in een theezakje) in een pan. Laat 45 minuten sudderen.",
+    "Blend de gravy volledig glad. Kook nog 12 minuten door. Voeg chilipoeder, boter, room, kasoori methi en suiker/honing toe. Zet apart.",
+    "Onion tomato masala: fruit de rode ui in olie tot karamelisatiepunt. Voeg een scheutje water toe. Voeg groene chili, gember-knoflookpasta en chilipoeder toe. Voeg 225 g tomaten toe en laat 10 minuten koken.",
+    "Grill of bak de gemarineerde kip op hoog vuur tot gaar en licht verkoold.",
+    "Final blend: verhit boter of ghee in een nieuwe pan. Voeg komijnzaad, gedroogde rode chili, knoflook en groene chili toe.",
+    "Voeg de kipstukjes, onion tomato masala en de makhni gravy toe. Breng op smaak met garam masala, zout en kasoori methi.",
+    "Garneer met reepjes verse gember en korianderblaadjes. Optioneel: extra boter of room voor de finish."
+  ]
+}

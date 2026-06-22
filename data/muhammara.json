@@ -1,0 +1,43 @@
+{
+  "id": "muhammara",
+  "name": "Muhammara",
+  "cuisine": "Midden-Oosten",
+  "protein": "Geen",
+  "carbs": "Geen",
+  "effort": 2,
+  "timeMin": 30,
+  "timeCategory": "snel",
+  "complete": true,
+  "servings": 4,
+  "nutrition": {
+    "kcal": 190,
+    "protein": 4,
+    "fat": 14,
+    "carbs": 14,
+    "score": "green",
+    "scoreNote": "Walnoten geven omega-3 vetzuren. Geroosterde paprika's zijn rijk aan vitamine C. Granaatappelmelasse geeft een unieke zuurzoete complexiteit. Uitstekende voedingswaarde voor een dip."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Ingrediënten",
+      "items": [
+        "3–4 rode paprika's (gegrild/geroosterd)",
+        "80 g walnoten (geroosterd)",
+        "2 el granaatappelmelasse",
+        "1 el citroensap",
+        "1–2 gedroogde rode chilipepers of chiliflakes",
+        "1 tl komijn (gemalen)",
+        "knoflook naar smaak",
+        "goede extra vergine olijfolie",
+        "zout",
+        "pul biber (Turkse chili) — optioneel"
+      ]
+    }
+  ],
+  "steps": [
+    "Rooster de paprika's direct op het gas, onder de grill of op de BBQ tot de schil zwart blakert. Leg in een afgedekte kom en laat 15 minuten stomen. Verwijder de schil.",
+    "Rooster de walnoten droog in een pan tot geurig.",
+    "Blend de paprika's, walnoten, granaatappelmelasse, citroensap, chilipepers, komijn en knoflook. Houd wat textuur over.",
+    "Breng op smaak met zout. Besprenkel met olijfolie en optioneel pul biber bij het serveren."
+  ]
+}

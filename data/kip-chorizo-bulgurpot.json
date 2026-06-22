@@ -1,0 +1,76 @@
+{
+  "id": "kip-chorizo-bulgurpot",
+  "name": "Kip & Chorizo Bulgurpot",
+  "cuisine": "Amerikaans",
+  "protein": "Kip",
+  "carbs": "Bulgur",
+  "effort": 3,
+  "timeMin": 45,
+  "timeCategory": "middel",
+  "complete": true,
+  "servings": 4,
+  "nutrition": {
+    "kcal": 560,
+    "protein": 46,
+    "fat": 22,
+    "carbs": 42,
+    "score": "green",
+    "scoreNote": "Goede balans van eiwit en complexe koolhydraten. Bulgur heeft een lagere glycemische index dan rijst. De chorizo geeft vet maar ook veel smaak — houd de hoeveelheid in de gaten."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Vlees",
+      "items": [
+        "1000 g kippendijen (zonder bot en vel, in hapklare blokjes)",
+        "200 g chorizo (in schijfjes of blokjes)"
+      ]
+    },
+    {
+      "label": "Bulgur & bouillon",
+      "items": [
+        "2 glazen bulgur",
+        "4 glazen kippenbouillon (verhouding 1:2)"
+      ]
+    },
+    {
+      "label": "Holy trinity",
+      "items": [
+        "2 uien (fijngesneden)",
+        "2 groene paprika's (fijngesneden)",
+        "4 stengels bleekselderij (fijngesneden)",
+        "1–2 jalapeñopepers (optioneel)",
+        "knoflook naar smaak"
+      ]
+    },
+    {
+      "label": "Smaakmakers",
+      "items": [
+        "tomatenpuree naar smaak",
+        "Cajun- of Creoolse kruidenmix naar smaak",
+        "gerookt paprikapoeder naar smaak",
+        "Louisiana hot sauce naar smaak",
+        "Worcestershire saus naar smaak",
+        "4 laurierblaadjes",
+        "verse rozemarijn naar smaak",
+        "verse tijm naar smaak"
+      ]
+    },
+    {
+      "label": "Afwerking",
+      "items": [
+        "bosui in ringetjes",
+        "Griekse extra vergine olijfolie (klein beetje)"
+      ]
+    }
+  ],
+  "steps": [
+    "BULGUR SPOELEN: Was de bulgur kort onder koud water in een zeef. Laat uitlekken.",
+    "CHORIZO UITBAKKEN: Verhit de pan met een klein beetje olijfolie. Bak chorizo 4–5 minuten krokant zodat de gekruide rode olie vrijkomt. Haal de chorizo uit de pan en laat de olie achter — dat is de smaakbasis.",
+    "KIP AANBRADEN: Kruid de kipblokjes royaal met Cajun-kruidenmix. Bak in de chorizo-olie rondom goudbruin tot ±80% gaar. Haal de kip eruit en zet apart bij de chorizo.",
+    "HOLY TRINITY BAKKEN: Bak ui, paprika, bleekselderij en jalapeño in dezelfde pan. De groenten nemen alle aanbaksels van de bodem op — schraap ze los.",
+    "SMAAKMAKERS & BULGUR TOASTEN: Voeg knoflook, tomatenpuree, verse kruiden, hot sauce, bouillonpoeder en Worcestershire toe. Roer door. Voeg de bulgur toe en bak 2 minuten mee zodat elke korrel glanst van de kruidige olie.",
+    "STOVEN: Giet de 4 glazen bouillon erbij met de laurierblaadjes. Breng aan de kook, vuur laag, deksel op de pan. 12–15 minuten zachtjes pruttelen tot de bulgur het vocht heeft opgenomen.",
+    "SAMENVOEGEN: Schep chorizo, kip en de vleessappen er voorzichtig doorheen. Breng op smaak. Deksel er weer op, nog 5–10 minuten op heel laag vuur stomen.",
+    "AFWERKEN: Haal de laurierblaadjes eruit. Strooi bosui erover en serveer direct uit de pan."
+  ]
+}

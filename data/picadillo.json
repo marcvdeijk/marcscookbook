@@ -1,0 +1,48 @@
+{
+  "id": "picadillo",
+  "name": "Picadillo",
+  "cuisine": "Mexicaans",
+  "protein": "Rund",
+  "carbs": "Aardappel",
+  "effort": 2,
+  "timeMin": 40,
+  "timeCategory": "middel",
+  "complete": true,
+  "servings": 4,
+  "nutrition": {
+    "kcal": 490,
+    "protein": 32,
+    "fat": 24,
+    "carbs": 34,
+    "score": "orange",
+    "scoreNote": "Interessante combinatie van zoet (rozijnen, banaan) en hartig. Amandelen geven gezonde vetten. Matig in koolhydraten door de aardappel."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Ingrediënten",
+      "items": [
+        "1 kg rundergehakt",
+        "½ banaan (in stukjes)",
+        "1 grote aardappel (geschild, in blokjes)",
+        "90 g rozijnen",
+        "90 g geschaafde amandelen",
+        "200 g ui (gesnipperd)",
+        "6 teentjes knoflook",
+        "1 blik tomaten",
+        "1 kaneelstokje",
+        "2 laurierblaadjes",
+        "20 zwarte peperkorrels",
+        "3 kruidnagels",
+        "1 tl kaneel & marjolein (gemalen)",
+        "zonnebloemolie",
+        "zout"
+      ]
+    }
+  ],
+  "steps": [
+    "Maal in een vijzel of molcajete: kaneel, tijm, marjolein, knoflook, kruidnagels en peperkorrels. Zet over in een kom en meng goed met het gehakt.",
+    "Verhit zonnebloemolie in een grote koekenpan. Bak het gehakt lichtjes bruin. Voeg de ui toe en bak 2–4 minuten. Breng op smaak met zout.",
+    "Voeg blik tomaten, kaneelstokje, laurierblaadjes en aardappelblokjes toe. Laat ±15 minuten sudderen met deksel.",
+    "Haal het deksel eraf. Voeg rozijnen, amandelen en banaan toe. Nog even doorwarmen en serveren."
+  ]
+}

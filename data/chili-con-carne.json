@@ -1,0 +1,81 @@
+{
+  "id": "chili-con-carne",
+  "name": "Chili con Carne",
+  "cuisine": "Mexicaans",
+  "protein": "Rund",
+  "carbs": "Geen",
+  "effort": 3,
+  "timeMin": 150,
+  "timeCategory": "lang",
+  "complete": true,
+  "servings": 5,
+  "nutrition": {
+    "kcal": 520,
+    "protein": 38,
+    "fat": 22,
+    "carbs": 28,
+    "score": "orange",
+    "scoreNote": "Eiwitrijk stoofgerecht. Bonen geven vezels en vullen goed. Hoog in vet door het gehakt — kies mager rundergehakt voor een betere score."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Vlees & basis",
+      "items": [
+        "1000 g rundergehakt",
+        "tomatenpuree naar smaak",
+        "1000 ml runderbouillon"
+      ]
+    },
+    {
+      "label": "Specerijen",
+      "items": [
+        "paprikapoeder naar smaak",
+        "chili- of cayennepeper naar smaak",
+        "uienpoeder naar smaak",
+        "knoflookpoeder naar smaak",
+        "komijn naar smaak",
+        "oregano naar smaak"
+      ]
+    },
+    {
+      "label": "Groenten",
+      "items": [
+        "2–3 uien (in halve ringen)",
+        "3–4 puntpaprika's (in reepjes)"
+      ]
+    },
+    {
+      "label": "Bonen",
+      "items": [
+        "1 blik bruine bonen (groot, uitgelekt)",
+        "2 blikken kidneybonen (uitgelekt)"
+      ]
+    },
+    {
+      "label": "Afmaken",
+      "items": [
+        "Worcestersaus naar smaak",
+        "ketchup naar smaak"
+      ]
+    },
+    {
+      "label": "Op het bord",
+      "items": [
+        "jalapeñopepers naar smaak",
+        "limoen",
+        "verse koriander",
+        "crème fraîche"
+      ]
+    }
+  ],
+  "steps": [
+    "GEHAKT AANBRADEN: Gehakt droog en zonder olie op hoog vuur. Niet roeren tot de onderkant goed gekleurd is. Doorbraden tot droog en goed gekleurd.",
+    "TOMATENPUREE ONTZUREN: Tomatenpuree direct door het gehakt. Op middelhoog vuur 2–3 minuten meebakken tot de puree van rood naar donkerrood verkleurt. Niet overslaan — dit haalt de zuurheid eraf.",
+    "SPECERIJEN LATEN BLOEIEN: Alle poeders toevoegen en goed doorroeren. 1–2 minuten op laag vuur laten intrekken. Proeven — dit is het moment om hitte en balans goed te zetten.",
+    "INKOKEN MET BOUILLON: 1 liter runderbouillon erbij. Aan de kook brengen, vuur laag. Deksel scheef op de pan en 2 uur zachtjes laten inkoken. Regelmatig roeren.",
+    "BONEN TOEVOEGEN: Bruine bonen en kidneybonen uitgelekt erbij. Zachtjes doorroeren — kidneybonen zijn kwetsbaar. Nog 30 minuten laten meesudderen.",
+    "UIEN & PAPRIKA'S KARAMELLISEREN: In een aparte wok: uien en puntpaprika's op hoog vuur bakken tot ze karamelliseren en licht geblakerd zijn. Door de pan scheppen en nog 30 minuten laten intrekken.",
+    "AFMAKEN: Worcestersaus en ketchup naar smaak. Proeven op zout, zuur en pit.",
+    "SERVEREN: Jalapeños, schijfje limoen, verse koriander en een lepel crème fraîche. De limoen knijpen net voor het eten."
+  ]
+}

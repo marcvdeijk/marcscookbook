@@ -1,0 +1,33 @@
+{
+  "id": "uniek-id-in-kleine-letters-met-koppeltekens",
+  "name": "Naam van het Gerecht",
+  "cuisine": "Indiaas",
+  "protein": "Kip",
+  "carbs": "Pasta",
+  "effort": 3,
+  "timeMin": 45,
+  "timeCategory": "middel",
+  "complete": true,
+  "servings": 4,
+  "nutrition": {
+    "kcal": 500,
+    "protein": 35,
+    "fat": 20,
+    "carbs": 40,
+    "score": "green",
+    "scoreNote": "Korte uitleg van de voedingswaarde."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Groepsnaam (bijv. Marinade)",
+      "items": [
+        "ingredient 1",
+        "ingredient 2"
+      ]
+    }
+  ],
+  "steps": [
+    "Stap 1 beschrijving.",
+    "Stap 2 beschrijving."
+  ]
+}

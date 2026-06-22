@@ -1,0 +1,85 @@
+{
+  "id": "makhani-butter-chicken",
+  "name": "Makhani Butter Chicken",
+  "cuisine": "Indiaas",
+  "protein": "Kip",
+  "carbs": "Geen",
+  "effort": 4,
+  "timeMin": 150,
+  "timeCategory": "lang",
+  "complete": true,
+  "servings": 4,
+  "nutrition": {
+    "kcal": 580,
+    "protein": 42,
+    "fat": 34,
+    "carbs": 16,
+    "score": "orange",
+    "scoreNote": "Eiwitrijk. De cashews en room verhogen het vetgehalte aanzienlijk. Heerlijk maar caloriedicht — serveer met naan of rijst en houd de portiegrootte in de gaten."
+  },
+  "ingredientGroups": [
+    {
+      "label": "1e marinade (20 min)",
+      "items": [
+        "750–1000 g kip",
+        "1 el kurkuma",
+        "3 el gember (geraspt)",
+        "3 teentjes knoflook",
+        "sap van ½ citroen",
+        "1 el Kasjmiri chilipoeder",
+        "zout naar smaak"
+      ]
+    },
+    {
+      "label": "2e marinade (rookmarinade)",
+      "items": [
+        "1 el koriander poeder",
+        "mosterd- of zonnebloemolie",
+        "3 teentjes knoflook (gekneusd) + gember naar smaak",
+        "½ el kasoori methi",
+        "½ el garam masala",
+        "1 el Kasjmiri chilipoeder",
+        "1,5 el yoghurt",
+        "½ el komijnpoeder",
+        "zout naar smaak"
+      ]
+    },
+    {
+      "label": "Makhani saus",
+      "items": [
+        "korianderstelen naar smaak",
+        "1 stuk gember (geraspt)",
+        "2 handen cashewnoten",
+        "1 chilipeper",
+        "6 tomaten of 1,5 blik tomaten",
+        "4–6 teentjes knoflook",
+        "1 kaneelstokje",
+        "3 laurierblaadjes",
+        "4 kruidnagels",
+        "1 el Kasjmiri chilipoeder",
+        "4 kardemomzaden",
+        "1 ui (grof gesneden)",
+        "zout naar smaak"
+      ]
+    },
+    {
+      "label": "Afwerking",
+      "items": [
+        "een grote klont boter",
+        "2 el slagroom",
+        "extra kasoori methi"
+      ]
+    }
+  ],
+  "steps": [
+    "Meng alle ingrediënten voor de 1e marinade. Voeg de kip toe en laat 15–20 minuten marineren.",
+    "Start ondertussen de Makhani saus: doe alle sausingredient in een pan en laat 20 minuten sudderen. Voeg water toe als nodig.",
+    "Meng de ingrediënten voor de 2e marinade en voeg toe aan de gemarineerde kip. Laat nog 4–6 uur (afgedekt) in de koelkast staan.",
+    "Rook de kip: leg een stuk aluminiumfolie in de pan, leg een gloeiende kooltje erop en dek de kip af — rook 10–15 minuten.",
+    "Blend de Makhani saus compleet glad. Zeef de saus tot er geen vloeistof meer doorheen druppelt.",
+    "Braad de gerookte kip lichtjes aan in dezelfde pan als de saus. Zet apart.",
+    "Smelt in dezelfde pan een grote klont boter. Voeg de gezeefde Makhani saus toe en breng aan de kook.",
+    "Voeg de kip toe en laat 15 minuten sudderen.",
+    "Roer er 2 el slagroom door. Serveer met naan of rijst."
+  ]
+}

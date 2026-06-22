@@ -1,0 +1,59 @@
+{
+  "id": "albondigas",
+  "name": "Albondigas",
+  "cuisine": "Mexicaans",
+  "protein": "Rund",
+  "carbs": "Geen",
+  "effort": 3,
+  "timeMin": 60,
+  "timeCategory": "middel",
+  "complete": true,
+  "servings": 4,
+  "nutrition": {
+    "kcal": 520,
+    "protein": 38,
+    "fat": 28,
+    "carbs": 18,
+    "score": "orange",
+    "scoreNote": "Eiwitrijk en voedzaam. Relatief hoog in verzadigd vet door het gehakt. Gebalanceerd als je er groenten bij serveert."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Gehaktballen",
+      "items": [
+        "1 kg rundergehakt",
+        "15 g paneermeel",
+        "1 ei",
+        "gehakte munt naar smaak",
+        "1 el komijnzaad (geroosterd & gemalen)",
+        "6–8 teentjes knoflook",
+        "15 peperkorrels (gemalen)",
+        "4 kruidnagels (gemalen)",
+        "1 el oregano",
+        "zout naar smaak"
+      ]
+    },
+    {
+      "label": "Tomatensaus",
+      "items": [
+        "1 kg tomaten of 1 liter passata",
+        "2 wortels",
+        "3 uien",
+        "1 courgette",
+        "chipotle pasta naar smaak",
+        "1 el oregano",
+        "neutrale olie"
+      ]
+    }
+  ],
+  "steps": [
+    "Rooster de peperkorrels, kruidnagels en komijnzaad droog in een pan. Maal fijn in een kruidenmolen of vijzel.",
+    "Blend alle uien en knoflook in een keukenmachine. Zet 1/3 apart voor de saus.",
+    "Meng de gemalen kruiden met de resterende ui/knoflook, munt en zout. Blend tot een puree.",
+    "Combineer de kruidenpuree met het gehakt, ei en paneermeel. Draai balletjes van ±60 g.",
+    "Bak de gehaktballen in batches in een pan — zorg dat de pan niet overvol is. Zet apart.",
+    "Rasp of snijd de wortels en courgette. Fruit samen met de ui/knoflook pasta in neutrale olie.",
+    "Voeg de tomaten of passata toe met chipotle pasta, oregano en een scheut water. Laat 10 minuten sudderen.",
+    "Voeg de gehaktballen toe en laat nog 10 minuten meekoken op laag vuur. Haal het deksel eraf om de saus in te dikken."
+  ]
+}

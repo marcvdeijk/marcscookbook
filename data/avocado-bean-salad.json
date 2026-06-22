@@ -1,0 +1,46 @@
+{
+  "id": "avocado-bean-salad",
+  "name": "Avocado Bean Salad",
+  "cuisine": "Mexicaans",
+  "protein": "Plantaardig",
+  "carbs": "Peulvruchten",
+  "effort": 1,
+  "timeMin": 15,
+  "timeCategory": "snel",
+  "complete": true,
+  "servings": 2,
+  "nutrition": {
+    "kcal": 340,
+    "protein": 12,
+    "fat": 20,
+    "carbs": 30,
+    "score": "green",
+    "scoreNote": "Een van de gezondste opties in de collectie. Avocado geeft hartgezonde enkelvoudige vetten. Bonen geven vezels en plantaardig eiwit. Snel, licht en voedzaam."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Salade",
+      "items": [
+        "2 rijpe avocado's",
+        "1 blik witte bonen of kidneybonen",
+        "rode ui naar smaak (vooraf gemarineerd in limoensap)",
+        "verse koriander of peterselie",
+        "1 groene chilipeper (optioneel)"
+      ]
+    },
+    {
+      "label": "Dressing",
+      "items": [
+        "sap van 1 limoen",
+        "goede extra vergine olijfolie",
+        "zout en zwarte peper"
+      ]
+    }
+  ],
+  "steps": [
+    "Marineer de rode ui ruim van tevoren (of gebruik de voorgemarineerde ui uit de koelkast) in limoensap met zout. Minimaal 15 minuten.",
+    "Snijd de avocado in grove stukken. Spoel de bonen af.",
+    "Combineer avocado, bonen, gemarineerde ui, koriander en optioneel chilipeper.",
+    "Maak op smaak met limoensap, olijfolie, zout en peper. Direct serveren."
+  ]
+}

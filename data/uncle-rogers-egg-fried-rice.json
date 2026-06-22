@@ -1,0 +1,56 @@
+{
+  "id": "uncle-rogers-egg-fried-rice",
+  "name": "Uncle Roger's Egg Fried Rice",
+  "cuisine": "Aziatisch",
+  "protein": "Ei",
+  "carbs": "Rijst",
+  "effort": 2,
+  "timeMin": 15,
+  "timeCategory": "snel",
+  "complete": true,
+  "servings": 2,
+  "nutrition": {
+    "kcal": 480,
+    "protein": 16,
+    "fat": 22,
+    "carbs": 58,
+    "score": "orange",
+    "scoreNote": "Snel en smaakvol. Hoog in koolhydraten door de rijst. MSG is veilig in normale hoeveelheden. Gebruik dag-oude rijst — verse rijst geeft een compleet andere (slechte) textuur."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Rijst & eieren",
+      "items": [
+        "400 g dag-oude jasmijnrijst (gekookt, een nacht gekoeld)",
+        "3 eieren"
+      ]
+    },
+    {
+      "label": "Aromaten",
+      "items": [
+        "4 stengels bosui (wit en groen gescheiden)",
+        "knoflook naar smaak (fijn gesnipperd)"
+      ]
+    },
+    {
+      "label": "Olie & smaakmakers",
+      "items": [
+        "45 ml neutrale olie (zonnebloem of groente)",
+        "30 ml lichte sojasaus",
+        "15 ml geroosterde sesamolie",
+        "2 g MSG",
+        "1 g witte peper (versgemalen)",
+        "2 g zout"
+      ]
+    }
+  ],
+  "steps": [
+    "RIJST VOORBEREIDEN: Haal de dag-oude rijst uit de koelkast en breek alle klonten los met je handen. Elke korrel moet los zijn voor hij de wok in gaat.",
+    "WOK SCREAMING HOT: Verhit de wok op het HOOGSTE vuur. Wacht tot je de eerste rookwolkjes ziet. Voeg 45 ml olie toe en draai de wok zodat de wand bedekt is.",
+    "KNOFLOOK & BOSUI BAKKEN: Voeg het witte deel van de bosui en knoflook toe. Bak constant roerend 20–25 seconden tot geurig en goudbruin — niet verbrand.",
+    "RIJST TOASTEN: Voeg alle rijst in één keer toe. Druk plat tegen de wok en laat 2 minuten onaangeroerd — de onderkant moet licht aanbakken. Omscheppen, platdrukken, herhalen. Press, toss, press, toss.",
+    "EI-POCKET MAKEN: Schuif de rijst naar de zijkanten. Kraak de 3 eieren in het midden. Roer snel tot zachte wrongel — niet volledig gestold. Schuif de rijst er overheen en meng alles.",
+    "SMAAK TOEVOEGEN: Voeg 30 ml sojasaus, 2 g MSG, 1 g witte peper en 2 g zout toe. Roer goed door zodat alles gelijkmatig verdeeld is.",
+    "AFWERKEN: Zet het vuur uit. Voeg 15 ml sesamolie toe en roer door — sesamolie gaat er altijd als laatste in. Strooi het groene bosui erover. Direct serveren."
+  ]
+}

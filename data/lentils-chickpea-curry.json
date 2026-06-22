@@ -1,0 +1,67 @@
+{
+  "id": "lentils-chickpea-curry",
+  "name": "Lentils & Chickpea Curry",
+  "cuisine": "Indiaas",
+  "protein": "Plantaardig",
+  "carbs": "Peulvruchten",
+  "effort": 2,
+  "timeMin": 35,
+  "timeCategory": "middel",
+  "complete": false,
+  "servings": 4,
+  "nutrition": {
+    "kcal": 420,
+    "protein": 18,
+    "fat": 16,
+    "carbs": 52,
+    "score": "green",
+    "scoreNote": "Uitstekende plantaardige maaltijd. Kikkererwten en linzen geven veel vezels en plantaardig eiwit. Tahini voegt gezonde vetten en calcium toe. Lage glycemische index door de peulvruchten."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Basis",
+      "items": [
+        "1 blik linzen",
+        "2 blikken kikkererwten",
+        "1 blik gepelde tomaten",
+        "200 ml kokosmelk",
+        "2 el tomatenpuree",
+        "1 grote gele of rode ui (fijn gesnipperd)",
+        "6 teentjes knoflook",
+        "2 cm verse gember (geraspt)",
+        "1 serrano peper (in blokjes)"
+      ]
+    },
+    {
+      "label": "Afwerking",
+      "items": [
+        "3 el tahini",
+        "sap van ½ limoen",
+        "verse koriander",
+        "½ tl bruine suiker"
+      ]
+    },
+    {
+      "label": "Hele specerijen",
+      "items": [
+        "1 tl komijnzaad",
+        "2 tl korianderzaad"
+      ]
+    },
+    {
+      "label": "Gemalen specerijen",
+      "items": [
+        "2 tl garam masala",
+        "2 tl kerriepoeder",
+        "1½ tl gemalen koriander",
+        "½ tl gemalen kaneel",
+        "½ tl vers geraspte nootmuskaat",
+        "½ tl gemalen kurkuma",
+        "zwarte peper naar smaak"
+      ]
+    }
+  ],
+  "steps": [
+    "Recept nog niet volledig uitgewerkt — ingrediëntenlijst beschikbaar. Bereidingswijze volgt."
+  ]
+}

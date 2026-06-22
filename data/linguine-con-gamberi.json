@@ -1,0 +1,53 @@
+{
+  "id": "linguine-con-gamberi",
+  "name": "Linguine con Gamberi",
+  "cuisine": "Italiaans",
+  "protein": "Vis/Schaaldieren",
+  "carbs": "Pasta",
+  "effort": 3,
+  "timeMin": 40,
+  "timeCategory": "middel",
+  "complete": true,
+  "servings": 2,
+  "nutrition": {
+    "kcal": 560,
+    "protein": 34,
+    "fat": 18,
+    "carbs": 62,
+    "score": "green",
+    "scoreNote": "Uitstekend profiel. Garnalen zijn lager in vet dan andere dierlijke eiwitten. De schelpdierenstock geeft smaak zonder calorieën. Pasta geeft langzame koolhydraten. Gebruik goede EVOO — het maakt het verschil."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Pasta & stock",
+      "items": [
+        "200 g linguine",
+        "koppen en schalen van de garnalen (voor stock)",
+        "scheut witte wijn",
+        "zout (royaal — pasta water is primaire zoutbron)"
+      ]
+    },
+    {
+      "label": "Saus",
+      "items": [
+        "300 g rauwe garnalen (gepeld, koppen apart gehouden)",
+        "knoflook naar smaak (fijn gesneden)",
+        "1–2 chilipepers (naar smaak)",
+        "handvol cherrytomaatjes",
+        "goede extra vergine olijfolie (Marc's Griekse EVOO)",
+        "peper en zout",
+        "verse peterselie"
+      ]
+    }
+  ],
+  "steps": [
+    "Verhit olijfolie in een pan op middelhoog vuur. Bak de garnalenkoppen en -schalen 3–4 minuten tot ze rood zijn. Blus af met een scheut witte wijn. Voeg een beetje water toe en laat 8–10 minuten trekken. Zeef de stock. Zet apart.",
+    "Breng een grote pan ruim gezouten water aan de kook. Kook de linguine al dente (1 minuut korter dan de verpakking aangeeft). Bewaar 100 ml pasta-kookwater.",
+    "Verhit olijfolie in een koekenpan. Fruit de knoflook zachtjes — niet bruin laten worden. Voeg de chilipeper toe.",
+    "Voeg de cherrytomaatjes toe en laat ze op hoog vuur openbarsten.",
+    "Voeg de garnalenstock toe en laat even inkoken.",
+    "Gaar de linguine al dente af in de saus. Voeg pasta-kookwater toe om de saus smeuïg te houden.",
+    "Voeg de rauwe garnalen toe en bak MAXIMAAL 30 seconden — ze zijn gaar zodra ze roze zijn. Direct van het vuur af.",
+    "Afwerken met verse peterselie en een draai goede EVOO."
+  ]
+}

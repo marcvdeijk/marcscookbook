@@ -1,0 +1,41 @@
+{
+  "id": "baba-ganoush",
+  "name": "Baba Ganoush",
+  "cuisine": "Midden-Oosten",
+  "protein": "Geen",
+  "carbs": "Geen",
+  "effort": 2,
+  "timeMin": 45,
+  "timeCategory": "middel",
+  "complete": true,
+  "servings": 4,
+  "nutrition": {
+    "kcal": 160,
+    "protein": 4,
+    "fat": 10,
+    "carbs": 16,
+    "score": "green",
+    "scoreNote": "Zeer laag in calorieën. Aubergine is rijk aan antioxidanten. Tahini geeft gezonde vetten en calcium. Ideaal als dip of bijgerecht."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Ingrediënten",
+      "items": [
+        "2–3 grote aubergines",
+        "tahini naar smaak",
+        "2–3 teentjes knoflook",
+        "sap van 1 citroen",
+        "goede extra vergine olijfolie",
+        "zout",
+        "gerookt paprikapoeder of sumak (garnering)",
+        "verse peterselie (garnering)"
+      ]
+    }
+  ],
+  "steps": [
+    "Rooster de aubergines direct op de vlam van het gas of op de BBQ/kamado tot de schil zwart is en het vruchtvlees zacht. Dit geeft de rooksmaak.",
+    "Laat afkoelen. Schil de aubergines en laat eventueel vocht uitlekken in een zeef.",
+    "Pureer het auberginevruchtvlees met tahini, knoflook, citroensap en zout. Houd wat structuur over — niet te glad.",
+    "Serveer met een draai olijfolie, gerookt paprikapoeder en peterselie."
+  ]
+}

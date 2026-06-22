@@ -1,0 +1,42 @@
+{
+  "id": "melitzanes-me-feta",
+  "name": "Melitzanes met Feta",
+  "cuisine": "Mediterraan",
+  "protein": "Geen",
+  "carbs": "Geen",
+  "effort": 2,
+  "timeMin": 50,
+  "timeCategory": "middel",
+  "complete": true,
+  "servings": 3,
+  "nutrition": {
+    "kcal": 220,
+    "protein": 8,
+    "fat": 14,
+    "carbs": 16,
+    "score": "green",
+    "scoreNote": "Licht en voedzaam. Feta geeft calcium en eiwit. Aubergine is vezelrijk. Goed als bijgerecht of vegetarische hoofdmaaltijd."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Ingrediënten",
+      "items": [
+        "2–3 aubergines (in plakken of gehalveerd)",
+        "150 g feta (verkruimeld)",
+        "2 tomaten (in plakjes)",
+        "knoflook naar smaak",
+        "goede extra vergine olijfolie",
+        "gedroogde oregano",
+        "zout en zwarte peper",
+        "verse munt (optioneel)"
+      ]
+    }
+  ],
+  "steps": [
+    "Snijd de aubergines in plakken of halveer ze. Bestrooi met zout en laat 20 minuten vocht onttrekken. Dep droog.",
+    "Grill op de BBQ of in de oven (200°C) tot goudbruin en zacht.",
+    "Leg de gegrilde aubergine in een ovenschaal. Verdeel tomatenplakjes en verkruimelde feta erover. Voeg knoflook toe.",
+    "Besprenkel royaal met olijfolie en oregano. Grill nog 10–15 minuten in de oven tot de feta licht gekleurd is.",
+    "Serveer warm, optioneel met verse munt."
+  ]
+}
