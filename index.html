@@ -802,6 +802,40 @@
   .card.ontdekking { border-left: 3px solid var(--accent2); }
   .card.eigen { border-left: 3px solid var(--accent); }
 
+
+  /* Cooktips sectie */
+  .cooktips-panel {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 8px;
+  }
+  .cooktip-item {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .cooktip-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .cooktip-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .cooktip-text { font-size: 13px; line-height: 1.6; color: var(--text); }
+  .alternatieven-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .alternatief-row { font-size: 13px; line-height: 1.5; }
+  .alternatief-ingredient { font-weight: 600; color: var(--text); }
+  .alternatief-opties { color: var(--text-muted); }
+
 </style>
 </head>
 <body>
@@ -1257,6 +1291,11 @@ async function loadRecipes() {
 }
 
 
+
+function renderBold(text) {
+  return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+}
+
 // ─────────────────────────────────────────
 // ZOEKFUNCTIE
 // ─────────────────────────────────────────
@@ -1434,7 +1473,7 @@ function renderModalBody(r) {
   // Steps
   let stepsHtml = `<p class="section-title">${t('method')}</p><ol class="steps-list">`;
   r.steps.forEach((step, i) => {
-    stepsHtml += `<li class="step-item"><div class="step-number">${i+1}</div><div>${step}</div></li>`;
+    stepsHtml += `<li class="step-item"><div class="step-number">${i+1}</div><div>${renderBold(step)}</div></li>`;
   });
   stepsHtml += '</ol>';
 
@@ -1464,7 +1503,7 @@ function renderModalBody(r) {
     </div>`;
 
   const backBtn = `<button class="modal-back" onclick="closeModal()">${t('back')}</button>`;
-  document.getElementById('modal-body').innerHTML = backBtn + tagsHtml + ingHtml + stepsHtml + nutritionHtml;
+  document.getElementById('modal-body').innerHTML = backBtn + tagsHtml + ingHtml + stepsHtml + cooktipsHtml + nutritionHtml;
 }
 
 function toggleIngredient(recipeId, key, el) {
