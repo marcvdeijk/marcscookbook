@@ -21,14 +21,46 @@
     {
       "label": "Ingrediënten",
       "items": [
-        "2–3 aubergines (in plakken of gehalveerd)",
-        "150 g feta (verkruimeld)",
-        "2 tomaten (in plakjes)",
-        "knoflook naar smaak",
-        "goede extra vergine olijfolie",
-        "gedroogde oregano",
-        "zout en zwarte peper",
-        "verse munt (optioneel)"
+        {
+          "naam": "Aubergines",
+          "naar_smaak": false,
+          "hoeveelheid": "2–3",
+          "beschrijving": "in plakken of gehalveerd"
+        },
+        {
+          "naam": "Feta",
+          "naar_smaak": false,
+          "hoeveelheid": 150,
+          "eenheid": "g",
+          "beschrijving": "verkruimeld"
+        },
+        {
+          "naam": "Tomaten",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "beschrijving": "in plakjes"
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Goede extra vergine olijfolie",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Gedroogde oregano",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Zout en zwarte peper",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Verse munt",
+          "naar_smaak": false,
+          "beschrijving": "optioneel"
+        }
       ]
     }
   ],
