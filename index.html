@@ -1299,23 +1299,16 @@
       <button class="close-btn" onclick="sluitIngPicker()">✕</button>
     </div>
     <div class="ing-picker-body" id="ing-picker-body">
-      <div class="ing-select-step" id="ing-select-step"></div>
-      <div class="ing-confirm-step" id="ing-confirm-step">
-        <div class="ing-confirm-header">
-          <span class="ing-confirm-col-label">Naam</span>
-          <span class="ing-confirm-col-label">Aantal</span>
-          <span class="ing-confirm-col-label">Eenheid</span>
-        </div>
-        <div id="ing-confirm-items"></div>
+      <div class="ing-confirm-header">
+        <span class="ing-confirm-col-label" style="padding-left:26px;">Naam</span>
+        <span class="ing-confirm-col-label">Aantal</span>
+        <span class="ing-confirm-col-label">Eenheid</span>
       </div>
+      <div id="ing-select-step"></div>
     </div>
     <div class="ing-picker-footer">
       <button class="ing-select-all" onclick="selecteerAlles()">Alles selecteren</button>
-      <button class="ing-voeg-toe-btn" id="ing-voeg-toe-btn" onclick="naarBevestiging()">Volgende →</button>
-    </div>
-    <div class="ing-picker-footer" id="ing-picker-footer-confirm" style="display:none;">
-      <button class="ing-select-all" onclick="terugNaarSelectie()">← Terug</button>
-      <button class="ing-voeg-toe-btn" onclick="voegGeselecteerdeToe()">Toevoegen aan lijst</button>
+      <button class="ing-voeg-toe-btn" id="ing-voeg-toe-btn" onclick="voegGeselecteerdeToe()">Toevoegen aan lijst</button>
     </div>
   </div>
 </div>
@@ -2123,14 +2116,16 @@ function _openIngPickerVoorRecept(r) {
   let body = '';
   const groepen = [...new Set(ingPickerItems.map(i => i.groep))];
   groepen.forEach(groep => {
-    if (groepen.length > 1) body += `<div class="ing-picker-group-label">${groep}</div>`;
-    ingPickerItems.filter(i => i.groep === groep).forEach((item, idx) => {
+    if (groepen.length > 1) body += '<div class="ing-picker-group-label">' + groep + '</div>';
+    ingPickerItems.filter(i => i.groep === groep).forEach(item => {
       const globalIdx = ingPickerItems.indexOf(item);
-      body += `
-        <div class="ing-picker-item" onclick="toggleIngPickerItem(${globalIdx})">
-          <input type="checkbox" id="ing-${globalIdx}" ${item.geselecteerd ? 'checked' : ''} onclick="event.stopPropagation(); toggleIngPickerItem(${globalIdx})">
-          <span>${item.tekst}</span>
-        </div>`;
+      body +=
+        '<div class="ing-picker-item" style="display:grid;grid-template-columns:24px 1fr 70px 80px;gap:6px;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);">' +
+        '<input type="checkbox" id="ing-cb-' + globalIdx + '" ' + (item.geselecteerd ? 'checked' : '') + ' onchange="toggleIngPickerItem(' + globalIdx + ')" style="accent-color:var(--accent);width:15px;height:15px;">' +
+        '<input type="text" class="ing-confirm-input" id="ing-naam-' + globalIdx + '" value="' + item.boodschapTekst + '" placeholder="Naam" oninput="ingPickerItems[' + globalIdx + '].boodschapTekst=this.value">' +
+        '<input type="text" class="ing-confirm-input" id="ing-aantal-' + globalIdx + '" value="' + (item.defaultHoeveelheid || '') + '" placeholder="Aantal">' +
+        '<input type="text" class="ing-confirm-input" id="ing-eenheid-' + globalIdx + '" value="' + (item.defaultEenheid || '') + '" placeholder="Eenheid">' +
+        '</div>';
     });
   });
 
@@ -2141,7 +2136,7 @@ function _openIngPickerVoorRecept(r) {
 
 function toggleIngPickerItem(idx) {
   ingPickerItems[idx].geselecteerd = !ingPickerItems[idx].geselecteerd;
-  const cb = document.getElementById('ing-' + idx);
+  const cb = document.getElementById('ing-cb-' + idx);
   if (cb) cb.checked = ingPickerItems[idx].geselecteerd;
   updateIngVoegToeBtn();
 }
@@ -2150,7 +2145,7 @@ function selecteerAlles() {
   const alleGeselecteerd = ingPickerItems.every(i => i.geselecteerd);
   ingPickerItems.forEach((item, idx) => {
     item.geselecteerd = !alleGeselecteerd;
-    const cb = document.getElementById('ing-' + idx);
+    const cb = document.getElementById('ing-cb-' + idx);
     if (cb) cb.checked = !alleGeselecteerd;
   });
   document.querySelector('.ing-select-all').textContent = alleGeselecteerd ? 'Alles selecteren' : 'Alles deselecteren';
@@ -2168,11 +2163,12 @@ function updateIngVoegToeBtn() {
 
 function voegGeselecteerdeToe() {
   const geselecteerd = ingPickerItems.filter(i => i.geselecteerd);
-  geselecteerd.forEach((item, idx) => {
-    const naamInput = document.getElementById('ing-naam-' + idx);
-    const aantalInput = document.getElementById('ing-aantal-' + idx);
-    const eenheidInput = document.getElementById('ing-eenheid-' + idx);
-    const naam = naamInput ? naamInput.value.trim() : (item.boodschapTekst || kortIngredientAf(item.tekst));
+  geselecteerd.forEach(item => {
+    const globalIdx = ingPickerItems.indexOf(item);
+    const naamInput = document.getElementById('ing-naam-' + globalIdx);
+    const aantalInput = document.getElementById('ing-aantal-' + globalIdx);
+    const eenheidInput = document.getElementById('ing-eenheid-' + globalIdx);
+    const naam = naamInput ? naamInput.value.trim() : (item.boodschapTekst || item.tekst);
     const aantal = aantalInput ? aantalInput.value.trim() : '';
     const eenheid = eenheidInput ? eenheidInput.value.trim() : '';
     const delen = [naam];
@@ -2187,44 +2183,10 @@ function voegGeselecteerdeToe() {
 }
 
 
-function naarBevestiging() {
-  const geselecteerd = ingPickerItems.filter(i => i.geselecteerd);
-  if (geselecteerd.length === 0) return;
 
-  // Bouw bevestigingsscherm
-  const confirmItems = document.getElementById('ing-confirm-items');
-  confirmItems.innerHTML = geselecteerd.map((item, idx) => {
-    const naam = item.boodschapTekst || kortIngredientAf(item.tekst) || item.tekst;
-    const defaultAantal = item.defaultHoeveelheid || '';
-    const defaultEenheid = item.defaultEenheid || '';
-    return '<div class="ing-confirm-item">' +
-      '<input type="text" class="ing-confirm-input" id="ing-naam-' + idx + '" value="' + naam + '" placeholder="Naam">' +
-      '<input type="text" class="ing-confirm-input" id="ing-aantal-' + idx + '" placeholder="Aantal" value="' + defaultAantal + '">' +
-      '<input type="text" class="ing-confirm-input" id="ing-eenheid-' + idx + '" placeholder="Eenheid" value="' + defaultEenheid + '">' +
-      '</div>';
-  }).join('');
-
-  // Wissel stap
-  document.getElementById('ing-select-step').classList.add('hidden');
-  document.getElementById('ing-confirm-step').classList.add('active');
-  document.getElementById('ing-picker-footer-select').style.display = 'none';
-  document.getElementById('ing-picker-footer-confirm').style.display = 'flex';
-}
-
-function terugNaarSelectie() {
-  document.getElementById('ing-select-step').classList.remove('hidden');
-  document.getElementById('ing-confirm-step').classList.remove('active');
-  document.getElementById('ing-picker-footer-select').style.display = 'flex';
-  document.getElementById('ing-picker-footer-confirm').style.display = 'none';
-}
 
 function sluitIngPicker() {
   document.getElementById('ing-picker-overlay').classList.remove('open');
-  // Reset beide stappen
-  document.getElementById('ing-select-step').classList.remove('hidden');
-  document.getElementById('ing-confirm-step').classList.remove('active');
-  document.getElementById('ing-picker-footer-select').style.display = 'flex';
-  document.getElementById('ing-picker-footer-confirm').style.display = 'none';
   ingPickerItems = [];
   ingPickerBron = '';
 }
