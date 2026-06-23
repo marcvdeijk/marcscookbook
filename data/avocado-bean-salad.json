@@ -21,19 +21,49 @@
     {
       "label": "Salade",
       "items": [
-        "2 rijpe avocado's",
-        "1 blik witte bonen of kidneybonen",
-        "rode ui naar smaak (vooraf gemarineerd in limoensap)",
-        "verse koriander of peterselie",
-        "1 groene chilipeper (optioneel)"
+        {
+          "naam": "Rijpe avocado's",
+          "naar_smaak": false,
+          "hoeveelheid": 2
+        },
+        {
+          "naam": "Witte bonen of kidneybonen",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "blik"
+        },
+        {
+          "naam": "Rode ui",
+          "naar_smaak": true,
+          "beschrijving": "vooraf gemarineerd in limoensap"
+        },
+        {
+          "naam": "Verse koriander of peterselie",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Groene chilipeper",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "beschrijving": "optioneel"
+        }
       ]
     },
     {
       "label": "Dressing",
       "items": [
-        "sap van 1 limoen",
-        "goede extra vergine olijfolie",
-        "zout en zwarte peper"
+        {
+          "naam": "Sap van 1 limoen",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Goede extra vergine olijfolie",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Zout en zwarte peper",
+          "naar_smaak": false
+        }
       ]
     }
   ],
