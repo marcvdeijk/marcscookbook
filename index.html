@@ -1771,7 +1771,19 @@ function renderModalBody(r) {
     }
     ingHtml += '<ul class="ingredient-list">';
     group.items.forEach((item, i) => {
-      ingHtml += `<li class="ingredient-item"><span>${item}</span></li>`;
+      let tekst = '';
+      if (typeof item === 'string') {
+        tekst = item;
+      } else {
+        // Gestructureerd formaat: naam eerst, dan hoeveelheid + eenheid
+        const naam = item.naam || '';
+        const h = item.hoeveelheid != null ? item.hoeveelheid : '';
+        const e = item.eenheid || '';
+        const ns = item.naar_smaak ? ' — naar smaak' : '';
+        const oms = item.beschrijving ? ` (${item.beschrijving})` : '';
+        tekst = [naam, h, e].filter(Boolean).join(' ') + ns + oms;
+      }
+      ingHtml += `<li class="ingredient-item"><span>${tekst}</span></li>`;
     });
     ingHtml += '</ul>';
   });
@@ -1893,7 +1905,11 @@ function renderBoodschappen() {
     return;
   }
   leeg.style.display = 'none';
-  lijst.innerHTML = boodschappenLijst.map(item => `
+  const gesorteerd = [...boodschappenLijst].sort((a, b) => {
+    if (a.afgevinkt !== b.afgevinkt) return a.afgevinkt ? 1 : -1;
+    return a.tekst.localeCompare(b.tekst, 'nl');
+  });
+  lijst.innerHTML = gesorteerd.map(item => `
     <li class="boodschappen-item${item.afgevinkt ? ' afgevinkt' : ''}">
       <input type="checkbox" ${item.afgevinkt ? 'checked' : ''} onchange="toggleBoodschap('${item.id}')">
       <span class="boodschappen-item-text" onclick="toggleBoodschap('${item.id}')">${item.tekst}</span>
@@ -1999,7 +2015,24 @@ function openIngPickerVoorRecept(receptId) {
 
 function _openIngPickerVoorRecept(r) {
   ingPickerBron = r.name;
-  ingPickerItems = r.ingredientGroups.flatMap(g => g.items.map(item => ({ tekst: item, geselecteerd: false, groep: g.label })));
+  ingPickerItems = r.ingredientGroups.flatMap(g => g.items.map(item => {
+    let weergave = '';
+    let boodschapTekst = '';
+    if (typeof item === 'string') {
+      weergave = item;
+      boodschapTekst = kortIngredientAf(item);
+    } else {
+      const naam = item.naam || '';
+      const h = item.hoeveelheid != null ? item.hoeveelheid : '';
+      const e = item.eenheid || '';
+      const ns = item.naar_smaak ? ' — naar smaak' : '';
+      const oms = item.beschrijving ? ` (${item.beschrijving})` : '';
+      weergave = [naam, h, e].filter(Boolean).join(' ') + ns + oms;
+      // Boodschappenlijst: naam + hoeveelheid + eenheid (geen beschrijving/naar smaak)
+      boodschapTekst = [naam, h, e].filter(x => x !== '' && x != null).join(' ');
+    }
+    return { tekst: weergave, boodschapTekst, geselecteerd: false, groep: g.label };
+  }));
 
   document.getElementById('ing-picker-title').textContent = r.name;
 
@@ -2056,7 +2089,8 @@ function voegGeselecteerdeToe() {
     // Voorkom duplicaten
     const bestaatAl = boodschappenLijst.some(b => b.tekst === item.tekst && b.bron === ingPickerBron);
     if (!bestaatAl) {
-      boodschappenLijst.push({ id: boodschappenId(), tekst: kortIngredientAf(item.tekst), volledigeTekst: item.tekst, bron: ingPickerBron, afgevinkt: false });
+      const boodschapNaam = item.boodschapTekst || kortIngredientAf(item.tekst);
+    boodschappenLijst.push({ id: boodschappenId(), tekst: boodschapNaam, volledigeTekst: item.tekst, bron: ingPickerBron, afgevinkt: false });
     }
   });
   sluitIngPicker();
