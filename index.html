@@ -2142,8 +2142,8 @@ function _openIngPickerVoorRecept(r) {
       const ns = item.naar_smaak ? ' — naar smaak' : '';
       const oms = item.beschrijving ? ' (' + item.beschrijving + ')' : '';
       weergave = [naam, h, e].filter(Boolean).join(' ') + ns + oms;
-      // Boodschappenlijst: naam + hoeveelheid + eenheid (geen beschrijving/naar smaak)
-      boodschapTekst = [naam, h, e].filter(x => x !== '' && x != null).join(' ');
+      // Boodschappenlijst naamveld: ALLEEN de naam, geen hoeveelheid/eenheid
+      boodschapTekst = naam;
     }
     const defH = (typeof item === 'object' && item.hoeveelheid != null) ? String(item.hoeveelheid) : '';
     const defE = (typeof item === 'object' && item.eenheid) ? item.eenheid : '';
