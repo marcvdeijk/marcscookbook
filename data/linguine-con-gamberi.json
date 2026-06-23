@@ -21,22 +21,66 @@
     {
       "label": "Pasta & stock",
       "items": [
-        "200 g linguine",
-        "koppen en schalen van de garnalen (voor stock)",
-        "scheut witte wijn",
-        "zout (royaal — pasta water is primaire zoutbron)"
+        {
+          "naam": "Linguine",
+          "naar_smaak": false,
+          "hoeveelheid": 200,
+          "eenheid": "g"
+        },
+        {
+          "naam": "Koppen en schalen van de garnalen",
+          "naar_smaak": false,
+          "beschrijving": "voor stock"
+        },
+        {
+          "naam": "Scheut witte wijn",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": false,
+          "beschrijving": "royaal — pasta water is primaire zoutbron"
+        }
       ]
     },
     {
       "label": "Saus",
       "items": [
-        "300 g rauwe garnalen (gepeld, koppen apart gehouden)",
-        "knoflook naar smaak (fijn gesneden)",
-        "1–2 chilipepers (naar smaak)",
-        "handvol cherrytomaatjes",
-        "goede extra vergine olijfolie (Marc's Griekse EVOO)",
-        "peper en zout",
-        "verse peterselie"
+        {
+          "naam": "Rauwe garnalen",
+          "naar_smaak": false,
+          "hoeveelheid": 300,
+          "eenheid": "g",
+          "beschrijving": "gepeld, koppen apart gehouden"
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": true,
+          "beschrijving": "fijn gesneden"
+        },
+        {
+          "naam": "Chilipepers",
+          "naar_smaak": false,
+          "hoeveelheid": "1–2",
+          "beschrijving": "naar smaak"
+        },
+        {
+          "naam": "Handvol cherrytomaatjes",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Goede extra vergine olijfolie",
+          "naar_smaak": false,
+          "beschrijving": "Marc's Griekse EVOO"
+        },
+        {
+          "naam": "Peper en zout",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Verse peterselie",
+          "naar_smaak": false
+        }
       ]
     }
   ],
