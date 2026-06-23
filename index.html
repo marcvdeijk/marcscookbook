@@ -2018,7 +2018,7 @@ function renderPlanner() {
     const todayClass = isToday(date) ? ' today' : '';
     const mealSlots = meals.map((meal, idx) => `
       <div class="meal-slot filled">
-        <span class="meal-name">${meal}</span>
+        <span class="meal-name" onclick="openIngPicker('${meal}', event)" style="cursor:pointer;text-decoration:underline dotted;" title="Toevoegen aan boodschappenlijst">${meal}</span>
         <span class="meal-clear" onclick="clearMeal('${key}', ${idx}, event)" title="Verwijder">✕</span>
       </div>`).join('');
     const addSlot = meals.length < 5
