@@ -900,12 +900,12 @@
       <button class="close-btn" onclick="closeMealPicker()">✕</button>
     </div>
     <div class="meal-picker-body">
-      <div class="meal-picker-section">${t('typeOwn')}</div>
+      <div class="meal-picker-section" id="picker-type-own">Zelf typen</div>
       <div class="custom-input-row">
-        <input type="text" class="custom-meal-input" id="custom-meal-input" placeholder="${t('recipePlaceholder')}" onkeydown="if(event.key==='Enter') confirmCustomMeal()">
-        <button class="add-custom-btn" onclick="confirmCustomMeal()">${t('addBtn')}</button>
+        <input type="text" class="custom-meal-input" id="custom-meal-input" placeholder="Gerecht naam..." onkeydown="if(event.key==='Enter') confirmCustomMeal()">
+        <button class="add-custom-btn" id="picker-add-btn" onclick="confirmCustomMeal()">Toevoegen</button>
       </div>
-      <div class="meal-picker-section">${t('fromLib')}</div>
+      <div class="meal-picker-section" id="picker-from-lib">Uit je bibliotheek</div>
       <div id="picker-recipe-list"></div>
     </div>
   </div>
@@ -1195,7 +1195,6 @@ async function loadRecipes() {
     recipes = loaded;
     document.getElementById('total-count').textContent = `${recipes.length} recepten`;
     document.getElementById('loading-state').style.display = 'none';
-    document.getElementById('recipe-grid').style.display = 'grid';
     renderGrid();
 
   } catch (err) {
