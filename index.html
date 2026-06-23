@@ -393,11 +393,10 @@
     .light { width: 8px; height: 8px; }
 
     .planner-main { padding: 12px; }
-    .day-grid { grid-template-columns: repeat(7, 1fr); gap: 4px; }
-    .day-card { padding: 6px 4px; min-height: 90px; }
-    .day-name { font-size: 7px; letter-spacing: 0; }
-    .day-date { font-size: 14px; }
-    .meal-slot { font-size: 9px; padding: 4px 4px; min-height: 28px; }
+    .day-card { grid-template-columns: 70px 1fr; gap: 8px; padding: 10px 12px; }
+    .day-date { font-size: 16px; }
+    .day-name { font-size: 9px; }
+    .meal-slot { font-size: 11px; }
     .week-label { font-size: 16px; }
     .card-stats { gap: 6px 8px; }
   }
@@ -525,21 +524,23 @@
   }
 
   .day-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   .day-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 16px;
-    min-height: 160px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 12px;
+    align-items: start;
   }
   .day-card.today { border-color: var(--accent); background: #fdf5ec; }
+  [data-theme="dark"] .day-card.today { background: #2a2010; }
+  .day-info { display: flex; flex-direction: column; gap: 2px; padding-top: 2px; }
   .day-name {
     font-size: 10px;
     font-weight: 600;
@@ -549,32 +550,33 @@
   }
   .day-date {
     font-family: 'Playfair Display', serif;
-    font-size: 22px;
+    font-size: 20px;
     color: var(--text);
     line-height: 1;
   }
   .day-card.today .day-date { color: var(--accent); }
 
   .day-meal {
-    flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 6px;
+    align-items: center;
+    padding-top: 4px;
   }
   .meal-slot {
     background: var(--surface2);
     border: 1px dashed var(--border);
     border-radius: 6px;
-    padding: 8px 10px;
+    padding: 6px 10px;
     font-size: 12px;
     color: var(--text-muted);
     cursor: pointer;
     transition: all 0.15s;
-    min-height: 36px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 6px;
+    white-space: nowrap;
   }
   .meal-slot:hover { border-color: var(--accent); color: var(--text); }
   .meal-slot.filled {
@@ -774,6 +776,30 @@
     .modal-title { font-size: 22px; }
   }
 
+
+  /* Receptbron indicator */
+  .source-badge {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    flex-shrink: 0;
+  }
+  .source-eigen { background: var(--accent); }
+  .source-ontdekking { background: var(--accent2); }
+  .source-legend {
+    display: flex;
+    gap: 16px;
+    padding: 8px 20px;
+    font-size: 11px;
+    color: var(--text-muted);
+    align-items: center;
+  }
+  .source-legend-item { display: flex; align-items: center; gap: 5px; }
+  .card.ontdekking { border-left: 3px solid var(--accent2); }
+  .card.eigen { border-left: 3px solid var(--accent); }
+
 </style>
 </head>
 <body>
@@ -841,7 +867,13 @@
       <input type="text" class="search-input" id="search-input" placeholder="Zoek recept, ingredient, cuisine..." oninput="handleSearch(this.value)">
       <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
     </div>
-    <div style="padding: 8px 20px 0;"><div class="results-count" id="results-count"></div></div>
+    <div style="padding: 8px 20px 0; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+      <div class="results-count" id="results-count"></div>
+      <div class="source-legend">
+        <div class="source-legend-item"><span class="source-badge source-eigen"></span> Eigen recept</div>
+        <div class="source-legend-item"><span class="source-badge source-ontdekking"></span> Ontdekking</div>
+      </div>
+    </div>
     <div id="loading-state" class="loading">
       <div class="loading-spinner"></div>
       <span>Recepten laden...</span>
@@ -1312,8 +1344,11 @@ function renderGrid() {
   grid.style.display = 'grid';
 
   grid.innerHTML = filtered.map(r => `
-    <div class="card" onclick="openModal('${r.id}')">
-      <div class="card-title">${r.name}${!r.complete ? ` <span style="font-size:11px;color:var(--text-muted);">${t('incomplete')}</span>` : ''}</div>
+    <div class="card ${r.source === 'ontdekking' ? 'ontdekking' : 'eigen'}" onclick="openModal('${r.id}')">
+      <div class="card-title" style="display:flex;align-items:baseline;gap:6px;">
+        <span class="source-badge ${r.source === 'ontdekking' ? 'source-ontdekking' : 'source-eigen'}" title="${r.source === 'ontdekking' ? 'Ontdekking' : 'Eigen recept'}"></span>
+        ${r.name}${!r.complete ? ` <span style="font-size:11px;color:var(--text-muted);">${t('incomplete')}</span>` : ''}
+      </div>
       <div class="card-meta">
         <span class="tag cuisine">${r.cuisine}</span>
         <span class="tag protein">${r.protein}</span>
@@ -1527,8 +1562,10 @@ function renderPlanner() {
       : '';
     return `
       <div class="day-card${todayClass}">
-        <div class="day-name">${days[i]}</div>
-        <div class="day-date">${date.getDate()} ${months[date.getMonth()]}</div>
+        <div class="day-info">
+          <div class="day-name">${days[i]}</div>
+          <div class="day-date">${date.getDate()} ${months[date.getMonth()]}</div>
+        </div>
         <div class="day-meal">
           ${mealSlots}
           ${addSlot}
