@@ -21,35 +21,145 @@
     {
       "label": "Madras kruidenmix",
       "items": [
-        "3 groene kardemomzaden",
-        "1 kaneelstokje",
-        "2 el korianderzaad",
-        "2 el venkelzaad",
-        "1 el komijnzaad",
-        "1 el zwarte peperkorrels",
-        "2 el chilipoeder",
-        "1 el fenegriekzaad",
-        "5 kruidnagels",
-        "2 el kurkuma"
+        {
+          "naam": "Groene kardemomzaden",
+          "naar_smaak": false,
+          "hoeveelheid": 3
+        },
+        {
+          "naam": "Kaneelstokje",
+          "naar_smaak": false,
+          "hoeveelheid": 1
+        },
+        {
+          "naam": "Korianderzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Venkelzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Komijnzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Zwarte peperkorrels",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Chilipoeder",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Fenegriekzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Kruidnagels",
+          "naar_smaak": false,
+          "hoeveelheid": 5
+        },
+        {
+          "naam": "Kurkuma",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el"
+        }
       ]
     },
     {
       "label": "Currybasis",
       "items": [
-        "kip naar smaak",
-        "100 ml kokosmelk/-room",
-        "1 tl tomatenpasta",
-        "2 el gember-knoflookpasta",
-        "2 grote uien (fijn gesnipperd)",
-        "4 tomaten of 1 blik tomaten",
-        "3 chilipepers",
-        "1 el tamarindepulp of sap van ½ citroen",
-        "1 tl kurkuma",
-        "1 tl chilipoeder",
-        "1 tl mosterdzaad",
-        "10 curryblaadjes",
-        "100 ml water",
-        "zout"
+        {
+          "naam": "Kip",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Kokosmelk/-room",
+          "naar_smaak": false,
+          "hoeveelheid": 100,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "Tomatenpasta",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Gember-knoflookpasta",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Grote uien",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "beschrijving": "fijn gesnipperd"
+        },
+        {
+          "naam": "Tomaten of 1 blik tomaten",
+          "naar_smaak": false,
+          "hoeveelheid": 4
+        },
+        {
+          "naam": "Chilipepers",
+          "naar_smaak": false,
+          "hoeveelheid": 3
+        },
+        {
+          "naam": "Tamarindepulp of sap van ½ citroen",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Kurkuma",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Chilipoeder",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Mosterdzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Curryblaadjes",
+          "naar_smaak": false,
+          "hoeveelheid": 10
+        },
+        {
+          "naam": "Water",
+          "naar_smaak": false,
+          "hoeveelheid": 100,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": false
+        }
       ]
     }
   ],
