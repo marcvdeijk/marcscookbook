@@ -1757,6 +1757,12 @@ function renderModalBody(r) {
       <span class="tag">${formatTime(r.timeMin)}</span>
     </div>`;
 
+  // Knoppen boven ingrediënten
+  const ingBtnHtml = `<div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+    <button class="ctrl-btn" onclick="openIngPickerVoorRecept('${r.id}')">🛒 Boodschappenlijst</button>
+    <button class="ctrl-btn" onclick="openDagPicker('${r.id}')">📅 Plan voor dag</button>
+  </div>`;
+
   // Ingredients
   let ingHtml = `<p class="section-title">${t('ingredients')}</p>`;
   r.ingredientGroups.forEach(group => {
