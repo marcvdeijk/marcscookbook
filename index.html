@@ -1103,7 +1103,7 @@
 
   .ing-confirm-item {
     display: grid;
-    grid-template-columns: 1fr 80px 90px;
+    grid-template-columns: 1fr 70px 80px;
     gap: 8px;
     align-items: center;
     padding: 8px 0;
@@ -1131,7 +1131,7 @@
   .ing-confirm-input::placeholder { color: var(--text-muted); }
   .ing-confirm-header {
     display: grid;
-    grid-template-columns: 1fr 80px 90px;
+    grid-template-columns: 1fr 70px 80px;
     gap: 8px;
     padding-bottom: 8px;
     border-bottom: 2px solid var(--border);
@@ -1302,7 +1302,7 @@
       <div class="ing-select-step" id="ing-select-step"></div>
       <div class="ing-confirm-step" id="ing-confirm-step">
         <div class="ing-confirm-header">
-          <span class="ing-confirm-col-label">Ingredient</span>
+          <span class="ing-confirm-col-label">Naam</span>
           <span class="ing-confirm-col-label">Aantal</span>
           <span class="ing-confirm-col-label">Eenheid</span>
         </div>
@@ -2164,13 +2164,18 @@ function updateIngVoegToeBtn() {
 
 function voegGeselecteerdeToe() {
   const geselecteerd = ingPickerItems.filter(i => i.geselecteerd);
-  geselecteerd.forEach(item => {
-    // Voorkom duplicaten
-    const bestaatAl = boodschappenLijst.some(b => b.tekst === item.tekst && b.bron === ingPickerBron);
-    if (!bestaatAl) {
-      const boodschapNaam = item.boodschapTekst || kortIngredientAf(item.tekst);
-    boodschappenLijst.push({ id: boodschappenId(), tekst: boodschapNaam, volledigeTekst: item.tekst, bron: ingPickerBron, afgevinkt: false });
-    }
+  geselecteerd.forEach((item, idx) => {
+    const naamInput = document.getElementById('ing-naam-' + idx);
+    const aantalInput = document.getElementById('ing-aantal-' + idx);
+    const eenheidInput = document.getElementById('ing-eenheid-' + idx);
+    const naam = naamInput ? naamInput.value.trim() : (item.boodschapTekst || kortIngredientAf(item.tekst));
+    const aantal = aantalInput ? aantalInput.value.trim() : '';
+    const eenheid = eenheidInput ? eenheidInput.value.trim() : '';
+    const delen = [naam];
+    if (aantal) delen.push(aantal);
+    if (eenheid) delen.push(eenheid);
+    const boodschapTekst = delen.join(' ');
+    boodschappenLijst.push({ id: boodschappenId(), tekst: boodschapTekst, bron: ingPickerBron, afgevinkt: false });
   });
   sluitIngPicker();
   renderBoodschappen();
@@ -2185,19 +2190,14 @@ function naarBevestiging() {
   // Bouw bevestigingsscherm
   const confirmItems = document.getElementById('ing-confirm-items');
   confirmItems.innerHTML = geselecteerd.map((item, idx) => {
-    const naam = typeof item.tekst === 'string'
-      ? item.boodschapTekst || item.tekst
-      : item.naam || item.tekst;
+    const naam = item.boodschapTekst || kortIngredientAf(item.tekst) || item.tekst;
     const defaultAantal = item.defaultHoeveelheid || '';
     const defaultEenheid = item.defaultEenheid || '';
-    return `
-      <div class="ing-confirm-item">
-        <span class="ing-confirm-naam">${naam}</span>
-        <input type="text" class="ing-confirm-input" id="ing-aantal-${idx}"
-               placeholder="bijv. 2" value="${defaultAantal}">
-        <input type="text" class="ing-confirm-input" id="ing-eenheid-${idx}"
-               placeholder="bijv. kg" value="${defaultEenheid}">
-      </div>`;
+    return '<div class="ing-confirm-item">' +
+      '<input type="text" class="ing-confirm-input" id="ing-naam-' + idx + '" value="' + naam + '" placeholder="Naam">' +
+      '<input type="text" class="ing-confirm-input" id="ing-aantal-' + idx + '" placeholder="Aantal" value="' + defaultAantal + '">' +
+      '<input type="text" class="ing-confirm-input" id="ing-eenheid-' + idx + '" placeholder="Eenheid" value="' + defaultEenheid + '">' +
+      '</div>';
   }).join('');
 
   // Wissel stap
