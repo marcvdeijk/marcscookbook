@@ -21,50 +21,121 @@
     {
       "label": "Vlees & basis",
       "items": [
-        "1000 g rundergehakt",
-        "tomatenpuree naar smaak",
-        "1000 ml runderbouillon"
+        {
+          "naam": "Rundergehakt",
+          "naar_smaak": false,
+          "hoeveelheid": 1000,
+          "eenheid": "g"
+        },
+        {
+          "naam": "Tomatenpuree",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Runderbouillon",
+          "naar_smaak": false,
+          "hoeveelheid": 1000,
+          "eenheid": "ml"
+        }
       ]
     },
     {
       "label": "Specerijen",
       "items": [
-        "paprikapoeder naar smaak",
-        "chili- of cayennepeper naar smaak",
-        "uienpoeder naar smaak",
-        "knoflookpoeder naar smaak",
-        "komijn naar smaak",
-        "oregano naar smaak"
+        {
+          "naam": "Paprikapoeder",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Chili- of cayennepeper",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Uienpoeder",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Knoflookpoeder",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Komijn",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Oregano",
+          "naar_smaak": true
+        }
       ]
     },
     {
       "label": "Groenten",
       "items": [
-        "2–3 uien (in halve ringen)",
-        "3–4 puntpaprika's (in reepjes)"
+        {
+          "naam": "Uien",
+          "naar_smaak": false,
+          "hoeveelheid": "2–3",
+          "beschrijving": "in halve ringen"
+        },
+        {
+          "naam": "Puntpaprika's",
+          "naar_smaak": false,
+          "hoeveelheid": "3–4",
+          "beschrijving": "in reepjes"
+        }
       ]
     },
     {
       "label": "Bonen",
       "items": [
-        "1 blik bruine bonen (groot, uitgelekt)",
-        "2 blikken kidneybonen (uitgelekt)"
+        {
+          "naam": "Bruine bonen",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "blik",
+          "beschrijving": "groot, uitgelekt"
+        },
+        {
+          "naam": "Kidneybonen",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "blikken",
+          "beschrijving": "uitgelekt"
+        }
       ]
     },
     {
       "label": "Afmaken",
       "items": [
-        "Worcestersaus naar smaak",
-        "ketchup naar smaak"
+        {
+          "naam": "Worcestersaus",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Ketchup",
+          "naar_smaak": true
+        }
       ]
     },
     {
       "label": "Op het bord",
       "items": [
-        "jalapeñopepers naar smaak",
-        "limoen",
-        "verse koriander",
-        "crème fraîche"
+        {
+          "naam": "Jalapeñopepers",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Limoen",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Verse koriander",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Crème fraîche",
+          "naar_smaak": false
+        }
       ]
     }
   ],
