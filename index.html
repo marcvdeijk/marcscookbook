@@ -906,52 +906,7 @@
   .boodschappen-leeg p { margin-top: 8px; font-size: 13px; }
 
   .boodschappen-lijst { list-style: none; }
-  .boodschappen-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-    group: true;
-  }
-  .boodschappen-item:last-child { border-bottom: none; }
-  .boodschappen-item input[type="checkbox"] {
-    accent-color: var(--accent);
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    cursor: pointer;
-  }
-  .boodschappen-item-text {
-    flex: 1;
-    font-size: 14px;
-    line-height: 1.4;
-    cursor: pointer;
-  }
-  .boodschappen-item.afgevinkt .boodschappen-item-text {
-    text-decoration: line-through;
-    opacity: 0.4;
-  }
-  .boodschappen-item-bron {
-    font-size: 10px;
-    color: var(--text-muted);
-    background: var(--surface2);
-    border-radius: 4px;
-    padding: 2px 6px;
-    white-space: nowrap;
-  }
-  .boodschappen-delete {
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    cursor: pointer;
-    font-size: 14px;
-    padding: 2px 4px;
-    opacity: 0.4;
-    transition: opacity 0.15s;
-    flex-shrink: 0;
-  }
-  .boodschappen-item:hover .boodschappen-delete { opacity: 1; color: var(--red); }
+
 
   /* ── INGREDIENT PICKER (vanuit weekplanner & bibliotheek) ── */
   .ing-picker-overlay {
@@ -1181,6 +1136,29 @@
   .pin-in:focus{border-color:var(--accent)}
   .pin-er{color:var(--red);font-size:12px;margin-top:8px}
   .pin-bt{display:block;margin:16px auto 0;background:var(--accent);border:none;border-radius:8px;color:var(--bg);padding:10px 28px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+
+
+  /* Boodschappenlijst item layout */
+  .boodschappen-item { display:flex; align-items:center; gap:8px; padding:10px 0; border-bottom:1px solid var(--border); }
+  .boodschappen-item:last-child { border-bottom:none; }
+  .boodschappen-item input[type="checkbox"] { accent-color:var(--accent); width:16px; height:16px; flex-shrink:0; cursor:pointer; }
+  .boodschappen-item-naam { flex:1; font-size:14px; cursor:pointer; }
+  .boodschappen-item-aantal { font-size:13px; color:var(--text-muted); min-width:30px; text-align:right; }
+  .boodschappen-item-eenheid { font-size:13px; color:var(--text-muted); min-width:40px; }
+  .boodschappen-item.afgevinkt .boodschappen-item-naam,
+  .boodschappen-item.afgevinkt .boodschappen-item-aantal,
+  .boodschappen-item.afgevinkt .boodschappen-item-eenheid { text-decoration:line-through; opacity:0.4; }
+  .boodschappen-item-bron { font-size:10px; color:var(--text-muted); background:var(--surface2); border-radius:4px; padding:2px 6px; white-space:nowrap; flex-shrink:0; }
+  .boodschappen-delete { background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:14px; padding:2px 4px; opacity:0.4; flex-shrink:0; }
+  .boodschappen-item:hover .boodschappen-delete { opacity:1; color:var(--red); }
+
+  /* Bewerkmodus */
+  .boodschappen-edit-row { display:flex; gap:6px; flex:1; align-items:center; }
+  .boodschappen-edit-in { background:var(--surface2); border:1px solid var(--accent); border-radius:6px; color:var(--text); padding:4px 8px; font-size:13px; font-family:'Inter',sans-serif; outline:none; }
+  .boodschappen-edit-naam { flex:1; }
+  .boodschappen-edit-aantal { width:50px; text-align:right; }
+  .boodschappen-edit-eenheid { width:60px; }
+  .boodschappen-edit-ok { background:var(--accent); border:none; border-radius:6px; color:var(--bg); padding:4px 10px; font-size:12px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; flex-shrink:0; }
 
 </style>
 </head>
@@ -2009,6 +1987,8 @@ function updateTabTeller() {
   btn.textContent = aantal > 0 ? `🛒 Boodschappen (${aantal})` : '🛒 Boodschappen';
 }
 
+function getNaam(item) { return item.naam || item.tekst || ''; }
+
 function renderBoodschappen() {
   const lijst = document.getElementById('boodschappen-lijst');
   const leeg = document.getElementById('boodschappen-leeg');
@@ -2021,16 +2001,52 @@ function renderBoodschappen() {
   leeg.style.display = 'none';
   const gesorteerd = [...boodschappenLijst].sort((a, b) => {
     if (a.afgevinkt !== b.afgevinkt) return a.afgevinkt ? 1 : -1;
-    return a.tekst.localeCompare(b.tekst, 'nl');
+    return getNaam(a).localeCompare(getNaam(b), 'nl');
   });
-  lijst.innerHTML = gesorteerd.map(item => `
-    <li class="boodschappen-item${item.afgevinkt ? ' afgevinkt' : ''}">
-      <input type="checkbox" ${item.afgevinkt ? 'checked' : ''} onchange="toggleBoodschap('${item.id}')">
-      <span class="boodschappen-item-text" onclick="toggleBoodschap('${item.id}')">${item.tekst}</span>
-      ${item.bron ? `<span class="boodschappen-item-bron">${item.bron}</span>` : ''}
-      <button class="boodschappen-delete" onclick="verwijderBoodschap('${item.id}')" title="Verwijder">✕</button>
-    </li>
-  `).join('');
+  lijst.innerHTML = gesorteerd.map(item => {
+    if (item.bewerken) {
+      return '<li class="boodschappen-item">' +
+        '<input type="checkbox" ' + (item.afgevinkt ? 'checked' : '') + ' onchange="toggleBoodschap('' + item.id + '')">' +
+        '<div class="boodschappen-edit-row">' +
+          '<input class="boodschappen-edit-in boodschappen-edit-naam" value="' + getNaam(item).replace(/"/g,'&quot;') + '" id="bedit-naam-' + item.id + '">' +
+          '<input class="boodschappen-edit-in boodschappen-edit-aantal" value="' + (item.aantal||'') + '" placeholder="Aantal" id="bedit-aantal-' + item.id + '">' +
+          '<input class="boodschappen-edit-in boodschappen-edit-eenheid" value="' + (item.eenheid||'') + '" placeholder="Eenheid" id="bedit-eenheid-' + item.id + '">' +
+          '<button class="boodschappen-edit-ok" onclick="slaItemOp('' + item.id + '')">✓</button>' +
+        '</div>' +
+        '<button class="boodschappen-delete" onclick="verwijderBoodschap('' + item.id + '')" title="Verwijder">✕</button>' +
+        '</li>';
+    }
+    const naam = getNaam(item);
+    const rechts = [item.aantal, item.eenheid].filter(Boolean).join(' ');
+    return '<li class="boodschappen-item' + (item.afgevinkt ? ' afgevinkt' : '') + '">' +
+      '<input type="checkbox" ' + (item.afgevinkt ? 'checked' : '') + ' onchange="toggleBoodschap('' + item.id + '')">' +
+      '<span class="boodschappen-item-naam" onclick="bewerkItem('' + item.id + '')">' + naam + '</span>' +
+      (rechts ? '<span class="boodschappen-item-aantal">' + rechts + '</span>' : '') +
+      (item.bron ? '<span class="boodschappen-item-bron">' + item.bron + '</span>' : '') +
+      '<button class="boodschappen-delete" onclick="verwijderBoodschap('' + item.id + '')" title="Verwijder">✕</button>' +
+      '</li>';
+  }).join('');
+}
+
+function bewerkItem(id) {
+  boodschappenLijst.forEach(i => i.bewerken = false);
+  const item = boodschappenLijst.find(i => i.id === id);
+  if (item) { item.bewerken = true; renderBoodschappen(); }
+  setTimeout(() => { const el = document.getElementById('bedit-naam-' + id); if(el) el.focus(); }, 50);
+}
+
+function slaItemOp(id) {
+  const item = boodschappenLijst.find(i => i.id === id);
+  if (!item) return;
+  const n = document.getElementById('bedit-naam-' + id);
+  const a = document.getElementById('bedit-aantal-' + id);
+  const e = document.getElementById('bedit-eenheid-' + id);
+  if (n) item.naam = n.value.trim();
+  if (a) item.aantal = a.value.trim();
+  if (e) item.eenheid = e.value.trim();
+  item.bewerken = false;
+  renderBoodschappen();
+  updateTabTeller();
 }
 
 function toggleBoodschap(id) {
@@ -2057,7 +2073,7 @@ function voegHandmatigToe() {
   const input = document.getElementById('boodschappen-input');
   const val = input.value.trim();
   if (!val) return;
-  boodschappenLijst.push({ id: boodschappenId(), tekst: val, bron: '', afgevinkt: false });
+  boodschappenLijst.push({ id: boodschappenId(), naam: val, aantal: '', eenheid: '', bron: '', afgevinkt: false, bewerken: false });
   input.value = '';
   renderBoodschappen();
   updateTabTeller();
@@ -2208,14 +2224,18 @@ function voegGeselecteerdeToe() {
     const naamInput = document.getElementById('ing-naam-' + globalIdx);
     const aantalInput = document.getElementById('ing-aantal-' + globalIdx);
     const eenheidInput = document.getElementById('ing-eenheid-' + globalIdx);
-    const naam = naamInput ? naamInput.value.trim() : (item.boodschapTekst || item.tekst);
+    const naam = (naamInput ? naamInput.value.trim() : '') || item.boodschapTekst || item.tekst;
     const aantal = aantalInput ? aantalInput.value.trim() : '';
     const eenheid = eenheidInput ? eenheidInput.value.trim() : '';
-    const delen = [naam];
-    if (aantal) delen.push(aantal);
-    if (eenheid) delen.push(eenheid);
-    const boodschapTekst = delen.join(' ');
-    boodschappenLijst.push({ id: boodschappenId(), tekst: boodschapTekst, bron: ingPickerBron, afgevinkt: false });
+    boodschappenLijst.push({
+      id: boodschappenId(),
+      naam: naam,
+      aantal: aantal,
+      eenheid: eenheid,
+      bron: ingPickerBron,
+      afgevinkt: false,
+      bewerken: false
+    });
   });
   sluitIngPicker();
   renderBoodschappen();
