@@ -21,47 +21,147 @@
     {
       "label": "Garnalen",
       "items": [
-        "600 g grote rauwe garnalen (gepeld, staartje mag erop)",
-        "zout en witte peper naar smaak"
+        {
+          "naam": "Grote rauwe garnalen",
+          "naar_smaak": false,
+          "hoeveelheid": 600,
+          "eenheid": "g",
+          "beschrijving": "gepeld, staartje mag erop"
+        },
+        {
+          "naam": "Zout en witte peper",
+          "naar_smaak": true
+        }
       ]
     },
     {
       "label": "Curry basis",
       "items": [
-        "60 ml dikke bovenkant volvette kokosmelk (kookvet)",
-        "60 ml Thaise gele currypasta",
-        "5 ml kapi (Thaise garnalenbodem) of bagoong",
-        "knoflook naar smaak (fijngehakt)",
-        "gember naar smaak (geraspt)",
-        "1 tl verse kurkuma geraspt (of ½ tl gedroogd)"
+        {
+          "naam": "Dikke bovenkant volvette kokosmelk",
+          "naar_smaak": false,
+          "hoeveelheid": 60,
+          "eenheid": "ml",
+          "beschrijving": "kookvet"
+        },
+        {
+          "naam": "Thaise gele currypasta",
+          "naar_smaak": false,
+          "hoeveelheid": 60,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "Kapi  of bagoong",
+          "naar_smaak": false,
+          "hoeveelheid": 5,
+          "eenheid": "ml",
+          "beschrijving": "Thaise garnalenbodem"
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": true,
+          "beschrijving": "fijngehakt"
+        },
+        {
+          "naam": "Gember",
+          "naar_smaak": true,
+          "beschrijving": "geraspt"
+        },
+        {
+          "naam": "Verse kurkuma geraspt",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl",
+          "beschrijving": "of ½ tl gedroogd"
+        }
       ]
     },
     {
       "label": "Groenten",
       "items": [
-        "200 g aardappel in blokjes van 2 cm (6–7 min voorkoken)",
-        "1 gele paprika in reepjes",
-        "150 g baby spinazie of pak choi",
-        "1 stengel citroengras (gekneusd)",
-        "3 kaffirlimoenbladeren"
+        {
+          "naam": "Aardappel in blokjes van 2 cm",
+          "naar_smaak": false,
+          "hoeveelheid": 200,
+          "eenheid": "g",
+          "beschrijving": "6–7 min voorkoken"
+        },
+        {
+          "naam": "Gele paprika in reepjes",
+          "naar_smaak": false,
+          "hoeveelheid": 1
+        },
+        {
+          "naam": "Baby spinazie of pak choi",
+          "naar_smaak": false,
+          "hoeveelheid": 150,
+          "eenheid": "g"
+        },
+        {
+          "naam": "Citroengras",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "stengel",
+          "beschrijving": "gekneusd"
+        },
+        {
+          "naam": "Kaffirlimoenbladeren",
+          "naar_smaak": false,
+          "hoeveelheid": 3
+        }
       ]
     },
     {
       "label": "Vocht & smaakmakers",
       "items": [
-        "400 ml volvette kokosmelk",
-        "25 ml vissaus",
-        "10 ml liquid palm sugar",
-        "sap van 1 limoen (NA het vuur)",
-        "100 ml water of kippenbouillon (optioneel)"
+        {
+          "naam": "Volvette kokosmelk",
+          "naar_smaak": false,
+          "hoeveelheid": 400,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "Vissaus",
+          "naar_smaak": false,
+          "hoeveelheid": 25,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "Liquid palm sugar",
+          "naar_smaak": false,
+          "hoeveelheid": 10,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "Sap van 1 limoen",
+          "naar_smaak": false,
+          "beschrijving": "NA het vuur"
+        },
+        {
+          "naam": "Water of kippenbouillon",
+          "naar_smaak": false,
+          "hoeveelheid": 100,
+          "eenheid": "ml",
+          "beschrijving": "optioneel"
+        }
       ]
     },
     {
       "label": "Afwerking",
       "items": [
-        "verse Thaise basilicum naar smaak",
-        "1 rode chilipeper in ringetjes",
-        "jasmijnrijst"
+        {
+          "naam": "Verse Thaise basilicum",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Rode chilipeper in ringetjes",
+          "naar_smaak": false,
+          "hoeveelheid": 1
+        },
+        {
+          "naam": "Jasmijnrijst",
+          "naar_smaak": false
+        }
       ]
     }
   ],
