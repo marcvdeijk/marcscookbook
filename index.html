@@ -1482,7 +1482,6 @@ function switchTab(name) {
 // ─────────────────────────────────────────
 let recipes = [];
 let filters = { cuisine: 'all', protein: 'all', effort: 'all', time: 'all' };
-let checkedIngredients = {};
 let nutritionMode = {};
 
 // ─────────────────────────────────────────
@@ -1767,13 +1766,6 @@ function renderModalBody(r) {
   document.getElementById('modal-body').innerHTML = backBtn + tagsHtml + ingBtnHtml + ingHtml + stepsHtml + cooktipsHtml + nutritionHtml;
 }
 
-function toggleIngredient(recipeId, key, el) {
-  const cb = el.querySelector('input[type="checkbox"]');
-  const newState = !checkedIngredients[recipeId][key];
-  checkedIngredients[recipeId][key] = newState;
-  if (cb) cb.checked = newState;
-  el.classList.toggle('checked', newState);
-}
 
 function setNutritionMode(id, mode) {
   nutritionMode[id] = mode;
