@@ -22,43 +22,123 @@
     {
       "label": "Kip",
       "items": [
-        "750 g kippendijen zonder bot en vel, in blokjes van 3 cm"
+        {
+          "naam": "Kippendijen zonder bot en vel",
+          "naar_smaak": false,
+          "hoeveelheid": 750,
+          "eenheid": "g",
+          "beschrijving": "in blokjes van 3 cm"
+        }
       ]
     },
     {
       "label": "Curry basis",
       "items": [
-        "60 ml volvette kokosmelk — dikke bovenkant van het blik (kookvet)",
-        "4 el Thaise rode currypasta",
-        "knoflook naar smaak (fijngehakt)",
-        "gember naar smaak (geraspt)",
-        "1 stengel citroengras (gekneusd)",
-        "3 kaffirlimoenbladeren"
+        {
+          "naam": "Volvette kokosmelk",
+          "naar_smaak": false,
+          "hoeveelheid": 60,
+          "eenheid": "ml",
+          "beschrijving": "kookvet; dikke bovenkant van het blik"
+        },
+        {
+          "naam": "Thaise rode currypasta",
+          "naar_smaak": false,
+          "hoeveelheid": 4,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": true,
+          "beschrijving": "fijngehakt"
+        },
+        {
+          "naam": "Gember",
+          "naar_smaak": true,
+          "beschrijving": "geraspt"
+        },
+        {
+          "naam": "Citroengras",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "stengel",
+          "beschrijving": "gekneusd"
+        },
+        {
+          "naam": "Kaffirlimoenbladeren",
+          "naar_smaak": false,
+          "hoeveelheid": 3
+        }
       ]
     },
     {
       "label": "Groenten",
       "items": [
-        "1 winterwortel in dunne halve plakjes van 3 mm",
-        "1½ rode paprika in reepjes",
-        "1 struik broccoli in kleine roosjes"
+        {
+          "naam": "Winterwortel in dunne halve plakjes van 3 mm",
+          "naar_smaak": false,
+          "hoeveelheid": 1
+        },
+        {
+          "naam": "Rode paprika in reepjes",
+          "naar_smaak": false,
+          "hoeveelheid": "1½"
+        },
+        {
+          "naam": "Broccoli in kleine roosjes",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "struik"
+        }
       ]
     },
     {
       "label": "Vocht & smaakmakers",
       "items": [
-        "400 ml volvette kokosmelk (rest van het blik)",
-        "30 ml vissaus (nam pla)",
-        "15 ml liquid palm sugar",
-        "sap van 1 limoen (toevoegen NA het vuur uit)"
+        {
+          "naam": "Volvette kokosmelk",
+          "naar_smaak": false,
+          "hoeveelheid": 400,
+          "eenheid": "ml",
+          "beschrijving": "rest van het blik"
+        },
+        {
+          "naam": "Vissaus",
+          "naar_smaak": false,
+          "hoeveelheid": 30,
+          "eenheid": "ml",
+          "beschrijving": "nam pla"
+        },
+        {
+          "naam": "Liquid palm sugar",
+          "naar_smaak": false,
+          "hoeveelheid": 15,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "Sap van 1 limoen",
+          "naar_smaak": false,
+          "beschrijving": "toevoegen NA het vuur uit"
+        }
       ]
     },
     {
       "label": "Afwerking",
       "items": [
-        "verse Thaise basilicum (horapa) naar smaak — NIET koriander",
-        "1–2 rode chilipepers in ringetjes",
-        "gekookte jasmijnrijst"
+        {
+          "naam": "Verse Thaise basilicum",
+          "naar_smaak": true,
+          "beschrijving": "horapa; NIET koriander"
+        },
+        {
+          "naam": "Rode chilipepers in ringetjes",
+          "naar_smaak": false,
+          "hoeveelheid": "1–2"
+        },
+        {
+          "naam": "Gekookte jasmijnrijst",
+          "naar_smaak": false
+        }
       ]
     }
   ],
