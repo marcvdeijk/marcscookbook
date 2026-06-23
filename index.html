@@ -836,6 +836,216 @@
   .alternatief-ingredient { font-weight: 600; color: var(--text); }
   .alternatief-opties { color: var(--text-muted); }
 
+
+  /* ── BOODSCHAPPENLIJST ── */
+  .boodschappen-main {
+    flex: 1;
+    padding: 24px 32px;
+    max-width: 600px;
+  }
+  .boodschappen-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .boodschappen-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--accent);
+  }
+  .wis-alles-btn {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-muted);
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+  }
+  .wis-alles-btn:hover { border-color: var(--red); color: var(--red); }
+
+  .boodschappen-add-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .boodschappen-input {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 10px 14px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .boodschappen-input:focus { border-color: var(--accent); }
+  .boodschappen-input::placeholder { color: var(--text-muted); }
+  .boodschappen-add-btn {
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    color: var(--bg);
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .boodschappen-leeg {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+  }
+  .boodschappen-leeg p { margin-top: 8px; font-size: 13px; }
+
+  .boodschappen-lijst { list-style: none; }
+  .boodschappen-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    group: true;
+  }
+  .boodschappen-item:last-child { border-bottom: none; }
+  .boodschappen-item input[type="checkbox"] {
+    accent-color: var(--accent);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .boodschappen-item-text {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+  .boodschappen-item.afgevinkt .boodschappen-item-text {
+    text-decoration: line-through;
+    opacity: 0.4;
+  }
+  .boodschappen-item-bron {
+    font-size: 10px;
+    color: var(--text-muted);
+    background: var(--surface2);
+    border-radius: 4px;
+    padding: 2px 6px;
+    white-space: nowrap;
+  }
+  .boodschappen-delete {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px 4px;
+    opacity: 0.4;
+    transition: opacity 0.15s;
+    flex-shrink: 0;
+  }
+  .boodschappen-item:hover .boodschappen-delete { opacity: 1; color: var(--red); }
+
+  /* ── INGREDIENT PICKER (vanuit weekplanner & bibliotheek) ── */
+  .ing-picker-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 300;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .ing-picker-overlay.open { display: flex; }
+  .ing-picker {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .ing-picker-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ing-picker-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--accent);
+  }
+  .ing-picker-body { overflow-y: auto; padding: 16px 24px; flex: 1; }
+  .ing-picker-group-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 14px 0 6px;
+  }
+  .ing-picker-group-label:first-child { margin-top: 0; }
+  .ing-picker-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+  }
+  .ing-picker-item:last-child { border-bottom: none; }
+  .ing-picker-item input[type="checkbox"] {
+    accent-color: var(--accent);
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .ing-picker-item span { font-size: 13px; line-height: 1.4; }
+  .ing-picker-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ing-select-all {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+  }
+  .ing-select-all:hover { color: var(--accent); }
+  .ing-voeg-toe-btn {
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    color: var(--bg);
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .ing-voeg-toe-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
 </style>
 </head>
 <body>
@@ -852,6 +1062,7 @@
 <nav class="tab-nav">
   <button class="tab-btn active" onclick="switchTab('bibliotheek')">📚 Bibliotheek</button>
   <button class="tab-btn" onclick="switchTab('weekplanner')">📅 Weekplanner</button>
+    <button class="tab-btn" id="tab-btn-boodschappen" onclick="switchTab('boodschappen')">🛒 Boodschappen</button>
 </nav>
 
 <!-- TAB: BIBLIOTHEEK -->
@@ -957,6 +1168,41 @@
       <button class="close-btn" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- TAB: BOODSCHAPPEN -->
+<div class="tab-panel" id="tab-boodschappen">
+  <div class="boodschappen-main">
+    <div class="boodschappen-header">
+      <div class="boodschappen-title">Boodschappenlijst</div>
+      <button class="wis-alles-btn" onclick="wisAlles()">✕ Wis alles</button>
+    </div>
+    <div class="boodschappen-add-row">
+      <input type="text" class="boodschappen-input" id="boodschappen-input" placeholder="Item toevoegen..." onkeydown="if(event.key==='Enter') voegHandmatigToe()">
+      <button class="boodschappen-add-btn" onclick="voegHandmatigToe()">+</button>
+    </div>
+    <div id="boodschappen-leeg" class="boodschappen-leeg">
+      <div style="font-size:40px;">🛒</div>
+      <p>Je boodschappenlijst is leeg.</p>
+      <p>Voeg ingrediënten toe vanuit de weekplanner of een recept.</p>
+    </div>
+    <ul class="boodschappen-lijst" id="boodschappen-lijst"></ul>
+  </div>
+</div><!-- end tab-boodschappen -->
+
+<!-- INGREDIENT PICKER MODAL -->
+<div class="ing-picker-overlay" id="ing-picker-overlay" onclick="handleIngPickerClick(event)">
+  <div class="ing-picker">
+    <div class="ing-picker-header">
+      <div class="ing-picker-title" id="ing-picker-title">Ingrediënten selecteren</div>
+      <button class="close-btn" onclick="sluitIngPicker()">✕</button>
+    </div>
+    <div class="ing-picker-body" id="ing-picker-body"></div>
+    <div class="ing-picker-footer">
+      <button class="ing-select-all" onclick="selecteerAlles()">Alles selecteren</button>
+      <button class="ing-voeg-toe-btn" id="ing-voeg-toe-btn" onclick="voegGeselecteerdeToe()">Voeg toe</button>
+    </div>
   </div>
 </div>
 
@@ -1222,12 +1468,13 @@ window.addEventListener('resize', checkMobile);
 
 function switchTab(name) {
   document.querySelectorAll('.tab-btn').forEach((b, i) => {
-    b.classList.toggle('active', ['bibliotheek','weekplanner'][i] === name);
+    b.classList.toggle('active', ['bibliotheek','weekplanner','boodschappen'][i] === name);
   });
   document.querySelectorAll('.tab-panel').forEach(p => {
     p.classList.toggle('active', p.id === `tab-${name}`);
   });
   if (name === 'weekplanner') renderPlanner();
+  if (name === 'boodschappen') renderBoodschappen();
 }
 
 // ─────────────────────────────────────────
@@ -1459,13 +1706,7 @@ function renderModalBody(r) {
     }
     ingHtml += '<ul class="ingredient-list">';
     group.items.forEach((item, i) => {
-      const key = `${group.label}-${i}`;
-      const isChecked = !!checkedIngredients[id][key];
-      ingHtml += `
-        <li class="ingredient-item${isChecked ? ' checked' : ''}" onclick="toggleIngredient('${id}', '${key}', this)">
-          <input type="checkbox" ${isChecked ? 'checked' : ''} onclick="event.stopPropagation(); toggleIngredient('${id}', '${key}', this.parentElement)">
-          <span>${item}</span>
-        </li>`;
+      ingHtml += `<li class="ingredient-item"><span>${item}</span></li>`;
     });
     ingHtml += '</ul>';
   });
@@ -1523,7 +1764,7 @@ function renderModalBody(r) {
     </div>`;
 
   const backBtn = `<button class="modal-back" onclick="closeModal()">${t('back')}</button>`;
-  document.getElementById('modal-body').innerHTML = backBtn + tagsHtml + ingHtml + stepsHtml + cooktipsHtml + nutritionHtml;
+  document.getElementById('modal-body').innerHTML = backBtn + tagsHtml + ingBtnHtml + ingHtml + stepsHtml + cooktipsHtml + nutritionHtml;
 }
 
 function toggleIngredient(recipeId, key, el) {
@@ -1550,6 +1791,166 @@ function handleOverlayClick(e) {
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+
+// ─────────────────────────────────────────
+// BOODSCHAPPENLIJST
+// ─────────────────────────────────────────
+let boodschappenLijst = []; // [{ id, tekst, bron, afgevinkt }]
+let ingPickerItems = []; // [{ tekst, geselecteerd }]
+let ingPickerBron = '';
+
+function boodschappenId() {
+  return 'b' + Date.now() + Math.random().toString(36).slice(2,6);
+}
+
+function updateTabTeller() {
+  const btn = document.getElementById('tab-btn-boodschappen');
+  if (!btn) return;
+  const aantal = boodschappenLijst.filter(i => !i.afgevinkt).length;
+  btn.textContent = aantal > 0 ? `🛒 Boodschappen (${aantal})` : '🛒 Boodschappen';
+}
+
+function renderBoodschappen() {
+  const lijst = document.getElementById('boodschappen-lijst');
+  const leeg = document.getElementById('boodschappen-leeg');
+  if (!lijst) return;
+  if (boodschappenLijst.length === 0) {
+    leeg.style.display = 'block';
+    lijst.innerHTML = '';
+    return;
+  }
+  leeg.style.display = 'none';
+  lijst.innerHTML = boodschappenLijst.map(item => `
+    <li class="boodschappen-item${item.afgevinkt ? ' afgevinkt' : ''}">
+      <input type="checkbox" ${item.afgevinkt ? 'checked' : ''} onchange="toggleBoodschap('${item.id}')">
+      <span class="boodschappen-item-text" onclick="toggleBoodschap('${item.id}')">${item.tekst}</span>
+      ${item.bron ? `<span class="boodschappen-item-bron">${item.bron}</span>` : ''}
+      <button class="boodschappen-delete" onclick="verwijderBoodschap('${item.id}')" title="Verwijder">✕</button>
+    </li>
+  `).join('');
+}
+
+function toggleBoodschap(id) {
+  const item = boodschappenLijst.find(i => i.id === id);
+  if (item) { item.afgevinkt = !item.afgevinkt; renderBoodschappen(); updateTabTeller(); }
+}
+
+function verwijderBoodschap(id) {
+  boodschappenLijst = boodschappenLijst.filter(i => i.id !== id);
+  renderBoodschappen();
+  updateTabTeller();
+}
+
+function wisAlles() {
+  if (boodschappenLijst.length === 0) return;
+  if (confirm('Weet je zeker dat je de hele lijst wilt wissen?')) {
+    boodschappenLijst = [];
+    renderBoodschappen();
+    updateTabTeller();
+  }
+}
+
+function voegHandmatigToe() {
+  const input = document.getElementById('boodschappen-input');
+  const val = input.value.trim();
+  if (!val) return;
+  boodschappenLijst.push({ id: boodschappenId(), tekst: val, bron: '', afgevinkt: false });
+  input.value = '';
+  renderBoodschappen();
+  updateTabTeller();
+}
+
+// ── INGREDIENT PICKER ──
+function openIngPicker(receptNaam, event) {
+  if (event) event.stopPropagation();
+  const r = recipes.find(x => x.name === receptNaam);
+  if (!r) return;
+  _openIngPickerVoorRecept(r);
+}
+
+function openIngPickerVoorRecept(receptId) {
+  const r = recipes.find(x => x.id === receptId);
+  if (!r) return;
+  _openIngPickerVoorRecept(r);
+}
+
+function _openIngPickerVoorRecept(r) {
+  ingPickerBron = r.name;
+  ingPickerItems = r.ingredientGroups.flatMap(g => g.items.map(item => ({ tekst: item, geselecteerd: false, groep: g.label })));
+
+  document.getElementById('ing-picker-title').textContent = r.name;
+
+  // Render groepen
+  let body = '';
+  const groepen = [...new Set(ingPickerItems.map(i => i.groep))];
+  groepen.forEach(groep => {
+    if (groepen.length > 1) body += `<div class="ing-picker-group-label">${groep}</div>`;
+    ingPickerItems.filter(i => i.groep === groep).forEach((item, idx) => {
+      const globalIdx = ingPickerItems.indexOf(item);
+      body += `
+        <div class="ing-picker-item" onclick="toggleIngPickerItem(${globalIdx})">
+          <input type="checkbox" id="ing-${globalIdx}" ${item.geselecteerd ? 'checked' : ''} onclick="event.stopPropagation(); toggleIngPickerItem(${globalIdx})">
+          <span>${item.tekst}</span>
+        </div>`;
+    });
+  });
+
+  document.getElementById('ing-picker-body').innerHTML = body;
+  updateIngVoegToeBtn();
+  document.getElementById('ing-picker-overlay').classList.add('open');
+}
+
+function toggleIngPickerItem(idx) {
+  ingPickerItems[idx].geselecteerd = !ingPickerItems[idx].geselecteerd;
+  const cb = document.getElementById('ing-' + idx);
+  if (cb) cb.checked = ingPickerItems[idx].geselecteerd;
+  updateIngVoegToeBtn();
+}
+
+function selecteerAlles() {
+  const alleGeselecteerd = ingPickerItems.every(i => i.geselecteerd);
+  ingPickerItems.forEach((item, idx) => {
+    item.geselecteerd = !alleGeselecteerd;
+    const cb = document.getElementById('ing-' + idx);
+    if (cb) cb.checked = !alleGeselecteerd;
+  });
+  document.querySelector('.ing-select-all').textContent = alleGeselecteerd ? 'Alles selecteren' : 'Alles deselecteren';
+  updateIngVoegToeBtn();
+}
+
+function updateIngVoegToeBtn() {
+  const aantal = ingPickerItems.filter(i => i.geselecteerd).length;
+  const btn = document.getElementById('ing-voeg-toe-btn');
+  if (btn) {
+    btn.textContent = aantal > 0 ? `Voeg ${aantal} items toe` : 'Voeg toe';
+    btn.disabled = aantal === 0;
+  }
+}
+
+function voegGeselecteerdeToe() {
+  const geselecteerd = ingPickerItems.filter(i => i.geselecteerd);
+  geselecteerd.forEach(item => {
+    // Voorkom duplicaten
+    const bestaatAl = boodschappenLijst.some(b => b.tekst === item.tekst && b.bron === ingPickerBron);
+    if (!bestaatAl) {
+      boodschappenLijst.push({ id: boodschappenId(), tekst: item.tekst, bron: ingPickerBron, afgevinkt: false });
+    }
+  });
+  sluitIngPicker();
+  renderBoodschappen();
+  updateTabTeller();
+}
+
+function sluitIngPicker() {
+  document.getElementById('ing-picker-overlay').classList.remove('open');
+  ingPickerItems = [];
+  ingPickerBron = '';
+}
+
+function handleIngPickerClick(e) {
+  if (e.target === document.getElementById('ing-picker-overlay')) sluitIngPicker();
+}
 
 // ─────────────────────────────────────────
 // WEEKPLANNER
