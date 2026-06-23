@@ -1145,6 +1145,43 @@
     color: var(--text-muted);
   }
 
+
+  .edit-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:400;overflow-y:auto;padding:20px}
+  .edit-overlay.open{display:flex;justify-content:center;align-items:flex-start}
+  .edit-modal{background:var(--surface);border:1px solid var(--border);border-radius:14px;width:100%;max-width:700px;margin:20px auto;overflow:hidden}
+  .edit-header{padding:20px 28px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--surface2)}
+  .edit-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--accent)}
+  .edit-body{padding:24px 28px;max-height:70vh;overflow-y:auto}
+  .edit-sec{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin:20px 0 8px}
+  .edit-sec:first-child{margin-top:0}
+  .edit-fld{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+  .edit-lbl{font-size:11px;color:var(--text-muted);font-weight:500}
+  .edit-in,.edit-sel{background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:8px 12px;font-size:13px;font-family:'Inter',sans-serif;outline:none;width:100%}
+  .edit-ta{background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:8px 12px;font-size:13px;font-family:'Inter',sans-serif;outline:none;width:100%;min-height:70px;resize:vertical;line-height:1.5}
+  .edit-in:focus,.edit-sel:focus,.edit-ta:focus{border-color:var(--accent)}
+  .edit-r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .edit-ii{display:grid;grid-template-columns:1fr 60px 70px 28px;gap:6px;margin-bottom:6px;align-items:center}
+  .edit-gl{font-size:11px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.5px;margin:12px 0 6px}
+  .edit-db{background:none;border:1px solid var(--border);border-radius:4px;color:var(--text-muted);cursor:pointer;font-size:12px;width:28px;height:28px;display:flex;align-items:center;justify-content:center}
+  .edit-db:hover{border-color:var(--red);color:var(--red)}
+  .edit-ab{background:none;border:1px dashed var(--border);border-radius:6px;color:var(--text-muted);cursor:pointer;font-size:12px;padding:6px 12px;width:100%;font-family:'Inter',sans-serif;margin-top:4px}
+  .edit-ab:hover{border-color:var(--accent);color:var(--accent)}
+  .edit-si{display:grid;grid-template-columns:24px 1fr 28px;gap:8px;margin-bottom:8px;align-items:flex-start}
+  .edit-sn{width:24px;height:24px;background:var(--surface2);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--accent);flex-shrink:0;margin-top:6px}
+  .edit-ft{padding:16px 28px;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:space-between;align-items:center;background:var(--surface2)}
+  .edit-sv{background:var(--accent);border:none;border-radius:8px;color:var(--bg);padding:10px 24px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+  .edit-cn{background:none;border:1px solid var(--border);border-radius:8px;color:var(--text-muted);padding:10px 20px;font-size:14px;cursor:pointer;font-family:'Inter',sans-serif}
+  .edit-st{font-size:12px;color:var(--text-muted)}
+  .edit-st.ok{color:var(--green)}
+  .edit-st.err{color:var(--red)}
+  .pin-sc{text-align:center;padding:40px 20px}
+  .pin-ti{font-family:'Playfair Display',serif;font-size:20px;color:var(--accent);margin-bottom:8px}
+  .pin-su{font-size:13px;color:var(--text-muted);margin-bottom:24px}
+  .pin-in{background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:12px 16px;font-size:20px;font-family:'Inter',sans-serif;outline:none;text-align:center;letter-spacing:8px;width:160px}
+  .pin-in:focus{border-color:var(--accent)}
+  .pin-er{color:var(--red);font-size:12px;margin-top:8px}
+  .pin-bt{display:block;margin:16px auto 0;background:var(--accent);border:none;border-radius:8px;color:var(--bg);padding:10px 28px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+
 </style>
 </head>
 <body>
@@ -1313,6 +1350,9 @@
   </div>
 </div>
 
+
+<!-- EDIT MODAL -->
+<div class="edit-overlay" id="edit-overlay" onclick="handleEditOverlayClick(event)"><div class="edit-modal"><div class="edit-header"><div class="edit-title" id="edit-modal-title">Recept bewerken</div><button class="close-btn" onclick="sluitEditModal()">✕</button></div><div class="edit-body" id="edit-body"></div><div class="edit-ft"><button class="edit-cn" onclick="sluitEditModal()">Annuleren</button><div class="edit-st" id="edit-st"></div><button class="edit-sv" onclick="slaEditOp()">💾 Opslaan</button></div></div></div>
 <!-- MEAL PICKER MODAL -->
 <div class="meal-picker-overlay" id="meal-picker-overlay" onclick="handlePickerOverlayClick(event)">
   <div class="meal-picker">
@@ -1835,6 +1875,7 @@ function renderModalBody(r) {
   const ingBtnHtml = `<div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
     <button class="ctrl-btn" onclick="openIngPickerVoorRecept('${r.id}')">🛒 Boodschappenlijst</button>
     <button class="ctrl-btn" onclick="openDagPicker('${r.id}')">📅 Plan voor dag</button>
+    <button class="ctrl-btn" onclick="openEditModal('${r.id}')">✏️ Bewerken</button>
   </div>`;
 
   // Ingredients
@@ -1936,6 +1977,25 @@ function handleOverlayClick(e) {
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
+
+
+// ── RECEPT BEWERKEN ──
+const GH_T='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',GH_R='marcvdeijk/marcscookbook',EP='1762';
+let pinOK=false,editId=null,editData=null;
+function openEditModal(id){const r=recipes.find(x=>x.id===id);if(!r)return;editId=id;editData=JSON.parse(JSON.stringify(r));document.getElementById('edit-modal-title').textContent='Bewerken: '+r.name;document.getElementById('edit-st').textContent='';pinOK?toonForm(editData):toonPin();document.getElementById('edit-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function toonPin(){document.getElementById('edit-body').innerHTML='<div class="pin-sc"><div class="pin-ti">Beveiligd</div><div class="pin-su">Voer pincode in</div><input type="password" class="pin-in" id="pin-in" maxlength="4" placeholder="····" onkeydown="if(event.key==='Enter')chkPin()"><div class="pin-er" id="pin-er"></div><button class="pin-bt" onclick="chkPin()">Ontgrendelen</button></div>';setTimeout(()=>{const p=document.getElementById('pin-in');if(p)p.focus();},100);}
+function chkPin(){if(document.getElementById('pin-in').value===EP){pinOK=true;toonForm(editData);}else{document.getElementById('pin-er').textContent='Onjuiste pincode';document.getElementById('pin-in').value='';}}
+function iHtml(gs){return gs.map((g,gi)=>'<div class="edit-gl">'+(g.label||'Ingrediënten')+'</div>'+g.items.map((item,ii)=>{const n=typeof item==='object'?(item.naam||''):String(item);const h=typeof item==='object'&&item.hoeveelheid!=null?item.hoeveelheid:'';const e=typeof item==='object'?(item.eenheid||''):'';return '<div class="edit-ii"><input class="edit-in" placeholder="Naam" value="'+n.replace(/"/g,'&quot;')+'" onchange="sI('+gi+','+ii+','naam',this.value)"><input class="edit-in" placeholder="Aantal" value="'+h+'" onchange="sI('+gi+','+ii+','hoeveelheid',this.value)"><input class="edit-in" placeholder="Eenheid" value="'+e+'" onchange="sI('+gi+','+ii+','eenheid',this.value)"><button class="edit-db" onclick="dI('+gi+','+ii+')">✕</button></div>';}).join('')+'<button class="edit-ab" onclick="aI('+gi+')">+ Ingredient</button>').join('');}
+function sHtml(st){return st.map((s,i)=>'<div class="edit-si"><div class="edit-sn">'+(i+1)+'</div><textarea class="edit-ta" onchange="editData.steps['+i+']=this.value">'+s.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</textarea><button class="edit-db" onclick="dS('+i+')">✕</button></div>').join('');}
+function toonForm(r){const C=['Indiaas','Mexicaans','Mediterraan','Italiaans','Hongaars','Midden-Oosten','Aziatisch','Amerikaans','Marokkaans','Koreaans','Indonesisch','Vietnamees'];const P=['Kip','Rund','Varken','Vis/Schaaldieren','Plantaardig','Ei','Geen'];const K=['Geen','Rijst','Pasta','Bulgur','Tortilla','Aardappel','Peulvruchten'];const sel=(a,v)=>a.map(x=>'<option value="'+x+'"'+(x===v?' selected':'')+'>'+x+'</option>').join('');document.getElementById('edit-body').innerHTML='<div class="edit-sec">Basisinformatie</div><div class="edit-fld"><label class="edit-lbl">Naam</label><input class="edit-in" value="'+r.name.replace(/"/g,'&quot;')+'" onchange="editData.name=this.value"></div><div class="edit-r3"><div class="edit-fld"><label class="edit-lbl">Cuisine</label><select class="edit-sel" onchange="editData.cuisine=this.value">'+sel(C,r.cuisine)+'</select></div><div class="edit-fld"><label class="edit-lbl">Eiwit</label><select class="edit-sel" onchange="editData.protein=this.value">'+sel(P,r.protein)+'</select></div><div class="edit-fld"><label class="edit-lbl">Koolhydraten</label><select class="edit-sel" onchange="editData.carbs=this.value">'+sel(K,r.carbs)+'</select></div></div><div class="edit-r3"><div class="edit-fld"><label class="edit-lbl">Inspanning (1-5)</label><input class="edit-in" type="number" min="1" max="5" value="'+r.effort+'" onchange="editData.effort=parseInt(this.value)"></div><div class="edit-fld"><label class="edit-lbl">Tijd (min)</label><input class="edit-in" type="number" value="'+r.timeMin+'" onchange="editData.timeMin=parseInt(this.value);editData.timeCategory=parseInt(this.value)<30?'snel':parseInt(this.value)<=90?'middel':'lang'"></div><div class="edit-fld"><label class="edit-lbl">Personen</label><input class="edit-in" type="number" min="1" value="'+r.servings+'" onchange="editData.servings=parseInt(this.value)"></div></div><div class="edit-sec">Ingrediënten</div><div id="ei">'+iHtml(r.ingredientGroups)+'</div><div class="edit-sec">Bereidingswijze</div><div id="es">'+sHtml(r.steps)+'</div><button class="edit-ab" style="margin-top:8px" onclick="aS()">+ Stap toevoegen</button>';}
+function sI(gi,ii,f,v){if(typeof editData.ingredientGroups[gi].items[ii]!=='object')editData.ingredientGroups[gi].items[ii]={naam:editData.ingredientGroups[gi].items[ii],naar_smaak:false};editData.ingredientGroups[gi].items[ii][f]=f==='hoeveelheid'?(v?(isNaN(v)?v:Number(v)):null):(v||null);}
+function dI(gi,ii){editData.ingredientGroups[gi].items.splice(ii,1);document.getElementById('ei').innerHTML=iHtml(editData.ingredientGroups);}
+function aI(gi){editData.ingredientGroups[gi].items.push({naam:'',naar_smaak:false});document.getElementById('ei').innerHTML=iHtml(editData.ingredientGroups);}
+function dS(i){editData.steps.splice(i,1);document.getElementById('es').innerHTML=sHtml(editData.steps);}
+function aS(){editData.steps.push('');document.getElementById('es').innerHTML=sHtml(editData.steps);}
+async function slaEditOp(){const st=document.getElementById('edit-st');st.textContent='⏳ Opslaan...';st.className='edit-st';try{const fn=editId+'.json';const sr=await fetch('https://api.github.com/repos/'+GH_R+'/contents/data/'+fn,{headers:{'Authorization':'token '+GH_T}});const sd=await sr.json();const content=btoa(unescape(encodeURIComponent(JSON.stringify(editData,null,2))));const res=await fetch('https://api.github.com/repos/'+GH_R+'/contents/data/'+fn,{method:'PUT',headers:{'Authorization':'token '+GH_T,'Content-Type':'application/json'},body:JSON.stringify({message:'Bewerk '+editData.name+' via app',content,sha:sd.sha})});if(res.ok){const i=recipes.findIndex(x=>x.id===editId);if(i!==-1)recipes[i]=Object.assign({},editData);st.textContent='✓ Opgeslagen!';st.className='edit-st ok';renderGrid();setTimeout(()=>sluitEditModal(),1500);}else{const e=await res.json();st.textContent='✗ '+(e.message||'Fout');st.className='edit-st err';}}catch(e){st.textContent='✗ '+e.message;st.className='edit-st err';}}
+function sluitEditModal(){document.getElementById('edit-overlay').classList.remove('open');document.body.style.overflow='';}
+function handleEditOverlayClick(e){if(e.target===document.getElementById('edit-overlay'))sluitEditModal();}
 
 // ─────────────────────────────────────────
 // BOODSCHAPPENLIJST
