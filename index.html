@@ -1480,6 +1480,26 @@ function renderModalBody(r) {
   // Nutrition
   const incompleteBanner = !r.complete ? `<div class="incomplete-note">${t('incompleteNote')}</div>` : '';
 
+    // Cooktips sectie
+  let cooktipsHtml = '';
+  if (r.cooktips) {
+    const ct = r.cooktips;
+    let altHtml = '';
+    if (ct.alternatieven && typeof ct.alternatieven === 'object') {
+      altHtml = Object.entries(ct.alternatieven).map(([ing, alts]) =>
+        '<div class="alternatief-row"><span class="alternatief-ingredient">' + ing + ':</span><span class="alternatief-opties"> ' + alts.join(', ') + '</span></div>'
+      ).join('');
+    }
+    const tipBlokken = [
+      ct.van8naar10 ? '<div class="cooktip-item"><div class="cooktip-label">&#127942; Van een 8 naar een 10</div><div class="cooktip-text">' + ct.van8naar10 + '</div></div>' : '',
+      ct.noGo ? '<div class="cooktip-item"><div class="cooktip-label">&#128683; No-go combinaties</div><div class="cooktip-text">' + ct.noGo + '</div></div>' : '',
+      altHtml ? '<div class="cooktip-item"><div class="cooktip-label">&#128260; Alternatieven</div><div class="alternatieven-grid">' + altHtml + '</div></div>' : '',
+      ct.gezonder ? '<div class="cooktip-item"><div class="cooktip-label">&#129367; Gezonder maken</div><div class="cooktip-text">' + ct.gezonder + '</div></div>' : '',
+      ct.goedkoper ? '<div class="cooktip-item"><div class="cooktip-label">&#128176; Goedkoper maken</div><div class="cooktip-text">' + ct.goedkoper + '</div></div>' : '',
+    ].join('');
+    cooktipsHtml = '<p class="section-title">Kooktips</p><div class="cooktips-panel">' + tipBlokken + '</div>';
+  }
+
   const scoreLabel = n.score === 'green' ? t('good') : n.score === 'orange' ? t('moderate') : t('heavy2');
 
   const nutritionHtml = `
