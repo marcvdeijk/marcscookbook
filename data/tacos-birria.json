@@ -21,36 +21,126 @@
     {
       "label": "Vlees",
       "items": [
-        "700 g runderschenkel",
-        "500 g runderriblappen",
-        "zout"
+        {
+          "naam": "Runderschenkel",
+          "naar_smaak": false,
+          "hoeveelheid": 700,
+          "eenheid": "g"
+        },
+        {
+          "naam": "Runderriblappen",
+          "naar_smaak": false,
+          "hoeveelheid": 500,
+          "eenheid": "g"
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": false
+        }
       ]
     },
     {
       "label": "Chilisaus/marinade",
       "items": [
-        "4 gedroogde guajillo pepers",
-        "3 gedroogde chipotle pepers",
-        "2 gedroogde ancho pepers",
-        "250 ml water (voor weken pepers)",
-        "2 uien",
-        "4 tomaten",
-        "5 teentjes knoflook",
-        "5 cm verse gember",
-        "60 ml azijn",
-        "1 tl komijnpoeder",
-        "½ flesje Tia Lupita Hot Sauce (optioneel)"
+        {
+          "naam": "Gedroogde guajillo pepers",
+          "naar_smaak": false,
+          "hoeveelheid": 4
+        },
+        {
+          "naam": "Gedroogde chipotle pepers",
+          "naar_smaak": false,
+          "hoeveelheid": 3
+        },
+        {
+          "naam": "Gedroogde ancho pepers",
+          "naar_smaak": false,
+          "hoeveelheid": 2
+        },
+        {
+          "naam": "Water",
+          "naar_smaak": false,
+          "hoeveelheid": 250,
+          "eenheid": "ml",
+          "beschrijving": "voor weken pepers"
+        },
+        {
+          "naam": "Uien",
+          "naar_smaak": false,
+          "hoeveelheid": 2
+        },
+        {
+          "naam": "Tomaten",
+          "naar_smaak": false,
+          "hoeveelheid": 4
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": false,
+          "hoeveelheid": 5,
+          "eenheid": "teentjes"
+        },
+        {
+          "naam": "Cm verse gember",
+          "naar_smaak": false,
+          "hoeveelheid": 5
+        },
+        {
+          "naam": "Azijn",
+          "naar_smaak": false,
+          "hoeveelheid": 60,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "Komijnpoeder",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Flesje Tia Lupita Hot Sauce",
+          "naar_smaak": false,
+          "hoeveelheid": "½",
+          "beschrijving": "optioneel"
+        }
       ]
     },
     {
       "label": "Kookpot",
       "items": [
-        "750 ml runderbouillon",
-        "1 kaneelstokje",
-        "2 laurierblaadjes",
-        "6 kruidnagels",
-        "1½ tl gedroogde oregano",
-        "1½ tl gedroogde tijm"
+        {
+          "naam": "Runderbouillon",
+          "naar_smaak": false,
+          "hoeveelheid": 750,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "Kaneelstokje",
+          "naar_smaak": false,
+          "hoeveelheid": 1
+        },
+        {
+          "naam": "Laurierblaadjes",
+          "naar_smaak": false,
+          "hoeveelheid": 2
+        },
+        {
+          "naam": "Kruidnagels",
+          "naar_smaak": false,
+          "hoeveelheid": 6
+        },
+        {
+          "naam": "Gedroogde oregano",
+          "naar_smaak": false,
+          "hoeveelheid": "1½",
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Gedroogde tijm",
+          "naar_smaak": false,
+          "hoeveelheid": "1½",
+          "eenheid": "tl"
+        }
       ]
     }
   ],
