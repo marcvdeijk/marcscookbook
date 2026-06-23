@@ -21,14 +21,43 @@
     {
       "label": "Ingrediënten",
       "items": [
-        "2–3 grote aubergines",
-        "tahini naar smaak",
-        "2–3 teentjes knoflook",
-        "sap van 1 citroen",
-        "goede extra vergine olijfolie",
-        "zout",
-        "gerookt paprikapoeder of sumak (garnering)",
-        "verse peterselie (garnering)"
+        {
+          "naam": "Grote aubergines",
+          "naar_smaak": false,
+          "hoeveelheid": "2–3"
+        },
+        {
+          "naam": "Tahini",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": false,
+          "hoeveelheid": "2–3",
+          "eenheid": "teentjes"
+        },
+        {
+          "naam": "Sap van 1 citroen",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Goede extra vergine olijfolie",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Gerookt paprikapoeder of sumak",
+          "naar_smaak": false,
+          "beschrijving": "garnering"
+        },
+        {
+          "naam": "Verse peterselie",
+          "naar_smaak": false,
+          "beschrijving": "garnering"
+        }
       ]
     }
   ],
