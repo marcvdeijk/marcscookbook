@@ -21,53 +21,194 @@
     {
       "label": "1e marinade (20 min)",
       "items": [
-        "750–1000 g kip",
-        "1 el kurkuma",
-        "3 el gember (geraspt)",
-        "3 teentjes knoflook",
-        "sap van ½ citroen",
-        "1 el Kasjmiri chilipoeder",
-        "zout naar smaak"
+        {
+          "naam": "Kip",
+          "naar_smaak": false,
+          "hoeveelheid": "750–1000",
+          "eenheid": "g"
+        },
+        {
+          "naam": "Kurkuma",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Gember",
+          "naar_smaak": false,
+          "hoeveelheid": 3,
+          "eenheid": "el",
+          "beschrijving": "geraspt"
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": false,
+          "hoeveelheid": 3,
+          "eenheid": "teentjes"
+        },
+        {
+          "naam": "Sap van ½ citroen",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Kasjmiri chilipoeder",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": true
+        }
       ]
     },
     {
       "label": "2e marinade (rookmarinade)",
       "items": [
-        "1 el koriander poeder",
-        "mosterd- of zonnebloemolie",
-        "3 teentjes knoflook (gekneusd) + gember naar smaak",
-        "½ el kasoori methi",
-        "½ el garam masala",
-        "1 el Kasjmiri chilipoeder",
-        "1,5 el yoghurt",
-        "½ el komijnpoeder",
-        "zout naar smaak"
+        {
+          "naam": "Koriander poeder",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Mosterd- of zonnebloemolie",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Knoflook  + gember",
+          "naar_smaak": true,
+          "hoeveelheid": 3,
+          "eenheid": "teentjes",
+          "beschrijving": "gekneusd"
+        },
+        {
+          "naam": "Kasoori methi",
+          "naar_smaak": false,
+          "hoeveelheid": "½",
+          "eenheid": "el"
+        },
+        {
+          "naam": "Garam masala",
+          "naar_smaak": false,
+          "hoeveelheid": "½",
+          "eenheid": "el"
+        },
+        {
+          "naam": "Kasjmiri chilipoeder",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Yoghurt",
+          "naar_smaak": false,
+          "hoeveelheid": 1.5,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Komijnpoeder",
+          "naar_smaak": false,
+          "hoeveelheid": "½",
+          "eenheid": "el"
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": true
+        }
       ]
     },
     {
       "label": "Makhani saus",
       "items": [
-        "korianderstelen naar smaak",
-        "1 stuk gember (geraspt)",
-        "2 handen cashewnoten",
-        "1 chilipeper",
-        "6 tomaten of 1,5 blik tomaten",
-        "4–6 teentjes knoflook",
-        "1 kaneelstokje",
-        "3 laurierblaadjes",
-        "4 kruidnagels",
-        "1 el Kasjmiri chilipoeder",
-        "4 kardemomzaden",
-        "1 ui (grof gesneden)",
-        "zout naar smaak"
+        {
+          "naam": "Korianderstelen",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Gember",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "stuk",
+          "beschrijving": "geraspt"
+        },
+        {
+          "naam": "Cashewnoten",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "handen"
+        },
+        {
+          "naam": "Chilipeper",
+          "naar_smaak": false,
+          "hoeveelheid": 1
+        },
+        {
+          "naam": "Tomaten of 1,5 blik tomaten",
+          "naar_smaak": false,
+          "hoeveelheid": 6
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": false,
+          "hoeveelheid": "4–6",
+          "eenheid": "teentjes"
+        },
+        {
+          "naam": "Kaneelstokje",
+          "naar_smaak": false,
+          "hoeveelheid": 1
+        },
+        {
+          "naam": "Laurierblaadjes",
+          "naar_smaak": false,
+          "hoeveelheid": 3
+        },
+        {
+          "naam": "Kruidnagels",
+          "naar_smaak": false,
+          "hoeveelheid": 4
+        },
+        {
+          "naam": "Kasjmiri chilipoeder",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Kardemomzaden",
+          "naar_smaak": false,
+          "hoeveelheid": 4
+        },
+        {
+          "naam": "Ui",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "beschrijving": "grof gesneden"
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": true
+        }
       ]
     },
     {
       "label": "Afwerking",
       "items": [
-        "een grote klont boter",
-        "2 el slagroom",
-        "extra kasoori methi"
+        {
+          "naam": "Een grote klont boter",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Slagroom",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Extra kasoori methi",
+          "naar_smaak": false
+        }
       ]
     }
   ],
