@@ -21,58 +21,169 @@
     {
       "label": "1e marinade (60–90 min)",
       "items": [
-        "1 kg kippendijenfilets",
-        "citroensap",
-        "zout",
-        "gember-knoflookpasta naar smaak",
-        "Kasjmiri chilipoeder naar smaak"
+        {
+          "naam": "Kippendijenfilets",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "kg"
+        },
+        {
+          "naam": "Citroensap",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Gember-knoflookpasta",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Kasjmiri chilipoeder",
+          "naar_smaak": true
+        }
       ]
     },
     {
       "label": "2e marinade (4–6 uur)",
       "items": [
-        "mosterdolie (verhit en afgekoeld)",
-        "Kasjmiri chilipoeder",
-        "kurkuma",
-        "gember-knoflookpasta naar smaak",
-        "garam masala",
-        "yoghurt",
-        "zout"
+        {
+          "naam": "Mosterdolie",
+          "naar_smaak": false,
+          "beschrijving": "verhit en afgekoeld"
+        },
+        {
+          "naam": "Kasjmiri chilipoeder",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Kurkuma",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Gember-knoflookpasta",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Garam masala",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Yoghurt",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": false
+        }
       ]
     },
     {
       "label": "Makhni gravy",
       "items": [
-        "450 g tomaten (gehalveerd)",
-        "150 ml water",
-        "gember-knoflookpasta naar smaak",
-        "chilipoeder",
-        "groene chilipepers naar smaak",
-        "korianderstelen",
-        "kardemom + kruidnagel (in theezakje)",
-        "zout"
+        {
+          "naam": "Tomaten",
+          "naar_smaak": false,
+          "hoeveelheid": 450,
+          "eenheid": "g",
+          "beschrijving": "gehalveerd"
+        },
+        {
+          "naam": "Water",
+          "naar_smaak": false,
+          "hoeveelheid": 150,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "Gember-knoflookpasta",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Chilipoeder",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Groene chilipepers",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Korianderstelen",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Kardemom + kruidnagel",
+          "naar_smaak": false,
+          "beschrijving": "in theezakje"
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": false
+        }
       ]
     },
     {
       "label": "Onion tomato masala",
       "items": [
-        "2 rode uien (gesnipperd)",
-        "1 groene chilipeper",
-        "gember-knoflookpasta naar smaak",
-        "chilipoeder",
-        "225 g tomaten (in blokjes)"
+        {
+          "naam": "Rode uien",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "beschrijving": "gesnipperd"
+        },
+        {
+          "naam": "Groene chilipeper",
+          "naar_smaak": false,
+          "hoeveelheid": 1
+        },
+        {
+          "naam": "Gember-knoflookpasta",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Chilipoeder",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Tomaten",
+          "naar_smaak": false,
+          "hoeveelheid": 225,
+          "eenheid": "g",
+          "beschrijving": "in blokjes"
+        }
       ]
     },
     {
       "label": "Final blend",
       "items": [
-        "boter of ghee",
-        "komijnzaad",
-        "gedroogde rode chili",
-        "knoflook",
-        "garam masala",
-        "kasoori methi",
-        "zout"
+        {
+          "naam": "Boter of ghee",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Komijnzaad",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Gedroogde rode chili",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Garam masala",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Kasoori methi",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": false
+        }
       ]
     }
   ],
