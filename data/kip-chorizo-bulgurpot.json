@@ -21,45 +21,122 @@
     {
       "label": "Vlees",
       "items": [
-        "1000 g kippendijen (zonder bot en vel, in hapklare blokjes)",
-        "200 g chorizo (in schijfjes of blokjes)"
+        {
+          "naam": "Kippendijen",
+          "naar_smaak": false,
+          "hoeveelheid": 1000,
+          "eenheid": "g",
+          "beschrijving": "zonder bot en vel, in hapklare blokjes"
+        },
+        {
+          "naam": "Chorizo",
+          "naar_smaak": false,
+          "hoeveelheid": 200,
+          "eenheid": "g",
+          "beschrijving": "in schijfjes of blokjes"
+        }
       ]
     },
     {
       "label": "Bulgur & bouillon",
       "items": [
-        "2 glazen bulgur",
-        "4 glazen kippenbouillon (verhouding 1:2)"
+        {
+          "naam": "Glazen bulgur",
+          "naar_smaak": false,
+          "hoeveelheid": 2
+        },
+        {
+          "naam": "Glazen kippenbouillon",
+          "naar_smaak": false,
+          "hoeveelheid": 4,
+          "beschrijving": "verhouding 1:2"
+        }
       ]
     },
     {
       "label": "Holy trinity",
       "items": [
-        "2 uien (fijngesneden)",
-        "2 groene paprika's (fijngesneden)",
-        "4 stengels bleekselderij (fijngesneden)",
-        "1–2 jalapeñopepers (optioneel)",
-        "knoflook naar smaak"
+        {
+          "naam": "Uien",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "beschrijving": "fijngesneden"
+        },
+        {
+          "naam": "Groene paprika's",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "beschrijving": "fijngesneden"
+        },
+        {
+          "naam": "Bleekselderij",
+          "naar_smaak": false,
+          "hoeveelheid": 4,
+          "eenheid": "stengels",
+          "beschrijving": "fijngesneden"
+        },
+        {
+          "naam": "Jalapeñopepers",
+          "naar_smaak": false,
+          "hoeveelheid": "1–2",
+          "beschrijving": "optioneel"
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": true
+        }
       ]
     },
     {
       "label": "Smaakmakers",
       "items": [
-        "tomatenpuree naar smaak",
-        "Cajun- of Creoolse kruidenmix naar smaak",
-        "gerookt paprikapoeder naar smaak",
-        "Louisiana hot sauce naar smaak",
-        "Worcestershire saus naar smaak",
-        "4 laurierblaadjes",
-        "verse rozemarijn naar smaak",
-        "verse tijm naar smaak"
+        {
+          "naam": "Tomatenpuree",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Cajun- of Creoolse kruidenmix",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Gerookt paprikapoeder",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Louisiana hot sauce",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Worcestershire saus",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Laurierblaadjes",
+          "naar_smaak": false,
+          "hoeveelheid": 4
+        },
+        {
+          "naam": "Verse rozemarijn",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Verse tijm",
+          "naar_smaak": true
+        }
       ]
     },
     {
       "label": "Afwerking",
       "items": [
-        "bosui in ringetjes",
-        "Griekse extra vergine olijfolie (klein beetje)"
+        {
+          "naam": "Bosui in ringetjes",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Griekse extra vergine olijfolie",
+          "naar_smaak": false,
+          "beschrijving": "klein beetje"
+        }
       ]
     }
   ],
