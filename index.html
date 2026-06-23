@@ -2006,24 +2006,24 @@ function renderBoodschappen() {
   lijst.innerHTML = gesorteerd.map(item => {
     if (item.bewerken) {
       return '<li class="boodschappen-item">' +
-        '<input type="checkbox" ' + (item.afgevinkt ? 'checked' : '') + ' onchange="toggleBoodschap('' + item.id + '')">' +
+        '<input type="checkbox" ' + (item.afgevinkt ? 'checked' : '') + ' onchange="toggleBoodschap(\'' + item.id + '\')">' +
         '<div class="boodschappen-edit-row">' +
           '<input class="boodschappen-edit-in boodschappen-edit-naam" value="' + getNaam(item).replace(/"/g,'&quot;') + '" id="bedit-naam-' + item.id + '">' +
           '<input class="boodschappen-edit-in boodschappen-edit-aantal" value="' + (item.aantal||'') + '" placeholder="Aantal" id="bedit-aantal-' + item.id + '">' +
           '<input class="boodschappen-edit-in boodschappen-edit-eenheid" value="' + (item.eenheid||'') + '" placeholder="Eenheid" id="bedit-eenheid-' + item.id + '">' +
-          '<button class="boodschappen-edit-ok" onclick="slaItemOp('' + item.id + '')">✓</button>' +
+          '<button class="boodschappen-edit-ok" onclick="slaItemOp(\'' + item.id + '\')">✓</button>' +
         '</div>' +
-        '<button class="boodschappen-delete" onclick="verwijderBoodschap('' + item.id + '')" title="Verwijder">✕</button>' +
+        '<button class="boodschappen-delete" onclick="verwijderBoodschap(\'' + item.id + '\')" title="Verwijder">✕</button>' +
         '</li>';
     }
     const naam = getNaam(item);
     const rechts = [item.aantal, item.eenheid].filter(Boolean).join(' ');
     return '<li class="boodschappen-item' + (item.afgevinkt ? ' afgevinkt' : '') + '">' +
-      '<input type="checkbox" ' + (item.afgevinkt ? 'checked' : '') + ' onchange="toggleBoodschap('' + item.id + '')">' +
-      '<span class="boodschappen-item-naam" onclick="bewerkItem('' + item.id + '')">' + naam + '</span>' +
+      '<input type="checkbox" ' + (item.afgevinkt ? 'checked' : '') + ' onchange="toggleBoodschap(\'' + item.id + '\')">' +
+      '<span class="boodschappen-item-naam" onclick="bewerkItem(\'' + item.id + '\')">' + naam + '</span>' +
       (rechts ? '<span class="boodschappen-item-aantal">' + rechts + '</span>' : '') +
       (item.bron ? '<span class="boodschappen-item-bron">' + item.bron + '</span>' : '') +
-      '<button class="boodschappen-delete" onclick="verwijderBoodschap('' + item.id + '')" title="Verwijder">✕</button>' +
+      '<button class="boodschappen-delete" onclick="verwijderBoodschap(\'' + item.id + '\')" title="Verwijder">✕</button>' +
       '</li>';
   }).join('');
 }
