@@ -1094,6 +1094,57 @@
   .dag-picker-datum { font-size: 12px; color: var(--text-muted); }
   .dag-picker-status { font-size: 11px; color: var(--accent2); }
 
+
+  /* Ingredient picker — bevestigingsstap */
+  .ing-confirm-step { display: none; }
+  .ing-confirm-step.active { display: block; }
+  .ing-select-step { display: block; }
+  .ing-select-step.hidden { display: none; }
+
+  .ing-confirm-item {
+    display: grid;
+    grid-template-columns: 1fr 80px 90px;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .ing-confirm-item:last-child { border-bottom: none; }
+  .ing-confirm-naam {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .ing-confirm-input {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    padding: 5px 8px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.15s;
+  }
+  .ing-confirm-input:focus { border-color: var(--accent); }
+  .ing-confirm-input::placeholder { color: var(--text-muted); }
+  .ing-confirm-header {
+    display: grid;
+    grid-template-columns: 1fr 80px 90px;
+    gap: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 4px;
+  }
+  .ing-confirm-col-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
 </style>
 </head>
 <body>
@@ -1247,7 +1298,17 @@
       <div class="ing-picker-title" id="ing-picker-title">Ingrediënten selecteren</div>
       <button class="close-btn" onclick="sluitIngPicker()">✕</button>
     </div>
-    <div class="ing-picker-body" id="ing-picker-body"></div>
+    <div class="ing-picker-body" id="ing-picker-body">
+      <div class="ing-select-step" id="ing-select-step"></div>
+      <div class="ing-confirm-step" id="ing-confirm-step">
+        <div class="ing-confirm-header">
+          <span class="ing-confirm-col-label">Ingredient</span>
+          <span class="ing-confirm-col-label">Aantal</span>
+          <span class="ing-confirm-col-label">Eenheid</span>
+        </div>
+        <div id="ing-confirm-items"></div>
+      </div>
+    </div>
     <div class="ing-picker-footer">
       <button class="ing-select-all" onclick="selecteerAlles()">Alles selecteren</button>
       <button class="ing-voeg-toe-btn" id="ing-voeg-toe-btn" onclick="voegGeselecteerdeToe()">Voeg toe</button>
@@ -2047,7 +2108,9 @@ function _openIngPickerVoorRecept(r) {
       // Boodschappenlijst: naam + hoeveelheid + eenheid (geen beschrijving/naar smaak)
       boodschapTekst = [naam, h, e].filter(x => x !== '' && x != null).join(' ');
     }
-    return { tekst: weergave, boodschapTekst, geselecteerd: false, groep: g.label };
+    const defH = (typeof item === 'object' && item.hoeveelheid != null) ? String(item.hoeveelheid) : '';
+    const defE = (typeof item === 'object' && item.eenheid) ? item.eenheid : '';
+    return { tekst: weergave, boodschapTekst, geselecteerd: false, groep: g.label, defaultHoeveelheid: defH, defaultEenheid: defE };
   }));
 
   document.getElementById('ing-picker-title').textContent = r.name;
@@ -2067,7 +2130,7 @@ function _openIngPickerVoorRecept(r) {
     });
   });
 
-  document.getElementById('ing-picker-body').innerHTML = body;
+  document.getElementById('ing-select-step').innerHTML = body;
   updateIngVoegToeBtn();
   document.getElementById('ing-picker-overlay').classList.add('open');
 }
@@ -2114,8 +2177,50 @@ function voegGeselecteerdeToe() {
   updateTabTeller();
 }
 
+
+function naarBevestiging() {
+  const geselecteerd = ingPickerItems.filter(i => i.geselecteerd);
+  if (geselecteerd.length === 0) return;
+
+  // Bouw bevestigingsscherm
+  const confirmItems = document.getElementById('ing-confirm-items');
+  confirmItems.innerHTML = geselecteerd.map((item, idx) => {
+    const naam = typeof item.tekst === 'string'
+      ? item.boodschapTekst || item.tekst
+      : item.naam || item.tekst;
+    const defaultAantal = item.defaultHoeveelheid || '';
+    const defaultEenheid = item.defaultEenheid || '';
+    return `
+      <div class="ing-confirm-item">
+        <span class="ing-confirm-naam">${naam}</span>
+        <input type="text" class="ing-confirm-input" id="ing-aantal-${idx}"
+               placeholder="bijv. 2" value="${defaultAantal}">
+        <input type="text" class="ing-confirm-input" id="ing-eenheid-${idx}"
+               placeholder="bijv. kg" value="${defaultEenheid}">
+      </div>`;
+  }).join('');
+
+  // Wissel stap
+  document.getElementById('ing-select-step').classList.add('hidden');
+  document.getElementById('ing-confirm-step').classList.add('active');
+  document.getElementById('ing-picker-footer-select').style.display = 'none';
+  document.getElementById('ing-picker-footer-confirm').style.display = 'flex';
+}
+
+function terugNaarSelectie() {
+  document.getElementById('ing-select-step').classList.remove('hidden');
+  document.getElementById('ing-confirm-step').classList.remove('active');
+  document.getElementById('ing-picker-footer-select').style.display = 'flex';
+  document.getElementById('ing-picker-footer-confirm').style.display = 'none';
+}
+
 function sluitIngPicker() {
   document.getElementById('ing-picker-overlay').classList.remove('open');
+  // Reset beide stappen
+  document.getElementById('ing-select-step').classList.remove('hidden');
+  document.getElementById('ing-confirm-step').classList.remove('active');
+  document.getElementById('ing-picker-footer-select').style.display = 'flex';
+  document.getElementById('ing-picker-footer-confirm').style.display = 'none';
   ingPickerItems = [];
   ingPickerBron = '';
 }
