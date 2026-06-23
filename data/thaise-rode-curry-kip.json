@@ -1,0 +1,76 @@
+{
+  "id": "thaise-rode-curry-kip",
+  "name": "Thaise Rode Curry met Kip",
+  "cuisine": "Aziatisch",
+  "protein": "Kip",
+  "carbs": "Rijst",
+  "effort": 3,
+  "timeMin": 30,
+  "timeCategory": "snel",
+  "complete": true,
+  "servings": 4,
+  "source": "eigen",
+  "nutrition": {
+    "kcal": 540,
+    "protein": 42,
+    "fat": 30,
+    "carbs": 28,
+    "score": "green",
+    "scoreNote": "Eiwitrijke curry met gezonde vetten uit kokosmelk. Vissaus en palm sugar geven complexiteit. Relatief laag in koolhydraten — jasmijnrijst erbij voor een volledige maaltijd."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Kip",
+      "items": [
+        "750 g kippendijen zonder bot en vel, in blokjes van 3 cm"
+      ]
+    },
+    {
+      "label": "Curry basis",
+      "items": [
+        "60 ml volvette kokosmelk — dikke bovenkant van het blik (kookvet)",
+        "4 el Thaise rode currypasta",
+        "knoflook naar smaak (fijngehakt)",
+        "gember naar smaak (geraspt)",
+        "1 stengel citroengras (gekneusd)",
+        "3 kaffirlimoenbladeren"
+      ]
+    },
+    {
+      "label": "Groenten",
+      "items": [
+        "1 winterwortel in dunne halve plakjes van 3 mm",
+        "1½ rode paprika in reepjes",
+        "1 struik broccoli in kleine roosjes"
+      ]
+    },
+    {
+      "label": "Vocht & smaakmakers",
+      "items": [
+        "400 ml volvette kokosmelk (rest van het blik)",
+        "30 ml vissaus (nam pla)",
+        "15 ml liquid palm sugar",
+        "sap van 1 limoen (toevoegen NA het vuur uit)"
+      ]
+    },
+    {
+      "label": "Afwerking",
+      "items": [
+        "verse Thaise basilicum (horapa) naar smaak — NIET koriander",
+        "1–2 rode chilipepers in ringetjes",
+        "gekookte jasmijnrijst"
+      ]
+    }
+  ],
+  "steps": [
+    "KOKOSMELKVET ACTIVEREN: Schep de dikke bovenkant van het kokosmelkblik in de droge wok op middelhoog vuur. Laat 2 minuten pruttelen tot het vet loskoomt. Je ziet de olie scheiden — dat is het moment.",
+    "PASTA LATEN BLOEIEN: Voeg de rode currypasta toe aan het hete kokosvet. Bak 2–3 minuten al roerend. Dan knoflook en gember erbij, nog 1 minuut. Pasta altijd eerst.",
+    "CITROENGRAS & KAFFIR: Gekneusd citroengras en kaffirlimoenbladeren toevoegen. 30 seconden meebakken.",
+    "KIP AANBRADEN: Kippendijen toevoegen. Goed omscheppen zodat elk stukje bedekt is met currypasta. 4–5 minuten op hoog vuur tot goudbruin aan de buitenkant.",
+    "WORTEL EERST: Alleen de wortel toevoegen. 3–4 minuten roerbakken met de kip. Wortel heeft een voorsprong nodig.",
+    "KOKOSMELK & PAPRIKA: Resterende kokosmelk erbij gieten. Goed doorroeren. Aan de kook brengen, vuur laag. Paprika nu toevoegen.",
+    "SUDDEREN: 6–8 minuten zachtjes sudderen zonder deksel — saus indikken. In de laatste 2 minuten de broccoliroosjes erbij. Niet langer — overkookte broccoli maakt Uncle Roger verdrietig.",
+    "AFMAKEN: Vissaus en palm sugar erdoor. Proef en balanceer. Vuur uit. Dan pas limoensap eroverheen. Citroengras en kaffirlimoenbladeren verwijderen. Thaise basilicum op het allerlaatste moment.",
+    "SERVEREN: Direct serveren met jasmijnrijst. Rode chilipeper als garnering. Curry wacht op niemand."
+  ]
+}
