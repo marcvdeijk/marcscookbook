@@ -152,5 +152,26 @@
     "SUDDEREN: 6–8 minuten zachtjes sudderen zonder deksel — saus indikken. In de laatste 2 minuten de broccoliroosjes erbij. Niet langer — overkookte broccoli maakt Uncle Roger verdrietig.",
     "AFMAKEN: Vissaus en palm sugar erdoor. Proef en balanceer. Vuur uit. Dan pas limoensap eroverheen. Citroengras en kaffirlimoenbladeren verwijderen. Thaise basilicum op het allerlaatste moment.",
     "SERVEREN: Direct serveren met jasmijnrijst. Rode chilipeper als garnering. Curry wacht op niemand."
-  ]
+  ],
+  "cooktips": {
+    "van8naar10": "Gebruik het kokosmelkvet als kookvet in plaats van neutrale olie — dit geeft een diepere kokossmaak aan de gehele curry. Rooster de currypasta 2-3 minuten echt goed door voor je de kip toevoegt. De meeste mensen zijn te ongeduldig hier. En gebruik kaffirlimoenbladeren en citroengras echt vers — gedroogd is een totaal ander gerecht.",
+    "noGo": "Nooit de kip toevoegen voordat de pasta goed gebakken is — rauw smakende currypasta ruïneert het gerecht. Nooit het limoensap meekoken — altijd NA het vuur uit, anders verlies je alle frisheid. Nooit gewone basilicum gebruiken in plaats van Thaise basilicum — de smaak is compleet anders. Overkookte broccoli maakt Uncle Roger verdrietig.",
+    "alternatieven": {
+      "Kaffirlimoenbladeren": [
+        "geraspte limoenschil (halve limoen)",
+        "citroengraspoeder extra"
+      ],
+      "Thaise rode currypasta": [
+        "groene currypasta (pittiger, frisser)",
+        "gele currypasta (milder, zoeter)"
+      ],
+      "Kippendijen": [
+        "garnalen (4-5 min garen)",
+        "tofu (stevige blokjes, eerst bakken)",
+        "runderreepjes"
+      ]
+    },
+    "gezonder": "Vervang de helft van de kokosmelk door kippenbouillon voor minder vet. Voeg meer groenten toe — courgette, aubergine of spinazie passen goed. Serveer met bloemkoolrijst in plaats van jasmijnrijst om koolhydraten te verlagen.",
+    "goedkoper": "Gebruik kippendijen met bot — goedkoper en smaakvoller. Vervang kaffirlimoenbladeren door limoenschil (gratis als je toch limoen gebruikt). Gewone kokosmelk werkt, maar kies volvette voor het kookvet anders scheiden de vetten niet goed."
+  }
 }
