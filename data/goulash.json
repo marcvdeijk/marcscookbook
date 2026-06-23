@@ -21,19 +21,81 @@
     {
       "label": "Ingrediënten",
       "items": [
-        "1 kg runderlappen (blokjes van ±2 cm)",
-        "3 el olie",
-        "3 uien (halve ringen)",
-        "2 rode of groene paprika's",
-        "4 tomaten",
-        "1 el paprikacrème (pittig of mild)",
-        "2 el goulashcrème (pittig of mild)",
-        "1 tl knoflookcrème",
-        "1 el karwijzaad",
-        "1 el paprikapoeder",
-        "1 tl pikante pepersaus",
-        "peper en zout",
-        "water"
+        {
+          "naam": "Runderlappen",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "kg",
+          "beschrijving": "blokjes van ±2 cm"
+        },
+        {
+          "naam": "Olie",
+          "naar_smaak": false,
+          "hoeveelheid": 3,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Uien",
+          "naar_smaak": false,
+          "hoeveelheid": 3,
+          "beschrijving": "halve ringen"
+        },
+        {
+          "naam": "Rode of groene paprika's",
+          "naar_smaak": false,
+          "hoeveelheid": 2
+        },
+        {
+          "naam": "Tomaten",
+          "naar_smaak": false,
+          "hoeveelheid": 4
+        },
+        {
+          "naam": "Paprikacrème",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el",
+          "beschrijving": "pittig of mild"
+        },
+        {
+          "naam": "Goulashcrème",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el",
+          "beschrijving": "pittig of mild"
+        },
+        {
+          "naam": "Knoflookcrème",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Karwijzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Paprikapoeder",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Pikante pepersaus",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Peper en zout",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Water",
+          "naar_smaak": false
+        }
       ]
     }
   ],
