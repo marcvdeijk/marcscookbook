@@ -21,21 +21,90 @@
     {
       "label": "Ingrediënten",
       "items": [
-        "1 kg rundergehakt",
-        "½ banaan (in stukjes)",
-        "1 grote aardappel (geschild, in blokjes)",
-        "90 g rozijnen",
-        "90 g geschaafde amandelen",
-        "200 g ui (gesnipperd)",
-        "6 teentjes knoflook",
-        "1 blik tomaten",
-        "1 kaneelstokje",
-        "2 laurierblaadjes",
-        "20 zwarte peperkorrels",
-        "3 kruidnagels",
-        "1 tl kaneel & marjolein (gemalen)",
-        "zonnebloemolie",
-        "zout"
+        {
+          "naam": "Rundergehakt",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "kg"
+        },
+        {
+          "naam": "Banaan",
+          "naar_smaak": false,
+          "hoeveelheid": "½",
+          "beschrijving": "in stukjes"
+        },
+        {
+          "naam": "Grote aardappel",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "beschrijving": "geschild, in blokjes"
+        },
+        {
+          "naam": "Rozijnen",
+          "naar_smaak": false,
+          "hoeveelheid": 90,
+          "eenheid": "g"
+        },
+        {
+          "naam": "Geschaafde amandelen",
+          "naar_smaak": false,
+          "hoeveelheid": 90,
+          "eenheid": "g"
+        },
+        {
+          "naam": "Ui",
+          "naar_smaak": false,
+          "hoeveelheid": 200,
+          "eenheid": "g",
+          "beschrijving": "gesnipperd"
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": false,
+          "hoeveelheid": 6,
+          "eenheid": "teentjes"
+        },
+        {
+          "naam": "Tomaten",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "blik"
+        },
+        {
+          "naam": "Kaneelstokje",
+          "naar_smaak": false,
+          "hoeveelheid": 1
+        },
+        {
+          "naam": "Laurierblaadjes",
+          "naar_smaak": false,
+          "hoeveelheid": 2
+        },
+        {
+          "naam": "Zwarte peperkorrels",
+          "naar_smaak": false,
+          "hoeveelheid": 20
+        },
+        {
+          "naam": "Kruidnagels",
+          "naar_smaak": false,
+          "hoeveelheid": 3
+        },
+        {
+          "naam": "Kaneel & marjolein",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl",
+          "beschrijving": "gemalen"
+        },
+        {
+          "naam": "Zonnebloemolie",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": false
+        }
       ]
     }
   ],
