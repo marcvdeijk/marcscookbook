@@ -21,28 +21,102 @@
     {
       "label": "Gehaktballen",
       "items": [
-        "1 kg rundergehakt",
-        "15 g paneermeel",
-        "1 ei",
-        "gehakte munt naar smaak",
-        "1 el komijnzaad (geroosterd & gemalen)",
-        "6–8 teentjes knoflook",
-        "15 peperkorrels (gemalen)",
-        "4 kruidnagels (gemalen)",
-        "1 el oregano",
-        "zout naar smaak"
+        {
+          "naam": "Rundergehakt",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "kg"
+        },
+        {
+          "naam": "Paneermeel",
+          "naar_smaak": false,
+          "hoeveelheid": 15,
+          "eenheid": "g"
+        },
+        {
+          "naam": "Ei",
+          "naar_smaak": false,
+          "hoeveelheid": 1
+        },
+        {
+          "naam": "Gehakte munt",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Komijnzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el",
+          "beschrijving": "geroosterd & gemalen"
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": false,
+          "hoeveelheid": "6–8",
+          "eenheid": "teentjes"
+        },
+        {
+          "naam": "Peperkorrels",
+          "naar_smaak": false,
+          "hoeveelheid": 15,
+          "beschrijving": "gemalen"
+        },
+        {
+          "naam": "Kruidnagels",
+          "naar_smaak": false,
+          "hoeveelheid": 4,
+          "beschrijving": "gemalen"
+        },
+        {
+          "naam": "Oregano",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": true
+        }
       ]
     },
     {
       "label": "Tomatensaus",
       "items": [
-        "1 kg tomaten of 1 liter passata",
-        "2 wortels",
-        "3 uien",
-        "1 courgette",
-        "chipotle pasta naar smaak",
-        "1 el oregano",
-        "neutrale olie"
+        {
+          "naam": "Tomaten of 1 liter passata",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "kg"
+        },
+        {
+          "naam": "Wortels",
+          "naar_smaak": false,
+          "hoeveelheid": 2
+        },
+        {
+          "naam": "Uien",
+          "naar_smaak": false,
+          "hoeveelheid": 3
+        },
+        {
+          "naam": "Courgette",
+          "naar_smaak": false,
+          "hoeveelheid": 1
+        },
+        {
+          "naam": "Chipotle pasta",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Oregano",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Neutrale olie",
+          "naar_smaak": false
+        }
       ]
     }
   ],
