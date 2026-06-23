@@ -21,43 +21,147 @@
     {
       "label": "Basis",
       "items": [
-        "1 blik linzen",
-        "2 blikken kikkererwten",
-        "1 blik gepelde tomaten",
-        "200 ml kokosmelk",
-        "2 el tomatenpuree",
-        "1 grote gele of rode ui (fijn gesnipperd)",
-        "6 teentjes knoflook",
-        "2 cm verse gember (geraspt)",
-        "1 serrano peper (in blokjes)"
+        {
+          "naam": "Linzen",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "blik"
+        },
+        {
+          "naam": "Kikkererwten",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "blikken"
+        },
+        {
+          "naam": "Gepelde tomaten",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "blik"
+        },
+        {
+          "naam": "Kokosmelk",
+          "naar_smaak": false,
+          "hoeveelheid": 200,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "Tomatenpuree",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Grote gele of rode ui",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "beschrijving": "fijn gesnipperd"
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": false,
+          "hoeveelheid": 6,
+          "eenheid": "teentjes"
+        },
+        {
+          "naam": "Cm verse gember",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "beschrijving": "geraspt"
+        },
+        {
+          "naam": "Serrano peper",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "beschrijving": "in blokjes"
+        }
       ]
     },
     {
       "label": "Afwerking",
       "items": [
-        "3 el tahini",
-        "sap van ½ limoen",
-        "verse koriander",
-        "½ tl bruine suiker"
+        {
+          "naam": "Tahini",
+          "naar_smaak": false,
+          "hoeveelheid": 3,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Sap van ½ limoen",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Verse koriander",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Bruine suiker",
+          "naar_smaak": false,
+          "hoeveelheid": "½",
+          "eenheid": "tl"
+        }
       ]
     },
     {
       "label": "Hele specerijen",
       "items": [
-        "1 tl komijnzaad",
-        "2 tl korianderzaad"
+        {
+          "naam": "Komijnzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Korianderzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "tl"
+        }
       ]
     },
     {
       "label": "Gemalen specerijen",
       "items": [
-        "2 tl garam masala",
-        "2 tl kerriepoeder",
-        "1½ tl gemalen koriander",
-        "½ tl gemalen kaneel",
-        "½ tl vers geraspte nootmuskaat",
-        "½ tl gemalen kurkuma",
-        "zwarte peper naar smaak"
+        {
+          "naam": "Garam masala",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Kerriepoeder",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Gemalen koriander",
+          "naar_smaak": false,
+          "hoeveelheid": "1½",
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Gemalen kaneel",
+          "naar_smaak": false,
+          "hoeveelheid": "½",
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Vers geraspte nootmuskaat",
+          "naar_smaak": false,
+          "hoeveelheid": "½",
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Gemalen kurkuma",
+          "naar_smaak": false,
+          "hoeveelheid": "½",
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Zwarte peper",
+          "naar_smaak": true
+        }
       ]
     }
   ],
