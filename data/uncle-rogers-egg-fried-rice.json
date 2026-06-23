@@ -21,26 +21,78 @@
     {
       "label": "Rijst & eieren",
       "items": [
-        "400 g dag-oude jasmijnrijst (gekookt, een nacht gekoeld)",
-        "3 eieren"
+        {
+          "naam": "Dag-oude jasmijnrijst",
+          "naar_smaak": false,
+          "hoeveelheid": 400,
+          "eenheid": "g",
+          "beschrijving": "gekookt, een nacht gekoeld"
+        },
+        {
+          "naam": "Eieren",
+          "naar_smaak": false,
+          "hoeveelheid": 3
+        }
       ]
     },
     {
       "label": "Aromaten",
       "items": [
-        "4 stengels bosui (wit en groen gescheiden)",
-        "knoflook naar smaak (fijn gesnipperd)"
+        {
+          "naam": "Bosui",
+          "naar_smaak": false,
+          "hoeveelheid": 4,
+          "eenheid": "stengels",
+          "beschrijving": "wit en groen gescheiden"
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": true,
+          "beschrijving": "fijn gesnipperd"
+        }
       ]
     },
     {
       "label": "Olie & smaakmakers",
       "items": [
-        "45 ml neutrale olie (zonnebloem of groente)",
-        "30 ml lichte sojasaus",
-        "15 ml geroosterde sesamolie",
-        "2 g MSG",
-        "1 g witte peper (versgemalen)",
-        "2 g zout"
+        {
+          "naam": "Neutrale olie",
+          "naar_smaak": false,
+          "hoeveelheid": 45,
+          "eenheid": "ml",
+          "beschrijving": "zonnebloem of groente"
+        },
+        {
+          "naam": "Lichte sojasaus",
+          "naar_smaak": false,
+          "hoeveelheid": 30,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "Geroosterde sesamolie",
+          "naar_smaak": false,
+          "hoeveelheid": 15,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "MSG",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "g"
+        },
+        {
+          "naam": "Witte peper",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "g",
+          "beschrijving": "versgemalen"
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "g"
+        }
       ]
     }
   ],
