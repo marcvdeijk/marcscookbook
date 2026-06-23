@@ -41,7 +41,7 @@
   }
   .header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 28px;
+    font-size: 34px;
     color: var(--accent);
     letter-spacing: -0.5px;
   }
@@ -469,7 +469,7 @@
     color: var(--text-muted);
     padding: 14px 20px;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     font-family: 'Inter', sans-serif;
     transition: all 0.15s;
@@ -1046,6 +1046,54 @@
   }
   .ing-voeg-toe-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 
+
+  /* Dag picker voor weekplanner vanuit bibliotheek */
+  .dag-picker-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 300;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .dag-picker-overlay.open { display: flex; }
+  .dag-picker {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    width: 100%;
+    max-width: 360px;
+    overflow: hidden;
+  }
+  .dag-picker-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dag-picker-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--accent);
+  }
+  .dag-picker-body { padding: 12px 16px; }
+  .dag-picker-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .dag-picker-item:hover { background: var(--surface2); }
+  .dag-picker-dag { font-weight: 600; font-size: 14px; }
+  .dag-picker-datum { font-size: 12px; color: var(--text-muted); }
+  .dag-picker-status { font-size: 11px; color: var(--accent2); }
+
 </style>
 </head>
 <body>
@@ -1190,6 +1238,17 @@
     <ul class="boodschappen-lijst" id="boodschappen-lijst"></ul>
   </div>
 </div><!-- end tab-boodschappen -->
+
+<!-- DAG PICKER MODAL -->
+<div class="dag-picker-overlay" id="dag-picker-overlay" onclick="sluitDagPicker(event)">
+  <div class="dag-picker">
+    <div class="dag-picker-header">
+      <div class="dag-picker-title">Plan voor welke dag?</div>
+      <button class="close-btn" onclick="sluitDagPicker()">✕</button>
+    </div>
+    <div class="dag-picker-body" id="dag-picker-body"></div>
+  </div>
+</div>
 
 <!-- INGREDIENT PICKER MODAL -->
 <div class="ing-picker-overlay" id="ing-picker-overlay" onclick="handleIngPickerClick(event)">
@@ -1482,6 +1541,7 @@ function switchTab(name) {
 // ─────────────────────────────────────────
 let recipes = [];
 let filters = { cuisine: 'all', protein: 'all', effort: 'all', time: 'all' };
+let checkedIngredients = {};
 let nutritionMode = {};
 
 // ─────────────────────────────────────────
@@ -1792,6 +1852,20 @@ let boodschappenLijst = []; // [{ id, tekst, bron, afgevinkt }]
 let ingPickerItems = []; // [{ tekst, geselecteerd }]
 let ingPickerBron = '';
 
+
+function kortIngredientAf(tekst) {
+  // Verwijder bereidingsinstructies na komma, gedachtestreep of haakje
+  // "750 g kippendijen zonder bot, in blokjes" → "750 g kippendijen"
+  // "gember naar smaak (geraspt)" → "gember naar smaak"
+  let kort = tekst
+    .replace(/\s*\([^)]*\)/g, '')      // verwijder (tussen haakjes)
+    .replace(/\s*—.*$/g, '')             // verwijder — en alles erna
+    .replace(/\s*,.*$/g, '')             // verwijder , en alles erna
+    .replace(/\s*–.*$/g, '')             // verwijder – en alles erna
+    .trim();
+  return kort || tekst;
+}
+
 function boodschappenId() {
   return 'b' + Date.now() + Math.random().toString(36).slice(2,6);
 }
@@ -1851,6 +1925,56 @@ function voegHandmatigToe() {
   input.value = '';
   renderBoodschappen();
   updateTabTeller();
+}
+
+
+// ── DAG PICKER (vanuit bibliotheek naar weekplanner) ──
+let dagPickerReceptId = null;
+
+function openDagPicker(receptId) {
+  dagPickerReceptId = receptId;
+  const r = recipes.find(x => x.id === receptId);
+  if (!r) return;
+
+  const days = T[currentLang].days;
+  const months = T[currentLang].months;
+  const dates = getWeekDates(weekOffset);
+
+  const body = document.getElementById('dag-picker-body');
+  body.innerHTML = dates.map((date, i) => {
+    const key = toDateKey(date);
+    const maaltijden = weekPlan[key] || [];
+    const volGepland = maaltijden.length >= 5;
+    const alGepland = maaltijden.includes(r.name);
+    return `
+      <div class="dag-picker-item" onclick="${volGepland || alGepland ? '' : `voegToeAanDag('${key}', '${r.name}')`}">
+        <div>
+          <div class="dag-picker-dag">${days[i]}</div>
+          <div class="dag-picker-datum">${date.getDate()} ${months[date.getMonth()]}</div>
+        </div>
+        <div class="dag-picker-status">
+          ${alGepland ? '✓ Gepland' : volGepland ? '● Vol' : '+ Toevoegen'}
+        </div>
+      </div>`;
+  }).join('');
+
+  document.getElementById('dag-picker-overlay').classList.add('open');
+}
+
+function voegToeAanDag(dateKey, naam) {
+  if (!weekPlan[dateKey]) weekPlan[dateKey] = [];
+  if (!weekPlan[dateKey].includes(naam) && weekPlan[dateKey].length < 5) {
+    weekPlan[dateKey].push(naam);
+  }
+  sluitDagPicker();
+  closeModal();
+  switchTab('weekplanner');
+}
+
+function sluitDagPicker(event) {
+  if (event && event.target !== document.getElementById('dag-picker-overlay')) return;
+  document.getElementById('dag-picker-overlay').classList.remove('open');
+  dagPickerReceptId = null;
 }
 
 // ── INGREDIENT PICKER ──
@@ -1926,7 +2050,7 @@ function voegGeselecteerdeToe() {
     // Voorkom duplicaten
     const bestaatAl = boodschappenLijst.some(b => b.tekst === item.tekst && b.bron === ingPickerBron);
     if (!bestaatAl) {
-      boodschappenLijst.push({ id: boodschappenId(), tekst: item.tekst, bron: ingPickerBron, afgevinkt: false });
+      boodschappenLijst.push({ id: boodschappenId(), tekst: kortIngredientAf(item.tekst), volledigeTekst: item.tekst, bron: ingPickerBron, afgevinkt: false });
     }
   });
   sluitIngPicker();
