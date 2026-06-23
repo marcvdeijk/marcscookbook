@@ -21,33 +21,116 @@
     {
       "label": "Kip & velveting marinade",
       "items": [
-        "500 g kipfilet of kippendijen, in dunne plakjes",
-        "1 eiwit",
-        "1 el maïszetmeel",
-        "½ tl baksoda",
-        "zout naar smaak"
+        {
+          "naam": "Kipfilet of kippendijen",
+          "naar_smaak": false,
+          "hoeveelheid": 500,
+          "eenheid": "g",
+          "beschrijving": "in dunne plakjes"
+        },
+        {
+          "naam": "Eiwit",
+          "naar_smaak": false,
+          "hoeveelheid": 1
+        },
+        {
+          "naam": "Maïszetmeel",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Baksoda",
+          "naar_smaak": false,
+          "hoeveelheid": "½",
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": true
+        }
       ]
     },
     {
       "label": "Bruine saus (vooraf mengen)",
       "items": [
-        "2 el lichte sojasaus",
-        "1 el oestersaus",
-        "1 el hoisinsaus",
-        "1 tl ketchup",
-        "1 tl suiker",
-        "½ tl MSG (Aji-no-moto)",
-        "1 tl maïszetmeel",
-        "1 tl sesamolie",
-        "knoflook naar smaak (geraspt)",
-        "2 el water of bouillon"
+        {
+          "naam": "Lichte sojasaus",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Oestersaus",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Hoisinsaus",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el"
+        },
+        {
+          "naam": "Ketchup",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Suiker",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "MSG",
+          "naar_smaak": false,
+          "hoeveelheid": "½",
+          "eenheid": "tl",
+          "beschrijving": "Aji-no-moto"
+        },
+        {
+          "naam": "Maïszetmeel",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Sesamolie",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl"
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": true,
+          "beschrijving": "geraspt"
+        },
+        {
+          "naam": "Water of bouillon",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el"
+        }
       ]
     },
     {
       "label": "Groenten & olie",
       "items": [
-        "1 struik broccoli in kleine dunne roosjes",
-        "2 el neutrale olie met hoog rookpunt"
+        {
+          "naam": "Broccoli in kleine dunne roosjes",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "struik"
+        },
+        {
+          "naam": "Neutrale olie met hoog rookpunt",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el"
+        }
       ]
     }
   ],
