@@ -537,6 +537,67 @@
     .filter-toggle { font-size: 14px; padding: 10px 14px; }
   }
 
+
+  /* ── TAB BAR ONDERAAN (mobiel) ── */
+  @media (max-width: 640px) {
+    /* Verberg de huidige tab nav bovenaan */
+    .tab-nav { display: none !important; }
+
+    /* Body padding zodat content niet achter tab bar verdwijnt */
+    body { padding-bottom: 80px; }
+
+    /* Tab bar onderaan */
+    .tab-bar-bottom {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      z-index: 500;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    .tab-bar-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 4px 8px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      gap: 3px;
+      transition: color 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .tab-bar-btn.active { color: var(--accent); }
+    .tab-bar-icon { font-size: 22px; line-height: 1; }
+    .tab-bar-label { font-size: 10px; font-weight: 500; letter-spacing: 0.3px; }
+    .tab-bar-badge {
+      position: absolute;
+      top: 6px;
+      right: calc(50% - 18px);
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 9px;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 5px;
+      min-width: 16px;
+      text-align: center;
+    }
+    .tab-bar-btn { position: relative; }
+  }
+
+  /* Desktop: tab bar onderaan verbergen */
+  @media (min-width: 641px) {
+    .tab-bar-bottom { display: none; }
+  }
+
 </style>
 </head>
 <body>
@@ -976,6 +1037,11 @@ function switchTab(name) {
   document.querySelectorAll('.tab-panel').forEach(p => {
     p.classList.toggle('active', p.id === `tab-${name}`);
   });
+  // Tab bar onderaan syncen
+  ['bibliotheek','weekplanner','boodschappen'].forEach(t => {
+    const btn = document.getElementById('tbb-' + t);
+    if (btn) btn.classList.toggle('active', t === name);
+  });
   if (name === 'weekplanner') renderPlanner();
   if (name === 'boodschappen') renderBoodschappen();
 }
@@ -1362,9 +1428,14 @@ function boodschappenId() {
 
 function updateTabTeller() {
   const btn = document.getElementById('tab-btn-boodschappen');
-  if (!btn) return;
   const aantal = boodschappenLijst.filter(i => !i.afgevinkt).length;
-  btn.textContent = aantal > 0 ? `🛒 Boodschappen (${aantal})` : '🛒 Boodschappen';
+  if (btn) btn.textContent = aantal > 0 ? `🛒 Boodschappen (${aantal})` : '🛒 Boodschappen';
+  // Tab bar badge
+  const badge = document.getElementById('tbb-badge');
+  if (badge) {
+    badge.style.display = aantal > 0 ? 'block' : 'none';
+    badge.textContent = aantal;
+  }
 }
 
 function getNaam(item) { return item.naam || item.tekst || ''; }
@@ -1898,6 +1969,24 @@ if (savedLang === 'en') { currentLang = 'en'; document.getElementById('lang-btn'
 loadRecipes();
 checkMobile();
 </script>
+
+<!-- TAB BAR ONDERAAN (alleen mobiel) -->
+<div class="tab-bar-bottom" id="tab-bar-bottom">
+  <button class="tab-bar-btn active" id="tbb-bibliotheek" onclick="switchTab('bibliotheek')">
+    <span class="tab-bar-icon">📚</span>
+    <span class="tab-bar-label">Bibliotheek</span>
+  </button>
+  <button class="tab-bar-btn" id="tbb-weekplanner" onclick="switchTab('weekplanner')">
+    <span class="tab-bar-icon">📅</span>
+    <span class="tab-bar-label">Weekplanner</span>
+  </button>
+  <button class="tab-bar-btn" id="tbb-boodschappen" onclick="switchTab('boodschappen')">
+    <span class="tab-bar-icon">🛒</span>
+    <span class="tab-bar-label">Boodschappen</span>
+    <span class="tab-bar-badge" id="tbb-badge" style="display:none"></span>
+  </button>
+</div>
+
 </body>
 </html>
  
