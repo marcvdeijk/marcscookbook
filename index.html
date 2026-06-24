@@ -360,6 +360,23 @@
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
 
+  /* Header knoppen */
+  .header-controls { margin-left:auto; display:flex; align-items:center; gap:8px; }
+  .ctrl-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-muted);
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
+
   [data-theme="dark"] {
     --bg: #1a1a18;
     --surface: #232320;
