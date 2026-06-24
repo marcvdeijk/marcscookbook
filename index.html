@@ -706,14 +706,15 @@
     }
 
     .card {
-      border-radius: 0 !important;
-      border: none !important;
-      border-bottom: 1px solid var(--border) !important;
-      padding: 18px 16px !important;
+      border-radius: 12px !important;
+      border: 1px solid var(--border) !important;
+      margin: 0 12px !important;
+      padding: 16px !important;
       display: block !important;
       transform: none !important;
     }
     .card:active { background: var(--surface2) !important; }
+    .grid { gap: 10px !important; padding: 8px 0 16px !important; }
 
     .card-title {
       font-size: 20px !important;
@@ -880,9 +881,13 @@
         <button class="wis-alles-btn" onclick="wisAlles()">✕ Wis alles</button>
       </div>
     </div>
-    <div class="boodschappen-add-row">
-      <input type="text" class="boodschappen-input" id="boodschappen-input" placeholder="Item toevoegen..." onkeydown="if(event.key==='Enter') voegHandmatigToe()">
-      <button class="boodschappen-add-btn" onclick="voegHandmatigToe()">+</button>
+    <div class="boodschappen-add-row" style="flex-direction:column;gap:8px;">
+      <input type="text" class="boodschappen-input" id="boodschappen-input" placeholder="Naam..." style="font-size:16px;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
+      <div style="display:flex;gap:8px;">
+        <input type="text" class="boodschappen-input" id="boodschappen-aantal" placeholder="Aantal" style="flex:1;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
+        <input type="text" class="boodschappen-input" id="boodschappen-eenheid" placeholder="Eenheid" style="flex:1;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
+        <button class="boodschappen-add-btn" onclick="voegHandmatigToe()">+</button>
+      </div>
     </div>
     <div id="boodschappen-leeg" class="boodschappen-leeg">
       <div style="font-size:40px;">🛒</div>
@@ -1716,13 +1721,20 @@ function wisAlles() {
 }
 
 function voegHandmatigToe() {
-  const input = document.getElementById('boodschappen-input');
-  const val = input.value.trim();
-  if (!val) return;
-  boodschappenLijst.push({ id: boodschappenId(), naam: val, aantal: '', eenheid: '', bron: '', afgevinkt: false, bewerken: false });
-  input.value = '';
+  const naamEl = document.getElementById('boodschappen-input');
+  const aantalEl = document.getElementById('boodschappen-aantal');
+  const eenheidEl = document.getElementById('boodschappen-eenheid');
+  const naam = naamEl ? naamEl.value.trim() : '';
+  if (!naam) return;
+  const aantal = aantalEl ? aantalEl.value.trim() : '';
+  const eenheid = eenheidEl ? eenheidEl.value.trim() : '';
+  boodschappenLijst.push({ id: boodschappenId(), naam, aantal, eenheid, bron: '', afgevinkt: false, bewerken: false });
+  if (naamEl) naamEl.value = '';
+  if (aantalEl) aantalEl.value = '';
+  if (eenheidEl) eenheidEl.value = '';
   renderBoodschappen();
   updateTabTeller();
+  if (naamEl) naamEl.focus();
 }
 
 
