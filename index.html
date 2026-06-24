@@ -1090,8 +1090,8 @@
     <div class="day-grid" id="day-grid"></div>
 
     <div class="planner-footer">
-      <button class="ics-btn" id="ics-btn" onclick="downloadICS()">📥 Download kalender (.ics)</button>
-      <span class="ics-hint" id="ics-hint">Open het bestand op je iPhone of iPad om de maaltijden toe te voegen aan iCloud Kalender.</span>
+      <button onclick="downloadICS()" style="display:inline-flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);padding:12px 20px;font-size:14px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:all 0.15s;margin-top:16px;">📥 Download kalender (.ics)</button>
+      <span id="ics-hint" style="font-size:12px;color:var(--text-muted);margin-left:8px;">Open het bestand op je iPhone of iPad om de maaltijden toe te voegen aan iCloud Kalender.</span>
     </div>
   </div>
 </div><!-- end tab-weekplanner -->
