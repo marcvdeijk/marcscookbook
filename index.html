@@ -938,6 +938,13 @@
   @media (min-width: 641px) {
   }
 
+
+  @media (max-width: 640px) {
+    .main { padding: 0 !important; }
+    .grid { padding: 8px 12px 80px !important; gap: 10px !important; }
+    .results-count { padding: 4px 12px !important; font-size: 13px !important; margin-bottom: 4px !important; }
+  }
+
 </style>
 </head>
 <body>
@@ -1139,8 +1146,8 @@
 
 
 <!-- FILTER MODAL (mobiel) -->
-<div id="filter-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:350;justify-content:center;align-items:flex-end;padding:0;touch-action:none;" onclick="sluitFilterModal(event)">
-  <div style="background:var(--surface);border-radius:20px 20px 0 0;width:100%;max-height:80vh;overflow-y:auto;overflow-x:hidden;padding:20px 20px 40px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;">
+<div id="filter-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:350;justify-content:center;align-items:flex-end;padding:0;" ontouchstart="event.stopPropagation()" onclick="sluitFilterModal(event)">
+  <div style="background:var(--surface);border-radius:20px 20px 0 0;width:100%;max-height:75vh;overflow-y:scroll;overflow-x:hidden;padding:20px 20px 40px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
       <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--text);">Filters</div>
       <button onclick="resetFilters()" style="background:none;border:1px solid var(--border);border-radius:8px;color:var(--text-muted);padding:6px 12px;font-size:13px;cursor:pointer;font-family:Inter,sans-serif;">Reset</button>
