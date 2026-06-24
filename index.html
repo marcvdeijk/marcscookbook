@@ -1694,7 +1694,6 @@ function renderGrid() {
   grid.innerHTML = filtered.map(r => `
     <div class="card ${r.source === 'ontdekking' ? 'ontdekking' : 'eigen'}" onclick="openModal('${r.id}')">
       <div class="card-title" style="display:flex;align-items:baseline;gap:6px;">
-        <span class="source-badge ${r.source === 'ontdekking' ? 'source-ontdekking' : 'source-eigen'}" title="${r.source === 'ontdekking' ? 'Ontdekking' : 'Eigen recept'}"></span>
         ${r.name}${!r.complete ? ` <span style="font-size:11px;color:var(--text-muted);">${t('incomplete')}</span>` : ''}
       </div>
       <div class="card-meta">
