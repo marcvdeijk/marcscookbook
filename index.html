@@ -1280,7 +1280,10 @@
   <div class="boodschappen-main">
     <div class="boodschappen-header">
       <div class="boodschappen-title">Boodschappenlijst</div>
-      <button class="wis-alles-btn" onclick="wisAlles()">✕ Wis alles</button>
+      <div style="display:flex;gap:8px;">
+        <button class="wis-alles-btn" id="kopieer-btn" onclick="kopieerLijst()">📋 Kopieer</button>
+        <button class="wis-alles-btn" onclick="wisAlles()">✕ Wis alles</button>
+      </div>
     </div>
     <div class="boodschappen-add-row">
       <input type="text" class="boodschappen-input" id="boodschappen-input" placeholder="Item toevoegen..." onkeydown="if(event.key==='Enter') voegHandmatigToe()">
@@ -2058,6 +2061,42 @@ function verwijderBoodschap(id) {
   boodschappenLijst = boodschappenLijst.filter(i => i.id !== id);
   renderBoodschappen();
   updateTabTeller();
+}
+
+
+function kopieerLijst() {
+  const nietAfgevinkt = boodschappenLijst.filter(i => !i.afgevinkt);
+  if (nietAfgevinkt.length === 0) return;
+
+  const tekst = [...nietAfgevinkt]
+    .sort((a, b) => getNaam(a).localeCompare(getNaam(b), 'nl'))
+    .map(item => {
+      const naam = getNaam(item);
+      const rechts = [item.aantal, item.eenheid].filter(Boolean).join(' ');
+      return rechts ? naam + ' - ' + rechts : naam;
+    })
+    .join('\n');
+
+  navigator.clipboard.writeText(tekst).then(() => {
+    const btn = document.getElementById('kopieer-btn');
+    const orig = btn.textContent;
+    btn.textContent = '✓ Gekopieerd!';
+    setTimeout(() => btn.textContent = orig, 2000);
+  }).catch(() => {
+    // Fallback voor browsers zonder clipboard API
+    const ta = document.createElement('textarea');
+    ta.value = tekst;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const btn = document.getElementById('kopieer-btn');
+    const orig = btn.textContent;
+    btn.textContent = '✓ Gekopieerd!';
+    setTimeout(() => btn.textContent = orig, 2000);
+  });
 }
 
 function wisAlles() {
