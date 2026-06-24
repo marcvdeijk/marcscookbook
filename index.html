@@ -1563,10 +1563,7 @@ function renderBold(text) {
 let searchQuery = '';
 
 function handleSearch(val) {
-  const clearBtn = document.getElementById('search-clear-btn');
   searchQuery = val.trim().toLowerCase();
-  const clearBtn = document.getElementById('search-clear');
-  if (clearBtn) clearBtn.classList.toggle('visible', searchQuery.length > 0);
   renderGrid();
 }
 
