@@ -2033,12 +2033,14 @@ function _openIngPickerVoorRecept(r) {
     if (groepen.length > 1) body += '<div class="ing-picker-group-label">' + groep + '</div>';
     ingPickerItems.filter(i => i.groep === groep).forEach(item => {
       const globalIdx = ingPickerItems.indexOf(item);
+      const aantalId = 'ing-aantal-' + globalIdx;
+      const eenheidId = 'ing-eenheid-' + globalIdx;
       body +=
         '<div class="ing-picker-row">' +
         '<input type="checkbox" id="ing-cb-' + globalIdx + '" ' + (item.geselecteerd ? 'checked' : '') + ' onchange="toggleIngPickerItem(' + globalIdx + ')">' +
         '<input type="text" class="ing-naam-input" id="ing-naam-' + globalIdx + '" value="' + (item.boodschapTekst||'').replace(/"/g,'&quot;') + '" placeholder="Naam" oninput="ingPickerItems[' + globalIdx + '].boodschapTekst=this.value">' +
-        '<div class="ing-klein-wrap"><input type="text" class="ing-klein-input" id="ing-aantal-' + globalIdx + '" value="' + (item.defaultHoeveelheid || '') + '" placeholder="#"><button class="ing-klein-clear" onclick="document.getElementById('ing-aantal-' + globalIdx + '').value=''" tabindex="-1">✕</button></div>' +
-        '<div class="ing-klein-wrap"><input type="text" class="ing-klein-input" id="ing-eenheid-' + globalIdx + '" value="' + (item.defaultEenheid || '') + '" placeholder="Eenh."><button class="ing-klein-clear" onclick="document.getElementById('ing-eenheid-' + globalIdx + '').value=''" tabindex="-1">✕</button></div>' +
+        '<div class="ing-klein-wrap"><input type="text" class="ing-klein-input" id="' + aantalId + '" value="' + (item.defaultHoeveelheid || '') + '" placeholder="#"><button class="ing-klein-clear" onclick="document.getElementById(' + JSON.stringify(aantalId) + ').value=\'\'" tabindex="-1">✕</button></div>' +
+        '<div class="ing-klein-wrap"><input type="text" class="ing-klein-input" id="' + eenheidId + '" value="' + (item.defaultEenheid || '') + '" placeholder="Eenh."><button class="ing-klein-clear" onclick="document.getElementById(' + JSON.stringify(eenheidId) + ').value=\'\'" tabindex="-1">✕</button></div>' +
         '</div>';
     });
   });
