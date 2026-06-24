@@ -2113,6 +2113,12 @@ function sluitIngPicker() {
   document.getElementById('ing-picker-overlay').classList.remove('open');
   ingPickerItems = [];
   ingPickerBron = '';
+  handmatigIngItems = [];
+  // Herstel footer knoppen
+  const footerBtn = document.getElementById('ing-voeg-toe-btn');
+  if (footerBtn) footerBtn.style.display = '';
+  const selectAll = document.querySelector('.ing-select-all');
+  if (selectAll) selectAll.style.display = '';
 }
 
 function handleIngPickerClick(e) {
@@ -2208,10 +2214,13 @@ function openIngPickerOfHandmatig(naam, event) {
         '<input type="text" class="ing-klein-input" id="handmatig-aantal" placeholder="#" style="font-size:13px;padding:8px 6px;text-align:center;" onkeydown="if(event.key===\'Enter\')voegHandmatigIngToe()">' +
         '<input type="text" class="ing-klein-input" id="handmatig-eenheid" placeholder="Eenheid" style="font-size:13px;padding:8px 6px;" onkeydown="if(event.key===\'Enter\')voegHandmatigIngToe()">' +
         '<button onclick="voegHandmatigIngToe()" style="background:var(--accent);border:none;border-radius:6px;color:var(--bg);font-size:16px;font-weight:700;cursor:pointer;padding:8px;width:100%;">+</button>' +
-      '</div>';
-    // Zet knop direct op actief voor handmatige modus
-    const btn = document.getElementById('ing-voeg-toe-btn');
-    if (btn) { btn.textContent = 'Voeg toe aan lijst'; btn.disabled = false; }
+      '</div>' +
+      '<button id="handmatig-toevoegen-btn" onclick="voegHandmatigItemsToe()" style="display:none;margin-top:14px;width:100%;background:var(--accent);border:none;border-radius:10px;color:var(--bg);padding:13px;font-size:15px;font-weight:700;cursor:pointer;font-family:Inter,sans-serif;">Voeg toe aan boodschappenlijst</button>';
+    // Verberg de normale footer knop, toon eigen knop in het scherm
+    const footerBtn = document.getElementById('ing-voeg-toe-btn');
+    if (footerBtn) footerBtn.style.display = 'none';
+    const selectAll = document.querySelector('.ing-select-all');
+    if (selectAll) selectAll.style.display = 'none';
     document.getElementById('ing-picker-overlay').classList.add('open');
     setTimeout(() => { const n = document.getElementById('handmatig-naam'); if(n) n.focus(); }, 100);
   }
@@ -2243,10 +2252,10 @@ function voegHandmatigIngToe() {
   if (aEl) aEl.value = '';
   if (eEl) eEl.value = '';
   if (nEl) nEl.focus();
-  const btn = document.getElementById('ing-voeg-toe-btn');
-  if (btn) {
-    btn.textContent = handmatigIngItems.length > 0 ? 'Voeg ' + handmatigIngItems.length + ' items toe' : 'Voeg toe aan lijst';
-    btn.disabled = false;
+  const toevoegenBtn = document.getElementById('handmatig-toevoegen-btn');
+  if (toevoegenBtn) {
+    toevoegenBtn.style.display = handmatigIngItems.length > 0 ? 'block' : 'none';
+    toevoegenBtn.textContent = 'Voeg ' + handmatigIngItems.length + ' item' + (handmatigIngItems.length !== 1 ? 's' : '') + ' toe aan boodschappenlijst';
   }
 }
 
@@ -2255,21 +2264,17 @@ function verwijderHandmatigIng(i) {
   voegHandmatigIngToe(); // re-render
 }
 
-// Override voegGeselecteerdeToe voor handmatige items
-const _origVoegToe = voegGeselecteerdeToe;
-voegGeselecteerdeToe = function() {
-  if (handmatigIngItems.length > 0) {
-    handmatigIngItems.forEach(item => {
-      boodschappenLijst.push({ id: boodschappenId(), naam: item.naam, aantal: item.aantal, eenheid: item.eenheid, bron: ingPickerBron, afgevinkt: false, bewerken: false });
-    });
-    handmatigIngItems = [];
-    sluitIngPicker();
-    renderBoodschappen();
-    updateTabTeller();
-  } else {
-    _origVoegToe();
-  }
-};
+// Handmatige items naar boodschappenlijst
+function voegHandmatigItemsToe() {
+  if (handmatigIngItems.length === 0) return;
+  handmatigIngItems.forEach(item => {
+    boodschappenLijst.push({ id: boodschappenId(), naam: item.naam, aantal: item.aantal, eenheid: item.eenheid, bron: ingPickerBron, afgevinkt: false, bewerken: false });
+  });
+  handmatigIngItems = [];
+  sluitIngPicker();
+  renderBoodschappen();
+  updateTabTeller();
+}
 
 // ─────────────────────────────────────────
 // WEEKPLANNER
