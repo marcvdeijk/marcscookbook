@@ -1836,15 +1836,15 @@ function renderBoodschappen() {
         '</li>';
     }
     const naam = getNaam(item);
-    const rechts = [item.aantal, item.eenheid].filter(x => x && String(x).trim()).join(' · ');
-    return '<li class="boodschappen-item' + (item.afgevinkt ? ' afgevinkt' : '') + '">' +
-      '<input type="checkbox" ' + (item.afgevinkt ? 'checked' : '') + ' onchange="toggleBoodschap(\'' + item.id + '\')">' +
-      '<div class="boodschappen-item-content" onclick="bewerkItem(\'' + item.id + '\')">' +
-        '<div class="boodschappen-item-naam">' + naam + '</div>' +
-        (rechts ? '<div class="boodschappen-item-aantal">' + rechts + '</div>' : '') +
+    const hoeveelheid = [item.aantal, item.eenheid].filter(x => x && String(x).trim()).join(' ');
+    return '<li style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);">' +
+      '<input type="checkbox" ' + (item.afgevinkt ? 'checked' : '') + ' onchange="toggleBoodschap(\'' + item.id + '\')" style="accent-color:var(--accent);width:20px;height:20px;flex-shrink:0;cursor:pointer;">' +
+      '<div style="flex:1;min-width:0;cursor:pointer;" onclick="bewerkItem(\'' + item.id + '\')">' +
+        '<div style="font-size:16px;font-weight:500;color:var(--text);' + (item.afgevinkt ? 'text-decoration:line-through;opacity:0.4;' : '') + '">' + naam + '</div>' +
+        (hoeveelheid ? '<div style="font-size:13px;color:var(--text-muted);margin-top:2px;">' + hoeveelheid + '</div>' : '') +
       '</div>' +
-      (item.bron ? '<span class="boodschappen-item-bron">' + item.bron + '</span>' : '') +
-      '<button class="boodschappen-delete" onclick="verwijderBoodschap(\'' + item.id + '\')" title="Verwijder">✕</button>' +
+      (item.bron ? '<span style="font-size:11px;color:var(--text-muted);background:var(--surface2);border-radius:4px;padding:2px 6px;white-space:nowrap;flex-shrink:0;">' + item.bron + '</span>' : '') +
+      '<button onclick="verwijderBoodschap(\'' + item.id + '\')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:16px;padding:4px;flex-shrink:0;opacity:0.5;">✕</button>' +
       '</li>';
   }).join('');
 }
