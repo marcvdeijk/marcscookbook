@@ -360,6 +360,25 @@
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
 
+  [data-theme="dark"] {
+    --bg: #1a1a18;
+    --surface: #232320;
+    --surface2: #2c2c28;
+    --border: #3a3a34;
+    --accent: #c8a96e;
+    --accent2: #7a9e7e;
+    --text: #e8e4dc;
+    --text-muted: #8a8678;
+    --tag-bg: #2e2e2a;
+  }
+  [data-theme="dark"] .score-badge.green { background: #1a3a1a; color: #4caf50; border: 1px solid #2a5a2a; }
+  [data-theme="dark"] .score-badge.orange { background: #3a2a0a; color: #ff9800; border: 1px solid #5a3a0a; }
+  [data-theme="dark"] .score-badge.red { background: #3a1a1a; color: #f44336; border: 1px solid #5a2a2a; }
+  [data-theme="dark"] .incomplete-note { background: #2a2010; border-color: #5a4010; color: #c8a060; }
+  [data-theme="dark"] .error-note { background: #2a1010; border-color: #5a1010; color: #e07070; }
+  [data-theme="dark"] .day-card.today { background: #2a2010; }
+  [data-theme="dark"] .meal-slot.filled { background: #2a2a1a; border-color: #4a4a2a; }
+
   @media (max-width: 640px) {
     /* Header compacter */
     .header {
