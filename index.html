@@ -601,19 +601,16 @@
 
   /* ── STAP 2: BIBLIOTHEEK MOBIEL ── */
   @media (max-width: 640px) {
-    /* Verberg sidebar volledig op mobiel */
     .sidebar { display: none !important; }
     #filter-toggle-wrapper { display: none !important; }
 
-    /* Zoekbalk bovenaan, groot */
     .search-bar { padding: 12px 16px 0; }
     .search-input { font-size: 16px; padding: 12px 16px; border-radius: 12px; }
 
-    /* Filter pillen — horizontaal scrollende rij */
     .filter-pills {
       display: flex;
       gap: 8px;
-      padding: 10px 16px;
+      padding: 10px 16px 4px;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
@@ -624,14 +621,15 @@
       border: 1px solid var(--border);
       border-radius: 20px;
       color: var(--text-muted);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
       font-family: 'Inter', sans-serif;
-      padding: 6px 14px;
+      padding: 7px 16px;
       white-space: nowrap;
       cursor: pointer;
       flex-shrink: 0;
       -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
     }
     .filter-pill.active {
       background: var(--accent);
@@ -639,10 +637,10 @@
       color: var(--bg);
     }
 
-    /* Resultaten teller */
-    .results-count { padding: 0 16px 4px; font-size: 13px; }
+    .results-count { padding: 4px 16px; font-size: 13px; }
+    .source-legend { display: none; }
 
-    /* Grid → verticale lijst */
+    /* Verticale lijst */
     .grid {
       display: flex !important;
       flex-direction: column !important;
@@ -650,59 +648,51 @@
       padding: 0 !important;
     }
 
-    /* Kaart → horizontale rij */
+    /* Kaart als lijst-item */
     .card {
       border-radius: 0 !important;
-      border-left: none !important;
-      border-right: none !important;
-      border-top: none !important;
+      border: none !important;
       border-bottom: 1px solid var(--border) !important;
-      padding: 14px 16px !important;
+      padding: 16px !important;
+      display: block !important;
+      transform: none !important;
+    }
+    .card:hover { transform: none !important; background: var(--surface2) !important; }
+
+    .card-title {
+      font-size: 18px !important;
+      margin-bottom: 6px !important;
       display: flex !important;
       align-items: center !important;
-      gap: 12px !important;
+      gap: 6px !important;
     }
-    .card:hover { transform: none !important; }
-    .card:first-child { border-top: 1px solid var(--border) !important; }
 
-    /* Links: naam + tags */
-    .card-left {
-      flex: 1;
-      min-width: 0;
-    }
-    .card-title {
-      font-size: 16px !important;
-      margin-bottom: 4px !important;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
     .card-meta {
+      display: flex !important;
       flex-wrap: nowrap !important;
-      overflow: hidden !important;
-      gap: 4px !important;
-      margin-bottom: 0 !important;
+      overflow-x: auto !important;
+      gap: 6px !important;
+      margin-bottom: 10px !important;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
-    .tag { font-size: 11px !important; padding: 2px 7px !important; }
+    .card-meta::-webkit-scrollbar { display: none; }
+    .tag { font-size: 12px !important; padding: 3px 9px !important; white-space: nowrap !important; flex-shrink: 0 !important; }
 
-    /* Rechts: stats compact */
+    /* Stats als kleine horizontale rij */
     .card-stats {
       display: flex !important;
-      flex-direction: column !important;
-      align-items: flex-end !important;
-      gap: 4px !important;
-      border-top: none !important;
-      padding-top: 0 !important;
+      flex-direction: row !important;
+      gap: 16px !important;
+      border-top: 1px solid var(--border) !important;
+      padding-top: 10px !important;
       margin-top: 0 !important;
-      flex-shrink: 0;
     }
-    .stat { flex-direction: row !important; gap: 4px !important; align-items: center !important; }
-    .stat-label { font-size: 10px !important; }
-    .stat-value { font-size: 13px !important; }
-
-    /* Source badge in kaart */
-    .card-title > span.source-badge { display: none; }
+    .stat { flex-direction: row !important; align-items: center !important; gap: 5px !important; }
+    .stat-label { font-size: 11px !important; }
+    .stat-value { font-size: 14px !important; font-weight: 600 !important; }
   }
+
 
 </style>
 </head>
