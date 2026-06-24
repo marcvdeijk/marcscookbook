@@ -1134,6 +1134,30 @@
 </div>
 
 
+
+<!-- HANDMATIG RECEPT MODAL -->
+<div id="handmatig-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:350;justify-content:center;align-items:center;padding:20px;">
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;width:100%;max-width:480px;overflow:hidden;">
+    <div style="padding:18px 24px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+      <div id="handmatig-modal-title" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--accent);"></div>
+      <button onclick="sluitHandmatigModal()" style="background:none;border:1px solid var(--border);border-radius:6px;color:var(--text-muted);padding:4px 10px;cursor:pointer;font-size:14px;">✕</button>
+    </div>
+    <div style="padding:16px 24px;">
+      <div style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Voeg ingrediënten toe aan je boodschappenlijst:</div>
+      <div id="handmatig-modal-lijst" style="margin-bottom:12px;"></div>
+      <div style="display:grid;grid-template-columns:1fr 56px 88px 36px;gap:6px;align-items:center;">
+        <input type="text" id="hm-naam" placeholder="Naam" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:9px 10px;font-size:14px;font-family:Inter,sans-serif;outline:none;width:100%;" onkeydown="if(event.key==='Enter')hmVoegToe()">
+        <input type="text" id="hm-aantal" placeholder="#" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:9px 6px;font-size:13px;font-family:Inter,sans-serif;outline:none;width:100%;text-align:center;" onkeydown="if(event.key==='Enter')hmVoegToe()">
+        <input type="text" id="hm-eenheid" placeholder="Eenheid" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:9px 6px;font-size:13px;font-family:Inter,sans-serif;outline:none;width:100%;" onkeydown="if(event.key==='Enter')hmVoegToe()">
+        <button onclick="hmVoegToe()" style="background:var(--accent);border:none;border-radius:8px;color:var(--bg);font-size:18px;font-weight:700;cursor:pointer;padding:9px;width:100%;">+</button>
+      </div>
+    </div>
+    <div style="padding:0 24px 20px;">
+      <button id="hm-toevoegen-btn" onclick="hmBevestig()" style="display:none;width:100%;background:var(--accent);border:none;border-radius:10px;color:var(--bg);padding:13px;font-size:15px;font-weight:700;cursor:pointer;font-family:Inter,sans-serif;">Voeg toe aan boodschappenlijst</button>
+    </div>
+  </div>
+</div>
+
 <!-- MEAL PICKER MODAL -->
 <div class="meal-picker-overlay" id="meal-picker-overlay" onclick="handlePickerOverlayClick(event)">
   <div class="meal-picker">
@@ -2191,90 +2215,107 @@ document.addEventListener('click', function(e) {
 });
 
 
-// ── INGREDIENT PICKER: ook voor handmatige gerechten ──
-function openIngPickerOfHandmatig(naam, event) {
-  if (event) event.stopPropagation();
-  const r = recipes.find(x => x.name === naam);
-  if (r) {
-    // Recept gevonden in bibliotheek — gebruik normale picker
-    openIngPicker(naam, event);
-  } else {
-    // Handmatig recept — open simpele invoer om items toe te voegen
-    ingPickerBron = naam;
-    ingPickerItems = [];
-    document.getElementById('ing-picker-title').textContent = naam;
-    handmatigIngItems = [];
-    document.getElementById('ing-select-step').innerHTML =
-      '<div style="padding:8px 0;color:var(--text-muted);font-size:13px;margin-bottom:12px;">' +
-      'Niet in bibliotheek — voeg ingrediënten handmatig toe:' +
-      '</div>' +
-      '<div id="handmatig-items-list"></div>' +
-      '<div style="display:grid;grid-template-columns:1fr 52px 90px 36px;gap:6px;margin-top:12px;align-items:center;">' +
-        '<input type="text" class="ing-naam-input" id="handmatig-naam" placeholder="Naam" style="font-size:14px;padding:8px 10px;" onkeydown="if(event.key===\'Enter\')voegHandmatigIngToe()">' +
-        '<input type="text" class="ing-klein-input" id="handmatig-aantal" placeholder="#" style="font-size:13px;padding:8px 6px;text-align:center;" onkeydown="if(event.key===\'Enter\')voegHandmatigIngToe()">' +
-        '<input type="text" class="ing-klein-input" id="handmatig-eenheid" placeholder="Eenheid" style="font-size:13px;padding:8px 6px;" onkeydown="if(event.key===\'Enter\')voegHandmatigIngToe()">' +
-        '<button onclick="voegHandmatigIngToe()" style="background:var(--accent);border:none;border-radius:6px;color:var(--bg);font-size:16px;font-weight:700;cursor:pointer;padding:8px;width:100%;">+</button>' +
-      '</div>' +
-      '<button id="handmatig-toevoegen-btn" onclick="voegHandmatigItemsToe()" style="display:none;margin-top:14px;width:100%;background:var(--accent);border:none;border-radius:10px;color:var(--bg);padding:13px;font-size:15px;font-weight:700;cursor:pointer;font-family:Inter,sans-serif;">Voeg toe aan boodschappenlijst</button>';
-    // Verberg de normale footer knop, toon eigen knop in het scherm
-    const footerBtn = document.getElementById('ing-voeg-toe-btn');
-    if (footerBtn) footerBtn.style.display = 'none';
-    const selectAll = document.querySelector('.ing-select-all');
-    if (selectAll) selectAll.style.display = 'none';
-    document.getElementById('ing-picker-overlay').classList.add('open');
-    setTimeout(() => { const n = document.getElementById('handmatig-naam'); if(n) n.focus(); }, 100);
-  }
-}
 
-let handmatigIngItems = [];
 
-function voegHandmatigIngToe() {
-  const naam = document.getElementById('handmatig-naam').value.trim();
-  if (!naam) return;
-  const aantal = document.getElementById('handmatig-aantal').value.trim();
-  const eenheid = document.getElementById('handmatig-eenheid').value.trim();
-  handmatigIngItems.push({ naam, aantal, eenheid });
-  // Toon in lijst
-  const lijst = document.getElementById('handmatig-items-list');
-  if (lijst) {
-    lijst.innerHTML = handmatigIngItems.map((item, i) =>
-      '<div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);">' +
-        '<div style="flex:1;font-size:14px;font-weight:500;">' + item.naam + '</div>' +
-        '<div style="font-size:13px;color:var(--text-muted);">' + [item.aantal, item.eenheid].filter(Boolean).join(' ') + '</div>' +
-        '<button onclick="verwijderHandmatigIng(' + i + ')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:14px;padding:2px 4px;">✕</button>' +
-      '</div>'
-    ).join('');
-  }
-  const nEl = document.getElementById('handmatig-naam');
-  const aEl = document.getElementById('handmatig-aantal');
-  const eEl = document.getElementById('handmatig-eenheid');
-  if (nEl) nEl.value = '';
-  if (aEl) aEl.value = '';
-  if (eEl) eEl.value = '';
-  if (nEl) nEl.focus();
-  const toevoegenBtn = document.getElementById('handmatig-toevoegen-btn');
-  if (toevoegenBtn) {
-    toevoegenBtn.style.display = handmatigIngItems.length > 0 ? 'block' : 'none';
-    toevoegenBtn.textContent = 'Voeg ' + handmatigIngItems.length + ' item' + (handmatigIngItems.length !== 1 ? 's' : '') + ' toe aan boodschappenlijst';
-  }
-}
 
-function verwijderHandmatigIng(i) {
-  handmatigIngItems.splice(i, 1);
-  voegHandmatigIngToe(); // re-render
-}
+
+
+
 
 // Handmatige items naar boodschappenlijst
-function voegHandmatigItemsToe() {
-  if (handmatigIngItems.length === 0) return;
-  handmatigIngItems.forEach(item => {
-    boodschappenLijst.push({ id: boodschappenId(), naam: item.naam, aantal: item.aantal, eenheid: item.eenheid, bron: ingPickerBron, afgevinkt: false, bewerken: false });
+
+
+
+// ── HANDMATIG RECEPT INGREDIENTEN ──
+var hmItems = [];
+var hmBron = '';
+
+function openIngPickerOfHandmatig(naam, event) {
+  if (event) event.stopPropagation();
+  var r = recipes.find(function(x) { return x.name === naam; });
+  if (r) {
+    openIngPicker(naam, event);
+    return;
+  }
+  // Handmatig recept
+  hmBron = naam;
+  hmItems = [];
+  document.getElementById('handmatig-modal-title').textContent = naam;
+  document.getElementById('handmatig-modal-lijst').innerHTML = '';
+  document.getElementById('hm-naam').value = '';
+  document.getElementById('hm-aantal').value = '';
+  document.getElementById('hm-eenheid').value = '';
+  document.getElementById('hm-toevoegen-btn').style.display = 'none';
+  var overlay = document.getElementById('handmatig-modal-overlay');
+  overlay.style.display = 'flex';
+  setTimeout(function() { var n = document.getElementById('hm-naam'); if(n) n.focus(); }, 100);
+}
+
+function hmVoegToe() {
+  var naam = document.getElementById('hm-naam').value.trim();
+  if (!naam) return;
+  var aantal = document.getElementById('hm-aantal').value.trim();
+  var eenheid = document.getElementById('hm-eenheid').value.trim();
+  hmItems.push({ naam: naam, aantal: aantal, eenheid: eenheid });
+  hmRenderLijst();
+  document.getElementById('hm-naam').value = '';
+  document.getElementById('hm-aantal').value = '';
+  document.getElementById('hm-eenheid').value = '';
+  document.getElementById('hm-naam').focus();
+  var btn = document.getElementById('hm-toevoegen-btn');
+  if (btn) {
+    btn.style.display = 'block';
+    btn.textContent = 'Voeg ' + hmItems.length + ' item' + (hmItems.length !== 1 ? 's' : '') + ' toe aan boodschappenlijst';
+  }
+}
+
+function hmRenderLijst() {
+  var lijst = document.getElementById('handmatig-modal-lijst');
+  if (!lijst) return;
+  lijst.innerHTML = hmItems.map(function(item, i) {
+    var hoeveelheid = [item.aantal, item.eenheid].filter(Boolean).join(' ');
+    return '<div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);">' +
+      '<div style="flex:1;font-size:14px;font-weight:500;">' + item.naam + '</div>' +
+      (hoeveelheid ? '<div style="font-size:13px;color:var(--text-muted);">' + hoeveelheid + '</div>' : '') +
+      '<button onclick="hmVerwijder(' + i + ')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:14px;padding:2px 6px;">✕</button>' +
+      '</div>';
+  }).join('');
+}
+
+function hmVerwijder(i) {
+  hmItems.splice(i, 1);
+  hmRenderLijst();
+  var btn = document.getElementById('hm-toevoegen-btn');
+  if (btn) {
+    if (hmItems.length === 0) {
+      btn.style.display = 'none';
+    } else {
+      btn.textContent = 'Voeg ' + hmItems.length + ' item' + (hmItems.length !== 1 ? 's' : '') + ' toe aan boodschappenlijst';
+    }
+  }
+}
+
+function hmBevestig() {
+  hmItems.forEach(function(item) {
+    boodschappenLijst.push({ id: boodschappenId(), naam: item.naam, aantal: item.aantal, eenheid: item.eenheid, bron: hmBron, afgevinkt: false, bewerken: false });
   });
-  handmatigIngItems = [];
-  sluitIngPicker();
+  hmItems = [];
+  sluitHandmatigModal();
   renderBoodschappen();
   updateTabTeller();
 }
+
+function sluitHandmatigModal() {
+  var overlay = document.getElementById('handmatig-modal-overlay');
+  if (overlay) overlay.style.display = 'none';
+  hmItems = [];
+  hmBron = '';
+}
+
+document.addEventListener('click', function(e) {
+  var overlay = document.getElementById('handmatig-modal-overlay');
+  if (e.target === overlay) sluitHandmatigModal();
+});
 
 // ─────────────────────────────────────────
 // WEEKPLANNER
