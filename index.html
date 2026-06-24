@@ -851,40 +851,45 @@
     color: var(--text-muted);
   }
 
-  /* Picker rij: checkbox + naam groot + aantal klein + eenheid klein */
+  /* Picker rij */
   .ing-picker-row {
     display: grid;
-    grid-template-columns: 24px 1fr 64px 80px;
-    gap: 8px;
+    grid-template-columns: 22px 1fr 58px 68px;
+    gap: 6px;
     align-items: center;
-    padding: 10px 0;
+    padding: 7px 0;
     border-bottom: 1px solid var(--border);
   }
   .ing-picker-row:last-child { border-bottom: none; }
   .ing-picker-row input[type="checkbox"] {
     accent-color: var(--accent);
-    width: 18px;
-    height: 18px;
+    width: 17px;
+    height: 17px;
     cursor: pointer;
   }
   .ing-naam-input {
     background: var(--surface2);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 6px;
     color: var(--text);
-    padding: 8px 10px;
-    font-size: 15px;
+    padding: 6px 8px;
+    font-size: 14px;
     font-family: 'Inter', sans-serif;
     outline: none;
     width: 100%;
   }
   .ing-naam-input:focus { border-color: var(--accent); }
+  .ing-klein-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
   .ing-klein-input {
     background: var(--surface2);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 6px;
     color: var(--text);
-    padding: 8px 6px;
+    padding: 6px 18px 6px 6px;
     font-size: 13px;
     font-family: 'Inter', sans-serif;
     outline: none;
@@ -892,7 +897,19 @@
     text-align: center;
   }
   .ing-klein-input:focus { border-color: var(--accent); }
-  .ing-klein-input::placeholder { color: var(--text-muted); font-size: 12px; }
+  .ing-klein-input::placeholder { color: var(--text-muted); font-size: 11px; }
+  .ing-klein-clear {
+    position: absolute;
+    right: 3px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 10px;
+    cursor: pointer;
+    padding: 2px;
+    line-height: 1;
+  }
+  .ing-klein-clear:hover { color: var(--red); }
 
 </style>
 </head>
@@ -1827,7 +1844,7 @@ function kopieerLijst() {
     .sort((a, b) => getNaam(a).localeCompare(getNaam(b), 'nl'))
     .map(item => {
       const naam = getNaam(item);
-      const rechts = [item.aantal, item.eenheid].filter(Boolean).join(' ');
+      const rechts = [item.aantal, item.eenheid].filter(x => x && x.trim()).join(' · ');
       return rechts ? naam + ' - ' + rechts : naam;
     })
     .join('\n');
@@ -1980,8 +1997,8 @@ function _openIngPickerVoorRecept(r) {
         '<div class="ing-picker-row">' +
         '<input type="checkbox" id="ing-cb-' + globalIdx + '" ' + (item.geselecteerd ? 'checked' : '') + ' onchange="toggleIngPickerItem(' + globalIdx + ')">' +
         '<input type="text" class="ing-naam-input" id="ing-naam-' + globalIdx + '" value="' + (item.boodschapTekst||'').replace(/"/g,'&quot;') + '" placeholder="Naam" oninput="ingPickerItems[' + globalIdx + '].boodschapTekst=this.value">' +
-        '<input type="text" class="ing-klein-input" id="ing-aantal-' + globalIdx + '" value="' + (item.defaultHoeveelheid || '') + '" placeholder="Aantal">' +
-        '<input type="text" class="ing-klein-input" id="ing-eenheid-' + globalIdx + '" value="' + (item.defaultEenheid || '') + '" placeholder="Eenheid">' +
+        '<div class="ing-klein-wrap"><input type="text" class="ing-klein-input" id="ing-aantal-' + globalIdx + '" value="' + (item.defaultHoeveelheid || '') + '" placeholder="#"><button class="ing-klein-clear" onclick="document.getElementById('ing-aantal-' + globalIdx + '').value=''" tabindex="-1">✕</button></div>' +
+        '<div class="ing-klein-wrap"><input type="text" class="ing-klein-input" id="ing-eenheid-' + globalIdx + '" value="' + (item.defaultEenheid || '') + '" placeholder="Eenh."><button class="ing-klein-clear" onclick="document.getElementById('ing-eenheid-' + globalIdx + '').value=''" tabindex="-1">✕</button></div>' +
         '</div>';
     });
   });
