@@ -1,0 +1,130 @@
+{
+  "id": "klassieke-bulgur-pilav",
+  "name": "Klassieke Bulgur Pilav",
+  "cuisine": "Midden-Oosters",
+  "protein": "Geen",
+  "carbs": "Bulgur",
+  "effort": 1,
+  "timeMin": 25,
+  "timeCategory": "snel",
+  "complete": true,
+  "servings": 4,
+  "source": "eigen",
+  "nutrition": {
+    "kcal": 280,
+    "protein": 6,
+    "fat": 9,
+    "carbs": 42,
+    "score": "green",
+    "scoreNote": "Vezelrijk en voedzaam bijgerecht dankzij de volkoren bulgur en verse groenten."
+  },
+  "ingredientGroups": [
+    {
+      "label": "De Basis",
+      "items": [
+        {
+          "naam": "Gove bulgur",
+          "hoeveelheid": 200,
+          "eenheid": "g",
+          "beschrijving": "pilavlık bulgur, ongewassen",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Ui",
+          "hoeveelheid": 1,
+          "eenheid": "stuks",
+          "beschrijving": "fijngesneden",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Knoflook",
+          "hoeveelheid": 2,
+          "eenheid": "stuks",
+          "beschrijving": "fijngesneden",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Groene puntpaprika",
+          "hoeveelheid": 1,
+          "eenheid": "stuks",
+          "beschrijving": "in kleine blokjes",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Tomaat",
+          "hoeveelheid": 2,
+          "eenheid": "stuks",
+          "beschrijving": "ontveld en in blokjes (of uit blik)",
+          "naar_smaak": false
+        }
+      ]
+    },
+    {
+      "label": "Smaakmakers & Vloeistof",
+      "items": [
+        {
+          "naam": "Turkse tomatenpuree",
+          "hoeveelheid": 1,
+          "eenheid": "el",
+          "beschrijving": "domates salçası",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Turkse paprikapuree",
+          "hoeveelheid": 1,
+          "eenheid": "tl",
+          "beschrijving": "biber salçası (mild of pittig)",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Warm water of bouillon",
+          "hoeveelheid": 400,
+          "eenheid": "ml",
+          "beschrijving": "kippen- of groentebouillon",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Roomboter",
+          "hoeveelheid": 15,
+          "eenheid": "g",
+          "beschrijving": "voor de romige afwerking",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Olijfolie",
+          "beschrijving": "om in te bakken",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Zwarte peper",
+          "naar_smaak": true
+        }
+      ]
+    }
+  ],
+  "steps": [
+    "**AANBAKKEN:** Verhit een scheut **olijfolie** in een brede kookpan met dikke bodem. Fruit de **ui**, **knoflook** en **groene puntpaprika** op middelhoog vuur tot ze zacht en glazig zijn.",
+    "**PUREE EN TOMATEN:** Voeg de **tomatenpuree** en **paprikapuree** toe. Bak dit 1 à 2 minuten krachtig mee om de puree te ontzuren. Voeg de **tomatenblokjes** toe en laat het geheel 2 minuten pruttelen tot de tomaten zacht worden.",
+    "**BULGUR TOEVOEGEN:** Voeg de **grove bulgur** droog toe aan de pan. Roer alles goed door elkaar zodat elk bulgurkorreltje bedekt is met de glanzende tomaten-olijfoliemix. Bak de korrels 1 minuut mee.",
+    "**KOKEN:** Giet het warme **water** of de **bouillon** in de pan. Breng op smaak met **zout** en **zwarte peper**. Breng aan de kook, zet het vuur direct naar de allerlaagste stand en doe de deksel op de pan. Laat de bulgur in 12-15 minuten rustig al het vocht absorberen.",
+    "**STOMEN:** Haal de pan van het vuur als het vocht weg is. Roer de klont **roomboter** erdoor voor een mooie glans. Leg een schone theedoek onder de deksel en sluit de pan weer. Laat de pilav zo nog 10 minuten stomen voordat je hem losroert met een vork en serveert."
+  ],
+  "cooktips": {
+    "van8naar10": "De theedoek-truc is écht het geheim voor een perfecte, luchtige pilav! De doek vangt het condenswater op dat anders terug in de pan druppelt. Hierdoor worden de korrels prachtig droog en los van elkaar in plaats van een zompige pap.",
+    "noGo": "Gebruik absoluut geen fijne bulgur (köftelik bulgur)! Die is bedoeld voor tabouleh of kisir. Voor een pilav heb je de grove variant nodig, anders mis je die lekkere, stevige bite.",
+    "alternatieven": {
+      "groene puntpaprika": [
+        "normale groene of rode paprika"
+      ],
+      "turkse paprikapuree": [
+        "extra tomatenpuree met een snufje paprikapoeder"
+      ]
+    },
+    "gezonder": "Laat de klont roomboter aan het einde weg en gebruik uitsluitend magere groentebouillon.",
+    "goedkoper": "Gebruik gewoon kraanwater met een half verkruimeld bouillonblokje in plaats van verse, kant-en-klare bouillon."
+  }
+}
