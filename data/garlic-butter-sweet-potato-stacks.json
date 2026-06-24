@@ -1,0 +1,90 @@
+{
+  "id": "garlic-butter-sweet-potato-stacks",
+  "name": "Garlic Butter Sweet Potato Stacks",
+  "cuisine": "Amerikaans",
+  "protein": "Geen",
+  "carbs": "Aardappel",
+  "effort": 2,
+  "timeMin": 45,
+  "timeCategory": "middel",
+  "complete": true,
+  "servings": 4,
+  "source": "eigen",
+  "nutrition": {
+    "kcal": 210,
+    "protein": 4,
+    "fat": 11,
+    "carbs": 25,
+    "score": "green",
+    "scoreNote": "Gezonde koolhydraten uit de zoete aardappel, verrijkt met heerlijke smaakmakers zoals boter en parmezaan."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Basis & Smaakmakers",
+      "items": [
+        {
+          "naam": "Zoete aardappel",
+          "hoeveelheid": 3,
+          "eenheid": "stuks",
+          "beschrijving": "geschild en in flinterdunne schijfjes",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Roomboter",
+          "hoeveelheid": 50,
+          "eenheid": "g",
+          "beschrijving": "gesmolten",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Knoflook",
+          "hoeveelheid": 2,
+          "eenheid": "stuks",
+          "beschrijving": "fijngesneden",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Rozemarijn",
+          "beschrijving": "fijngesneden",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Parmezaanse kaas",
+          "hoeveelheid": 30,
+          "eenheid": "g",
+          "beschrijving": "fijn geraspt",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Zwarte peper",
+          "naar_smaak": true
+        }
+      ]
+    }
+  ],
+  "steps": [
+    "**VOORBEREIDING:** Schil de **zoete aardappel** en snijd de uiteinden eraf. Snijd de aardappels vervolgens in flinterdunne schijfjes (gebruik eventueel een mandoline).",
+    "**MENGEN:** Meng de gesmolten **roomboter** in een grote kom samen met de fijngesneden **knoflook**, **rozemarijn**, **zout** en **zwarte peper**. Voeg de schijfjes **zoete aardappel** en de geraspte **Parmezaanse kaas** toe en hussel alles goed door elkaar zodat elk schijfje bedekt is.",
+    "**STAPELEN EN BAKKEN:** Vet een muffinvorm in. Stapel de schijfjes **zoete aardappel** netjes op in de vormpjes tot kleine torentjes. Dek de muffinvorm strak af met aluminiumfolie en bak ze in een voorverwarmde oven op 190°C.",
+    "**AFBAKKEN EN SERVEREN:** Haal na circa 25-30 minuten de aluminiumfolie eraf. Bak de torentjes nog eens 10-15 minuten onafgedekt goudbruin tot de randjes licht geblakerd zijn en de kern boterzacht is. Haal ze voorzichtig uit de vorm en serveer direct."
+  ],
+  "cooktips": {
+    "van8naar10": "Zorg dat je de schijfjes echt flinterdun snijdt! Als ze te dik zijn, garen ze ongelijkmatig en mis je die waanzinnige, knapperige randjes die contrasteren met de zachte binnenkant. Giet vlak voor het serveren het overgebleven knoflook-botermengsel uit de muffinvorm weer over de torentjes heen voor een ultieme smaakbom!",
+    "noGo": "Haal de aluminiumfolie er niet te vroeg af! Als je ze niet eerst goed stoomt onder de folie, verbranden de bovenste schijfjes voordat de binnenkant van het torentje überhaupt gaar is. Geduld is hier echt de sleutel tot succes.",
+    "alternatieven": {
+      "zoete aardappel": [
+        "gewone kruimige aardappels"
+      ],
+      "rozemarijn": [
+        "tijm",
+        "salie"
+      ]
+    },
+    "gezonder": "Vervang de roomboter door olijfolie om het percentage verzadigd vet flink omlaag te brengen.",
+    "goedkoper": "Gebruik gewone aardappels en vervang de Parmezaanse kaas door een restje geraspte belegen kaas die je nog in de koelkast hebt liggen."
+  }
+}
