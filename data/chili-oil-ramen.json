@@ -1,0 +1,100 @@
+{
+  "id": "chili-oil-ramen",
+  "name": "Chili Oil Ramen",
+  "cuisine": "Aziatisch",
+  "protein": "Ei",
+  "carbs": "Rijst",
+  "effort": 1,
+  "timeMin": 10,
+  "timeCategory": "snel",
+  "complete": true,
+  "servings": 1,
+  "source": "eigen",
+  "nutrition": {
+    "kcal": 550,
+    "protein": 15,
+    "fat": 28,
+    "carbs": 60,
+    "score": "yellow",
+    "scoreNote": "Snelle comfort food; prima koolhydraten en vetten, maar wat hoog in natrium door het kruidenzakje."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Basis & Smaakmakers",
+      "items": [
+        {
+          "naam": "Shin ramen",
+          "hoeveelheid": 1,
+          "eenheid": "stuks",
+          "beschrijving": "instant noedels",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Zwarte peper",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Azijn",
+          "hoeveelheid": 1,
+          "eenheid": "tl",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Sesamzaad",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Knoflook",
+          "hoeveelheid": 1,
+          "eenheid": "stuks",
+          "beschrijving": "fijngesneden",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Neutrale olie",
+          "hoeveelheid": 2,
+          "eenheid": "el",
+          "naar_smaak": false
+        }
+      ]
+    },
+    {
+      "label": "Toppings",
+      "items": [
+        {
+          "naam": "Bieslook",
+          "beschrijving": "fijngesneden",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Ei",
+          "hoeveelheid": 1,
+          "eenheid": "stuks",
+          "naar_smaak": false
+        }
+      ]
+    }
+  ],
+  "steps": [
+    "**NOEDELS KOKEN:** Kook de **shin ramen** noedels gedurende 3,5 minuut tot ze perfect al dente zijn. Haal ze van het vuur, spoel direct koud af met water en laat goed uitlekken.",
+    "**KRUIDEN BASIS:** Doe 2/3 van het soeppoeder uit het noedelpakje in een hittebestendige kom, samen met de **zwarte peper**, **azijn**, **sesamzaad** en de fijngesneden **knoflook**.",
+    "**CHILI OLIE MAKEN:** Verhit de **neutrale olie** in een pannetje tot het net niet rookt. Giet de gloeiend hete olie direct over de kruiden in de kom zodat het flink sist en roer de chili olie goed door.",
+    "**MENGEN EN TOPPEN:** Meng de uitgelekte noedels door de verse chili olie en voeg de fijngesneden **bieslook** toe voor een lekkere crunch. Bak het **ei** in loeihete olie tot de randjes super krokant en goudbruin zijn (Chinese stijl), leg op de noedels en serveer direct."
+  ],
+  "cooktips": {
+    "van8naar10": "Zorg dat die olie écht gloeiend heet is voordat je het op de knoflook en noedelkruiden giet! Die sizzle haalt alle vluchtige aroma's naar boven en creëert die diepe, instant chili-oliesmaak waar je van droomt. Frituur je ei in diezelfde hete olie voor die ultieme 'crispy skirt' randjes!",
+    "noGo": "Ga de noedels niet overkoken! Zompige instantnoedels zijn een misdaad. Houd ze strak op 3,5 minuut en spoel ze DIRECT ijskoud af om het kookproces te stoppen. En gebruik niet het hele kruidenzakje, anders proef je niks meer behalve puur zout.",
+    "alternatieven": {
+      "shin ramen": [
+        "andere stevige instant noedels",
+        "ramen noedels"
+      ],
+      "bieslook": [
+        "bosui",
+        "lente-ui"
+      ]
+    },
+    "gezonder": "Voeg aan het einde een flinke hand verse spinazie of gestoomde paksoi toe voor extra vitaminen en vezels.",
+    "goedkoper": "Dit gerecht kost al bijna niks! Gebruik gewoon de goedkoopste neutrale zonnebloemolie die je in de kast hebt staan."
+  }
+}
