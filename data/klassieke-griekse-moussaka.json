@@ -1,0 +1,168 @@
+{
+  "id": "klassieke-griekse-moussaka",
+  "name": "Klassieke Griekse Moussaka",
+  "cuisine": "Mediterraan",
+  "protein": "Rund",
+  "carbs": "Aardappel",
+  "effort": 4,
+  "timeMin": 90,
+  "timeCategory": "lang",
+  "complete": true,
+  "servings": 6,
+  "source": "eigen",
+  "nutrition": {
+    "kcal": 620,
+    "protein": 32,
+    "fat": 38,
+    "carbs": 35,
+    "score": "yellow",
+    "scoreNote": "Een heerlijk rijke, traditionele ovenschotel. Bevat flink wat verzadigde vetten door de bechamel en kaas."
+  },
+  "ingredientGroups": [
+    {
+      "label": "De Basis",
+      "items": [
+        {
+          "naam": "Aubergine",
+          "hoeveelheid": 2,
+          "eenheid": "stuks",
+          "beschrijving": "in plakken van 1 cm",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Aardappel",
+          "hoeveelheid": 3,
+          "eenheid": "stuks",
+          "beschrijving": "groot, stevig, in plakken van 1 cm",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Olijfolie",
+          "naar_smaak": true
+        }
+      ]
+    },
+    {
+      "label": "De Gehaktsaus",
+      "items": [
+        {
+          "naam": "Rundergehakt",
+          "hoeveelheid": 500,
+          "eenheid": "g",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Ui",
+          "hoeveelheid": 1,
+          "eenheid": "stuks",
+          "beschrijving": "fijngesneden",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Knoflook",
+          "hoeveelheid": 2,
+          "eenheid": "stuks",
+          "beschrijving": "fijngesneden",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Gepelde tomaten",
+          "hoeveelheid": 400,
+          "eenheid": "g",
+          "beschrijving": "uit blik, fijngehakt",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Tomatenpuree",
+          "hoeveelheid": 1,
+          "eenheid": "el",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Kaneelstokje",
+          "hoeveelheid": 1,
+          "eenheid": "stuks",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Rode wijn",
+          "hoeveelheid": 100,
+          "eenheid": "ml",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Zwarte peper",
+          "naar_smaak": true
+        }
+      ]
+    },
+    {
+      "label": "De Bechamelsaus & Topping",
+      "items": [
+        {
+          "naam": "Roomboter",
+          "hoeveelheid": 50,
+          "eenheid": "g",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Bloem",
+          "hoeveelheid": 50,
+          "eenheid": "g",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Melk",
+          "hoeveelheid": 500,
+          "eenheid": "ml",
+          "beschrijving": "warm",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Eidooier",
+          "hoeveelheid": 2,
+          "eenheid": "stuks",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Kefalotyri",
+          "hoeveelheid": 100,
+          "eenheid": "g",
+          "beschrijving": "geraspt (of Parmezaanse kaas)",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Nootmuskaat",
+          "naar_smaak": true
+        }
+      ]
+    }
+  ],
+  "steps": [
+    "**GROENTEN VOORBEREIDEN:** Bestrooi de plakken **aubergine** met zout en laat ze 30 minuten zweten in een vergiet. Spoel ze af en dep ze droog. Bak ondertussen de plakken **aardappel** goudbruin in een pan met **olijfolie** (of bak ze in de oven). Bak daarna de plakken **aubergine** in dezelfde pan goudbruin en zacht. Zet apart.",
+    "**GEHAKTSAUS MAKEN:** Fruit de **ui** en **knoflook** in een scheut **olijfolie**. Voeg het **rundergehakt** toe en bak dit rul. Blus af met de **rode wijn**. Voeg de **tomatenpuree**, **gepelde tomaten**, het **kaneelstokje**, **zout** en **zwarte peper** toe. Laat de saus op laag vuur zo'n 30 minuten zachtjes inkoken tot een dikke saus. Verwijder het kaneelstokje.",
+    "**BECHAMELMAKEN:** Smelt de **roomboter** in een steelpan en roer de **bloem** erdoor. Laat 2 minuten garen (roux). Voeg geleidelijk en al roerend de warme **melk** toe tot een gladde, dikke saus ontstaat. Haal van het vuur, laat kort afkoelen en roer de **eidooiers**, de helft van de geraspte **Kefalotyri** kaas en een gulle snuf **nootmuskaat** erdoor.",
+    "**OPBOUWEN EN BAKKEN:** Vet een ovenschaal in. Bedek de bodem met de plakken **aardappel**. Leg hierop de helft van de **aubergine**. Verdeel de gehaktsaus hier gelijkmatig overheen. Leg de rest van de **aubergine** op het gehakt. Giet de romige bechamelsaus erover en strijk glad. Strooi de rest van de geraspte kaas erover.",
+    "**OVEN:** Bak de moussaka in een voorverwarmde oven op 180°C gedurende 45-50 minuten, tot de bovenkant goudbruin en prachtig bubbelend is. Laat de moussaka minstens 20-30 minuten afkoelen voordat je hem aansnijdt, anders valt hij uit elkaar!"
+  ],
+  "cooktips": {
+    "van8naar10": "Laat die moussaka écht een half uur rusten na het bakken! Als je hem gloeiend heet aansnijdt, stort je hele toren in elkaar en eindig je met moussaka-soep. Na 30 minuten zetten de saus en de kaas zich vast, waardoor je prachtige, sexy lagen krijgt. Oh, en gebruik échte Griekse Kefalotyri of Pecorino voor die ziltige, pittige kick in je bechamel!",
+    "noGo": "Ga de aubergines niet ongezouten en nat bakken, want dan zuigen ze zich vol met olie als een spons en wordt je moussaka een vettige bende. Zweten, afspoelen, droogdeppen. Dat is de wet!",
+    "alternatieven": {
+      "rundergehakt": [
+        "lamsgehakt (heel traditioneel!)",
+        "linzen (voor vega)"
+      ],
+      "kefalotyri": [
+        "pecorino romano",
+        "parmezaanse kaas"
+      ]
+    },
+    "gezonder": "Grill de plakken aardappel en aubergine in de oven met een klein spraytje olijfolie in plaats van ze te frituren/bakken in de pan. Dat scheelt honderden calorieën.",
+    "goedkoper": "Vervang de dure speciaalkaas door een pittige, harde Hollandse kaas (zoals oude kaas) voor de topping."
+  }
+}
