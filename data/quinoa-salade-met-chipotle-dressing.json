@@ -1,0 +1,195 @@
+{
+  "id": "quinoa-salade-met-chipotle-dressing",
+  "name": "Quinoa Salade met Chipotle Dressing",
+  "cuisine": "Mexicaans",
+  "protein": "Plantaardig",
+  "carbs": "Peulvruchten",
+  "effort": 2,
+  "timeMin": 25,
+  "timeCategory": "snel",
+  "complete": true,
+  "servings": 4,
+  "source": "eigen",
+  "nutrition": {
+    "kcal": 682,
+    "protein": 26,
+    "fat": 31,
+    "carbs": 82,
+    "score": "green",
+    "scoreNote": "Rijk aan plantaardige eiwitten en gezonde vetten uit avocado, maar relatief calorierijk door de dressing."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Salade Basis",
+      "items": [
+        {
+          "naam": "Quinoa",
+          "hoeveelheid": 200,
+          "eenheid": "g",
+          "beschrijving": "ongekookt",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Groentebouillon",
+          "hoeveelheid": 750,
+          "eenheid": "ml",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Chipotlesaus",
+          "hoeveelheid": 1,
+          "eenheid": "el",
+          "beschrijving": "La Morena",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Chilipoeder",
+          "hoeveelheid": 1,
+          "eenheid": "tl",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Komijn",
+          "hoeveelheid": 1,
+          "eenheid": "tl",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Knoflookpoeder",
+          "hoeveelheid": 0.75,
+          "eenheid": "tl",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Uienpoeder",
+          "hoeveelheid": 0.5,
+          "eenheid": "tl",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": true
+        }
+      ]
+    },
+    {
+      "label": "Vulling",
+      "items": [
+        {
+          "naam": "Zwarte bonen",
+          "hoeveelheid": 400,
+          "eenheid": "g",
+          "beschrijving": "afgespoeld en uitgelekt",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Mais",
+          "hoeveelheid": 200,
+          "eenheid": "g",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Kerstomaatjes",
+          "hoeveelheid": 200,
+          "eenheid": "g",
+          "beschrijving": "gehalveerd",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Avocado",
+          "hoeveelheid": 1,
+          "eenheid": "stuks",
+          "beschrijving": "rijp, in blokjes",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Koriander",
+          "beschrijving": "grof gehakt, half bosje",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Pompoenzaadjes",
+          "hoeveelheid": 50,
+          "eenheid": "g",
+          "beschrijving": "geroosterd",
+          "naar_smaak": false
+        }
+      ]
+    },
+    {
+      "label": "Creamy Chipotle Dressing",
+      "items": [
+        {
+          "naam": "Griekse yoghurt",
+          "hoeveelheid": 60,
+          "eenheid": "g",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Mayonaise",
+          "hoeveelheid": 2,
+          "eenheid": "el",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Olijfolie",
+          "hoeveelheid": 2,
+          "eenheid": "el",
+          "beschrijving": "extra virgin",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Chipotlesaus",
+          "hoeveelheid": 1,
+          "eenheid": "el",
+          "beschrijving": "La Morena",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Limoensap",
+          "hoeveelheid": 2,
+          "eenheid": "tl",
+          "beschrijving": "vers",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Honing",
+          "hoeveelheid": 1,
+          "eenheid": "tl",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Knoflookpoeder",
+          "hoeveelheid": 0.25,
+          "eenheid": "tl",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": true
+        }
+      ]
+    }
+  ],
+  "steps": [
+    "**QUINOA KOKEN:** Combineer de **quinoa**, **groentebouillon**, **chipotlesaus**, **chilipoeder**, **komijn**, **knoflookpoeder**, **uienpoeder** en **zout** in een medium steelpan. Breng aan de kook, zet het vuur laag en laat 12-15 minuten zachtjes koken tot de **quinoa** gaar is. Doe over in een grote kom en laat 10 minuten afkoelen.",
+    "**DRESSING MAKEN:** Meng ondertussen de **Griekse yoghurt**, **mayonaise**, **olijfolie**, **chipotlesaus**, **limoensap**, **honing**, **knoflookpoeder** en **zout** in een medium kom. Roer krachtig met een garde tot een gladde, romige dressing.",
+    "**MENGELING EN SERVEREN:** Voeg de **zwarte bonen**, **mais**, **kerstomaatjes**, **avocado**, **koriander** en **pompoenzaadjes** toe aan de afgekoelde **quinoa**. Schud alles goed om. Voeg de dressing toe en roer nogmaals voorzichtig door zodat alles bedekt is."
+  ],
+  "cooktips": {
+    "van8naar10": "Rooster die pompoenzaadjes écht goudbruin in een droge koekenpan tot ze poffen! Dat geeft die intense, nootachtige crunch die perfect breekt met de romige avocado. En als je echt die authentieke diepte wilt, voeg een klein snufje gerookt paprikapoeder (pimentón) toe aan de dressing. So good!",
+    "noGo": "Gooi die dressing NOOIT op gloeiend hete quinoa! Dan smelt je mayonaise en yoghurt tot een vettige, gescheiden bende. Haiya, laat die quinoa eerst fatsoenlijk afkoelen! En snijd de avocado pas op het allerlaatste moment, anders wordt het een bruine pap.",
+    "alternatieven": {
+      "chipotlesaus": [
+        "gerookt paprikapoeder met sriracha",
+        "adobosaus uit blik"
+      ],
+      "griekse yoghurt": [
+        "zure room",
+        "crème fraîche"
+      ]
+    },
+    "gezonder": "Vervang de mayonaise volledig door extra Griekse yoghurt en halveer de olijfolie om flink in de calorieën en vetten te snijden.",
+    "goedkoper": "Gebruik zonnebloempitten in plaats van pompoenzaadjes en laat de avocado weg als ze buiten het seizoen schreeuwend duur zijn."
+  }
+}
