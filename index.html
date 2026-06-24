@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marc's Cookbook</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
@@ -874,23 +874,7 @@
     .meal-clear { font-size: 14px !important; }
 
     /* ICS export knop */
-      .export-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--text);
-    padding: 12px 20px;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: 'Inter', sans-serif;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.15s;
-  }
-  .export-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .export-btn { width: 100%; margin-top: 16px; padding: 14px; font-size: 15px; border-radius: 12px; }
   }
 
 
@@ -971,26 +955,6 @@
   }
   .ing-klein-clear:hover { color: var(--red); }
 
-
-  /* Voorkom auto-zoom op iOS — alle inputs minimaal 16px */
-  @media (max-width: 1024px) {
-    input[type="text"],
-    input[type="number"],
-    input[type="password"],
-    input[type="email"],
-    textarea,
-    select {
-      font-size: 16px !important;
-    }
-  }
-
-
-  @media (max-width: 640px) {
-    #boodschappen-input { font-size: 16px !important; }
-    #boodschappen-aantal { font-size: 16px !important; max-width: 52px !important; }
-    #boodschappen-eenheid { font-size: 16px !important; max-width: 80px !important; }
-  }
-
 </style>
 </head>
 <body>
@@ -1045,9 +1009,8 @@
   </aside>
 
   <main class="main">
-    <div style="padding:10px 16px 0;position:relative;">
-      <input type="text" class="search-input" id="search-input" style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;color:var(--text);padding:12px 40px 12px 16px;font-size:16px;width:100%;font-family:'Inter',sans-serif;outline:none;box-sizing:border-box;" placeholder="Zoek recept, ingredient, cuisine..." oninput="handleSearch(this.value)">
-      <button id="search-clear-btn" onclick="handleSearch('');document.getElementById('search-input').value='';this.style.display='none';" style="display:none;position:absolute;right:28px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);font-size:16px;cursor:pointer;padding:4px;line-height:1;">✕</button>
+    <div class="search-bar">
+      <input type="text" class="search-input" id="search-input" placeholder="Zoek recept, ingredient, cuisine..." oninput="handleSearch(this.value)">
       <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
     </div>
 
@@ -1058,8 +1021,9 @@
 
     <div style="padding: 8px 20px 0; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;">
       <div class="results-count" id="results-count"></div>
-      
-        
+      <div class="source-legend">
+        <div class="source-legend-item"><span class="source-badge source-eigen"></span> Eigen recept</div>
+        <div class="source-legend-item"><span class="source-badge source-ontdekking"></span> Ontdekking</div>
       </div>
     </div>
     <div id="loading-state" class="loading">
@@ -1072,6 +1036,7 @@
       <p>Pas je filters aan.</p>
     </div>
   </main>
+</div>
 </div><!-- end tab-bibliotheek -->
 
 <!-- TAB: WEEKPLANNER -->
@@ -1089,8 +1054,8 @@
     <div class="day-grid" id="day-grid"></div>
 
     <div class="planner-footer">
-      <button onclick="downloadICS()" style="display:inline-flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);padding:12px 20px;font-size:14px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:all 0.15s;margin-top:16px;">📥 Download kalender (.ics)</button>
-      <span id="ics-hint" style="font-size:12px;color:var(--text-muted);margin-left:8px;">Open het bestand op je iPhone of iPad om de maaltijden toe te voegen aan iCloud Kalender.</span>
+      <button class="ics-btn" id="ics-btn" onclick="downloadICS()">📥 Download kalender (.ics)</button>
+      <span class="ics-hint" id="ics-hint">Open het bestand op je iPhone of iPad om de maaltijden toe te voegen aan iCloud Kalender.</span>
     </div>
   </div>
 </div><!-- end tab-weekplanner -->
@@ -1190,25 +1155,6 @@
     <div style="padding:0 24px 20px;">
       <button id="hm-toevoegen-btn" onclick="hmBevestig()" style="display:none;width:100%;background:var(--accent);border:none;border-radius:10px;color:var(--bg);padding:13px;font-size:15px;font-weight:700;cursor:pointer;font-family:Inter,sans-serif;">Voeg toe aan boodschappenlijst</button>
     </div>
-  </div>
-</div>
-
-
-<!-- FILTER MODAL (mobiel) -->
-<div id="filter-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:350;justify-content:center;align-items:flex-end;padding:0;" onclick="sluitFilterModal(event)">
-  <div style="background:var(--surface);border-radius:20px 20px 0 0;width:100%;max-height:80vh;overflow-y:auto;padding:20px 20px 40px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--text);">Filters</div>
-      <button onclick="resetFilters()" style="background:none;border:1px solid var(--border);border-radius:8px;color:var(--text-muted);padding:6px 12px;font-size:13px;cursor:pointer;font-family:Inter,sans-serif;">Reset</button>
-    </div>
-
-    <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;">Eiwit</div>
-    <div id="filter-modal-protein" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;"></div>
-
-    <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;">Cuisine</div>
-    <div id="filter-modal-cuisine" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;"></div>
-
-    <button onclick="sluitFilterModal(null)" style="width:100%;background:var(--accent);border:none;border-radius:12px;color:var(--bg);padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:Inter,sans-serif;">Toon recepten</button>
   </div>
 </div>
 
@@ -1564,6 +1510,8 @@ let searchQuery = '';
 
 function handleSearch(val) {
   searchQuery = val.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  if (clearBtn) clearBtn.classList.toggle('visible', searchQuery.length > 0);
   renderGrid();
 }
 
@@ -2246,8 +2194,10 @@ function setPill(group, value, el) {
 
 function checkMobilePills() {
   const isMobile = window.innerWidth <= 640;
-  const knop = document.getElementById('filter-knop-wrapper');
-  if (knop) knop.style.display = isMobile ? 'block' : 'none';
+  const p1 = document.getElementById('filter-pills');
+  const p2 = document.getElementById('filter-pills-2');
+  if (p1) p1.style.display = isMobile ? 'flex' : 'none';
+  if (p2) p2.style.display = isMobile ? 'flex' : 'none';
 }
 
 window.addEventListener('resize', checkMobilePills);
@@ -2366,77 +2316,6 @@ document.addEventListener('click', function(e) {
   var overlay = document.getElementById('handmatig-modal-overlay');
   if (e.target === overlay) sluitHandmatigModal();
 });
-
-
-// ── FILTER MODAL ──
-function openFilterModal() {
-  // Bouw eiwit opties
-  const proteins = [...new Set(recipes.map(r => r.protein).filter(Boolean))].sort();
-  const cuisines = [...new Set(recipes.map(r => r.cuisine).filter(Boolean))].sort();
-
-  const proteinContainer = document.getElementById('filter-modal-protein');
-  if (proteinContainer) {
-    proteinContainer.innerHTML = ['Alle', ...proteins].map(p => {
-      const active = (p === 'Alle' && filters.protein === 'all') || filters.protein === p;
-      return '<button onclick="setFilterModal(\'protein\',' + JSON.stringify(p === 'Alle' ? 'all' : p) + ',this)" style="padding:8px 16px;border-radius:20px;border:1px solid ' + (active ? 'var(--accent2)' : 'var(--border)') + ';background:' + (active ? 'var(--accent2)' : 'var(--surface2)') + ';color:' + (active ? 'white' : 'var(--text-muted)') + ';font-size:14px;font-weight:500;font-family:Inter,sans-serif;cursor:pointer;">' + p + '</button>';
-    }).join('');
-  }
-
-  const cuisineContainer = document.getElementById('filter-modal-cuisine');
-  if (cuisineContainer) {
-    cuisineContainer.innerHTML = ['Alle', ...cuisines].map(c => {
-      const active = (c === 'Alle' && filters.cuisine === 'all') || filters.cuisine === c;
-      return '<button onclick="setFilterModal(\'cuisine\',' + JSON.stringify(c === 'Alle' ? 'all' : c) + ',this)" style="padding:8px 16px;border-radius:20px;border:1px solid ' + (active ? 'var(--accent)' : 'var(--border)') + ';background:' + (active ? 'var(--accent)' : 'var(--surface2)') + ';color:' + (active ? 'var(--bg)' : 'var(--text-muted)') + ';font-size:14px;font-weight:500;font-family:Inter,sans-serif;cursor:pointer;">' + c + '</button>';
-    }).join('');
-  }
-
-  document.getElementById('filter-modal-overlay').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-
-function setFilterModal(groep, waarde, el) {
-  filters[groep] = waarde;
-  // Herkleur knoppen in de groep
-  const container = document.getElementById('filter-modal-' + (groep === 'protein' ? 'protein' : 'cuisine'));
-  if (container) {
-    const isProtein = groep === 'protein';
-    container.querySelectorAll('button').forEach(btn => {
-      const btnWaarde = btn.textContent.trim();
-      const active = (waarde === 'all' && btnWaarde === 'Alle') || btnWaarde === waarde;
-      btn.style.borderColor = active ? (isProtein ? 'var(--accent2)' : 'var(--accent)') : 'var(--border)';
-      btn.style.background = active ? (isProtein ? 'var(--accent2)' : 'var(--accent)') : 'var(--surface2)';
-      btn.style.color = active ? (isProtein ? 'white' : 'var(--bg)') : 'var(--text-muted)';
-    });
-  }
-  updateFilterCount();
-  renderGrid();
-}
-
-function updateFilterCount() {
-  const count = (filters.cuisine !== 'all' ? 1 : 0) + (filters.protein !== 'all' ? 1 : 0);
-  const badge = document.getElementById('filter-active-count');
-  if (badge) {
-    badge.style.display = count > 0 ? 'inline' : 'none';
-    badge.textContent = count;
-  }
-}
-
-function resetFilters() {
-  filters.cuisine = 'all';
-  filters.protein = 'all';
-  filters.effort = 'all';
-  filters.time = 'all';
-  updateFilterCount();
-  renderGrid();
-  openFilterModal(); // herlaad modal
-}
-
-function sluitFilterModal(e) {
-  if (!e || e.target === document.getElementById('filter-modal-overlay')) {
-    document.getElementById('filter-modal-overlay').style.display = 'none';
-    document.body.style.overflow = '';
-  }
-}
 
 // ─────────────────────────────────────────
 // WEEKPLANNER
