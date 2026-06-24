@@ -2345,7 +2345,7 @@ function renderPlanner() {
     const todayClass = isToday(date) ? ' today' : '';
     const mealSlots = meals.map((meal, idx) => `
       <div style="display:flex;align-items:center;gap:6px;background:var(--accent);border-radius:8px;padding:7px 12px;cursor:pointer;">
-        <span onclick="openIngPicker('${meal}', event)" style="font-size:14px;font-weight:600;color:var(--bg);flex:1;">${meal}</span>
+        <span onclick="openIngPickerOfHandmatig('${meal}', event)" style="font-size:14px;font-weight:600;color:var(--bg);flex:1;">${meal}</span>
         <span onclick="clearMeal('${key}', ${idx}, event)" style="font-size:13px;color:var(--bg);opacity:0.7;cursor:pointer;flex-shrink:0;">✕</span>
       </div>`).join('');
     const addSlot = meals.length < 5
