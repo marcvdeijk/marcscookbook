@@ -1042,15 +1042,13 @@
 <!-- TAB: WEEKPLANNER -->
 <div class="tab-panel" id="tab-weekplanner">
   <div class="planner-main">
-    <div class="planner-header">
-      <div class="week-nav">
-        <button class="week-nav-btn" onclick="changeWeek(-1)">‹</button>
-        <div>
-          <div class="week-label" id="week-label"></div>
-          <div class="week-sub" id="week-sub"></div>
-        </div>
-        <button class="week-nav-btn" onclick="changeWeek(1)">›</button>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 20px;">
+      <button onclick="changeWeek(-1)" style="width:36px;height:36px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">‹</button>
+      <div style="text-align:center;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;color:var(--text);" id="week-label"></div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:2px;" id="week-sub"></div>
       </div>
+      <button onclick="changeWeek(1)" style="width:36px;height:36px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">›</button>
     </div>
 
     <div class="day-grid" id="day-grid"></div>
@@ -2185,6 +2183,84 @@ document.addEventListener('click', function(e) {
     }
   }
 });
+
+
+// ── INGREDIENT PICKER: ook voor handmatige gerechten ──
+function openIngPickerOfHandmatig(naam, event) {
+  if (event) event.stopPropagation();
+  const r = recipes.find(x => x.name === naam);
+  if (r) {
+    // Recept gevonden in bibliotheek — gebruik normale picker
+    openIngPicker(naam, event);
+  } else {
+    // Handmatig recept — open simpele invoer om items toe te voegen
+    ingPickerBron = naam;
+    ingPickerItems = [];
+    document.getElementById('ing-picker-title').textContent = naam;
+    document.getElementById('ing-select-step').innerHTML =
+      '<div style="padding:8px 0;color:var(--text-muted);font-size:13px;margin-bottom:12px;">' +
+      'Dit gerecht staat niet in je bibliotheek. Voeg handmatig ingrediënten toe:' +
+      '</div>' +
+      '<div id="handmatig-items-list"></div>' +
+      '<div style="display:grid;grid-template-columns:1fr 52px 90px;gap:8px;margin-top:12px;">' +
+        '<input type="text" class="ing-naam-input" id="handmatig-naam" placeholder="Naam ingredient" style="font-size:14px;padding:8px 10px;">' +
+        '<input type="text" class="ing-klein-input" id="handmatig-aantal" placeholder="#" style="font-size:13px;padding:8px 6px;text-align:center;">' +
+        '<input type="text" class="ing-klein-input" id="handmatig-eenheid" placeholder="Eenheid" style="font-size:13px;padding:8px 6px;">' +
+      '</div>' +
+      '<button onclick="voegHandmatigIngToe()" style="margin-top:8px;width:100%;background:var(--surface2);border:1px dashed var(--border);border-radius:8px;padding:8px;color:var(--text-muted);cursor:pointer;font-size:13px;font-family:Inter,sans-serif;">+ Toevoegen</button>';
+    updateIngVoegToeBtn();
+    document.getElementById('ing-picker-overlay').classList.add('open');
+  }
+}
+
+let handmatigIngItems = [];
+
+function voegHandmatigIngToe() {
+  const naam = document.getElementById('handmatig-naam').value.trim();
+  if (!naam) return;
+  const aantal = document.getElementById('handmatig-aantal').value.trim();
+  const eenheid = document.getElementById('handmatig-eenheid').value.trim();
+  handmatigIngItems.push({ naam, aantal, eenheid });
+  // Toon in lijst
+  const lijst = document.getElementById('handmatig-items-list');
+  if (lijst) {
+    lijst.innerHTML = handmatigIngItems.map((item, i) =>
+      '<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);">' +
+        '<div style="flex:1;font-size:14px;">' + item.naam + '</div>' +
+        '<div style="font-size:13px;color:var(--text-muted);">' + [item.aantal, item.eenheid].filter(Boolean).join(' ') + '</div>' +
+        '<button onclick="verwijderHandmatigIng(' + i + ')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:13px;">✕</button>' +
+      '</div>'
+    ).join('');
+  }
+  document.getElementById('handmatig-naam').value = '';
+  document.getElementById('handmatig-aantal').value = '';
+  document.getElementById('handmatig-eenheid').value = '';
+  document.getElementById('handmatig-naam').focus();
+  // Update voeg toe knop
+  const btn = document.getElementById('ing-voeg-toe-btn');
+  if (btn) { btn.textContent = 'Voeg ' + handmatigIngItems.length + ' items toe'; btn.disabled = handmatigIngItems.length === 0; }
+}
+
+function verwijderHandmatigIng(i) {
+  handmatigIngItems.splice(i, 1);
+  voegHandmatigIngToe(); // re-render
+}
+
+// Override voegGeselecteerdeToe voor handmatige items
+const _origVoegToe = voegGeselecteerdeToe;
+voegGeselecteerdeToe = function() {
+  if (handmatigIngItems.length > 0) {
+    handmatigIngItems.forEach(item => {
+      boodschappenLijst.push({ id: boodschappenId(), naam: item.naam, aantal: item.aantal, eenheid: item.eenheid, bron: ingPickerBron, afgevinkt: false, bewerken: false });
+    });
+    handmatigIngItems = [];
+    sluitIngPicker();
+    renderBoodschappen();
+    updateTabTeller();
+  } else {
+    _origVoegToe();
+  }
+};
 
 // ─────────────────────────────────────────
 // WEEKPLANNER
