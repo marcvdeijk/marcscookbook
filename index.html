@@ -514,9 +514,9 @@
     .stat-label { font-size: 10px; }
     .stat-value { font-size: 13px; }
     .dot { width: 7px; height: 7px; }
-    
+    .source-badge { width: 7px; height: 7px; }
     .results-count { font-size: 13px; }
-    
+    .source-legend { font-size: 12px; }
     .boodschappen-main { padding: 16px; }
     .boodschappen-title { font-size: 22px; }
     .boodschappen-input { font-size: 16px; padding: 12px 14px; }
@@ -558,7 +558,7 @@
       background: var(--surface);
       border-top: 1px solid var(--border);
       z-index: 500;
-      padding-bottom: max(env(safe-area-inset-bottom, 0px), 4px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
     }
     .tab-bar-btn {
       flex: 1;
@@ -566,7 +566,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 13px 4px 11px;
+      padding: 10px 4px 8px;
       background: none;
       border: none;
       color: var(--text-muted);
@@ -580,8 +580,8 @@
     .tab-bar-btn.active .tab-bar-icon { filter: drop-shadow(0 0 4px var(--accent)); }
     .tab-bar-btn.active .tab-bar-label { font-weight: 700; }
     .tab-bar-bottom { box-shadow: 0 -2px 12px rgba(0,0,0,0.3); }
-    .tab-bar-icon { font-size: 26px; line-height: 1; }
-    .tab-bar-label { font-size: 12px; font-weight: 500; letter-spacing: 0.3px; }
+    .tab-bar-icon { font-size: 22px; line-height: 1; }
+    .tab-bar-label { font-size: 10px; font-weight: 500; letter-spacing: 0.3px; }
     .tab-bar-badge {
       position: absolute;
       top: 6px;
@@ -638,12 +638,71 @@
   }
 
     /* Filter pillen rij 1: cuisine */
+    .filter-pills {
+      display: flex !important;
+      gap: 8px;
+      padding: 10px 16px 4px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .filter-pills::-webkit-scrollbar { display: none; }
+    .filter-pill {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      padding: 7px 16px;
+      white-space: nowrap;
+      cursor: pointer;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+    .filter-pill.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+      font-weight: 600;
+    }
 
     /* Filter pillen rij 2: eiwit */
+    .filter-pills-2 {
+      display: flex !important;
+      gap: 8px;
+      padding: 4px 16px 6px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
     .filter-pills-2::-webkit-scrollbar { display: none; }
+    .filter-pill-2 {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      padding: 5px 13px;
+      white-space: nowrap;
+      cursor: pointer;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+    .filter-pill-2.active {
+      background: var(--accent2);
+      border-color: var(--accent2);
+      color: white;
+      font-weight: 600;
+    }
 
     .results-count { padding: 4px 16px; font-size: 13px; }
-    
+    .source-legend { display: none; }
 
     /* Verticale lijst */
     .grid {
@@ -932,19 +991,6 @@
     #boodschappen-eenheid { font-size: 16px !important; max-width: 80px !important; }
   }
 
-
-  @media (max-width: 640px) {
-  }
-  @media (min-width: 641px) {
-  }
-
-
-  @media (max-width: 640px) {
-    .main { padding: 0 !important; }
-    .grid { padding: 8px 12px 80px !important; gap: 10px !important; }
-    .results-count { padding: 4px 12px !important; font-size: 13px !important; margin-bottom: 4px !important; }
-  }
-
 </style>
 </head>
 <body>
@@ -999,30 +1045,34 @@
   </aside>
 
   <main class="main">
-    <div style="padding:10px 16px 0;">
-      <input type="search" class="search-input" id="search-input" style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;color:var(--text);padding:12px 16px;font-size:16px;width:100%;font-family:'Inter',sans-serif;outline:none;box-sizing:border-box;-webkit-appearance:none;appearance:none;" placeholder="Zoek recept, ingredient, cuisine..." oninput="handleSearch(this.value)">
+    <div style="padding:10px 16px 0;position:relative;">
+      <input type="text" class="search-input" id="search-input" style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;color:var(--text);padding:12px 40px 12px 16px;font-size:16px;width:100%;font-family:'Inter',sans-serif;outline:none;box-sizing:border-box;" placeholder="Zoek recept, ingredient, cuisine..." oninput="handleSearch(this.value)">
+      <button id="search-clear-btn" onclick="handleSearch('');document.getElementById('search-input').value='';this.style.display='none';" style="display:none;position:absolute;right:28px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);font-size:16px;cursor:pointer;padding:4px;line-height:1;">✕</button>
+      <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
     </div>
 
-    <!-- FILTER KNOP (alleen mobiel) -->
-    <div id="filter-knop-wrapper" style="display:none;padding:6px 16px 2px;">
-      <button onclick="openFilterModal()" style="display:flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;color:var(--text-muted);font-size:14px;font-weight:500;font-family:Inter,sans-serif;padding:8px 16px;cursor:pointer;">
-        <span>⚙️ Filters</span>
-        <span id="filter-active-count" style="display:none;background:var(--accent);color:var(--bg);border-radius:10px;padding:1px 7px;font-size:12px;font-weight:700;"></span>
-      </button>
+    <!-- FILTER PILLEN (alleen mobiel) -->
+    <div class="filter-pills" id="filter-pills" style="display:none;">
+      <button class="filter-pill active" onclick="setPill('cuisine','all',this)">Alle</button>
     </div>
 
-    <div style="padding:4px 16px 0;"><div class="results-count" id="results-count"></div></div>
+    <div style="padding: 8px 20px 0; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+      <div class="results-count" id="results-count"></div>
+      
+        
+      </div>
     </div>
     <div id="loading-state" class="loading">
       <div class="loading-spinner"></div>
       <span>Recepten laden...</span>
     </div>
-    <div class="grid" id="recipe-grid" style="display:none;"></div>
+    <div class="grid" id="recipe-grid" style="display:none; padding: 0 20px 20px;"></div>
     <div class="empty" id="empty-state" style="display:none; padding: 0 20px;">
       <h2>Geen recepten gevonden</h2>
       <p>Pas je filters aan.</p>
     </div>
   </main>
+</div>
 </div><!-- end tab-bibliotheek -->
 
 <!-- TAB: WEEKPLANNER -->
@@ -1146,8 +1196,8 @@
 
 
 <!-- FILTER MODAL (mobiel) -->
-<div id="filter-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:350;justify-content:center;align-items:flex-end;padding:0;" ontouchstart="event.stopPropagation()" onclick="sluitFilterModal(event)">
-  <div style="background:var(--surface);border-radius:20px 20px 0 0;width:100%;max-height:75vh;overflow-y:scroll;overflow-x:hidden;padding:20px 20px 40px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;">
+<div id="filter-modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:350;justify-content:center;align-items:flex-end;padding:0;" onclick="sluitFilterModal(event)">
+  <div style="background:var(--surface);border-radius:20px 20px 0 0;width:100%;max-height:80vh;overflow-y:auto;padding:20px 20px 40px;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
       <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--text);">Filters</div>
       <button onclick="resetFilters()" style="background:none;border:1px solid var(--border);border-radius:8px;color:var(--text-muted);padding:6px 12px;font-size:13px;cursor:pointer;font-family:Inter,sans-serif;">Reset</button>
@@ -1514,6 +1564,8 @@ function renderBold(text) {
 let searchQuery = '';
 
 function handleSearch(val) {
+  const clearBtn = document.getElementById('search-clear-btn');
+  if (clearBtn) clearBtn.style.display = val ? 'block' : 'none';
   searchQuery = val.trim().toLowerCase();
   const clearBtn = document.getElementById('search-clear');
   if (clearBtn) clearBtn.classList.toggle('visible', searchQuery.length > 0);
@@ -1631,11 +1683,12 @@ function renderGrid() {
     return;
   }
   empty.style.display = 'none';
-  grid.style.display = window.innerWidth <= 640 ? 'flex' : 'grid';
+  grid.style.display = 'grid';
 
   grid.innerHTML = filtered.map(r => `
     <div class="card ${r.source === 'ontdekking' ? 'ontdekking' : 'eigen'}" onclick="openModal('${r.id}')">
       <div class="card-title" style="display:flex;align-items:baseline;gap:6px;">
+        <span class="source-badge ${r.source === 'ontdekking' ? 'source-ontdekking' : 'source-eigen'}" title="${r.source === 'ontdekking' ? 'Ontdekking' : 'Eigen recept'}"></span>
         ${r.name}${!r.complete ? ` <span style="font-size:11px;color:var(--text-muted);">${t('incomplete')}</span>` : ''}
       </div>
       <div class="card-meta">
