@@ -624,14 +624,18 @@
 
     /* Zoekbalk — donker passend bij thema */
     .search-bar { padding: 10px 16px 0; }
-    .search-input {
-      font-size: 16px !important;
-      padding: 13px 16px !important;
-      border-radius: 14px !important;
-      background: var(--surface) !important;
-      border-color: var(--border) !important;
-      color: var(--text) !important;
-    }
+      .search-input {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 10px 16px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.15s;
+  }
 
     /* Filter pillen rij 1: cuisine */
     .filter-pills {
@@ -894,7 +898,7 @@
   /* Picker rij */
   .ing-picker-row {
     display: grid;
-    grid-template-columns: 22px 1fr 58px 68px;
+    grid-template-columns: 22px 1fr 52px 90px;
     gap: 6px;
     align-items: center;
     padding: 7px 0;
@@ -1082,7 +1086,7 @@
         <button class="wis-alles-btn" onclick="wisAlles()">✕ Wis alles</button>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 56px 68px 44px;gap:6px;align-items:center;margin-bottom:16px;">
+    <div style="display:grid;grid-template-columns:1fr 52px 90px 44px;gap:6px;align-items:center;margin-bottom:16px;">
       <input type="text" class="boodschappen-input" id="boodschappen-input" placeholder="Naam" style="font-size:15px;padding:12px;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
       <input type="text" class="boodschappen-input" id="boodschappen-aantal" placeholder="#" style="font-size:14px;padding:12px 6px;text-align:center;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
       <input type="text" class="boodschappen-input" id="boodschappen-eenheid" placeholder="Eenh." style="font-size:13px;padding:12px 6px;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
@@ -2039,8 +2043,8 @@ function _openIngPickerVoorRecept(r) {
         '<div class="ing-picker-row">' +
         '<input type="checkbox" id="ing-cb-' + globalIdx + '" ' + (item.geselecteerd ? 'checked' : '') + ' onchange="toggleIngPickerItem(' + globalIdx + ')">' +
         '<input type="text" class="ing-naam-input" id="ing-naam-' + globalIdx + '" value="' + (item.boodschapTekst||'').replace(/"/g,'&quot;') + '" placeholder="Naam" oninput="ingPickerItems[' + globalIdx + '].boodschapTekst=this.value">' +
-        '<div class="ing-klein-wrap"><input type="text" class="ing-klein-input" id="' + aantalId + '" value="' + (item.defaultHoeveelheid || '') + '" placeholder="#"><button class="ing-klein-clear" onclick="document.getElementById(' + JSON.stringify(aantalId) + ').value=\'\'" tabindex="-1">✕</button></div>' +
-        '<div class="ing-klein-wrap"><input type="text" class="ing-klein-input" id="' + eenheidId + '" value="' + (item.defaultEenheid || '') + '" placeholder="Eenh."><button class="ing-klein-clear" onclick="document.getElementById(' + JSON.stringify(eenheidId) + ').value=\'\'" tabindex="-1">✕</button></div>' +
+        '<div class="ing-klein-wrap"><input type="text" class="ing-klein-input" id="' + aantalId + '" value="' + (item.defaultHoeveelheid || '') + '" placeholder="#"><button class="ing-klein-clear" data-clear="' + aantalId + '" tabindex="-1">✕</button></div>' +
+        '<div class="ing-klein-wrap"><input type="text" class="ing-klein-input" id="' + eenheidId + '" value="' + (item.defaultEenheid || '') + '" placeholder="Eenh."><button class="ing-klein-clear" data-clear="' + eenheidId + '" tabindex="-1">✕</button></div>' +
         '</div>';
     });
   });
@@ -2167,6 +2171,18 @@ function checkMobilePills() {
 }
 
 window.addEventListener('resize', checkMobilePills);
+
+
+// ── X KNOPPEN PICKER (event delegation) ──
+document.addEventListener('click', function(e) {
+  if (e.target && e.target.classList.contains('ing-klein-clear')) {
+    const targetId = e.target.getAttribute('data-clear');
+    if (targetId) {
+      const el = document.getElementById(targetId);
+      if (el) { el.value = ''; el.focus(); }
+    }
+  }
+});
 
 // ─────────────────────────────────────────
 // WEEKPLANNER
