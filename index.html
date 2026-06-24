@@ -1564,8 +1564,8 @@ function renderBold(text) {
 let searchQuery = '';
 
 function handleSearch(val) {
-  const clearBtn = document.getElementById('search-clear-btn');
-  if (clearBtn) clearBtn.style.display = val ? 'block' : 'none';
+  const searchClearBtn = document.getElementById('search-clear-btn');
+  if (searchClearBtn) searchClearBtn.style.display = val ? 'block' : 'none';
   searchQuery = val.trim().toLowerCase();
   const clearBtn = document.getElementById('search-clear');
   if (clearBtn) clearBtn.classList.toggle('visible', searchQuery.length > 0);
