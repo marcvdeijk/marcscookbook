@@ -1042,7 +1042,7 @@
 <!-- TAB: WEEKPLANNER -->
 <div class="tab-panel" id="tab-weekplanner">
   <div class="planner-main">
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 0 20px;">
+    <div style="display:flex;align-items:center;justify-content:center;gap:24px;padding:16px 0 20px;">
       <button onclick="changeWeek(-1)" style="width:36px;height:36px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">‹</button>
       <div style="text-align:center;">
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;color:var(--text);" id="week-label"></div>
@@ -2197,19 +2197,23 @@ function openIngPickerOfHandmatig(naam, event) {
     ingPickerBron = naam;
     ingPickerItems = [];
     document.getElementById('ing-picker-title').textContent = naam;
+    handmatigIngItems = [];
     document.getElementById('ing-select-step').innerHTML =
       '<div style="padding:8px 0;color:var(--text-muted);font-size:13px;margin-bottom:12px;">' +
-      'Dit gerecht staat niet in je bibliotheek. Voeg handmatig ingrediënten toe:' +
+      'Niet in bibliotheek — voeg ingrediënten handmatig toe:' +
       '</div>' +
       '<div id="handmatig-items-list"></div>' +
-      '<div style="display:grid;grid-template-columns:1fr 52px 90px;gap:8px;margin-top:12px;">' +
-        '<input type="text" class="ing-naam-input" id="handmatig-naam" placeholder="Naam ingredient" style="font-size:14px;padding:8px 10px;">' +
-        '<input type="text" class="ing-klein-input" id="handmatig-aantal" placeholder="#" style="font-size:13px;padding:8px 6px;text-align:center;">' +
-        '<input type="text" class="ing-klein-input" id="handmatig-eenheid" placeholder="Eenheid" style="font-size:13px;padding:8px 6px;">' +
-      '</div>' +
-      '<button onclick="voegHandmatigIngToe()" style="margin-top:8px;width:100%;background:var(--surface2);border:1px dashed var(--border);border-radius:8px;padding:8px;color:var(--text-muted);cursor:pointer;font-size:13px;font-family:Inter,sans-serif;">+ Toevoegen</button>';
-    updateIngVoegToeBtn();
+      '<div style="display:grid;grid-template-columns:1fr 52px 90px 36px;gap:6px;margin-top:12px;align-items:center;">' +
+        '<input type="text" class="ing-naam-input" id="handmatig-naam" placeholder="Naam" style="font-size:14px;padding:8px 10px;" onkeydown="if(event.key===\'Enter\')voegHandmatigIngToe()">' +
+        '<input type="text" class="ing-klein-input" id="handmatig-aantal" placeholder="#" style="font-size:13px;padding:8px 6px;text-align:center;" onkeydown="if(event.key===\'Enter\')voegHandmatigIngToe()">' +
+        '<input type="text" class="ing-klein-input" id="handmatig-eenheid" placeholder="Eenheid" style="font-size:13px;padding:8px 6px;" onkeydown="if(event.key===\'Enter\')voegHandmatigIngToe()">' +
+        '<button onclick="voegHandmatigIngToe()" style="background:var(--accent);border:none;border-radius:6px;color:var(--bg);font-size:16px;font-weight:700;cursor:pointer;padding:8px;width:100%;">+</button>' +
+      '</div>';
+    // Zet knop direct op actief voor handmatige modus
+    const btn = document.getElementById('ing-voeg-toe-btn');
+    if (btn) { btn.textContent = 'Voeg toe aan lijst'; btn.disabled = false; }
     document.getElementById('ing-picker-overlay').classList.add('open');
+    setTimeout(() => { const n = document.getElementById('handmatig-naam'); if(n) n.focus(); }, 100);
   }
 }
 
@@ -2225,20 +2229,25 @@ function voegHandmatigIngToe() {
   const lijst = document.getElementById('handmatig-items-list');
   if (lijst) {
     lijst.innerHTML = handmatigIngItems.map((item, i) =>
-      '<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);">' +
-        '<div style="flex:1;font-size:14px;">' + item.naam + '</div>' +
+      '<div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);">' +
+        '<div style="flex:1;font-size:14px;font-weight:500;">' + item.naam + '</div>' +
         '<div style="font-size:13px;color:var(--text-muted);">' + [item.aantal, item.eenheid].filter(Boolean).join(' ') + '</div>' +
-        '<button onclick="verwijderHandmatigIng(' + i + ')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:13px;">✕</button>' +
+        '<button onclick="verwijderHandmatigIng(' + i + ')" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:14px;padding:2px 4px;">✕</button>' +
       '</div>'
     ).join('');
   }
-  document.getElementById('handmatig-naam').value = '';
-  document.getElementById('handmatig-aantal').value = '';
-  document.getElementById('handmatig-eenheid').value = '';
-  document.getElementById('handmatig-naam').focus();
-  // Update voeg toe knop
+  const nEl = document.getElementById('handmatig-naam');
+  const aEl = document.getElementById('handmatig-aantal');
+  const eEl = document.getElementById('handmatig-eenheid');
+  if (nEl) nEl.value = '';
+  if (aEl) aEl.value = '';
+  if (eEl) eEl.value = '';
+  if (nEl) nEl.focus();
   const btn = document.getElementById('ing-voeg-toe-btn');
-  if (btn) { btn.textContent = 'Voeg ' + handmatigIngItems.length + ' items toe'; btn.disabled = handmatigIngItems.length === 0; }
+  if (btn) {
+    btn.textContent = handmatigIngItems.length > 0 ? 'Voeg ' + handmatigIngItems.length + ' items toe' : 'Voeg toe aan lijst';
+    btn.disabled = false;
+  }
 }
 
 function verwijderHandmatigIng(i) {
@@ -2341,7 +2350,7 @@ function renderPlanner() {
       </div>`).join('');
     const addSlot = meals.length < 5
       ? `<div onclick="openMealPicker('${key}', '${days[i]}')" style="display:flex;align-items:center;gap:6px;background:var(--surface2);border:1px dashed var(--border);border-radius:8px;padding:7px 12px;cursor:pointer;color:var(--text-muted);font-size:14px;">
-           <span>+ ${t('chooseBtn')}</span>
+           <span>${t('chooseBtn')}</span>
          </div>`
       : '';
     const borderStyle = isToday(date)
