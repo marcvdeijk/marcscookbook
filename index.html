@@ -754,8 +754,48 @@
 
 
 
+
+  /* ── WEEKPLANNER BASIS (alle schermen) ── */
+  .day-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .day-card.today {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .day-grid { gap: 12px; }
+  .day-name {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .day-date {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .day-card.today .day-date { color: var(--accent); }
+  .meal-slot {
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+  .meal-slot.filled {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+
   /* ── STAP 4: WEEKPLANNER MOBIEL ── */
-  @media (max-width: 640px) {
+  @media (max-width: 1024px) {
     .planner-main { padding: 16px; }
 
     /* Week header */
