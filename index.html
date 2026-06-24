@@ -606,13 +606,35 @@
     .sidebar { display: none !important; }
     #filter-toggle-wrapper { display: none !important; }
 
-    .search-bar { padding: 14px 16px 0; }
-    .search-input { font-size: 16px; padding: 14px 16px; border-radius: 14px; }
+    /* Header: compact, alles op één rij */
+    .header {
+      padding: 12px 16px 10px !important;
+      display: flex !important;
+      align-items: center !important;
+      flex-wrap: nowrap !important;
+      gap: 8px !important;
+    }
+    .header h1 { font-size: 22px !important; }
+    .header > span { display: none !important; } /* verberg recepten teller */
+    .header-controls { margin-left: auto !important; gap: 6px !important; }
+    .ctrl-btn { font-size: 12px !important; padding: 5px 10px !important; }
 
+    /* Zoekbalk — donker passend bij thema */
+    .search-bar { padding: 10px 16px 0; }
+    .search-input {
+      font-size: 16px !important;
+      padding: 13px 16px !important;
+      border-radius: 14px !important;
+      background: var(--surface) !important;
+      border-color: var(--border) !important;
+      color: var(--text) !important;
+    }
+
+    /* Filter pillen rij 1: cuisine */
     .filter-pills {
-      display: flex;
+      display: flex !important;
       gap: 8px;
-      padding: 12px 16px 6px;
+      padding: 10px 16px 4px;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
@@ -623,10 +645,10 @@
       border: 1px solid var(--border);
       border-radius: 20px;
       color: var(--text-muted);
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
       font-family: 'Inter', sans-serif;
-      padding: 8px 18px;
+      padding: 7px 16px;
       white-space: nowrap;
       cursor: pointer;
       flex-shrink: 0;
@@ -637,6 +659,39 @@
       background: var(--accent);
       border-color: var(--accent);
       color: var(--bg);
+      font-weight: 600;
+    }
+
+    /* Filter pillen rij 2: eiwit */
+    .filter-pills-2 {
+      display: flex !important;
+      gap: 8px;
+      padding: 4px 16px 6px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .filter-pills-2::-webkit-scrollbar { display: none; }
+    .filter-pill-2 {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      padding: 5px 13px;
+      white-space: nowrap;
+      cursor: pointer;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+    .filter-pill-2.active {
+      background: var(--accent2);
+      border-color: var(--accent2);
+      color: white;
+      font-weight: 600;
     }
 
     .results-count { padding: 4px 16px; font-size: 13px; }
@@ -650,7 +705,6 @@
       padding: 0 !important;
     }
 
-    /* Kaart als lijst-item */
     .card {
       border-radius: 0 !important;
       border: none !important;
@@ -679,7 +733,6 @@
     .card-meta::-webkit-scrollbar { display: none; }
     .tag { font-size: 13px !important; padding: 4px 10px !important; white-space: nowrap !important; flex-shrink: 0 !important; }
 
-    /* Stats: alleen tijd en kcal, compact */
     .card-stats {
       display: flex !important;
       flex-direction: row !important;
@@ -688,7 +741,6 @@
       padding-top: 12px !important;
       margin-top: 0 !important;
     }
-    /* Verberg inspanning en nutriscore dots op mobiel — te klein */
     .card-stats .stat:nth-child(2),
     .card-stats .stat:nth-child(4) { display: none !important; }
     .stat { flex-direction: row !important; align-items: center !important; gap: 6px !important; }
@@ -1855,14 +1907,31 @@ let activePillCuisine = 'all';
 
 function buildFilterPills() {
   const pillsEl = document.getElementById('filter-pills');
-  if (!pillsEl) return;
+  if (pillsEl) {
+    const cuisines = [...new Set(recipes.map(r => r.cuisine).filter(Boolean))].sort();
+    pillsEl.innerHTML =
+      '<button class="filter-pill active" onclick="setPill(\'cuisine\',\'all\',this)">Alle</button>' +
+      cuisines.map(c =>
+        '<button class="filter-pill" onclick="setPill(\'cuisine\',\'' + c + '\',this)">' + c + '</button>'
+      ).join('');
+  }
 
-  const cuisines = [...new Set(recipes.map(r => r.cuisine).filter(Boolean))].sort();
-  pillsEl.innerHTML =
-    '<button class="filter-pill active" onclick="setPill(\'cuisine\',\'all\',this)">Alle</button>' +
-    cuisines.map(c =>
-      '<button class="filter-pill" onclick="setPill(\'cuisine\',\'' + c + '\',this)">' + c + '</button>'
-    ).join('');
+  const pills2El = document.getElementById('filter-pills-2');
+  if (pills2El) {
+    const proteins = [...new Set(recipes.map(r => r.protein).filter(Boolean))].sort();
+    pills2El.innerHTML =
+      '<button class="filter-pill-2 active" onclick="setPill2(\'protein\',\'all\',this)">Alle eiwitten</button>' +
+      proteins.map(p =>
+        '<button class="filter-pill-2" onclick="setPill2(\'protein\',\'' + p + '\',this)">' + p + '</button>'
+      ).join('');
+  }
+}
+
+function setPill2(group, value, el) {
+  document.querySelectorAll('.filter-pill-2').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  filters[group] = value;
+  renderGrid();
 }
 
 function setPill(group, value, el) {
@@ -1876,10 +1945,11 @@ function setPill(group, value, el) {
 }
 
 function checkMobilePills() {
-  const pillsEl = document.getElementById('filter-pills');
-  if (!pillsEl) return;
   const isMobile = window.innerWidth <= 640;
-  pillsEl.style.display = isMobile ? 'flex' : 'none';
+  const p1 = document.getElementById('filter-pills');
+  const p2 = document.getElementById('filter-pills-2');
+  if (p1) p1.style.display = isMobile ? 'flex' : 'none';
+  if (p2) p2.style.display = isMobile ? 'flex' : 'none';
 }
 
 window.addEventListener('resize', checkMobilePills);
