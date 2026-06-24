@@ -1836,11 +1836,13 @@ function renderBoodschappen() {
         '</li>';
     }
     const naam = getNaam(item);
-    const rechts = [item.aantal, item.eenheid].filter(Boolean).join(' ');
+    const rechts = [item.aantal, item.eenheid].filter(x => x && String(x).trim()).join(' · ');
     return '<li class="boodschappen-item' + (item.afgevinkt ? ' afgevinkt' : '') + '">' +
       '<input type="checkbox" ' + (item.afgevinkt ? 'checked' : '') + ' onchange="toggleBoodschap(\'' + item.id + '\')">' +
-      '<span class="boodschappen-item-naam" onclick="bewerkItem(\'' + item.id + '\')">' + naam + '</span>' +
-      (rechts ? '<span class="boodschappen-item-aantal">' + rechts + '</span>' : '') +
+      '<div class="boodschappen-item-content" onclick="bewerkItem(\'' + item.id + '\')">' +
+        '<div class="boodschappen-item-naam">' + naam + '</div>' +
+        (rechts ? '<div class="boodschappen-item-aantal">' + rechts + '</div>' : '') +
+      '</div>' +
       (item.bron ? '<span class="boodschappen-item-bron">' + item.bron + '</span>' : '') +
       '<button class="boodschappen-delete" onclick="verwijderBoodschap(\'' + item.id + '\')" title="Verwijder">✕</button>' +
       '</li>';
