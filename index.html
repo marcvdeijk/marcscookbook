@@ -1025,11 +1025,11 @@
         <button class="wis-alles-btn" onclick="wisAlles()">✕ Wis alles</button>
       </div>
     </div>
-    <div style="display:flex;gap:6px;align-items:center;margin-bottom:16px;">
-      <input type="text" class="boodschappen-input" id="boodschappen-input" placeholder="Naam" style="flex:2;min-width:0;font-size:15px;padding:10px 12px;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
-      <input type="text" class="boodschappen-input" id="boodschappen-aantal" placeholder="#" style="flex:0 0 52px;font-size:15px;padding:10px 8px;text-align:center;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
-      <input type="text" class="boodschappen-input" id="boodschappen-eenheid" placeholder="Eenh." style="flex:0 0 64px;font-size:14px;padding:10px 8px;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
-      <button class="boodschappen-add-btn" onclick="voegHandmatigToe()" style="flex-shrink:0;padding:10px 14px;font-size:18px;">+</button>
+    <div style="display:grid;grid-template-columns:1fr 56px 68px 44px;gap:6px;align-items:center;margin-bottom:16px;">
+      <input type="text" class="boodschappen-input" id="boodschappen-input" placeholder="Naam" style="font-size:15px;padding:12px 12px;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
+      <input type="text" class="boodschappen-input" id="boodschappen-aantal" placeholder="#" style="font-size:14px;padding:12px 6px;text-align:center;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
+      <input type="text" class="boodschappen-input" id="boodschappen-eenheid" placeholder="Eenh." style="font-size:13px;padding:12px 6px;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
+      <button class="boodschappen-add-btn" onclick="voegHandmatigToe()" style="padding:12px 0;font-size:18px;width:100%;">+</button>
     </div>
     <div id="boodschappen-leeg" class="boodschappen-leeg">
       <div style="font-size:40px;">🛒</div>
