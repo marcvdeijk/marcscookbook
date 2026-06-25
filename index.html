@@ -1083,7 +1083,7 @@
 
 <!-- FILTER MODAL -->
 <div id="filter-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:300;align-items:flex-end;" onclick="if(event.target===this)sluitFilterModal()">
-  <div style="background:var(--surface);border-radius:20px 20px 0 0;width:100%;max-height:75vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;" onclick="event.stopPropagation()">
+  <div style="background:var(--surface);border-radius:20px 20px 0 0;width:100%;max-height:75vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:80px;" onclick="event.stopPropagation()">
     <div style="padding:20px 20px 0;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--border);padding-bottom:14px;">
       <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--text);">Filters</span>
       <div style="display:flex;gap:10px;align-items:center;">
@@ -1096,7 +1096,11 @@
       <div id="fm-protein" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;"></div>
       <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;">Cuisine</div>
       <div id="fm-cuisine" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;"></div>
-      <button onclick="sluitFilterModal()" style="width:100%;background:var(--accent);border:none;border-radius:12px;color:var(--bg);padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">Toon recepten</button>
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;">Tijd</div>
+      <div id="fm-tijd" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;"></div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;">Inspanning</div>
+      <div id="fm-effort" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;"></div>
+      <button onclick="sluitFilterModal()" style="width:100%;background:var(--accent);border:none;border-radius:12px;color:var(--bg);padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:env(safe-area-inset-bottom, 16px);">Toon recepten</button>
     </div>
   </div>
 </div>
@@ -2156,6 +2160,14 @@ function openFilterModal() {
   var proteins = ['Alle'].concat([...new Set(recipes.map(function(r){return r.protein;}).filter(Boolean))].sort());
   var cuisines = ['Alle'].concat([...new Set(recipes.map(function(r){return r.cuisine;}).filter(Boolean))].sort());
 
+  function maakPillenCustom(container, labels, waarden, filterKey, accentKleur) {
+    document.getElementById(container).innerHTML = labels.map(function(label, i) {
+      var waarde = waarden[i];
+      var actief = filters[filterKey] === waarde;
+      return '<button onclick="setFilter(\''+filterKey+'\',\''+waarde+'\',this,\''+accentKleur+'\')" data-waarde="'+waarde+'" style="padding:8px 16px;border-radius:20px;border:1px solid '+(actief?accentKleur:'var(--border)')+';background:'+(actief?accentKleur:'var(--surface2)')+';color:'+(actief?'var(--bg)':'var(--text-muted)')+';font-size:14px;font-weight:500;font-family:Inter,sans-serif;cursor:pointer;">'+label+'</button>';
+    }).join('');
+  }
+
   function maakPillen(container, waarden, filterKey, accentKleur) {
     document.getElementById(container).innerHTML = waarden.map(function(w) {
       var waarde = w === 'Alle' ? 'all' : w;
@@ -2164,8 +2176,13 @@ function openFilterModal() {
     }).join('');
   }
 
+  var tijden = ['Alle', 'Snel (< 30 min)', 'Middel (30-90 min)', 'Lang (> 90 min)'];
+  var effortLabels = ['Alle', '● Eenvoudig', '●● Gemiddeld', '●●● Bewerkelijk'];
+
   maakPillen('fm-protein', proteins, 'protein', 'var(--accent2)');
   maakPillen('fm-cuisine', cuisines, 'cuisine', 'var(--accent)');
+  maakPillenCustom('fm-tijd', tijden, ['all','snel','middel','lang'], 'time', 'var(--accent)');
+  maakPillenCustom('fm-effort', effortLabels, ['all','1-2','3','4-5'], 'effort', 'var(--accent)');
 
   document.getElementById('filter-modal').style.display = 'flex';
 }
