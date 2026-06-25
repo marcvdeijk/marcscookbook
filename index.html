@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Marc's Cookbook</title>
 <style>
+  html, body { overflow-x: hidden; }
   @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
   :root {
@@ -481,7 +482,7 @@
   .recipe-pick-cuisine { font-size:11px; color:var(--text-muted); }
 
   /* ── BOODSCHAPPENLIJST (groter op mobiel) ── */
-  .boodschappen-main { flex:1; padding:16px; box-sizing:border-box; width:100%; }
+  .boodschappen-main { flex:1; padding:16px; box-sizing:border-box; width:100%; overflow-x:hidden; }
   .boodschappen-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:8px; }
   .boodschappen-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:22px; color:var(--accent); }
   .wis-alles-btn { background:none; border:1px solid var(--border); border-radius:6px; color:var(--text-muted); padding:8px 14px; font-size:13px; cursor:pointer; font-family:'Inter',sans-serif; }
@@ -1022,7 +1023,7 @@
 </div>
 
 <!-- TAB: BOODSCHAPPEN -->
-<div class="tab-panel" id="tab-boodschappen">
+<div class="tab-panel" id="tab-boodschappen" style="overflow-x:hidden;">
   <div class="boodschappen-main">
     <div class="boodschappen-header">
       <div class="boodschappen-title">Boodschappenlijst</div>
@@ -1031,7 +1032,7 @@
         <button class="wis-alles-btn" onclick="wisAlles()">✕ Wis alles</button>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 48px 72px 40px;gap:6px;align-items:center;margin-bottom:16px;">
+    <div style="display:grid;grid-template-columns:1fr 44px 64px 36px;gap:4px;align-items:center;margin-bottom:16px;">
       <input type="text" class="boodschappen-input" id="boodschappen-input" placeholder="Naam" style="font-size:15px;padding:12px;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
       <input type="text" class="boodschappen-input" id="boodschappen-aantal" placeholder="#" style="font-size:14px;padding:12px 6px;text-align:center;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
       <input type="text" class="boodschappen-input" id="boodschappen-eenheid" placeholder="Eenh." style="font-size:13px;padding:12px 6px;" onkeydown="if(event.key==='Enter') voegHandmatigToe()">
