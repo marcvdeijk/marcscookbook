@@ -1082,8 +1082,8 @@
 
 
 <!-- FILTER MODAL -->
-<div id="filter-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:300;justify-content:center;align-items:flex-end;" onclick="if(event.target===this)sluitFilterModal()">
-  <div style="background:var(--surface);border-radius:20px 20px 0 0;width:100%;max-height:80vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;">
+<div id="filter-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:300;align-items:flex-end;" onclick="if(event.target===this)sluitFilterModal()">
+  <div style="background:var(--surface);border-radius:20px 20px 0 0;width:100%;max-height:75vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;" onclick="event.stopPropagation()">
     <div style="padding:20px 20px 0;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--border);padding-bottom:14px;">
       <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--text);">Filters</span>
       <div style="display:flex;gap:10px;align-items:center;">
@@ -2168,7 +2168,6 @@ function openFilterModal() {
   maakPillen('fm-cuisine', cuisines, 'cuisine', 'var(--accent)');
 
   document.getElementById('filter-modal').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
 }
 
 function setFilter(key, waarde, el, kleur) {
@@ -2192,7 +2191,6 @@ function updateFilterBadge() {
 
 function sluitFilterModal() {
   document.getElementById('filter-modal').style.display = 'none';
-  document.body.style.overflow = '';
 }
 
 function resetFilters() {
