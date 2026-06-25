@@ -638,70 +638,7 @@
     outline: none;
     transition: border-color 0.15s;
   }
-
-    /* Filter pillen rij 1: cuisine */
-    .filter-pills {
-      display: flex !important;
-      gap: 8px;
-      padding: 10px 16px 4px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .filter-pills::-webkit-scrollbar { display: none; }
-    .filter-pill {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      color: var(--text-muted);
-      font-size: 14px;
-      font-weight: 500;
-      font-family: 'Inter', sans-serif;
-      padding: 7px 16px;
-      white-space: nowrap;
-      cursor: pointer;
-      flex-shrink: 0;
-      -webkit-tap-highlight-color: transparent;
-      transition: all 0.15s;
-    }
-    .filter-pill.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--bg);
-      font-weight: 600;
-    }
-
-    /* Filter pillen rij 2: eiwit */
-    .filter-pills-2 {
-      display: flex !important;
-      gap: 8px;
-      padding: 4px 16px 6px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
     .filter-pills-2::-webkit-scrollbar { display: none; }
-    .filter-pill-2 {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      color: var(--text-muted);
-      font-size: 13px;
-      font-weight: 500;
-      font-family: 'Inter', sans-serif;
-      padding: 5px 13px;
-      white-space: nowrap;
-      cursor: pointer;
-      flex-shrink: 0;
-      -webkit-tap-highlight-color: transparent;
-      transition: all 0.15s;
-    }
-    .filter-pill-2.active {
-      background: var(--accent2);
-      border-color: var(--accent2);
-      color: white;
-      font-weight: 600;
-    }
 
     .results-count { padding: 4px 16px; font-size: 13px; }
     .source-legend { display: none; }
@@ -1016,10 +953,7 @@
       <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
     </div>
 
-    <!-- FILTER PILLEN (alleen mobiel) -->
-    <div class="filter-pills" id="filter-pills" style="display:none;">
-      <button class="filter-pill active" onclick="setPill('cuisine','all',this)">Alle</button>
-    </div>
+
 
     <div style="padding: 8px 20px 0; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;">
       <div class="results-count" id="results-count"></div>
