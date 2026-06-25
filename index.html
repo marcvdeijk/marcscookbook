@@ -950,9 +950,9 @@
   </aside>
 
   <main class="main">
-    <div class="search-bar">
-      <input type="text" class="search-input" id="search-input" placeholder="Zoek recept, ingredient, cuisine..." oninput="handleSearch(this.value)">
-      <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
+    <div class="search-bar" style="position:relative;">
+      <input type="text" class="search-input" id="search-input" placeholder="Zoek recept, ingredient, cuisine..." oninput="handleSearch(this.value)" style="padding-right:36px;">
+      <button class="search-clear" id="search-clear" onclick="clearSearch()" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);font-size:16px;cursor:pointer;padding:4px;line-height:1;">✕</button>
     </div>
 
 
@@ -2304,7 +2304,7 @@ function renderPlanner() {
       </div>`).join('');
     const addSlot = meals.length < 5
       ? `<div onclick="openMealPicker('${key}', '${days[i]}')" style="display:flex;align-items:center;gap:6px;background:var(--surface2);border:1px dashed var(--border);border-radius:8px;padding:7px 12px;cursor:pointer;color:var(--text-muted);font-size:14px;">
-           <span>+ ${t('chooseBtn')}</span>
+           <span>${t('chooseBtn')}</span>
          </div>`
       : '';
     const borderStyle = isToday(date)
