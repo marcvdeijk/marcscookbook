@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Marc's persoonlijke receptenbibliotheek — weekplanner en boodschappenlijst.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Marc's Cookbook">
+  <meta name="theme-color" content="#c8813a">
 <title>Marc's Cookbook</title>
 <style>
   html, body { overflow-x: hidden; }
@@ -1422,7 +1427,6 @@ async function loadRecipes() {
     });
 
     if (failed.length > 0) {
-      console.warn('Sommige recepten konden niet worden geladen:', failed);
     }
 
     recipes = loaded;
