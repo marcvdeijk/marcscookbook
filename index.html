@@ -955,6 +955,14 @@
 
 
 
+    <!-- FILTER KNOP (mobiel) -->
+    <div id="filter-knop-mobiel" style="display:none; padding:8px 16px 4px;">
+      <button onclick="openFilterModal()" style="display:inline-flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;color:var(--text-muted);font-size:14px;font-weight:500;font-family:'Inter',sans-serif;padding:8px 16px;cursor:pointer;-webkit-tap-highlight-color:transparent;">
+        ⚙️ Filters
+        <span id="filter-badge" style="display:none;background:var(--accent);color:var(--bg);border-radius:10px;padding:1px 7px;font-size:12px;font-weight:700;"></span>
+      </button>
+    </div>
+
     <div style="padding: 8px 20px 0; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;">
       <div class="results-count" id="results-count"></div>
       <div class="source-legend">
@@ -1071,6 +1079,27 @@
   </div>
 </div>
 
+
+
+<!-- FILTER MODAL -->
+<div id="filter-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:300;justify-content:center;align-items:flex-end;" onclick="if(event.target===this)sluitFilterModal()">
+  <div style="background:var(--surface);border-radius:20px 20px 0 0;width:100%;max-height:80vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;">
+    <div style="padding:20px 20px 0;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--border);padding-bottom:14px;">
+      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;color:var(--text);">Filters</span>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <button onclick="resetFilters()" style="background:none;border:1px solid var(--border);border-radius:8px;color:var(--text-muted);padding:6px 12px;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;">Reset</button>
+        <button onclick="sluitFilterModal()" style="background:none;border:1px solid var(--border);border-radius:8px;color:var(--text-muted);padding:6px 10px;font-size:14px;cursor:pointer;">✕</button>
+      </div>
+    </div>
+    <div style="padding:20px 20px 40px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;">Eiwit</div>
+      <div id="fm-protein" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;"></div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;">Cuisine</div>
+      <div id="fm-cuisine" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;"></div>
+      <button onclick="sluitFilterModal()" style="width:100%;background:var(--accent);border:none;border-radius:12px;color:var(--bg);padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">Toon recepten</button>
+    </div>
+  </div>
+</div>
 
 <!-- MEAL PICKER MODAL -->
 <div class="meal-picker-overlay" id="meal-picker-overlay" onclick="handlePickerOverlayClick(event)">
@@ -1394,8 +1423,7 @@ async function loadRecipes() {
     document.getElementById('total-count').textContent = `${recipes.length} recepten`;
     document.getElementById('loading-state').style.display = 'none';
     bouwDynamischeFilters();
-    buildFilterPills();
-    checkMobilePills();
+    checkFilterKnop();
     renderGrid();
 
   } catch (err) {
@@ -2121,6 +2149,64 @@ document.addEventListener('click', function(e) {
     }
   }
 });
+
+
+// ── FILTER MODAL ──
+function openFilterModal() {
+  var proteins = ['Alle'].concat([...new Set(recipes.map(function(r){return r.protein;}).filter(Boolean))].sort());
+  var cuisines = ['Alle'].concat([...new Set(recipes.map(function(r){return r.cuisine;}).filter(Boolean))].sort());
+
+  function maakPillen(container, waarden, filterKey, accentKleur) {
+    document.getElementById(container).innerHTML = waarden.map(function(w) {
+      var waarde = w === 'Alle' ? 'all' : w;
+      var actief = filters[filterKey] === waarde;
+      return '<button onclick="setFilter(\''+filterKey+'\',\''+waarde+'\',this,\''+accentKleur+'\')" style="padding:8px 16px;border-radius:20px;border:1px solid '+(actief?accentKleur:'var(--border)')+';background:'+(actief?accentKleur:'var(--surface2)')+';color:'+(actief?'var(--bg)':'var(--text-muted)')+';font-size:14px;font-weight:500;font-family:Inter,sans-serif;cursor:pointer;">'+w+'</button>';
+    }).join('');
+  }
+
+  maakPillen('fm-protein', proteins, 'protein', 'var(--accent2)');
+  maakPillen('fm-cuisine', cuisines, 'cuisine', 'var(--accent)');
+
+  document.getElementById('filter-modal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function setFilter(key, waarde, el, kleur) {
+  filters[key] = waarde;
+  var groep = key === 'protein' ? 'fm-protein' : 'fm-cuisine';
+  document.getElementById(groep).querySelectorAll('button').forEach(function(btn) {
+    var isActief = (btn.textContent.trim() === 'Alle' && waarde === 'all') || btn.textContent.trim() === waarde;
+    btn.style.background = isActief ? kleur : 'var(--surface2)';
+    btn.style.borderColor = isActief ? kleur : 'var(--border)';
+    btn.style.color = isActief ? 'var(--bg)' : 'var(--text-muted)';
+  });
+  updateFilterBadge();
+  renderGrid();
+}
+
+function updateFilterBadge() {
+  var count = (filters.cuisine !== 'all' ? 1 : 0) + (filters.protein !== 'all' ? 1 : 0);
+  var badge = document.getElementById('filter-badge');
+  if (badge) { badge.style.display = count > 0 ? 'inline' : 'none'; badge.textContent = count; }
+}
+
+function sluitFilterModal() {
+  document.getElementById('filter-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function resetFilters() {
+  filters.cuisine = 'all'; filters.protein = 'all';
+  updateFilterBadge();
+  renderGrid();
+  openFilterModal();
+}
+
+function checkFilterKnop() {
+  var knop = document.getElementById('filter-knop-mobiel');
+  if (knop) knop.style.display = window.innerWidth <= 640 ? 'block' : 'none';
+}
+window.addEventListener('resize', checkFilterKnop);
 
 // ─────────────────────────────────────────
 // WEEKPLANNER
