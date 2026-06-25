@@ -608,6 +608,8 @@
   @media (max-width: 640px) {
     .sidebar { display: none !important; }
     #filter-toggle-wrapper { display: none !important; }
+    .main { padding: 0 !important; }
+    .results-count { padding: 4px 16px !important; margin-bottom: 4px !important; }
 
     /* Header: compact, alles op één rij */
     .header {
@@ -1604,7 +1606,7 @@ function renderGrid() {
     return;
   }
   empty.style.display = 'none';
-  grid.style.display = 'grid';
+  grid.style.display = window.innerWidth <= 640 ? 'flex' : 'grid';
 
   grid.innerHTML = filtered.map(r => `
     <div class="card ${r.source === 'ontdekking' ? 'ontdekking' : 'eigen'}" onclick="openModal('${r.id}')">
