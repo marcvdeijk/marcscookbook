@@ -724,8 +724,8 @@
     .grid {
       display: flex !important;
       flex-direction: column !important;
-      gap: 0 !important;
-      padding: 0 !important;
+      gap: 10px !important;
+      padding: 0 12px 80px !important;
     }
 
     .card {
@@ -1743,12 +1743,7 @@ function renderGrid() {
           <span class="kcal-badge">${r.nutrition.kcal} kcal</span>
         </div>
       </div>
-      <div class="card-stats" style="display:none;">
-        <div class="stat"><span class="stat-label">${t('time')}</span><span class="stat-value">${formatTime(r.timeMin)}</span></div>
-        <div class="stat"><span class="stat-label">${t('insp')}</span>${effortDots(r.effort)}</div>
-        <div class="stat"><span class="stat-label">${t('kcal')}</span><span class="stat-value">${r.nutrition.kcal}</span></div>
-        <div class="stat"><span class="stat-label">${t('nutri')}</span><div class="traffic-light">${trafficLight(r.nutrition.score)}</div></div>
-      </div>
+
     </div>
   `).join('');
 }
