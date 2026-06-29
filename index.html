@@ -75,7 +75,8 @@
     overflow: hidden;
     border-right: none;
   }
-  .filter-toggle { display: flex; width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 8px 14px; font-size: 13px; font-family: 'Inter', sans-serif; color: var(--text); cursor: pointer; margin-bottom: 12px; text-align: left; }
+  .filter-toggle { display: flex; width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; font-size: 14px; font-family: 'Inter', sans-serif; color: var(--text); cursor: pointer; margin-bottom: 12px; text-align: left; transition: border-color 0.15s; }
+  .filter-toggle:hover { border-color: var(--accent); }
   .filter-group { margin-bottom: 24px; }
   .filter-label {
     font-size: 10px;
@@ -86,21 +87,23 @@
     margin-bottom: 8px;
     display: block;
   }
-  .filter-btn {
+    .filter-btn {
     display: block;
     width: 100%;
     text-align: left;
     background: none;
     border: 1px solid transparent;
-    border-radius: 6px;
-    color: var(--text-muted);
-    padding: 6px 10px;
-    cursor: pointer;
+    border-radius: 8px;
+    padding: 7px 12px;
     font-size: 13px;
-    margin-bottom: 2px;
-    transition: all 0.15s;
     font-family: 'Inter', sans-serif;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-bottom: 2px;
   }
+  .filter-btn:hover { background: var(--surface2); color: var(--text); }
+  .filter-btn.active { background: var(--accent); color: var(--bg); font-weight: 600; border-color: var(--accent); }
   .filter-btn:hover { color: var(--text); background: var(--surface2); }
   .filter-btn.active { background: var(--surface2); border-color: var(--accent); color: var(--accent); }
   .reset-btn {
