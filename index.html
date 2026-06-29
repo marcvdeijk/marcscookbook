@@ -1506,13 +1506,12 @@ function applyFilters() {
     if (filters.effort !== 'all' && r.effort !== parseInt(filters.effort)) return false;
     if (filters.time !== 'all' && r.timeCategory !== filters.time) return false;
     if (searchQuery) {
-      const searchIn = [
-        r.name,
-        r.cuisine,
-        r.protein,
-        r.carbs,
-        ...r.ingredientGroups.flatMap(g => g.items),
-      ].join(' ').toLowerCase();
+      const ingredientNamen = (r.ingredientGroups || [])
+        .flatMap(g => g.items || [])
+        .map(item => [item.naam, item.beschrijving].filter(Boolean).join(' '))
+        .join(' ');
+      const searchIn = [r.name, r.cuisine, r.protein, r.carbs, ingredientNamen]
+        .filter(Boolean).join(' ').toLowerCase();
       if (!searchIn.includes(searchQuery)) return false;
     }
     return true;
