@@ -900,15 +900,6 @@
   }
   .ing-klein-clear:hover { color: var(--red); }
 
-
-  /* ── DESKTOP: gecentreerd en max-width ── */
-  @media (min-width: 641px) {
-    .planner-main { max-width: 800px; margin: 0 auto; padding: 24px 32px; }
-    .boodschappen-main { max-width: 640px; margin: 0 auto; }
-    .search-bar { max-width: 640px; }
-    .main { max-width: 1200px; margin: 0 auto; }
-  }
-
 </style>
 </head>
 <body>
@@ -980,6 +971,9 @@
 
     <div style="padding: 8px 20px 0; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;">
       <div class="results-count" id="results-count"></div>
+      <div class="source-legend">
+        <div class="source-legend-item"><span class="source-badge source-eigen"></span> Eigen recept</div>
+        <div class="source-legend-item"><span class="source-badge source-ontdekking"></span> Ontdekking</div>
       </div>
     </div>
     <div id="loading-state" class="loading">
@@ -992,6 +986,7 @@
       <p>Pas je filters aan.</p>
     </div>
   </main>
+</div>
 </div><!-- end tab-bibliotheek -->
 
 <!-- TAB: WEEKPLANNER -->
@@ -1514,12 +1509,13 @@ function applyFilters() {
     if (filters.effort !== 'all' && r.effort !== parseInt(filters.effort)) return false;
     if (filters.time !== 'all' && r.timeCategory !== filters.time) return false;
     if (searchQuery) {
-      const ingredientNamen = (r.ingredientGroups || [])
-        .flatMap(g => g.items || [])
-        .map(item => [item.naam, item.beschrijving].filter(Boolean).join(' '))
-        .join(' ');
-      const searchIn = [r.name, r.cuisine, r.protein, r.carbs, ingredientNamen]
-        .filter(Boolean).join(' ').toLowerCase();
+      const searchIn = [
+        r.name,
+        r.cuisine,
+        r.protein,
+        r.carbs,
+        ...r.ingredientGroups.flatMap(g => g.items),
+      ].join(' ').toLowerCase();
       if (!searchIn.includes(searchQuery)) return false;
     }
     return true;
@@ -1610,6 +1606,7 @@ function renderGrid() {
   grid.innerHTML = filtered.map(r => `
     <div class="card" onclick="openModal('${r.id}')">
       <div class="card-title" style="display:flex;align-items:baseline;gap:6px;">
+        <span class="source-badge ${r.source === 'ontdekking' ? 'source-ontdekking' : 'source-eigen'}" title="${r.source === 'ontdekking' ? 'Ontdekking' : 'Eigen recept'}"></span>
         ${r.name}${!r.complete ? ` <span style="font-size:11px;color:var(--text-muted);">${t('incomplete')}</span>` : ''}
       </div>
       <div class="card-meta">
