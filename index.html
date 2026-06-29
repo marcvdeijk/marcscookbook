@@ -510,7 +510,7 @@
     .tab-nav { padding: 0 8px; }
     .tab-btn { font-size: 14px; padding: 12px 14px; }
     .main { padding: 10px 12px; }
-    .search-bar { padding: 10px 12px 0; }
+    .search-bar { padding: 10px 16px 0; }
     .grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; padding: 0 0 16px !important; }
     .card { padding: 12px; }
     .card-title { font-size: 15px; margin-bottom: 8px; }
@@ -990,13 +990,13 @@
 <div class="tab-panel" id="tab-weekplanner">
   <div class="planner-main">
     <div class="planner-header">
-      <div class="week-nav">
-        <button class="week-nav-btn" onclick="changeWeek(-1)">‹</button>
-        <div>
-          <div class="week-label" id="week-label"></div>
-          <div class="week-sub" id="week-sub"></div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:24px;padding:8px 0 20px;">
+        <button onclick="changeWeek(-1)" style="width:36px;height:36px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);color:var(--text);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;">‹</button>
+        <div style="text-align:center;">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:700;color:var(--text);" id="week-label"></div>
+          <div style="font-size:13px;color:var(--text-muted);margin-top:2px;" id="week-sub"></div>
         </div>
-        <button class="week-nav-btn" onclick="changeWeek(1)">›</button>
+        <button onclick="changeWeek(1)" style="width:36px;height:36px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);color:var(--text);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;">›</button>
       </div>
     </div>
 
