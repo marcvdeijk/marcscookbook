@@ -14,19 +14,23 @@
   @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
   :root {
-    --bg: #f5f0e8;
-    --surface: #fdfaf4;
-    --surface2: #ede8dc;
-    --border: #d8cdb8;
-    --accent: #8b4513;
-    --accent2: #4a7c59;
-    --text: #2c1f0e;
-    --text-muted: #8a7660;
-    --red: #c0392b;
-    --orange: #c67c2a;
-    --green: #2e7d4f;
-    --tag-bg: #e8e2d4;
-  }
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --surface2: #f0f0ee;
+  --border: #e0e0dc;
+  --border-strong: #c8c8c4;
+  --accent: #111111;
+  --accent2: #4a7c59;
+  --text: #111111;
+  --text-muted: #888884;
+  --red: #e24b4a;
+  --orange: #f59e0b;
+  --green: #22c55e;
+  --tag-bg: #f0f0ee;
+  --score-green: #22c55e;
+  --score-orange: #f59e0b;
+  --score-yellow: #eab308;
+}
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -46,13 +50,20 @@
     gap: 16px;
   }
   .header h1 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 34px;
-    font-weight: 800;
-    color: var(--accent);
-    letter-spacing: -0.5px;
-  }
-  .header span { color: var(--text-muted); font-size: 13px; }
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+  .header span {
+  color: var(--text-muted);
+  font-size: 12px;
+  background: var(--surface2);
+  border: 0.5px solid var(--border);
+  border-radius: 20px;
+  padding: 2px 10px;
+}
 
   .app { display: flex; min-height: calc(100vh - 130px); width: 100%; }
 
@@ -132,33 +143,82 @@
   }
 
   .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px;
-    cursor: pointer;
-    transition: all 0.2s;
-    min-width: 0;
-  }
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  min-width: 0;
+  overflow: hidden;
+}
+.card:hover {
+  border-color: var(--border-strong);
+  transform: none;
+  background: var(--surface);
+}
+.card-thumb {
+  height: 72px;
+  background: var(--surface2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  position: relative;
+  border-bottom: 0.5px solid var(--border);
+}
+.card-thumb-inner {
+  padding: 10px 12px 10px;
+}
+.score-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.score-dot.green  { background: var(--score-green); }
+.score-dot.orange { background: var(--score-orange); }
+.score-dot.yellow { background: var(--score-yellow); }
+.score-dot.red    { background: var(--red); }
+.card-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.kcal-badge {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--surface2);
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+.card-stats { display: none !important; }
+.traffic-light { display: none !important; }
   .card:hover { border-color: var(--accent); background: var(--surface2); transform: translateY(-2px); }
   .card-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 10px;
-    line-height: 1.25;
-  }
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 7px;
+  line-height: 1.3;
+}
   .card-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
   .tag {
-    background: var(--tag-bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 3px 8px;
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
+  background: var(--tag-bg);
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  padding: 2px 6px;
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.tag.cuisine { border-color: var(--border); color: var(--text-muted); }
+.tag.protein { border-color: var(--border); color: var(--text-muted); }
   .tag.cuisine { border-color: #5a4a2a; color: var(--accent); }
   .tag.protein { border-color: #2a3a2a; color: var(--accent2); }
 
@@ -167,9 +227,9 @@
   .stat-label { font-size: 10px; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; }
   .stat-value { font-size: 13px; font-weight: 600; color: var(--text); }
 
-  .effort-dots { display: flex; gap: 3px; align-items: center; margin-top: 2px; }
-  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
-  .dot.filled { background: var(--accent); }
+  .effort-dots { display: flex; gap: 2px; align-items: center; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-strong); }
+  .dot.filled { background: var(--text); }
 
   .traffic-light { display: flex; gap: 4px; align-items: center; margin-top: 2px; }
   .light { width: 10px; height: 10px; border-radius: 50%; opacity: 0.25; }
@@ -384,22 +444,26 @@
   }
   .tab-nav::-webkit-scrollbar { display: none; }
   .tab-btn {
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    color: var(--text-muted);
-    padding: 14px 20px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 500;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.15s;
-    margin-bottom: -1px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.15s;
+  margin-bottom: -1px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tab-btn:hover { color: var(--text); }
   .tab-btn:hover { color: var(--text); }
-  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab-btn.active {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
 
   .tab-panel { display: none; width: 100%; }
   .tab-panel.active { display: block; min-height: calc(100vh - 130px); width: 100%; }
@@ -422,16 +486,20 @@
   .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
 
   [data-theme="dark"] {
-    --bg: #1a1a18;
-    --surface: #232320;
-    --surface2: #2c2c28;
-    --border: #3a3a34;
-    --accent: #c8a96e;
-    --accent2: #7a9e7e;
-    --text: #e8e4dc;
-    --text-muted: #8a8678;
-    --tag-bg: #2e2e2a;
-  }
+  --bg: #111111;
+  --surface: #1a1a1a;
+  --surface2: #222222;
+  --border: #2e2e2e;
+  --border-strong: #3a3a3a;
+  --accent: #f0f0f0;
+  --accent2: #7a9e7e;
+  --text: #f0f0f0;
+  --text-muted: #666662;
+  --tag-bg: #222222;
+  --score-green: #22c55e;
+  --score-orange: #f59e0b;
+  --score-yellow: #eab308;
+}
   [data-theme="dark"] .score-badge.green { background: #1a3a1a; color: #4caf50; border: 1px solid #2a5a2a; }
   [data-theme="dark"] .score-badge.orange { background: #3a2a0a; color: #ff9800; border: 1px solid #5a3a0a; }
   [data-theme="dark"] .score-badge.red { background: #3a1a1a; color: #f44336; border: 1px solid #5a2a2a; }
@@ -903,6 +971,45 @@
   }
   .ing-klein-clear:hover { color: var(--red); }
 
+
+  /* ── FILTER PILLS BAR ── */
+  .filter-pills-bar {
+    display: none;
+    gap: 7px;
+    padding: 10px 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-bottom: 0.5px solid var(--border);
+    background: var(--bg);
+  }
+  .filter-pills-bar::-webkit-scrollbar { display: none; }
+  .filter-pill-item {
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 0.5px solid var(--border-strong);
+    background: transparent;
+    color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.12s;
+  }
+  .filter-pill-item.active {
+    background: var(--text);
+    color: var(--surface);
+    border-color: var(--text);
+  }
+  .filter-pill-item:hover:not(.active) {
+    border-color: var(--border-strong);
+    color: var(--text);
+  }
+  @media (max-width: 640px) {
+    .filter-pills-bar { display: flex; }
+  }
+
 </style>
 </head>
 <body>
@@ -963,6 +1070,20 @@
     </div>
 
 
+
+    <!-- FILTER PILLS BAR (mobiel, visueel only) -->
+    <div class="filter-pills-bar" id="filter-pills-bar">
+      <button class="filter-pill-item active">Alle</button>
+      <button class="filter-pill-item">Kip</button>
+      <button class="filter-pill-item">Rund</button>
+      <button class="filter-pill-item">Vis</button>
+      <button class="filter-pill-item">Plantaardig</button>
+      <button class="filter-pill-item">Ei</button>
+      <button class="filter-pill-item">Indiaas</button>
+      <button class="filter-pill-item">Mexicaans</button>
+      <button class="filter-pill-item">Mediterraan</button>
+      <button class="filter-pill-item">Aziatisch</button>
+    </div>
 
     <!-- FILTER KNOP (mobiel) -->
     <div id="filter-knop-mobiel" style="display:none; padding:8px 16px 4px;">
@@ -1604,15 +1725,25 @@ function renderGrid() {
 
   grid.innerHTML = filtered.map(r => `
     <div class="card" onclick="openModal('${r.id}')">
-      <div class="card-title" style="display:flex;align-items:baseline;gap:6px;">
-        ${r.name}${!r.complete ? ` <span style="font-size:11px;color:var(--text-muted);">${t('incomplete')}</span>` : ''}
+      <div class="card-thumb">
+        <span>${r.emoji || '🍽'}</span>
+        <div class="score-dot ${r.nutrition.score}"></div>
       </div>
-      <div class="card-meta">
-        <span class="tag cuisine">${r.cuisine}</span>
-        <span class="tag protein">${r.protein}</span>
-        ${r.carbs !== 'Geen' ? `<span class="tag">${r.carbs}</span>` : ''}
+      <div class="card-thumb-inner">
+        <div class="card-title">
+          ${r.name}${!r.complete ? ` <span style="font-size:10px;color:var(--text-muted);">${t('incomplete')}</span>` : ''}
+        </div>
+        <div class="card-meta">
+          <span class="tag cuisine">${r.cuisine}</span>
+          <span class="tag protein">${r.protein}</span>
+          ${r.carbs !== 'Geen' ? `<span class="tag">${r.carbs}</span>` : ''}
+        </div>
+        <div class="card-footer-row">
+          ${effortDots(r.effort)}
+          <span class="kcal-badge">${r.nutrition.kcal} kcal</span>
+        </div>
       </div>
-      <div class="card-stats">
+      <div class="card-stats" style="display:none;">
         <div class="stat"><span class="stat-label">${t('time')}</span><span class="stat-value">${formatTime(r.timeMin)}</span></div>
         <div class="stat"><span class="stat-label">${t('insp')}</span>${effortDots(r.effort)}</div>
         <div class="stat"><span class="stat-label">${t('kcal')}</span><span class="stat-value">${r.nutrition.kcal}</span></div>
