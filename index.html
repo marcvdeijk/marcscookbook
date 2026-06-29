@@ -636,14 +636,15 @@
     width: 100%;
     background: var(--surface2);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 12px;
     color: var(--text);
-    padding: 10px 16px;
-    font-size: 14px;
+    padding: 12px 16px;
+    font-size: 15px;
     font-family: 'Inter', sans-serif;
     outline: none;
     transition: border-color 0.15s;
   }
+  .search-input:focus { border-color: var(--accent); }
     .filter-pills-2::-webkit-scrollbar { display: none; }
 
     .results-count { padding: 4px 16px; font-size: 13px; }
@@ -1005,8 +1006,8 @@
     <div class="day-grid" id="day-grid"></div>
 
     <div class="planner-footer">
-      <button class="ics-btn" id="ics-btn" onclick="downloadICS()">📥 Download kalender (.ics)</button>
-      <span class="ics-hint" id="ics-hint">Open het bestand op je iPhone of iPad om de maaltijden toe te voegen aan iCloud Kalender.</span>
+      <button id="ics-btn" onclick="downloadICS()" style="display:inline-flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);padding:12px 20px;font-size:14px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:border-color 0.15s;">📥 Download kalender (.ics)</button>
+      <span id="ics-hint" style="font-size:12px;color:var(--text-muted);display:block;margin-top:8px;">Open het bestand op je iPhone of iPad om de maaltijden toe te voegen aan iCloud Kalender.</span>
     </div>
   </div>
 </div><!-- end tab-weekplanner -->
