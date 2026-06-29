@@ -960,6 +960,45 @@
   }
   .ing-klein-clear:hover { color: var(--red); }
 
+
+  /* ── FILTER PILLS BAR ── */
+  .filter-pills-bar {
+    display: none;
+    gap: 7px;
+    padding: 10px 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-bottom: 0.5px solid var(--border);
+    background: var(--bg);
+  }
+  .filter-pills-bar::-webkit-scrollbar { display: none; }
+  .filter-pill-item {
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 0.5px solid var(--border-strong);
+    background: transparent;
+    color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.12s;
+  }
+  .filter-pill-item.active {
+    background: var(--text);
+    color: var(--surface);
+    border-color: var(--text);
+  }
+  .filter-pill-item:hover:not(.active) {
+    border-color: var(--border-strong);
+    color: var(--text);
+  }
+  @media (max-width: 640px) {
+    .filter-pills-bar { display: flex; }
+  }
+
 </style>
 </head>
 <body>
@@ -1012,6 +1051,20 @@
     </div>
     <button class="reset-btn" onclick="resetFilters()">↺ Reset filters</button>
   </aside>
+
+  <!-- FILTER PILLS BAR (mobiel, visueel only) -->
+  <div class="filter-pills-bar" id="filter-pills-bar">
+    <button class="filter-pill-item active">Alle</button>
+    <button class="filter-pill-item">Kip</button>
+    <button class="filter-pill-item">Rund</button>
+    <button class="filter-pill-item">Vis</button>
+    <button class="filter-pill-item">Plantaardig</button>
+    <button class="filter-pill-item">Ei</button>
+    <button class="filter-pill-item">Indiaas</button>
+    <button class="filter-pill-item">Mexicaans</button>
+    <button class="filter-pill-item">Mediterraan</button>
+    <button class="filter-pill-item">Aziatisch</button>
+  </div>
 
   <main class="main">
     <div class="search-bar" style="position:relative;">
