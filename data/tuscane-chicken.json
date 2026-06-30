@@ -26,26 +26,26 @@
           "naam": "Tomaat",
           "hoeveelheid": 1,
           "eenheid": "kg",
-          "beschrijving": "rijpe trostomaten of romatomaten, gehalveerd",
+          "opmerking": "rijpe trostomaten of romatomaten, gehalveerd",
           "naar_smaak": false
         },
         {
           "naam": "Knoflook",
           "hoeveelheid": 1,
           "eenheid": "bol",
-          "beschrijving": "bovenkant eraf gesneden",
+          "opmerking": "bovenkant eraf gesneden",
           "naar_smaak": false
         },
         {
           "naam": "Ui",
           "hoeveelheid": 1,
           "eenheid": "stuks",
-          "beschrijving": "in grove parten",
+          "opmerking": "in grove parten",
           "naar_smaak": false
         },
         {
           "naam": "Olijfolie",
-          "beschrijving": "ruime scheut om te roosteren",
+          "opmerking": "ruime scheut om te roosteren",
           "naar_smaak": true
         },
         {
@@ -58,12 +58,12 @@
           "naam": "Kookzuivel",
           "hoeveelheid": 100,
           "eenheid": "ml",
-          "beschrijving": "of plantaardige room",
+          "opmerking": "of plantaardige room",
           "naar_smaak": false
         },
         {
           "naam": "Verse basilicum",
-          "beschrijving": "handvol blaadjes",
+          "opmerking": "handvol blaadjes",
           "naar_smaak": true
         },
         {
@@ -83,21 +83,21 @@
           "naam": "Rustiek brood",
           "hoeveelheid": 1,
           "eenheid": "stuks",
-          "beschrijving": "ciabatta of stokbrood, in de lengte doorgesneden",
+          "opmerking": "ciabatta of stokbrood, in de lengte doorgesneden",
           "naar_smaak": false
         },
         {
           "naam": "Roomboter",
           "hoeveelheid": 50,
           "eenheid": "g",
-          "beschrijving": "op kamertemperatuur",
+          "opmerking": "op kamertemperatuur",
           "naar_smaak": false
         },
         {
           "naam": "Geraspte kaas",
           "hoeveelheid": 50,
           "eenheid": "g",
-          "beschrijving": "mozzarella of belegen kaas",
+          "opmerking": "mozzarella of belegen kaas",
           "naar_smaak": true
         }
       ]
