@@ -222,8 +222,7 @@
   .tag.cuisine { border-color: #5a4a2a; color: var(--accent); }
   .tag.protein { border-color: #2a3a2a; color: var(--accent2); }
 
-  .card-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; border-top: 1px solid var(--border); padding-top: 12px; margin-top: 4px; }
-  .stat { display: flex; flex-direction: column; gap: 2px; }
+
   .stat-label { font-size: 10px; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; }
   .stat-value { font-size: 13px; font-weight: 600; color: var(--text); }
 
@@ -583,8 +582,9 @@
     .main { padding: 10px 12px; }
     .search-bar { padding: 10px 16px 0; }
     .grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; padding: 0 0 16px !important; }
-    .card { padding: 12px; }
-    .card-title { font-size: 15px; margin-bottom: 8px; }
+    .card { padding: 0; }
+    .card-title { font-size: 12px; margin-bottom: 6px; }
+    .card-stats { display: none !important; }
     .card-meta { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .card-meta::-webkit-scrollbar { display: none; }
     .tag { font-size: 11px; padding: 3px 7px; white-space: nowrap; flex-shrink: 0; }
@@ -724,8 +724,8 @@
     .grid {
       display: flex !important;
       flex-direction: column !important;
-      gap: 0 !important;
-      padding: 0 !important;
+      gap: 10px !important;
+      padding: 0 12px 80px !important;
     }
 
     .card {
@@ -757,16 +757,7 @@
     .card-meta::-webkit-scrollbar { display: none; }
     .tag { font-size: 13px !important; padding: 4px 10px !important; white-space: nowrap !important; flex-shrink: 0 !important; }
 
-    .card-stats {
-      display: flex !important;
-      flex-direction: row !important;
-      gap: 20px !important;
-      border-top: 1px solid var(--border) !important;
-      padding-top: 12px !important;
-      margin-top: 0 !important;
-    }
-    .card-stats .stat:nth-child(2),
-    .card-stats .stat:nth-child(4) { display: none !important; }
+
     .stat { flex-direction: row !important; align-items: center !important; gap: 6px !important; }
     .stat-label { font-size: 12px !important; }
     .stat-value { font-size: 16px !important; font-weight: 700 !important; }
@@ -1743,12 +1734,7 @@ function renderGrid() {
           <span class="kcal-badge">${r.nutrition.kcal} kcal</span>
         </div>
       </div>
-      <div class="card-stats" style="display:none;">
-        <div class="stat"><span class="stat-label">${t('time')}</span><span class="stat-value">${formatTime(r.timeMin)}</span></div>
-        <div class="stat"><span class="stat-label">${t('insp')}</span>${effortDots(r.effort)}</div>
-        <div class="stat"><span class="stat-label">${t('kcal')}</span><span class="stat-value">${r.nutrition.kcal}</span></div>
-        <div class="stat"><span class="stat-label">${t('nutri')}</span><div class="traffic-light">${trafficLight(r.nutrition.score)}</div></div>
-      </div>
+
     </div>
   `).join('');
 }
