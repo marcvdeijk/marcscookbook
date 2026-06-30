@@ -35,7 +35,7 @@
         {
           "naam": "Rode ui",
           "naar_smaak": true,
-          "beschrijving": "vooraf gemarineerd in limoensap"
+          "opmerking": "vooraf gemarineerd in limoensap"
         },
         {
           "naam": "Verse koriander of peterselie",
@@ -45,7 +45,7 @@
           "naam": "Groene chilipeper",
           "naar_smaak": false,
           "hoeveelheid": 1,
-          "beschrijving": "optioneel"
+          "opmerking": "optioneel"
         }
       ]
     },
