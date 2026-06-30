@@ -27,7 +27,7 @@
           "naar_smaak": false,
           "hoeveelheid": 750,
           "eenheid": "g",
-          "beschrijving": "in blokjes van 3 cm"
+          "opmerking": "in blokjes van 3 cm"
         }
       ]
     },
@@ -39,7 +39,7 @@
           "naar_smaak": false,
           "hoeveelheid": 60,
           "eenheid": "ml",
-          "beschrijving": "kookvet; dikke bovenkant van het blik"
+          "opmerking": "kookvet; dikke bovenkant van het blik"
         },
         {
           "naam": "Thaise rode currypasta",
@@ -50,19 +50,19 @@
         {
           "naam": "Knoflook",
           "naar_smaak": true,
-          "beschrijving": "fijngehakt"
+          "opmerking": "fijngehakt"
         },
         {
           "naam": "Gember",
           "naar_smaak": true,
-          "beschrijving": "geraspt"
+          "opmerking": "geraspt"
         },
         {
           "naam": "Citroengras",
           "naar_smaak": false,
           "hoeveelheid": 1,
           "eenheid": "stengel",
-          "beschrijving": "gekneusd"
+          "opmerking": "gekneusd"
         },
         {
           "naam": "Kaffirlimoenbladeren",
@@ -100,14 +100,14 @@
           "naar_smaak": false,
           "hoeveelheid": 400,
           "eenheid": "ml",
-          "beschrijving": "rest van het blik"
+          "opmerking": "rest van het blik"
         },
         {
           "naam": "Vissaus",
           "naar_smaak": false,
           "hoeveelheid": 30,
           "eenheid": "ml",
-          "beschrijving": "nam pla"
+          "opmerking": "nam pla"
         },
         {
           "naam": "Liquid palm sugar",
@@ -118,7 +118,7 @@
         {
           "naam": "Sap van 1 limoen",
           "naar_smaak": false,
-          "beschrijving": "toevoegen NA het vuur uit"
+          "opmerking": "toevoegen NA het vuur uit"
         }
       ]
     },
@@ -128,7 +128,7 @@
         {
           "naam": "Verse Thaise basilicum",
           "naar_smaak": true,
-          "beschrijving": "horapa; NIET koriander"
+          "opmerking": "horapa; NIET koriander"
         },
         {
           "naam": "Rode chilipepers in ringetjes",
