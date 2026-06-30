@@ -1666,7 +1666,7 @@ function applyFilters() {
     if (searchQuery) {
       const ingredientNamen = (r.ingredientGroups || [])
         .flatMap(g => g.items || [])
-        .map(item => [item.naam, item.beschrijving].filter(Boolean).join(' '))
+        .map(item => [item.naam, item.opmerking].filter(Boolean).join(' '))
         .join(' ');
       const searchIn = [r.name, r.cuisine, r.protein, r.carbs, ingredientNamen]
         .filter(Boolean).join(' ').toLowerCase();
@@ -1839,8 +1839,9 @@ function renderModalBody(r) {
         const h = item.hoeveelheid != null ? item.hoeveelheid : '';
         const e = item.eenheid || '';
         const ns = item.naar_smaak ? ' — naar smaak' : '';
-        const oms = item.beschrijving ? ' (' + item.beschrijving + ')' : '';
-        tekst = [naam, h, e].filter(Boolean).join(' ') + ns + oms;
+        const primair = [naam, h, e].filter(Boolean).join(' ') + ns;
+        const oms = item.opmerking ? '<span style="color:var(--text-muted);font-size:0.9em;"> — ' + item.opmerking + '</span>' : '';
+        tekst = primair + oms;
       }
       ingHtml += `<li class="ingredient-item"><span>${tekst}</span></li>`;
     });
@@ -2175,7 +2176,7 @@ function _openIngPickerVoorRecept(r) {
       const h = item.hoeveelheid != null ? item.hoeveelheid : '';
       const e = item.eenheid || '';
       const ns = item.naar_smaak ? ' — naar smaak' : '';
-      const oms = item.beschrijving ? ' (' + item.beschrijving + ')' : '';
+      const oms = item.opmerking ? ' — ' + item.opmerking : '';
       weergave = [naam, h, e].filter(Boolean).join(' ') + ns + oms;
       // Boodschappenlijst naamveld: ALLEEN de naam, geen hoeveelheid/eenheid
       boodschapTekst = naam;
