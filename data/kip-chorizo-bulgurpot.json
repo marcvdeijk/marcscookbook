@@ -26,14 +26,14 @@
           "naar_smaak": false,
           "hoeveelheid": 1000,
           "eenheid": "g",
-          "beschrijving": "zonder bot en vel, in hapklare blokjes"
+          "opmerking": "zonder bot en vel, in hapklare blokjes"
         },
         {
           "naam": "Chorizo",
           "naar_smaak": false,
           "hoeveelheid": 200,
           "eenheid": "g",
-          "beschrijving": "in schijfjes of blokjes"
+          "opmerking": "in schijfjes of blokjes"
         }
       ]
     },
@@ -49,7 +49,7 @@
           "naam": "Glazen kippenbouillon",
           "naar_smaak": false,
           "hoeveelheid": 4,
-          "beschrijving": "verhouding 1:2"
+          "opmerking": "verhouding 1:2"
         }
       ]
     },
@@ -60,26 +60,26 @@
           "naam": "Uien",
           "naar_smaak": false,
           "hoeveelheid": 2,
-          "beschrijving": "fijngesneden"
+          "opmerking": "fijngesneden"
         },
         {
           "naam": "Groene paprika's",
           "naar_smaak": false,
           "hoeveelheid": 2,
-          "beschrijving": "fijngesneden"
+          "opmerking": "fijngesneden"
         },
         {
           "naam": "Bleekselderij",
           "naar_smaak": false,
           "hoeveelheid": 4,
           "eenheid": "stengels",
-          "beschrijving": "fijngesneden"
+          "opmerking": "fijngesneden"
         },
         {
           "naam": "Jalapeñopepers",
           "naar_smaak": false,
           "hoeveelheid": "1–2",
-          "beschrijving": "optioneel"
+          "opmerking": "optioneel"
         },
         {
           "naam": "Knoflook",
@@ -135,7 +135,7 @@
         {
           "naam": "Griekse extra vergine olijfolie",
           "naar_smaak": false,
-          "beschrijving": "klein beetje"
+          "opmerking": "klein beetje"
         }
       ]
     }
