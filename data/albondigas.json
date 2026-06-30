@@ -47,7 +47,7 @@
           "naar_smaak": false,
           "hoeveelheid": 1,
           "eenheid": "el",
-          "beschrijving": "geroosterd & gemalen"
+          "opmerking": "geroosterd & gemalen"
         },
         {
           "naam": "Knoflook",
@@ -59,13 +59,13 @@
           "naam": "Peperkorrels",
           "naar_smaak": false,
           "hoeveelheid": 15,
-          "beschrijving": "gemalen"
+          "opmerking": "gemalen"
         },
         {
           "naam": "Kruidnagels",
           "naar_smaak": false,
           "hoeveelheid": 4,
-          "beschrijving": "gemalen"
+          "opmerking": "gemalen"
         },
         {
           "naam": "Oregano",
