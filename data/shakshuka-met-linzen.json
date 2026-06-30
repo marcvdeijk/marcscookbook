@@ -32,19 +32,19 @@
           "naam": "Gepelde tomaten",
           "hoeveelheid": 400,
           "eenheid": "g",
-          "beschrijving": "uit blik, of 500g verse tomaten",
+          "opmerking": "uit blik, of 500g verse tomaten",
           "naar_smaak": false
         },
         {
           "naam": "Groene of bruine linzen",
           "hoeveelheid": 400,
           "eenheid": "g",
-          "beschrijving": "uit blik, uitgelekt en afgespoeld",
+          "opmerking": "uit blik, uitgelekt en afgespoeld",
           "naar_smaak": false
         },
         {
           "naam": "Ui",
-          "beschrijving": "fijngesneden",
+          "opmerking": "fijngesneden",
           "naar_smaak": true
         },
         {
@@ -55,12 +55,12 @@
           "naam": "Chilipeper",
           "hoeveelheid": 1,
           "eenheid": "stuks",
-          "beschrijving": "vers, naar smaak meer",
+          "opmerking": "vers, naar smaak meer",
           "naar_smaak": false
         },
         {
           "naam": "Olijfolie",
-          "beschrijving": "royale scheut",
+          "opmerking": "royale scheut",
           "naar_smaak": true
         }
       ]
@@ -106,7 +106,7 @@
         },
         {
           "naam": "Suiker of honing",
-          "beschrijving": "snufje om de tomaten te balanceren",
+          "opmerking": "snufje om de tomaten te balanceren",
           "naar_smaak": true
         }
       ]
@@ -118,22 +118,22 @@
           "naam": "Feta",
           "hoeveelheid": 60,
           "eenheid": "g",
-          "beschrijving": "verkruimeld",
+          "opmerking": "verkruimeld",
           "naar_smaak": false
         },
         {
           "naam": "Zwarte olijven",
-          "beschrijving": "handvol",
+          "opmerking": "handvol",
           "naar_smaak": true
         },
         {
           "naam": "Verse peterselie of koriander",
-          "beschrijving": "grof gehakt",
+          "opmerking": "grof gehakt",
           "naar_smaak": true
         },
         {
           "naam": "Brood",
-          "beschrijving": "om in te dippen",
+          "opmerking": "om in te dippen",
           "naar_smaak": true
         }
       ]
