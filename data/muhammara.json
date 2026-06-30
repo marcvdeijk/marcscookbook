@@ -25,14 +25,14 @@
           "naam": "Rode paprika's",
           "naar_smaak": false,
           "hoeveelheid": "3–4",
-          "beschrijving": "gegrild/geroosterd"
+          "opmerking": "gegrild/geroosterd"
         },
         {
           "naam": "Walnoten",
           "naar_smaak": false,
           "hoeveelheid": 80,
           "eenheid": "g",
-          "beschrijving": "geroosterd"
+          "opmerking": "geroosterd"
         },
         {
           "naam": "Granaatappelmelasse",
@@ -56,7 +56,7 @@
           "naar_smaak": false,
           "hoeveelheid": 1,
           "eenheid": "tl",
-          "beschrijving": "gemalen"
+          "opmerking": "gemalen"
         },
         {
           "naam": "Knoflook",
@@ -73,7 +73,7 @@
         {
           "naam": "Pul biber",
           "naar_smaak": false,
-          "beschrijving": "Turkse chili; optioneel"
+          "opmerking": "Turkse chili; optioneel"
         }
       ]
     }
