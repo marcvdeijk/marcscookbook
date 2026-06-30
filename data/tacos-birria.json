@@ -62,7 +62,7 @@
           "naar_smaak": false,
           "hoeveelheid": 250,
           "eenheid": "ml",
-          "beschrijving": "voor weken pepers"
+          "opmerking": "voor weken pepers"
         },
         {
           "naam": "Uien",
@@ -101,7 +101,7 @@
           "naam": "Flesje Tia Lupita Hot Sauce",
           "naar_smaak": false,
           "hoeveelheid": "½",
-          "beschrijving": "optioneel"
+          "opmerking": "optioneel"
         }
       ]
     },
