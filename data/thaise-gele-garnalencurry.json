@@ -26,7 +26,7 @@
           "naar_smaak": false,
           "hoeveelheid": 600,
           "eenheid": "g",
-          "beschrijving": "gepeld, staartje mag erop"
+          "opmerking": "gepeld, staartje mag erop"
         },
         {
           "naam": "Zout en witte peper",
@@ -42,7 +42,7 @@
           "naar_smaak": false,
           "hoeveelheid": 60,
           "eenheid": "ml",
-          "beschrijving": "kookvet"
+          "opmerking": "kookvet"
         },
         {
           "naam": "Thaise gele currypasta",
@@ -55,24 +55,24 @@
           "naar_smaak": false,
           "hoeveelheid": 5,
           "eenheid": "ml",
-          "beschrijving": "Thaise garnalenbodem"
+          "opmerking": "Thaise garnalenbodem"
         },
         {
           "naam": "Knoflook",
           "naar_smaak": true,
-          "beschrijving": "fijngehakt"
+          "opmerking": "fijngehakt"
         },
         {
           "naam": "Gember",
           "naar_smaak": true,
-          "beschrijving": "geraspt"
+          "opmerking": "geraspt"
         },
         {
           "naam": "Verse kurkuma geraspt",
           "naar_smaak": false,
           "hoeveelheid": 1,
           "eenheid": "tl",
-          "beschrijving": "of ½ tl gedroogd"
+          "opmerking": "of ½ tl gedroogd"
         }
       ]
     },
@@ -84,7 +84,7 @@
           "naar_smaak": false,
           "hoeveelheid": 200,
           "eenheid": "g",
-          "beschrijving": "6–7 min voorkoken"
+          "opmerking": "6–7 min voorkoken"
         },
         {
           "naam": "Gele paprika in reepjes",
@@ -102,7 +102,7 @@
           "naar_smaak": false,
           "hoeveelheid": 1,
           "eenheid": "stengel",
-          "beschrijving": "gekneusd"
+          "opmerking": "gekneusd"
         },
         {
           "naam": "Kaffirlimoenbladeren",
@@ -135,14 +135,14 @@
         {
           "naam": "Sap van 1 limoen",
           "naar_smaak": false,
-          "beschrijving": "NA het vuur"
+          "opmerking": "NA het vuur"
         },
         {
           "naam": "Water of kippenbouillon",
           "naar_smaak": false,
           "hoeveelheid": 100,
           "eenheid": "ml",
-          "beschrijving": "optioneel"
+          "opmerking": "optioneel"
         }
       ]
     },
