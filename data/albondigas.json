@@ -9,126 +9,49 @@
   "timeCategory": "middel",
   "complete": true,
   "servings": 4,
-  "nutrition": {
-    "kcal": 520,
-    "protein": 38,
-    "fat": 28,
-    "carbs": 18,
-    "score": "orange",
-    "scoreNote": "Eiwitrijk en voedzaam. Relatief hoog in verzadigd vet door het gehakt. Gebalanceerd als je er groenten bij serveert."
-  },
+  "source": "eigen",
+  "nutrition": {"kcal": 520,"protein": 38,"fat": 28,"carbs": 18,"score": "orange","scoreNote": "Eiwitrijk en voedzaam. Relatief hoog in verzadigd vet door het gehakt. Gebalanceerd als je er groenten bij serveert."},
+  "voedingsscore": 72,
+  "tldr": "Eiwitbom met complexe kruiden, maar let op de hoeveelheid gehakt — serveer met verse groenten om de balans beter te maken.",
+  "voedingsanalyse": "De gehaktballen leveren hoogwaardig eiwit en ijzer, maar het rundervet voegt verzadigde vetten toe. De tomatensaus en groenten (wortels, courgette) voegen vezels en vitamines toe. Probeer het gehakt deels te vervangen door gekruimeld tofu of voeg extra groenten toe aan de saus voor meer voedingsdichtheid.",
   "ingredientGroups": [
-    {
-      "label": "Gehaktballen",
-      "items": [
-        {
-          "naam": "Rundergehakt",
-          "naar_smaak": false,
-          "hoeveelheid": 1,
-          "eenheid": "kg"
-        },
-        {
-          "naam": "Paneermeel",
-          "naar_smaak": false,
-          "hoeveelheid": 15,
-          "eenheid": "g"
-        },
-        {
-          "naam": "Ei",
-          "naar_smaak": false,
-          "hoeveelheid": 1
-        },
-        {
-          "naam": "Gehakte munt",
-          "naar_smaak": true
-        },
-        {
-          "naam": "Komijnzaad",
-          "naar_smaak": false,
-          "hoeveelheid": 1,
-          "eenheid": "el",
-          "opmerking": "geroosterd & gemalen"
-        },
-        {
-          "naam": "Knoflook",
-          "naar_smaak": false,
-          "hoeveelheid": "6–8",
-          "eenheid": "teentjes"
-        },
-        {
-          "naam": "Peperkorrels",
-          "naar_smaak": false,
-          "hoeveelheid": 15,
-          "opmerking": "gemalen"
-        },
-        {
-          "naam": "Kruidnagels",
-          "naar_smaak": false,
-          "hoeveelheid": 4,
-          "opmerking": "gemalen"
-        },
-        {
-          "naam": "Oregano",
-          "naar_smaak": false,
-          "hoeveelheid": 1,
-          "eenheid": "el"
-        },
-        {
-          "naam": "Zout",
-          "naar_smaak": true
-        }
-      ]
-    },
-    {
-      "label": "Tomatensaus",
-      "items": [
-        {
-          "naam": "Tomaten of 1 liter passata",
-          "naar_smaak": false,
-          "hoeveelheid": 1,
-          "eenheid": "kg"
-        },
-        {
-          "naam": "Wortels",
-          "naar_smaak": false,
-          "hoeveelheid": 2
-        },
-        {
-          "naam": "Uien",
-          "naar_smaak": false,
-          "hoeveelheid": 3
-        },
-        {
-          "naam": "Courgette",
-          "naar_smaak": false,
-          "hoeveelheid": 1
-        },
-        {
-          "naam": "Chipotle pasta",
-          "naar_smaak": true
-        },
-        {
-          "naam": "Oregano",
-          "naar_smaak": false,
-          "hoeveelheid": 1,
-          "eenheid": "el"
-        },
-        {
-          "naam": "Neutrale olie",
-          "naar_smaak": false
-        }
-      ]
-    }
+    {"label": "Gehaktballen","items": [
+      {"naam": "Rundergehakt","naar_smaak": false,"hoeveelheid": 1,"eenheid": "kg","opmerking": "mager indien mogelijk"},
+      {"naam": "Paneermeel","naar_smaak": false,"hoeveelheid": 15,"eenheid": "g","opmerking": "bindmiddel"},
+      {"naam": "Ei","naar_smaak": false,"hoeveelheid": 1,"opmerking": "als binder"},
+      {"naam": "Gehakte munt","naar_smaak": true,"opmerking": "vers, voor frisse smaak"},
+      {"naam": "Komijnzaad","naar_smaak": false,"hoeveelheid": 1,"eenheid": "el","opmerking": "geroosterd en gemalen"},
+      {"naam": "Knoflook","naar_smaak": true},
+      {"naam": "Peperkorrels","naar_smaak": false,"hoeveelheid": 15,"opmerking": "gemalen"},
+      {"naam": "Kruidnagels","naar_smaak": false,"hoeveelheid": 4,"opmerking": "gemalen"},
+      {"naam": "Oregano","naar_smaak": false,"hoeveelheid": 1,"eenheid": "el","opmerking": "gedroogd"},
+      {"naam": "Zout","naar_smaak": true}
+    ]},
+    {"label": "Tomatensaus","items": [
+      {"naam": "Tomaten of passata","naar_smaak": false,"hoeveelheid": 1,"eenheid": "kg","opmerking": "vers of uit blik"},
+      {"naam": "Wortels","naar_smaak": false,"hoeveelheid": 2,"opmerking": "fijn gesneden"},
+      {"naam": "Ui","naar_smaak": true},
+      {"naam": "Courgette","naar_smaak": false,"hoeveelheid": 1,"opmerking": "in blokjes"},
+      {"naam": "Chipotle pasta","naar_smaak": true,"opmerking": "voor diepte en rook"},
+      {"naam": "Oregano","naar_smaak": false,"hoeveelheid": 1,"eenheid": "el","opmerking": "gedroogd"},
+      {"naam": "Neutrale olie","naar_smaak": true,"opmerking": "voor bakken"}
+    ]}
   ],
   "steps": [
-    "Rooster de peperkorrels, kruidnagels en komijnzaad droog in een pan. Maal fijn in een kruidenmolen of vijzel.",
-    "Blend alle uien en knoflook in een keukenmachine. Zet 1/3 apart voor de saus.",
-    "Meng de gemalen kruiden met de resterende ui/knoflook, munt en zout. Blend tot een puree.",
-    "Combineer de kruidenpuree met het gehakt, ei en paneermeel. Draai balletjes van ±60 g.",
-    "Bak de gehaktballen in batches in een pan — zorg dat de pan niet overvol is. Zet apart.",
-    "Rasp of snijd de wortels en courgette. Fruit samen met de ui/knoflook pasta in neutrale olie.",
-    "Voeg de tomaten of passata toe met chipotle pasta, oregano en een scheut water. Laat 10 minuten sudderen.",
-    "Voeg de gehaktballen toe en laat nog 10 minuten meekoken op laag vuur. Haal het deksel eraf om de saus in te dikken."
+    "**ROOSTEREN:** Rooster de **peperkorrels**, **kruidnagels** en **komijnzaad** droog in een pan. Maal fijn in een kruidenmolen of vijzel.",
+    "**BLENDEN:** Blend alle **uien** en **knoflook** in een keukenmachine. Zet 1/3 apart voor de saus.",
+    "**KRUIDENPUREE:** Meng de gemalen kruiden met de resterende **ui-knoflookpasta**, **gehakte munt** en **zout**. Blend tot een puree.",
+    "**GEHAKTBALLEN VORMEN:** Combineer de kruidenpuree met het **gehakt**, **ei** en **paneermeel**. Draai balletjes van ±60 g.",
+    "**AANBRADEN:** Bak de gehaktballen in batches in een pan — zorg dat de pan niet overvol is. Zet apart.",
+    "**SAUSBASIS:** Rasp of snijd de **wortels** en **courgette**. Fruit samen met de gereserveerde **ui-knoflookpasta** in **neutrale olie**.",
+    "**SAUS MAKEN:** Voeg de **tomaten** of **passata** toe met **chipotle pasta**, **oregano** en een scheut water. Laat 10 minuten sudderen.",
+    "**AFMAKEN:** Voeg de gehaktballen toe en laat nog 10 minuten meekoken op laag vuur. Haal het deksel eraf om de saus in te dikken."
   ],
-  "source": "eigen"
+  "cooktips": {
+    "van8naar10": "Maak de kruidenpuree zelf — koop geen kant-en-klare gekruide mengsels. De verse munt en gemaalde specerijen geven de gehaktballen karakter. Serveer op een warm bord met verse cilantro en een scheutje Mexicaanse yoghurt.",
+    "noGo": "Gebruik nooit rood vlees met kant-en-klare taco-kruiden. Bak de gehaktballen niet volledig af vóór ze in de saus gaan — ze koken verder door. Voeg nooit zomaar water toe — gebruik vlees- of groentebouillon.",
+    "alternatieven": {"rundergehakt": ["kipgehakt voor lichter","lamsgehakt voor meer smaak","gemengd rund-varken voor vochtiger"],"chipotle pasta": ["jalapeño pasta","serrano chilipeper"],"tomatenpasta": ["tomatencoulis","verse tomaten gestoofd"]},
+    "gezonder": "Vervang het gehakt voor 50% met geraspte paddenstoelen of gemengd gehakt rund-tofu. Voeg meer groenten toe aan de saus — paprika, aubergine.",
+    "goedkoper": "Gebruik budgetgehakt en maak het mengsel vochtiger met wat extra paneermeel. Vervang de tomatenpasta door gewone tomaten uit blik."
+  }
 }
