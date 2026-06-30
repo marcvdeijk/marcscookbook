@@ -38,7 +38,7 @@
           "naar_smaak": false,
           "hoeveelheid": 3,
           "eenheid": "el",
-          "beschrijving": "geraspt"
+          "opmerking": "geraspt"
         },
         {
           "naam": "Knoflook",
@@ -80,7 +80,7 @@
           "naar_smaak": true,
           "hoeveelheid": 3,
           "eenheid": "teentjes",
-          "beschrijving": "gekneusd"
+          "opmerking": "gekneusd"
         },
         {
           "naam": "Kasoori methi",
@@ -130,7 +130,7 @@
           "naar_smaak": false,
           "hoeveelheid": 1,
           "eenheid": "stuk",
-          "beschrijving": "geraspt"
+          "opmerking": "geraspt"
         },
         {
           "naam": "Cashewnoten",
@@ -184,7 +184,7 @@
           "naam": "Ui",
           "naar_smaak": false,
           "hoeveelheid": 1,
-          "beschrijving": "grof gesneden"
+          "opmerking": "grof gesneden"
         },
         {
           "naam": "Zout",
