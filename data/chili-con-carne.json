@@ -75,13 +75,13 @@
           "naam": "Uien",
           "naar_smaak": false,
           "hoeveelheid": "2–3",
-          "beschrijving": "in halve ringen"
+          "opmerking": "in halve ringen"
         },
         {
           "naam": "Puntpaprika's",
           "naar_smaak": false,
           "hoeveelheid": "3–4",
-          "beschrijving": "in reepjes"
+          "opmerking": "in reepjes"
         }
       ]
     },
@@ -93,14 +93,14 @@
           "naar_smaak": false,
           "hoeveelheid": 1,
           "eenheid": "blik",
-          "beschrijving": "groot, uitgelekt"
+          "opmerking": "groot, uitgelekt"
         },
         {
           "naam": "Kidneybonen",
           "naar_smaak": false,
           "hoeveelheid": 2,
           "eenheid": "blikken",
-          "beschrijving": "uitgelekt"
+          "opmerking": "uitgelekt"
         }
       ]
     },
