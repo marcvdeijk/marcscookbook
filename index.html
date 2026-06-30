@@ -1064,16 +1064,16 @@
 
     <!-- FILTER PILLS BAR (mobiel, visueel only) -->
     <div class="filter-pills-bar" id="filter-pills-bar">
-      <button class="filter-pill-item active">Alle</button>
-      <button class="filter-pill-item">Kip</button>
-      <button class="filter-pill-item">Rund</button>
-      <button class="filter-pill-item">Vis</button>
-      <button class="filter-pill-item">Plantaardig</button>
-      <button class="filter-pill-item">Ei</button>
-      <button class="filter-pill-item">Indiaas</button>
-      <button class="filter-pill-item">Mexicaans</button>
-      <button class="filter-pill-item">Mediterraan</button>
-      <button class="filter-pill-item">Aziatisch</button>
+      <button class="filter-pill-item active" data-key="all" data-value="all" onclick="pillSetFilter(this)">Alle</button>
+      <button class="filter-pill-item" data-key="protein" data-value="Kip" onclick="pillSetFilter(this)">Kip</button>
+      <button class="filter-pill-item" data-key="protein" data-value="Rund" onclick="pillSetFilter(this)">Rund</button>
+      <button class="filter-pill-item" data-key="protein" data-value="Vis" onclick="pillSetFilter(this)">Vis</button>
+      <button class="filter-pill-item" data-key="protein" data-value="Plantaardig" onclick="pillSetFilter(this)">Plantaardig</button>
+      <button class="filter-pill-item" data-key="protein" data-value="Ei" onclick="pillSetFilter(this)">Ei</button>
+      <button class="filter-pill-item" data-key="cuisine" data-value="Indiaas" onclick="pillSetFilter(this)">Indiaas</button>
+      <button class="filter-pill-item" data-key="cuisine" data-value="Mexicaans" onclick="pillSetFilter(this)">Mexicaans</button>
+      <button class="filter-pill-item" data-key="cuisine" data-value="Mediterraan" onclick="pillSetFilter(this)">Mediterraan</button>
+      <button class="filter-pill-item" data-key="cuisine" data-value="Aziatisch" onclick="pillSetFilter(this)">Aziatisch</button>
     </div>
 
     <!-- FILTER KNOP (mobiel) -->
@@ -2331,6 +2331,67 @@ function openFilterModal() {
   document.getElementById('filter-modal').style.display = 'flex';
 }
 
+
+// ── FILTER PILLS BAR (gekoppeld aan bestaande filters state) ──
+function pillSetFilter(el) {
+  var key = el.getAttribute('data-key');
+  var value = el.getAttribute('data-value');
+
+  if (key === 'all') {
+    filters.protein = 'all';
+    filters.cuisine = 'all';
+  } else {
+    var huidigeWaarde = filters[key];
+    // Toggle: klik op actieve pill zet terug naar 'all'
+    filters[key] = (huidigeWaarde === value) ? 'all' : value;
+  }
+
+  syncPillsUI();
+  syncModalUI();
+  updateFilterBadge();
+  renderGrid();
+}
+
+function syncPillsUI() {
+  var bar = document.getElementById('filter-pills-bar');
+  if (!bar) return;
+  bar.querySelectorAll('.filter-pill-item').forEach(function(btn) {
+    var key = btn.getAttribute('data-key');
+    var value = btn.getAttribute('data-value');
+    var isActief;
+    if (key === 'all') {
+      isActief = filters.protein === 'all' && filters.cuisine === 'all';
+    } else {
+      isActief = filters[key] === value;
+    }
+    btn.classList.toggle('active', isActief);
+  });
+}
+
+function syncModalUI() {
+  // Herlaadt de modal-knoppen kleuring als de modal al open is/was gebouwd
+  var proteinContainer = document.getElementById('fm-protein');
+  var cuisineContainer = document.getElementById('fm-cuisine');
+  if (proteinContainer) {
+    proteinContainer.querySelectorAll('button').forEach(function(btn) {
+      var w = btn.textContent.trim();
+      var isActief = (w === 'Alle' && filters.protein === 'all') || w === filters.protein;
+      btn.style.background = isActief ? 'var(--accent2)' : 'var(--surface2)';
+      btn.style.borderColor = isActief ? 'var(--accent2)' : 'var(--border)';
+      btn.style.color = isActief ? 'var(--bg)' : 'var(--text-muted)';
+    });
+  }
+  if (cuisineContainer) {
+    cuisineContainer.querySelectorAll('button').forEach(function(btn) {
+      var w = btn.textContent.trim();
+      var isActief = (w === 'Alle' && filters.cuisine === 'all') || w === filters.cuisine;
+      btn.style.background = isActief ? 'var(--accent)' : 'var(--surface2)';
+      btn.style.borderColor = isActief ? 'var(--accent)' : 'var(--border)';
+      btn.style.color = isActief ? 'var(--bg)' : 'var(--text-muted)';
+    });
+  }
+}
+
 function setFilter(key, waarde, el, kleur) {
   filters[key] = waarde;
   var groep = key === 'protein' ? 'fm-protein' : 'fm-cuisine';
@@ -2340,6 +2401,7 @@ function setFilter(key, waarde, el, kleur) {
     btn.style.borderColor = isActief ? kleur : 'var(--border)';
     btn.style.color = isActief ? 'var(--bg)' : 'var(--text-muted)';
   });
+  syncPillsUI();
   updateFilterBadge();
   renderGrid();
 }
@@ -2356,6 +2418,7 @@ function sluitFilterModal() {
 
 function resetFilters() {
   filters.cuisine = 'all'; filters.protein = 'all';
+  syncPillsUI();
   updateFilterBadge();
   renderGrid();
   openFilterModal();
