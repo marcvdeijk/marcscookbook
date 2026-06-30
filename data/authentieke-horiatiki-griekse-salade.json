@@ -26,28 +26,28 @@
           "naam": "Tomaat",
           "hoeveelheid": 4,
           "eenheid": "stuks",
-          "beschrijving": "groot, rijp, in grove parten",
+          "opmerking": "groot, rijp, in grove parten",
           "naar_smaak": false
         },
         {
           "naam": "Komkommer",
           "hoeveelheid": 1,
           "eenheid": "stuks",
-          "beschrijving": "half geschild in de lengte, in dikke plakken",
+          "opmerking": "half geschild in de lengte, in dikke plakken",
           "naar_smaak": false
         },
         {
           "naam": "Rode ui",
           "hoeveelheid": 1,
           "eenheid": "stuks",
-          "beschrijving": "klein, in flinterdunne halve ringen",
+          "opmerking": "klein, in flinterdunne halve ringen",
           "naar_smaak": false
         },
         {
           "naam": "Groene paprika",
           "hoeveelheid": 1,
           "eenheid": "stuks",
-          "beschrijving": "in ringen of repen",
+          "opmerking": "in ringen of repen",
           "naar_smaak": false
         }
       ]
@@ -57,26 +57,26 @@
       "items": [
         {
           "naam": "Kalamata olijven",
-          "beschrijving": "flinke hand, met pit",
+          "opmerking": "flinke hand, met pit",
           "naar_smaak": true
         },
         {
           "naam": "Feta",
           "hoeveelheid": 1,
           "eenheid": "stuks",
-          "beschrijving": "dikke plak van echte schapen-/geitenmelk",
+          "opmerking": "dikke plak van echte schapen-/geitenmelk",
           "naar_smaak": false
         },
         {
           "naam": "Gedroogde oregano",
           "hoeveelheid": 2,
           "eenheid": "tl",
-          "beschrijving": "liefst Griekse wilde oregano",
+          "opmerking": "liefst Griekse wilde oregano",
           "naar_smaak": false
         },
         {
           "naam": "Extra vierge olijfolie",
-          "beschrijving": "flinke scheut van topkwaliteit",
+          "opmerking": "flinke scheut van topkwaliteit",
           "naar_smaak": true
         },
         {
@@ -87,7 +87,7 @@
         },
         {
           "naam": "Zeezout",
-          "beschrijving": "grof",
+          "opmerking": "grof",
           "naar_smaak": true
         }
       ]
