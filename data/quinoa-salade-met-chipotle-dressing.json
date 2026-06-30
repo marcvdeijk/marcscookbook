@@ -26,7 +26,7 @@
           "naam": "Quinoa",
           "hoeveelheid": 200,
           "eenheid": "g",
-          "beschrijving": "ongekookt",
+          "opmerking": "ongekookt",
           "naar_smaak": false
         },
         {
@@ -39,7 +39,7 @@
           "naam": "Chipotlesaus",
           "hoeveelheid": 1,
           "eenheid": "el",
-          "beschrijving": "La Morena",
+          "opmerking": "La Morena",
           "naar_smaak": false
         },
         {
@@ -79,7 +79,7 @@
           "naam": "Zwarte bonen",
           "hoeveelheid": 400,
           "eenheid": "g",
-          "beschrijving": "afgespoeld en uitgelekt",
+          "opmerking": "afgespoeld en uitgelekt",
           "naar_smaak": false
         },
         {
@@ -92,26 +92,26 @@
           "naam": "Kerstomaatjes",
           "hoeveelheid": 200,
           "eenheid": "g",
-          "beschrijving": "gehalveerd",
+          "opmerking": "gehalveerd",
           "naar_smaak": false
         },
         {
           "naam": "Avocado",
           "hoeveelheid": 1,
           "eenheid": "stuks",
-          "beschrijving": "rijp, in blokjes",
+          "opmerking": "rijp, in blokjes",
           "naar_smaak": false
         },
         {
           "naam": "Koriander",
-          "beschrijving": "grof gehakt, half bosje",
+          "opmerking": "grof gehakt, half bosje",
           "naar_smaak": true
         },
         {
           "naam": "Pompoenzaadjes",
           "hoeveelheid": 50,
           "eenheid": "g",
-          "beschrijving": "geroosterd",
+          "opmerking": "geroosterd",
           "naar_smaak": false
         }
       ]
@@ -135,21 +135,21 @@
           "naam": "Olijfolie",
           "hoeveelheid": 2,
           "eenheid": "el",
-          "beschrijving": "extra virgin",
+          "opmerking": "extra virgin",
           "naar_smaak": false
         },
         {
           "naam": "Chipotlesaus",
           "hoeveelheid": 1,
           "eenheid": "el",
-          "beschrijving": "La Morena",
+          "opmerking": "La Morena",
           "naar_smaak": false
         },
         {
           "naam": "Limoensap",
           "hoeveelheid": 2,
           "eenheid": "tl",
-          "beschrijving": "vers",
+          "opmerking": "vers",
           "naar_smaak": false
         },
         {
