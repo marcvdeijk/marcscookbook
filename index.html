@@ -1044,6 +1044,23 @@
   .alternatief-ingredient { font-weight: 600; color: var(--text); margin-right: 4px; }
   .alternatief-opties { color: var(--text-muted); }
 
+
+  .vw-accordion{border:0.5px solid var(--border);border-radius:10px;background:var(--surface2);overflow:hidden;margin-top:8px;}
+  .vw-header{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;}
+  .vw-header-open{border-bottom:0.5px solid var(--border);}
+  .vw-score-tegel{border-radius:6px;padding:4px 10px;font-size:12px;font-weight:700;white-space:nowrap;flex-shrink:0;}
+  .vw-tldr{flex:1;font-size:12px;color:var(--text-muted);line-height:1.4;}
+  .vw-chevron{font-size:12px;color:var(--text-muted);flex-shrink:0;}
+  .vw-body{display:none;padding:14px;}
+  .vw-toggle{display:flex;gap:6px;margin-bottom:12px;}
+  .vw-toggle-btn{background:none;border:0.5px solid var(--border);border-radius:6px;padding:5px 12px;font-size:12px;font-family:'Inter',sans-serif;color:var(--text-muted);cursor:pointer;}
+  .vw-toggle-btn.active{background:var(--text);color:var(--surface);border-color:var(--text);}
+  .vw-macro-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;}
+  .vw-macro-item{background:var(--surface);border:0.5px solid var(--border);border-radius:8px;padding:8px 6px;text-align:center;}
+  .vw-macro-waarde{font-size:15px;font-weight:500;color:var(--text);display:block;}
+  .vw-macro-label{font-size:10px;color:var(--text-muted);margin-top:2px;display:block;}
+  .vw-analyse{font-size:12px;color:var(--text-muted);line-height:1.6;}
+
 </style>
 </head>
 <body>
@@ -1880,31 +1897,76 @@ function renderModalBody(r) {
 
   const scoreLabel = n.score === 'green' ? t('good') : n.score === 'orange' ? t('moderate') : t('heavy2');
 
-  const nutritionHtml = `
-    <p class="section-title">${t('nutrition')}</p>
-    ${incompleteBanner}
-    <div class="nutrition-panel">
-      <div class="nutrition-toggle">
-        <button class="ntoggle-btn ${mode === 'portion' ? 'active' : ''}" onclick="setNutritionMode('${id}', 'portion')">${t('perPortion')}</button>
-        <button class="ntoggle-btn ${mode === 'total' ? 'active' : ''}" onclick="setNutritionMode('${id}', 'total')">${t('total', r.servings)}</button>
-      </div>
-      <div class="nutrition-grid">
-        <div class="nutrition-item"><span class="nutrition-key">${t('calories')}</span><span class="nutrition-val">${Math.round(n.kcal * mult)} kcal</span></div>
-        <div class="nutrition-item"><span class="nutrition-key">${t('proteinLabel')}</span><span class="nutrition-val">${Math.round(n.protein * mult)} g</span></div>
-        <div class="nutrition-item"><span class="nutrition-key">${t('carbsLabel')}</span><span class="nutrition-val">${Math.round(n.carbs * mult)} g</span></div>
-        <div class="nutrition-item"><span class="nutrition-key">${t('fatLabel')}</span><span class="nutrition-val">${Math.round(n.fat * mult)} g</span></div>
-      </div>
-      <div class="nutri-score">
-        <span class="score-badge ${n.score}">${scoreLabel}</span>
-        <span class="score-note">${n.scoreNote}</span>
-      </div>
-    </div>`;
+  let nutritionHtml;
+  if (r.voedingsscore != null) {
+    var vwK = vwScoreTegel(r.voedingsscore);
+    var vwStyle = 'background:' + vwK.bg + ';color:' + vwK.kleur + ';';
+    var vwTldr = r.tldr || '';
+    var vwAnalyse = r.voedingsanalyse || '';
+    nutritionHtml = '<p class="section-title">' + t('nutrition') + '</p>'
+      + incompleteBanner
+      + '<div class="vw-accordion">'
+      +   '<div class="vw-header" id="vw-header-' + id + '" onclick="toggleVoedingswijzer(\'' + id + '\')">'
+      +     '<span class="vw-score-tegel" style="' + vwStyle + '">' + r.voedingsscore + '</span>'
+      +     '<span class="vw-tldr">' + vwTldr + '</span>'
+      +     '<span class="vw-chevron" id="vw-chevron-' + id + '">&#9662;</span>'
+      +   '</div>'
+      +   '<div class="vw-body" id="vw-body-' + id + '">'
+      +     '<div class="vw-toggle">'
+      +       '<button class="vw-toggle-btn ' + (mode === 'portion' ? 'active' : '') + '" onclick="setNutritionMode(\'' + id + '\',\'portion\')">' + t('perPortion') + '</button>'
+      +       '<button class="vw-toggle-btn ' + (mode === 'total' ? 'active' : '') + '" onclick="setNutritionMode(\'' + id + '\',\'total\')">' + t('total', r.servings) + '</button>'
+      +     '</div>'
+      +     '<div class="vw-macro-grid">'
+      +       '<div class="vw-macro-item"><span class="vw-macro-waarde">' + Math.round(n.kcal * mult) + '</span><span class="vw-macro-label">kcal</span></div>'
+      +       '<div class="vw-macro-item"><span class="vw-macro-waarde">' + Math.round(n.protein * mult) + 'g</span><span class="vw-macro-label">eiwit</span></div>'
+      +       '<div class="vw-macro-item"><span class="vw-macro-waarde">' + Math.round(n.carbs * mult) + 'g</span><span class="vw-macro-label">koolhyd.</span></div>'
+      +       '<div class="vw-macro-item"><span class="vw-macro-waarde">' + Math.round(n.fat * mult) + 'g</span><span class="vw-macro-label">vet</span></div>'
+      +     '</div>'
+      +     (vwAnalyse ? '<p class="vw-analyse">' + vwAnalyse + '</p>' : '')
+      +   '</div>'
+      + '</div>';
+  } else {
+    nutritionHtml = '<p class="section-title">' + t('nutrition') + '</p>'
+      + incompleteBanner
+      + '<div class="nutrition-panel">'
+      +   '<div class="nutrition-toggle">'
+      +     '<button class="ntoggle-btn ' + (mode === 'portion' ? 'active' : '') + '" onclick="setNutritionMode(\'' + id + '\',\'portion\')">' + t('perPortion') + '</button>'
+      +     '<button class="ntoggle-btn ' + (mode === 'total' ? 'active' : '') + '" onclick="setNutritionMode(\'' + id + '\',\'total\')">' + t('total', r.servings) + '</button>'
+      +   '</div>'
+      +   '<div class="nutrition-grid">'
+      +     '<div class="nutrition-item"><span class="nutrition-key">' + t('calories') + '</span><span class="nutrition-val">' + Math.round(n.kcal * mult) + ' kcal</span></div>'
+      +     '<div class="nutrition-item"><span class="nutrition-key">' + t('proteinLabel') + '</span><span class="nutrition-val">' + Math.round(n.protein * mult) + ' g</span></div>'
+      +     '<div class="nutrition-item"><span class="nutrition-key">' + t('carbsLabel') + '</span><span class="nutrition-val">' + Math.round(n.carbs * mult) + ' g</span></div>'
+      +     '<div class="nutrition-item"><span class="nutrition-key">' + t('fatLabel') + '</span><span class="nutrition-val">' + Math.round(n.fat * mult) + ' g</span></div>'
+      +   '</div>'
+      +   '<div class="nutri-score">'
+      +     '<span class="score-badge ' + n.score + '">' + scoreLabel + '</span>'
+      +     '<span class="score-note">' + n.scoreNote + '</span>'
+      +   '</div>'
+      + '</div>';
+  }
+
 
   const backBtn = `<button class="modal-back" onclick="closeModal()">${t('back')}</button>`;
   document.getElementById('modal-body').innerHTML = backBtn + tagsHtml + ingBtnHtml + ingHtml + stepsHtml + cooktipsHtml + nutritionHtml;
 }
 
 
+function toggleVoedingswijzer(id) {
+  var body = document.getElementById('vw-body-' + id);
+  var chevron = document.getElementById('vw-chevron-' + id);
+  var header = document.getElementById('vw-header-' + id);
+  if (!body) return;
+  var isOpen = body.style.display === 'block';
+  body.style.display = isOpen ? 'none' : 'block';
+  if (chevron) chevron.innerHTML = isOpen ? '&#9662;' : '&#9652;';
+  if (header) header.classList.toggle('vw-header-open', !isOpen);
+}
+function vwScoreTegel(score) {
+  if (score >= 80) return {bg:'#7ED957',kleur:'#1C3A0E'};
+  if (score >= 60) return {bg:'#FFEC3D',kleur:'#4A3D00'};
+  return {bg:'#FF0000',kleur:'#FFFFFF'};
+}
 function setNutritionMode(id, mode) {
   nutritionMode[id] = mode;
   const r = recipes.find(x => x.id === id);
