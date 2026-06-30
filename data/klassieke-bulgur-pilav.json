@@ -26,35 +26,35 @@
           "naam": "Gove bulgur",
           "hoeveelheid": 200,
           "eenheid": "g",
-          "beschrijving": "pilavlık bulgur, ongewassen",
+          "opmerking": "pilavlık bulgur, ongewassen",
           "naar_smaak": false
         },
         {
           "naam": "Ui",
           "hoeveelheid": 1,
           "eenheid": "stuks",
-          "beschrijving": "fijngesneden",
+          "opmerking": "fijngesneden",
           "naar_smaak": false
         },
         {
           "naam": "Knoflook",
           "hoeveelheid": 2,
           "eenheid": "stuks",
-          "beschrijving": "fijngesneden",
+          "opmerking": "fijngesneden",
           "naar_smaak": false
         },
         {
           "naam": "Groene puntpaprika",
           "hoeveelheid": 1,
           "eenheid": "stuks",
-          "beschrijving": "in kleine blokjes",
+          "opmerking": "in kleine blokjes",
           "naar_smaak": false
         },
         {
           "naam": "Tomaat",
           "hoeveelheid": 2,
           "eenheid": "stuks",
-          "beschrijving": "ontveld en in blokjes (of uit blik)",
+          "opmerking": "ontveld en in blokjes (of uit blik)",
           "naar_smaak": false
         }
       ]
@@ -66,33 +66,33 @@
           "naam": "Turkse tomatenpuree",
           "hoeveelheid": 1,
           "eenheid": "el",
-          "beschrijving": "domates salçası",
+          "opmerking": "domates salçası",
           "naar_smaak": false
         },
         {
           "naam": "Turkse paprikapuree",
           "hoeveelheid": 1,
           "eenheid": "tl",
-          "beschrijving": "biber salçası (mild of pittig)",
+          "opmerking": "biber salçası (mild of pittig)",
           "naar_smaak": true
         },
         {
           "naam": "Warm water of bouillon",
           "hoeveelheid": 400,
           "eenheid": "ml",
-          "beschrijving": "kippen- of groentebouillon",
+          "opmerking": "kippen- of groentebouillon",
           "naar_smaak": false
         },
         {
           "naam": "Roomboter",
           "hoeveelheid": 15,
           "eenheid": "g",
-          "beschrijving": "voor de romige afwerking",
+          "opmerking": "voor de romige afwerking",
           "naar_smaak": false
         },
         {
           "naam": "Olijfolie",
-          "beschrijving": "om in te bakken",
+          "opmerking": "om in te bakken",
           "naar_smaak": true
         },
         {
