@@ -26,33 +26,33 @@
           "naam": "Zoete aardappel",
           "hoeveelheid": 3,
           "eenheid": "stuks",
-          "beschrijving": "geschild en in flinterdunne schijfjes",
+          "opmerking": "geschild en in flinterdunne schijfjes",
           "naar_smaak": false
         },
         {
           "naam": "Roomboter",
           "hoeveelheid": 50,
           "eenheid": "g",
-          "beschrijving": "gesmolten",
+          "opmerking": "gesmolten",
           "naar_smaak": false
         },
         {
           "naam": "Knoflook",
           "hoeveelheid": 2,
           "eenheid": "stuks",
-          "beschrijving": "fijngesneden",
+          "opmerking": "fijngesneden",
           "naar_smaak": false
         },
         {
           "naam": "Rozemarijn",
-          "beschrijving": "fijngesneden",
+          "opmerking": "fijngesneden",
           "naar_smaak": true
         },
         {
           "naam": "Parmezaanse kaas",
           "hoeveelheid": 30,
           "eenheid": "g",
-          "beschrijving": "fijn geraspt",
+          "opmerking": "fijn geraspt",
           "naar_smaak": false
         },
         {
