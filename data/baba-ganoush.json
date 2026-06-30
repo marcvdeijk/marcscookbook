@@ -51,12 +51,12 @@
         {
           "naam": "Gerookt paprikapoeder of sumak",
           "naar_smaak": false,
-          "beschrijving": "garnering"
+          "opmerking": "garnering"
         },
         {
           "naam": "Verse peterselie",
           "naar_smaak": false,
-          "beschrijving": "garnering"
+          "opmerking": "garnering"
         }
       ]
     }
