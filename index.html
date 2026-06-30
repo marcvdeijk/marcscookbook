@@ -1001,6 +1001,49 @@
     .filter-pills-bar { display: flex; }
   }
 
+
+  /* ── KOOKTIPS ── */
+  .cooktips-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  @media (min-width: 640px) {
+    .cooktips-panel { grid-template-columns: 1fr 1fr; }
+  }
+  .cooktip-item {
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: var(--surface2);
+    border: 0.5px solid var(--border);
+  }
+  .cooktip-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .cooktip-text {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  /* Accentkleuren per categorie */
+  .cooktip-item:has(.cooktip-label:first-child) { border-left: 3px solid var(--border); }
+  .cooktip-van8 { border-left: 3px solid var(--score-green) !important; }
+  .cooktip-nogo  { border-left: 3px solid var(--red) !important; }
+  .cooktip-alt   { border-left: 3px solid var(--orange) !important; }
+  .cooktip-gezonder { border-left: 3px solid var(--accent2) !important; }
+  .cooktip-goedkoper { border-left: 3px solid var(--text-muted) !important; }
+  /* Alternatieven */
+  .alternatieven-grid { display: flex; flex-direction: column; gap: 4px; }
+  .alternatief-row { font-size: 13px; color: var(--text); line-height: 1.4; }
+  .alternatief-ingredient { font-weight: 600; color: var(--text); margin-right: 4px; }
+  .alternatief-opties { color: var(--text-muted); }
+
 </style>
 </head>
 <body>
@@ -1825,11 +1868,11 @@ function renderModalBody(r) {
       ).join('');
     }
     const tipBlokken = [
-      ct.van8naar10 ? '<div class="cooktip-item"><div class="cooktip-label">&#127942; Van een 8 naar een 10</div><div class="cooktip-text">' + ct.van8naar10 + '</div></div>' : '',
-      ct.noGo ? '<div class="cooktip-item"><div class="cooktip-label">&#128683; No-go combinaties</div><div class="cooktip-text">' + ct.noGo + '</div></div>' : '',
-      altHtml ? '<div class="cooktip-item"><div class="cooktip-label">&#128260; Alternatieven</div><div class="alternatieven-grid">' + altHtml + '</div></div>' : '',
-      ct.gezonder ? '<div class="cooktip-item"><div class="cooktip-label">&#129367; Gezonder maken</div><div class="cooktip-text">' + ct.gezonder + '</div></div>' : '',
-      ct.goedkoper ? '<div class="cooktip-item"><div class="cooktip-label">&#128176; Goedkoper maken</div><div class="cooktip-text">' + ct.goedkoper + '</div></div>' : '',
+      ct.van8naar10 ? '<div class="cooktip-item cooktip-van8"><div class="cooktip-label">&#127942; Van een 8 naar een 10</div><div class="cooktip-text">' + ct.van8naar10 + '</div></div>' : '',
+      ct.noGo ? '<div class="cooktip-item cooktip-nogo"><div class="cooktip-label">&#128683; No-go combinaties</div><div class="cooktip-text">' + ct.noGo + '</div></div>' : '',
+      altHtml ? '<div class="cooktip-item cooktip-alt"><div class="cooktip-label">&#128260; Alternatieven</div><div class="alternatieven-grid">' + altHtml + '</div></div>' : '',
+      ct.gezonder ? '<div class="cooktip-item cooktip-gezonder"><div class="cooktip-label">&#129367; Gezonder maken</div><div class="cooktip-text">' + ct.gezonder + '</div></div>' : '',
+      ct.goedkoper ? '<div class="cooktip-item cooktip-goedkoper"><div class="cooktip-label">&#128176; Goedkoper maken</div><div class="cooktip-text">' + ct.goedkoper + '</div></div>' : '',
     ].join('');
     cooktipsHtml = '<p class="section-title">Kooktips</p><div class="cooktips-panel">' + tipBlokken + '</div>';
   }
