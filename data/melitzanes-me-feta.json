@@ -25,20 +25,20 @@
           "naam": "Aubergines",
           "naar_smaak": false,
           "hoeveelheid": "2–3",
-          "beschrijving": "in plakken of gehalveerd"
+          "opmerking": "in plakken of gehalveerd"
         },
         {
           "naam": "Feta",
           "naar_smaak": false,
           "hoeveelheid": 150,
           "eenheid": "g",
-          "beschrijving": "verkruimeld"
+          "opmerking": "verkruimeld"
         },
         {
           "naam": "Tomaten",
           "naar_smaak": false,
           "hoeveelheid": 2,
-          "beschrijving": "in plakjes"
+          "opmerking": "in plakjes"
         },
         {
           "naam": "Knoflook",
@@ -59,7 +59,7 @@
         {
           "naam": "Verse munt",
           "naar_smaak": false,
-          "beschrijving": "optioneel"
+          "opmerking": "optioneel"
         }
       ]
     }
