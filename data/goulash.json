@@ -26,7 +26,7 @@
           "naar_smaak": false,
           "hoeveelheid": 1,
           "eenheid": "kg",
-          "beschrijving": "blokjes van ±2 cm"
+          "opmerking": "blokjes van ±2 cm"
         },
         {
           "naam": "Olie",
@@ -38,7 +38,7 @@
           "naam": "Uien",
           "naar_smaak": false,
           "hoeveelheid": 3,
-          "beschrijving": "halve ringen"
+          "opmerking": "halve ringen"
         },
         {
           "naam": "Rode of groene paprika's",
@@ -55,14 +55,14 @@
           "naar_smaak": false,
           "hoeveelheid": 1,
           "eenheid": "el",
-          "beschrijving": "pittig of mild"
+          "opmerking": "pittig of mild"
         },
         {
           "naam": "Goulashcrème",
           "naar_smaak": false,
           "hoeveelheid": 2,
           "eenheid": "el",
-          "beschrijving": "pittig of mild"
+          "opmerking": "pittig of mild"
         },
         {
           "naam": "Knoflookcrème",
