@@ -26,7 +26,7 @@
           "naar_smaak": false,
           "hoeveelheid": 400,
           "eenheid": "g",
-          "beschrijving": "gekookt, een nacht gekoeld"
+          "opmerking": "gekookt, een nacht gekoeld"
         },
         {
           "naam": "Eieren",
@@ -43,12 +43,12 @@
           "naar_smaak": false,
           "hoeveelheid": 4,
           "eenheid": "stengels",
-          "beschrijving": "wit en groen gescheiden"
+          "opmerking": "wit en groen gescheiden"
         },
         {
           "naam": "Knoflook",
           "naar_smaak": true,
-          "beschrijving": "fijn gesnipperd"
+          "opmerking": "fijn gesnipperd"
         }
       ]
     },
@@ -60,7 +60,7 @@
           "naar_smaak": false,
           "hoeveelheid": 45,
           "eenheid": "ml",
-          "beschrijving": "zonnebloem of groente"
+          "opmerking": "zonnebloem of groente"
         },
         {
           "naam": "Lichte sojasaus",
@@ -85,7 +85,7 @@
           "naar_smaak": false,
           "hoeveelheid": 1,
           "eenheid": "g",
-          "beschrijving": "versgemalen"
+          "opmerking": "versgemalen"
         },
         {
           "naam": "Zout",
