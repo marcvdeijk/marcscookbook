@@ -51,7 +51,7 @@
         {
           "naam": "Mosterdolie",
           "naar_smaak": false,
-          "beschrijving": "verhit en afgekoeld"
+          "opmerking": "verhit en afgekoeld"
         },
         {
           "naam": "Kasjmiri chilipoeder",
@@ -87,7 +87,7 @@
           "naar_smaak": false,
           "hoeveelheid": 450,
           "eenheid": "g",
-          "beschrijving": "gehalveerd"
+          "opmerking": "gehalveerd"
         },
         {
           "naam": "Water",
@@ -114,7 +114,7 @@
         {
           "naam": "Kardemom + kruidnagel",
           "naar_smaak": false,
-          "beschrijving": "in theezakje"
+          "opmerking": "in theezakje"
         },
         {
           "naam": "Zout",
@@ -129,7 +129,7 @@
           "naam": "Rode uien",
           "naar_smaak": false,
           "hoeveelheid": 2,
-          "beschrijving": "gesnipperd"
+          "opmerking": "gesnipperd"
         },
         {
           "naam": "Groene chilipeper",
@@ -149,7 +149,7 @@
           "naar_smaak": false,
           "hoeveelheid": 225,
           "eenheid": "g",
-          "beschrijving": "in blokjes"
+          "opmerking": "in blokjes"
         }
       ]
     },
