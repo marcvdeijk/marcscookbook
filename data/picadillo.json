@@ -31,13 +31,13 @@
           "naam": "Banaan",
           "naar_smaak": false,
           "hoeveelheid": "½",
-          "beschrijving": "in stukjes"
+          "opmerking": "in stukjes"
         },
         {
           "naam": "Grote aardappel",
           "naar_smaak": false,
           "hoeveelheid": 1,
-          "beschrijving": "geschild, in blokjes"
+          "opmerking": "geschild, in blokjes"
         },
         {
           "naam": "Rozijnen",
@@ -56,7 +56,7 @@
           "naar_smaak": false,
           "hoeveelheid": 200,
           "eenheid": "g",
-          "beschrijving": "gesnipperd"
+          "opmerking": "gesnipperd"
         },
         {
           "naam": "Knoflook",
@@ -95,7 +95,7 @@
           "naar_smaak": false,
           "hoeveelheid": 1,
           "eenheid": "tl",
-          "beschrijving": "gemalen"
+          "opmerking": "gemalen"
         },
         {
           "naam": "Zonnebloemolie",
