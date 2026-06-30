@@ -9,69 +9,37 @@
   "timeCategory": "snel",
   "complete": true,
   "servings": 2,
-  "nutrition": {
-    "kcal": 340,
-    "protein": 12,
-    "fat": 20,
-    "carbs": 30,
-    "score": "green",
-    "scoreNote": "Een van de gezondste opties in de collectie. Avocado geeft hartgezonde enkelvoudige vetten. Bonen geven vezels en plantaardig eiwit. Snel, licht en voedzaam."
-  },
+  "source": "eigen",
+  "nutrition": {"kcal": 340,"protein": 12,"fat": 20,"carbs": 30,"score": "green","scoreNote": "Een van de gezondste opties in de collectie. Avocado geeft hartgezonde enkelvoudige vetten. Bonen geven vezels en plantaardig eiwit. Snel, licht en voedzaam."},
+  "voedingsscore": 85,
+  "tldr": "Perfecte plantaardige salade met hartveilige vetten en volledige eiwitten — ideaal als licht lunch- of bijgerecht.",
+  "voedingsanalyse": "De avocado levert enkelvoudige onverzadigde vetten die cholesterol helpen reguleren. De bonen voegen plantaardig eiwit, vezels en magnesium toe voor een complete voedingscombinatie. Limoensap helpt de absorptie van ijzer uit de bonen te verbeteren, wat dit een perfecte plantaardige maaltijd maakt.",
   "ingredientGroups": [
-    {
-      "label": "Salade",
-      "items": [
-        {
-          "naam": "Rijpe avocado's",
-          "naar_smaak": false,
-          "hoeveelheid": 2
-        },
-        {
-          "naam": "Witte bonen of kidneybonen",
-          "naar_smaak": false,
-          "hoeveelheid": 1,
-          "eenheid": "blik"
-        },
-        {
-          "naam": "Rode ui",
-          "naar_smaak": true,
-          "opmerking": "vooraf gemarineerd in limoensap"
-        },
-        {
-          "naam": "Verse koriander of peterselie",
-          "naar_smaak": false
-        },
-        {
-          "naam": "Groene chilipeper",
-          "naar_smaak": false,
-          "hoeveelheid": 1,
-          "opmerking": "optioneel"
-        }
-      ]
-    },
-    {
-      "label": "Dressing",
-      "items": [
-        {
-          "naam": "Sap van 1 limoen",
-          "naar_smaak": false
-        },
-        {
-          "naam": "Goede extra vergine olijfolie",
-          "naar_smaak": false
-        },
-        {
-          "naam": "Zout en zwarte peper",
-          "naar_smaak": false
-        }
-      ]
-    }
+    {"label": "Salade","items": [
+      {"naam": "Rijpe avocado's","naar_smaak": false,"hoeveelheid": 2,"opmerking": "in grove stukken, niet eerder dan vlak voor servering snijden"},
+      {"naam": "Witte bonen of kidneybonen","naar_smaak": false,"hoeveelheid": 1,"eenheid": "blik","opmerking": "afgespoeld en uitgelekt"},
+      {"naam": "Rode ui","naar_smaak": true,"opmerking": "vooraf gemarineerd in limoensap voor mindere scherpte"},
+      {"naam": "Verse koriander of peterselie","naar_smaak": true,"opmerking": "gehakt, voor frisse afwerking"},
+      {"naam": "Groene chilipeper","naar_smaak": false,"hoeveelheid": 1,"opmerking": "optioneel, fijn gesneden"}
+    ]},
+    {"label": "Dressing","items": [
+      {"naam": "Limoensap","naar_smaak": true,"opmerking": "van 1 limoen, vers geperst"},
+      {"naam": "Extra vergine olijfolie","naar_smaak": true,"opmerking": "royale scheut"},
+      {"naam": "Zout","naar_smaak": true},
+      {"naam": "Zwarte peper","naar_smaak": true}
+    ]}
   ],
   "steps": [
-    "Marineer de rode ui ruim van tevoren (of gebruik de voorgemarineerde ui uit de koelkast) in limoensap met zout. Minimaal 15 minuten.",
-    "Snijd de avocado in grove stukken. Spoel de bonen af.",
-    "Combineer avocado, bonen, gemarineerde ui, koriander en optioneel chilipeper.",
-    "Maak op smaak met limoensap, olijfolie, zout en peper. Direct serveren."
+    "**MARINEREN:** Marineer de **rode ui** ruim van tevoren in **limoensap** met **zout**. Minimaal 15 minuten — dit haalt de scherpte eraf.",
+    "**VOORBEREIDEN:** Snijd de **avocado** in grove stukken. Spoel de **bonen** af en laat uitlekken.",
+    "**MENGEN:** Combineer **avocado**, **bonen**, gemarineerde **rode ui**, **koriander** en optioneel **chilipeper** in een grote schaal.",
+    "**OPMAKEN:** Maak op smaak met **limoensap**, **olijfolie**, **zout** en **zwarte peper**. Voorzichtig omscheppen en direct serveren."
   ],
-  "source": "eigen"
+  "cooktips": {
+    "van8naar10": "Maak deze salade VLAK VOOR SERVEREN — avocado oxideert snel en wordt bruin. Voeg limoensap toe aan de avocado voor zowel smaak als anti-oxidatie. Serveer op warme tortilla's of met gekookte quinoa voor extra body.",
+    "noGo": "Snijd de avocado NIET uren van tevoren — hij wordt bruin en papperig. En zeg geen avocado mayo — dit is geen Angelsaksische remix.",
+    "alternatieven": {"avocado": ["tahini voor romigheid","feta voor zout contrast"],"witte bonen": ["zwarte bonen","linzen"],"rode ui": ["witte ui","bosui"]},
+    "gezonder": "Deze salade is al bijna ideaal — voeg extra groenten toe (paprika, tomaat) voor meer volume en nog meer voedingsdichtheid.",
+    "goedkoper": "Gebruik gedroogde bonen die je zelf kookt — veel goedkoper dan blikken. Vervang de extra vergine olijfolie door reguliere olijfolie."
+  }
 }
