@@ -30,7 +30,7 @@
         {
           "naam": "Koppen en schalen van de garnalen",
           "naar_smaak": false,
-          "beschrijving": "voor stock"
+          "opmerking": "voor stock"
         },
         {
           "naam": "Scheut witte wijn",
@@ -39,7 +39,7 @@
         {
           "naam": "Zout",
           "naar_smaak": false,
-          "beschrijving": "royaal — pasta water is primaire zoutbron"
+          "opmerking": "royaal — pasta water is primaire zoutbron"
         }
       ]
     },
@@ -51,18 +51,18 @@
           "naar_smaak": false,
           "hoeveelheid": 300,
           "eenheid": "g",
-          "beschrijving": "gepeld, koppen apart gehouden"
+          "opmerking": "gepeld, koppen apart gehouden"
         },
         {
           "naam": "Knoflook",
           "naar_smaak": true,
-          "beschrijving": "fijn gesneden"
+          "opmerking": "fijn gesneden"
         },
         {
           "naam": "Chilipepers",
           "naar_smaak": false,
           "hoeveelheid": "1–2",
-          "beschrijving": "naar smaak"
+          "opmerking": "naar smaak"
         },
         {
           "naam": "Handvol cherrytomaatjes",
@@ -71,7 +71,7 @@
         {
           "naam": "Goede extra vergine olijfolie",
           "naar_smaak": false,
-          "beschrijving": "Marc's Griekse EVOO"
+          "opmerking": "Marc's Griekse EVOO"
         },
         {
           "naam": "Peper en zout",
