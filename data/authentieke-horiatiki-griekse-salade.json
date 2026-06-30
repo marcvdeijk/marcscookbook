@@ -10,106 +10,36 @@
   "complete": true,
   "servings": 4,
   "source": "eigen",
-  "nutrition": {
-    "kcal": 290,
-    "protein": 7,
-    "fat": 24,
-    "carbs": 9,
-    "score": "green",
-    "scoreNote": "Gezonde, pure salade vol antioxidanten en vitaminen, met goede vetten uit de olijfolie en feta."
-  },
+  "nutrition": {"kcal": 290,"protein": 7,"fat": 24,"carbs": 9,"score": "green","scoreNote": "Gezonde, pure salade vol antioxidanten en vitaminen, met goede vetten uit de olijfolie en feta."},
+  "voedingsscore": 82,
+  "tldr": "Eenvoudige, pure salade met hartgezonde oliën, sterke antioxidanten en typische Mediterrane voedingswaarden — serveer als bijgerecht of lichte maaltijd.",
+  "voedingsanalyse": "Deze salade levert weinig calorieën maar veel voedingsdichtheid door de tomaten (licopeen), komkommer en vooral de olijfolie en feta (gezonde vetten en calcium). De oregano draagt bij aan de anti-inflammatoire voordelen. Vervang geen ingrediënt — dit is perfect in evenwicht.",
   "ingredientGroups": [
-    {
-      "label": "De Groenten",
-      "items": [
-        {
-          "naam": "Tomaat",
-          "hoeveelheid": 4,
-          "eenheid": "stuks",
-          "opmerking": "groot, rijp, in grove parten",
-          "naar_smaak": false
-        },
-        {
-          "naam": "Komkommer",
-          "hoeveelheid": 1,
-          "eenheid": "stuks",
-          "opmerking": "half geschild in de lengte, in dikke plakken",
-          "naar_smaak": false
-        },
-        {
-          "naam": "Rode ui",
-          "hoeveelheid": 1,
-          "eenheid": "stuks",
-          "opmerking": "klein, in flinterdunne halve ringen",
-          "naar_smaak": false
-        },
-        {
-          "naam": "Groene paprika",
-          "hoeveelheid": 1,
-          "eenheid": "stuks",
-          "opmerking": "in ringen of repen",
-          "naar_smaak": false
-        }
-      ]
-    },
-    {
-      "label": "Toppings & Smaakmakers",
-      "items": [
-        {
-          "naam": "Kalamata olijven",
-          "opmerking": "flinke hand, met pit",
-          "naar_smaak": true
-        },
-        {
-          "naam": "Feta",
-          "hoeveelheid": 1,
-          "eenheid": "stuks",
-          "opmerking": "dikke plak van echte schapen-/geitenmelk",
-          "naar_smaak": false
-        },
-        {
-          "naam": "Gedroogde oregano",
-          "hoeveelheid": 2,
-          "eenheid": "tl",
-          "opmerking": "liefst Griekse wilde oregano",
-          "naar_smaak": false
-        },
-        {
-          "naam": "Extra vierge olijfolie",
-          "opmerking": "flinke scheut van topkwaliteit",
-          "naar_smaak": true
-        },
-        {
-          "naam": "Rode wijnazijn",
-          "hoeveelheid": 1,
-          "eenheid": "el",
-          "naar_smaak": false
-        },
-        {
-          "naam": "Zeezout",
-          "opmerking": "grof",
-          "naar_smaak": true
-        }
-      ]
-    }
+    {"label": "De Groenten","items": [
+      {"naam": "Tomaat","hoeveelheid": 4,"eenheid": "stuks","opmerking": "groot, rijp, in grove parten","naar_smaak": false},
+      {"naam": "Komkommer","hoeveelheid": 1,"eenheid": "stuks","opmerking": "half geschild in de lengte, in dikke plakken","naar_smaak": false},
+      {"naam": "Rode ui","hoeveelheid": 1,"eenheid": "stuks","opmerking": "klein, in flinterdunne halve ringen","naar_smaak": false},
+      {"naam": "Groene paprika","hoeveelheid": 1,"eenheid": "stuks","opmerking": "in ringen of repen","naar_smaak": false}
+    ]},
+    {"label": "Toppings & Smaakmakers","items": [
+      {"naam": "Kalamata olijven","opmerking": "flinke hand, met pit","naar_smaak": true},
+      {"naam": "Feta","hoeveelheid": 1,"eenheid": "stuks","opmerking": "dikke plak van echte schapen- of geitenmelk","naar_smaak": false},
+      {"naam": "Gedroogde oregano","hoeveelheid": 2,"eenheid": "tl","opmerking": "liefst Griekse wilde oregano","naar_smaak": false},
+      {"naam": "Extra vierge olijfolie","opmerking": "flinke scheut van topkwaliteit","naar_smaak": true},
+      {"naam": "Rode wijnazijn","hoeveelheid": 1,"eenheid": "el","opmerking": "voor zuurbalans","naar_smaak": false},
+      {"naam": "Zeezout","opmerking": "grof","naar_smaak": true}
+    ]}
   ],
   "steps": [
     "**GROENTEN SNIJDEN:** Snijd de **tomaat** in grove parten en de **komkommer** in dikke halve manen. Doe ze samen met de dunne ringen **rode ui** en **groene paprika** in een grote, diepe schaal.",
-    "**DRESSEREN EN HUSSELEN:** Strooi een klein snufje grof **zeezout** over de groenten. Besprenkel royaal met de **rode wijnazijn** en een flinke, gulle scheut **extra vierge olijfolie**. Hussel het geheel eenmaal voorzichtig om.",
+    "**DRESSEREN EN HUSSELEN:** Strooi een klein snufje grof **zeezout** over de groenten. Besprenkel royaal met de **rode wijnazijn** en een flinke, gulle scheut **extra vierge olijfolie**. Hussel het geheel éénmaal voorzichtig om.",
     "**AFWERKEN:** Verdeel de **Kalamata olijven** over de salade. Leg de dikke plak **feta** in zijn geheel trots bovenop de groenten. Giet nog een laatste straaltje **extra vierge olijfolie** over de kaas en wrijf de **gedroogde oregano** tussen je handpalmen fijn boven de hele schaal. Serveer direct."
   ],
   "cooktips": {
-    "van8naar10": "Serveer dit ALTIJD met een dikke plak rustiek witbrood of zuurdesem. Waarom? Voor de 'papara'! Dat is het Griekse woord voor je brood dopen in dat goddelijke sap onderin de schaal waar het tomatenvocht, de azijn, de olijfolie en de oregano samensmelten. Dat sap is het beste deel van de hele salade, mis het niet!",
-    "noGo": "Snijd de feta NOOIT in suffe, kleine blokjes en meng het niet door de salade alsof het een fabriekshuzarensalade is! En haal het niet in je hoofd om sla, rucola of godbeterhet ijsbergsla toe te voegen. Dan huilt er een Griekse oma in Athene. Geen sla, feta bovenop. Capisce?",
-    "alternatieven": {
-      "kalamata olijven": [
-        "zwarte olijven van goede kwaliteit"
-      ],
-      "rode wijnazijn": [
-        "citroensap"
-      ]
-    },
-    "gezonder": "De salade is al super gezond, maar je kunt de hoeveelheid feta halveren of een light variant (hoewel minder authentiek) gebruiken om vetten te besparen.",
-    "goedkoper": "Gebruik een goedkopere witte kaas in plaats van de dure AOP Griekse feta, al verlies je daarmee wel direct de authentieke scherpe smaak."
+    "van8naar10": "Serveer dit ALTIJD met een dikke plak rustiek witbrood of zuurdesem. Waarom? Voor de papara — dat is het Griekse woord voor je brood dopen in dat goddelijke sap onderin de schaal waar het tomatenvocht, de azijn, de olijfolie en de oregano samensmelten.",
+    "noGo": "Snijd de feta NOOIT in suffe kleine blokjes en meng het niet door de salade. En haal het niet in je hoofd om sla, rucola of ijsbergsla toe te voegen. Geen sla, feta bovenop.",
+    "alternatieven": {"kalamata olijven": ["zwarte olijven van goede kwaliteit"],"rode wijnazijn": ["citroensap"],"feta": ["kasseri kaas voor wat meer body"]},
+    "gezonder": "De salade is al super gezond — je kunt de hoeveelheid feta halveren of een light-variant gebruiken om vetten te besparen.",
+    "goedkoper": "Gebruik een goedkopere witte kaas in plaats van de dure AOP Griekse feta, al verlies je daarmee de authentieke scherpe smaak."
   }
 }
