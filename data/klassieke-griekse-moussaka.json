@@ -26,14 +26,14 @@
           "naam": "Aubergine",
           "hoeveelheid": 2,
           "eenheid": "stuks",
-          "beschrijving": "in plakken van 1 cm",
+          "opmerking": "in plakken van 1 cm",
           "naar_smaak": false
         },
         {
           "naam": "Aardappel",
           "hoeveelheid": 3,
           "eenheid": "stuks",
-          "beschrijving": "groot, stevig, in plakken van 1 cm",
+          "opmerking": "groot, stevig, in plakken van 1 cm",
           "naar_smaak": false
         },
         {
@@ -55,21 +55,21 @@
           "naam": "Ui",
           "hoeveelheid": 1,
           "eenheid": "stuks",
-          "beschrijving": "fijngesneden",
+          "opmerking": "fijngesneden",
           "naar_smaak": false
         },
         {
           "naam": "Knoflook",
           "hoeveelheid": 2,
           "eenheid": "stuks",
-          "beschrijving": "fijngesneden",
+          "opmerking": "fijngesneden",
           "naar_smaak": false
         },
         {
           "naam": "Gepelde tomaten",
           "hoeveelheid": 400,
           "eenheid": "g",
-          "beschrijving": "uit blik, fijngehakt",
+          "opmerking": "uit blik, fijngehakt",
           "naar_smaak": false
         },
         {
@@ -119,7 +119,7 @@
           "naam": "Melk",
           "hoeveelheid": 500,
           "eenheid": "ml",
-          "beschrijving": "warm",
+          "opmerking": "warm",
           "naar_smaak": false
         },
         {
@@ -132,7 +132,7 @@
           "naam": "Kefalotyri",
           "hoeveelheid": 100,
           "eenheid": "g",
-          "beschrijving": "geraspt (of Parmezaanse kaas)",
+          "opmerking": "geraspt (of Parmezaanse kaas)",
           "naar_smaak": false
         },
         {
