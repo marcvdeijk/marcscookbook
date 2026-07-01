@@ -10,21 +10,63 @@
   "complete": true,
   "servings": 4,
   "source": "eigen",
-  "nutrition": {"kcal": 160,"protein": 4,"fat": 10,"carbs": 16,"score": "green","scoreNote": "Zeer laag in calorieën. Aubergine is rijk aan antioxidanten. Tahini geeft gezonde vetten en calcium. Ideaal als dip of bijgerecht."},
+  "nutrition": {
+    "kcal": 160,
+    "protein": 4,
+    "fat": 10,
+    "carbs": 16,
+    "score": "green",
+    "scoreNote": "Zeer laag in calorieën. Aubergine is rijk aan antioxidanten. Tahini geeft gezonde vetten en calcium. Ideaal als dip of bijgerecht."
+  },
   "voedingsscore": 80,
-  "tldr": "Laagcalorie dip vol antioxidanten met gezonde tahini-vetten — perfect als snack of bijgerecht voor rauwe groenten.",
+  "tldr": "Een plantaardig gerecht vol antioxidanten en gezonde vetten, maar de olijfolie en tahini zorgen voor een relatief hoge vetinname.",
   "voedingsanalyse": "Aubergine bevat nasunine, een krachtige antioxidant goed voor hersenwerking. Tahini levert calcium, magnesium en sesam-lignans. De rooksmaak van geroosterde aubergine voegt diepte toe zonder calorieën. Dit is een voedingsefficiënt gerecht dat veel meer voedingsdichtheid biedt dan de calorie-inhoud suggereert.",
   "ingredientGroups": [
-    {"label": "Ingrediënten","items": [
-      {"naam": "Grote aubergines","naar_smaak": false,"hoeveelheid": 2,"opmerking": "direct op open vlam geroosterd tot zwart voor rooksmaak"},
-      {"naam": "Tahini","naar_smaak": true,"opmerking": "sesampasta, voor romigheid"},
-      {"naam": "Knoflook","naar_smaak": true,"opmerking": "geperst of fijngehakt"},
-      {"naam": "Citroensap","naar_smaak": false,"opmerking": "van 1 citroen, vers geperst"},
-      {"naam": "Extra vergine olijfolie","naar_smaak": true,"opmerking": "voor afwerking en garnering"},
-      {"naam": "Zout","naar_smaak": true},
-      {"naam": "Gerookt paprikapoeder of sumak","naar_smaak": true,"opmerking": "voor garnering en kleur"},
-      {"naam": "Verse peterselie","naar_smaak": true,"opmerking": "gehakt, voor garnering"}
-    ]}
+    {
+      "label": "Ingrediënten",
+      "items": [
+        {
+          "naam": "Grote aubergines",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "opmerking": "direct op open vlam geroosterd tot zwart voor rooksmaak"
+        },
+        {
+          "naam": "Tahini",
+          "naar_smaak": true,
+          "opmerking": "sesampasta, voor romigheid"
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": true,
+          "opmerking": "geperst of fijngehakt"
+        },
+        {
+          "naam": "Citroensap",
+          "naar_smaak": false,
+          "opmerking": "van 1 citroen, vers geperst"
+        },
+        {
+          "naam": "Extra vergine olijfolie",
+          "naar_smaak": true,
+          "opmerking": "voor afwerking en garnering"
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Gerookt paprikapoeder of sumak",
+          "naar_smaak": true,
+          "opmerking": "voor garnering en kleur"
+        },
+        {
+          "naam": "Verse peterselie",
+          "naar_smaak": true,
+          "opmerking": "gehakt, voor garnering"
+        }
+      ]
+    }
   ],
   "steps": [
     "**ROOSTEREN:** Rooster de **aubergines** direct op de vlam van het gas of op de BBQ tot de schil volledig zwart is en het vruchtvlees zacht aanvoelt. Dit is de bron van de rooksmaak — haast je niet.",
@@ -35,7 +77,16 @@
   "cooktips": {
     "van8naar10": "Rooster de aubergines ECHT op open vlam — niet in de oven. De vlam geeft authenticiteit en rooksmaak. Serveer op een groot bord met een kuiltje en glinsterende olijfolie — de presentatie IS het gerecht.",
     "noGo": "Gebruik NOOIT een blender — dit wordt pap. Handpuree of vork werkt beter. Voeg NIET te veel citroensap toe — hij gaat bruin. Proef VOOR het zouten, want je kunt het er niet meer uit krijgen.",
-    "alternatieven": {"aubergine": ["geroosterde rode paprika voor mildere smaak","gehakte kikkererwten voor donkerdere variant"],"tahini": ["Griekse yoghurt voor lichter","boter voor rijker"]},
+    "alternatieven": {
+      "aubergine": [
+        "geroosterde rode paprika voor mildere smaak",
+        "gehakte kikkererwten voor donkerdere variant"
+      ],
+      "tahini": [
+        "Griekse yoghurt voor lichter",
+        "boter voor rijker"
+      ]
+    },
     "gezonder": "Deze dip is al erg gezond — je kunt het olieverbruik halveren zonder veel verlies aan smaak.",
     "goedkoper": "Gebruik aubergines uit seizoen. Tahini is het duurste ingrediënt — normale sesamboter werkt ook, al mist het wat fijnheid."
   }
