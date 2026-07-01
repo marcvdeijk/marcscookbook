@@ -10,39 +10,185 @@
   "complete": true,
   "servings": 4,
   "source": "eigen",
-  "nutrition": {"kcal": 430,"protein": 40,"fat": 20,"carbs": 18,"score": "green","scoreNote": "Een van de gezondere curries in de collectie. Kokosmelk geeft goede vetten, tamarinde voegt complexiteit toe zonder calorieën. Relatief laag in koolhydraten."},
-  "voedingsscore": 78,
-  "tldr": "Aromatische curry met hoog eiwit en complexe specerijen — tamarinde en kokosmelk zorgen voor diepe smaak zonder lege calorieën.",
+  "nutrition": {
+    "kcal": 430,
+    "protein": 40,
+    "fat": 20,
+    "carbs": 18,
+    "score": "green",
+    "scoreNote": "Een van de gezondere curries in de collectie. Kokosmelk geeft goede vetten, tamarinde voegt complexiteit toe zonder calorieën. Relatief laag in koolhydraten."
+  },
+  "voedingsscore": 58,
+  "tldr": "Stevige eiwitbron met aromaten en tomaten, maar kokosmelk en de afwezigheid van groenten houden de score beperkt.",
   "voedingsanalyse": "De kip levert mager, hoogwaardig eiwit. De geroosterde specerijenmix stimuleert digestie en voegt antioxidanten toe. Tamarinde biedt zuur zonder suiker. Kokosmelk geeft triglyceriden die direct als energie werken. Dit is een intelligente curry.",
   "ingredientGroups": [
-    {"label": "Madras kruidenmix","items": [
-      {"naam": "Groene kardemomzaden","naar_smaak": false,"hoeveelheid": 3,"opmerking": "uit peulen gehaald, voor meer aroma"},
-      {"naam": "Kaneelstokje","naar_smaak": false,"hoeveelheid": 1,"opmerking": "Ceylon of Cassia"},
-      {"naam": "Korianderzaad","naar_smaak": false,"hoeveelheid": 2,"eenheid": "el","opmerking": "voor citrushint"},
-      {"naam": "Venkelzaad","naar_smaak": false,"hoeveelheid": 2,"eenheid": "el","opmerking": "anijs-achtig"},
-      {"naam": "Komijnzaad","naar_smaak": false,"hoeveelheid": 1,"eenheid": "el","opmerking": "aards"},
-      {"naam": "Zwarte peperkorrels","naar_smaak": false,"hoeveelheid": 1,"eenheid": "el","opmerking": "warm"},
-      {"naam": "Chilipoeder","naar_smaak": false,"hoeveelheid": 2,"eenheid": "tl","opmerking": "voor hitte"},
-      {"naam": "Fenegriekzaad","naar_smaak": false,"hoeveelheid": 1,"eenheid": "tl","opmerking": "subtiel maple-achtig"},
-      {"naam": "Kruidnagels","naar_smaak": false,"hoeveelheid": 5,"opmerking": "warm en zwaar"},
-      {"naam": "Kurkuma","naar_smaak": false,"hoeveelheid": 2,"eenheid": "tl","opmerking": "anti-inflammatoir"}
-    ]},
-    {"label": "Currybasis","items": [
-      {"naam": "Kip","naar_smaak": false,"hoeveelheid": 800,"eenheid": "g","opmerking": "dijen zonder bot, in stukken"},
-      {"naam": "Kokosmelk","naar_smaak": false,"hoeveelheid": 100,"eenheid": "ml","opmerking": "voor blooming, rest later"},
-      {"naam": "Tomatenpasta","naar_smaak": false,"hoeveelheid": 1,"eenheid": "tl","opmerking": "voor body en umami"},
-      {"naam": "Gember-knoflookpasta","naar_smaak": false,"hoeveelheid": 2,"eenheid": "el","opmerking": "of verse gember en knoflook"},
-      {"naam": "Ui","naar_smaak": true,"opmerking": "groot, fijn gesnipperd tot karamel"},
-      {"naam": "Tomaten","naar_smaak": false,"hoeveelheid": 400,"eenheid": "g","opmerking": "vers of uit blik"},
-      {"naam": "Chilipepers","naar_smaak": true,"opmerking": "groen, heel of gehalveerd"},
-      {"naam": "Tamarindepulp","naar_smaak": false,"hoeveelheid": 1,"eenheid": "el","opmerking": "of sap van halve citroen als backup"},
-      {"naam": "Kurkuma","naar_smaak": false,"hoeveelheid": 1,"eenheid": "tl","opmerking": "poeder"},
-      {"naam": "Chilipoeder","naar_smaak": false,"hoeveelheid": 1,"eenheid": "tl","opmerking": "voor diepte en hitte"},
-      {"naam": "Mosterdzaad","naar_smaak": false,"hoeveelheid": 1,"eenheid": "tl","opmerking": "voor notige smaak"},
-      {"naam": "Curryblaadjes","naar_smaak": false,"hoeveelheid": 10,"opmerking": "vers of gedroogd, onmisbaar"},
-      {"naam": "Water","naar_smaak": false,"hoeveelheid": 100,"eenheid": "ml","opmerking": "voor vloeibaarheid"},
-      {"naam": "Zout","naar_smaak": true}
-    ]}
+    {
+      "label": "Madras kruidenmix",
+      "items": [
+        {
+          "naam": "Groene kardemomzaden",
+          "naar_smaak": false,
+          "hoeveelheid": 3,
+          "opmerking": "uit peulen gehaald, voor meer aroma"
+        },
+        {
+          "naam": "Kaneelstokje",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "opmerking": "Ceylon of Cassia"
+        },
+        {
+          "naam": "Korianderzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el",
+          "opmerking": "voor citrushint"
+        },
+        {
+          "naam": "Venkelzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el",
+          "opmerking": "anijs-achtig"
+        },
+        {
+          "naam": "Komijnzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el",
+          "opmerking": "aards"
+        },
+        {
+          "naam": "Zwarte peperkorrels",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el",
+          "opmerking": "warm"
+        },
+        {
+          "naam": "Chilipoeder",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "tl",
+          "opmerking": "voor hitte"
+        },
+        {
+          "naam": "Fenegriekzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl",
+          "opmerking": "subtiel maple-achtig"
+        },
+        {
+          "naam": "Kruidnagels",
+          "naar_smaak": false,
+          "hoeveelheid": 5,
+          "opmerking": "warm en zwaar"
+        },
+        {
+          "naam": "Kurkuma",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "tl",
+          "opmerking": "anti-inflammatoir"
+        }
+      ]
+    },
+    {
+      "label": "Currybasis",
+      "items": [
+        {
+          "naam": "Kip",
+          "naar_smaak": false,
+          "hoeveelheid": 800,
+          "eenheid": "g",
+          "opmerking": "dijen zonder bot, in stukken"
+        },
+        {
+          "naam": "Kokosmelk",
+          "naar_smaak": false,
+          "hoeveelheid": 100,
+          "eenheid": "ml",
+          "opmerking": "voor blooming, rest later"
+        },
+        {
+          "naam": "Tomatenpasta",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl",
+          "opmerking": "voor body en umami"
+        },
+        {
+          "naam": "Gember-knoflookpasta",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "eenheid": "el",
+          "opmerking": "of verse gember en knoflook"
+        },
+        {
+          "naam": "Ui",
+          "naar_smaak": true,
+          "opmerking": "groot, fijn gesnipperd tot karamel"
+        },
+        {
+          "naam": "Tomaten",
+          "naar_smaak": false,
+          "hoeveelheid": 400,
+          "eenheid": "g",
+          "opmerking": "vers of uit blik"
+        },
+        {
+          "naam": "Chilipepers",
+          "naar_smaak": true,
+          "opmerking": "groen, heel of gehalveerd"
+        },
+        {
+          "naam": "Tamarindepulp",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "el",
+          "opmerking": "of sap van halve citroen als backup"
+        },
+        {
+          "naam": "Kurkuma",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl",
+          "opmerking": "poeder"
+        },
+        {
+          "naam": "Chilipoeder",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl",
+          "opmerking": "voor diepte en hitte"
+        },
+        {
+          "naam": "Mosterdzaad",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "tl",
+          "opmerking": "voor notige smaak"
+        },
+        {
+          "naam": "Curryblaadjes",
+          "naar_smaak": false,
+          "hoeveelheid": 10,
+          "opmerking": "vers of gedroogd, onmisbaar"
+        },
+        {
+          "naam": "Water",
+          "naar_smaak": false,
+          "hoeveelheid": 100,
+          "eenheid": "ml",
+          "opmerking": "voor vloeibaarheid"
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": true
+        }
+      ]
+    }
   ],
   "steps": [
     "**KRUIDENMIX:** Rooster alle hele specerijen voor de **Madras kruidenmix** droog in een pan tot geurig. Maal fijn in een kruidenmolen of vijzel.",
@@ -55,7 +201,19 @@
   "cooktips": {
     "van8naar10": "Maak de kruidenmix ZELF — koop niet die kant-en-klare Madras-mengsels. Rooster de specerijen voor aroma en diepte. Serveer op jasmijnrijst met frisse raita.",
     "noGo": "Voeg NOOIT yoghurt toe — deze curry is geen tandoori. Gebruik GEEN rood vlees — kip is traditioneel. Sla de tamarinde NIET over — dat is wat Madras van gewone curry onderscheidt.",
-    "alternatieven": {"kip": ["schapenvlees voor rijker","groenten voor vegetarisch"],"tamarindepulp": ["citroensap als absoluut noodgeval"],"tomaten": ["tomatenblokjes uit blik","tomatenpuree aangelengd met water"]},
+    "alternatieven": {
+      "kip": [
+        "schapenvlees voor rijker",
+        "groenten voor vegetarisch"
+      ],
+      "tamarindepulp": [
+        "citroensap als absoluut noodgeval"
+      ],
+      "tomaten": [
+        "tomatenblokjes uit blik",
+        "tomatenpuree aangelengd met water"
+      ]
+    },
     "gezonder": "Halveer de kokosmelk, voeg meer water toe — smaak blijft, minder vetten. Voeg meer groenten toe (spinazie, snijbiet, groene bonen) voor meer volume.",
     "goedkoper": "Gebruik budgetkip en minder specerijen — maar hou de tamarinde en curryblaadjes, die zijn essentieel. Vervang kokosmelk deels door water."
   }
