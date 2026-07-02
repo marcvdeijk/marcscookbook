@@ -1,0 +1,157 @@
+{
+  "id": "kip-jambalaya",
+  "name": "Jambalaya",
+  "cuisine": "Amerikaans",
+  "protein": "Kip",
+  "carbs": "Bulgur",
+  "effort": 3,
+  "timeMin": 45,
+  "timeCategory": "middel",
+  "complete": true,
+  "servings": 4,
+  "nutrition": {
+    "kcal": 560,
+    "protein": 46,
+    "fat": 22,
+    "carbs": 42,
+    "score": "green",
+    "scoreNote": "Goede balans van eiwit en complexe koolhydraten. Bulgur heeft een lagere glycemische index dan rijst. De chorizo geeft vet maar ook veel smaak — houd de hoeveelheid in de gaten."
+  },
+  "voedingsscore": 58,
+  "tldr": "Sterke eiwitbasis met groenten en vezelige bulgur, maar de chorizo brengt verzadigd vet en zout waardoor dit gerecht net buiten de gezonde zone valt.",
+  "voedingsanalyse": "Met 46 gram eiwit per portie en bulgur als complexe koolhydraatbron is dit een solide maaltijd voor actieve dagen. Houd er rekening mee dat chorizo relatief veel verzadigd vet en natrium bevat — overweeg de hoeveelheid te halveren en te compenseren met extra paprika of kikkererwten voor meer volume zonder extra vet. Voor een groenere score zou het vervangen van chorizo door een magere rookworst of extra groenten het gerecht significant lichter maken.",
+  "ingredientGroups": [
+    {
+      "label": "Vlees",
+      "items": [
+        {
+          "naam": "Kippendijen",
+          "naar_smaak": false,
+          "hoeveelheid": 1000,
+          "eenheid": "g",
+          "opmerking": "zonder bot en vel, in hapklare blokjes"
+        },
+        {
+          "naam": "Chorizo",
+          "naar_smaak": false,
+          "hoeveelheid": 200,
+          "eenheid": "g",
+          "opmerking": "in schijfjes of blokjes"
+        }
+      ]
+    },
+    {
+      "label": "Bulgur & bouillon",
+      "items": [
+        {
+          "naam": "Glazen bulgur",
+          "naar_smaak": false,
+          "hoeveelheid": 2
+        },
+        {
+          "naam": "Glazen kippenbouillon",
+          "naar_smaak": false,
+          "hoeveelheid": 4,
+          "opmerking": "verhouding 1:2"
+        }
+      ]
+    },
+    {
+      "label": "Holy trinity",
+      "items": [
+        {
+          "naam": "Uien",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "opmerking": "fijngesneden"
+        },
+        {
+          "naam": "Groene paprika's",
+          "naar_smaak": false,
+          "hoeveelheid": 2,
+          "opmerking": "fijngesneden"
+        },
+        {
+          "naam": "Bleekselderij",
+          "naar_smaak": false,
+          "hoeveelheid": 4,
+          "eenheid": "stengels",
+          "opmerking": "fijngesneden"
+        },
+        {
+          "naam": "Jalapeñopepers",
+          "naar_smaak": false,
+          "hoeveelheid": "1–2",
+          "opmerking": "optioneel"
+        },
+        {
+          "naam": "Knoflook",
+          "naar_smaak": true
+        }
+      ]
+    },
+    {
+      "label": "Smaakmakers",
+      "items": [
+        {
+          "naam": "Tomatenpuree",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Cajun- of Creoolse kruidenmix",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Gerookt paprikapoeder",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Louisiana hot sauce",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Worcestershire saus",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Laurierblaadjes",
+          "naar_smaak": false,
+          "hoeveelheid": 4
+        },
+        {
+          "naam": "Verse rozemarijn",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Verse tijm",
+          "naar_smaak": true
+        }
+      ]
+    },
+    {
+      "label": "Afwerking",
+      "items": [
+        {
+          "naam": "Bosui in ringetjes",
+          "naar_smaak": false
+        },
+        {
+          "naam": "Griekse extra vergine olijfolie",
+          "naar_smaak": false,
+          "opmerking": "klein beetje"
+        }
+      ]
+    }
+  ],
+  "steps": [
+    "**BULGUR SPOELEN:** Was de bulgur kort onder koud water in een zeef. Laat uitlekken.",
+    "**CHORIZO UITBAKKEN:** Verhit de pan met een klein beetje olijfolie. Bak chorizo 4–5 minuten krokant zodat de gekruide rode olie vrijkomt. Haal de chorizo uit de pan en laat de olie achter — dat is de smaakbasis.",
+    "**KIP AANBRADEN:** Kruid de kipblokjes royaal met Cajun-kruidenmix. Bak in de chorizo-olie rondom goudbruin tot ±80% gaar. Haal de kip eruit en zet apart bij de chorizo.",
+    "**HOLY TRINITY BAKKEN:** Bak ui, paprika, bleekselderij en jalapeño in dezelfde pan. De groenten nemen alle aanbaksels van de bodem op — schraap ze los.",
+    "**SMAAKMAKERS & BULGUR TOASTEN:** Voeg knoflook, tomatenpuree, verse kruiden, hot sauce, bouillonpoeder en Worcestershire toe. Roer door. Voeg de bulgur toe en bak 2 minuten mee zodat elke korrel glanst van de kruidige olie.",
+    "**STOVEN:** Giet de 4 glazen bouillon erbij met de laurierblaadjes. Breng aan de kook, vuur laag, deksel op de pan. 12–15 minuten zachtjes pruttelen tot de bulgur het vocht heeft opgenomen.",
+    "**SAMENVOEGEN:** Schep chorizo, kip en de vleessappen er voorzichtig doorheen. Breng op smaak. Deksel er weer op, nog 5–10 minuten op heel laag vuur stomen.",
+    "**AFWERKEN:** Haal de laurierblaadjes eruit. Strooi bosui erover en serveer direct uit de pan."
+  ],
+  "source": "eigen"
+}
