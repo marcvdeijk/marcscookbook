@@ -1,0 +1,113 @@
+{
+  "id": "cajun-chicken-rice",
+  "name": "Cajun Chicken and Rice",
+  "cuisine": "Amerikaans",
+  "protein": "Kip",
+  "carbs": "Rijst",
+  "effort": 2,
+  "timeMin": 30,
+  "timeCategory": "snel",
+  "complete": true,
+  "servings": 4,
+  "source": "eigen",
+  "nutrition": {
+    "kcal": 480,
+    "protein": 34,
+    "fat": 16,
+    "carbs": 48,
+    "score": "orange",
+    "scoreNote": "Prima eiwitbron en groenten aanwezig, maar kaas en beperkte vezels houden dit op oranje."
+  },
+  "ingredientGroups": [
+    {
+      "label": "Rijst",
+      "items": [
+        {
+          "naam": "Rijst",
+          "naar_smaak": false,
+          "hoeveelheid": 200,
+          "eenheid": "g"
+        },
+        {
+          "naam": "Water of kippenbouillon",
+          "naar_smaak": false,
+          "hoeveelheid": 480,
+          "eenheid": "ml"
+        },
+        {
+          "naam": "Zout",
+          "naar_smaak": true
+        }
+      ]
+    },
+    {
+      "label": "Kip",
+      "items": [
+        {
+          "naam": "Kipfilet",
+          "naar_smaak": false,
+          "hoeveelheid": 450,
+          "eenheid": "g",
+          "opmerking": "in blokjes van 2,5 cm"
+        },
+        {
+          "naam": "Cajun kruidenmix",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Olijfolie",
+          "naar_smaak": false,
+          "hoeveelheid": 30,
+          "eenheid": "ml"
+        }
+      ]
+    },
+    {
+      "label": "Groenten en saus",
+      "items": [
+        {
+          "naam": "Ui",
+          "naar_smaak": true
+        },
+        {
+          "naam": "Paprika",
+          "naar_smaak": false,
+          "hoeveelheid": 3,
+          "opmerking": "in reepjes"
+        },
+        {
+          "naam": "Gepelde tomatenblokjes met groene chilipepers",
+          "naar_smaak": false,
+          "hoeveelheid": 280,
+          "eenheid": "g"
+        },
+        {
+          "naam": "Geraspte cheddar",
+          "naar_smaak": false,
+          "hoeveelheid": 100,
+          "eenheid": "g"
+        }
+      ]
+    }
+  ],
+  "steps": [
+    "**RIJST KOKEN:** Breng **rijst**, **water of kippenbouillon** en **zout** aan de kook in een steelpan. Doe het deksel erop, zet het vuur laag en laat 14 minuten zachtjes koken. Haal van het vuur en houd afgedekt.",
+    "**KIP BAKKEN:** Bestrooi de **kipfilet** royaal met **cajun kruidenmix**. Verhit de helft van de **olijfolie** op middelhoog-hoog vuur in een grote pan. Bak de kip in één laag 2-3 minuten per kant tot mooi bruin. Haal uit de pan en zet apart.",
+    "**GROENTEN BAKKEN:** Voeg de rest van de **olijfolie** toe en bak **ui** en **paprika** al roerend tot zacht en licht gekarameliseerd. Kruid extra bij met **cajun kruidenmix** naar smaak.",
+    "**SAMENVOEGEN:** Voeg de **tomatenblokjes met chilipepers** toe aan de groenten, doe de **kip** terug in de pan inclusief het vrijgekomen vocht. Voeg de gekookte **rijst** toe en meng goed.",
+    "**AFWERKEN:** Roer de **geraspte cheddar** erdoor tot gesmolten. Direct serveren."
+  ],
+  "cooktips": {
+    "van8naar10": "Rooster de rijst kort droog in de pan voordat je water toevoegt — dit geeft een lichtere, luchtigere structuur.",
+    "noGo": "Gebruik geen instant rijst met de originele kooktijd — die wordt papperig en valt uit elkaar in het gerecht.",
+    "alternatieven": {
+      "kipfilet": [
+        "kipdij voor meer smaak",
+        "garnalen voor seafood-variant",
+        "andouille-worst voor authentieke jambalaya"
+      ]
+    },
+    "gezonder": "Vervang een deel van de kaas door extra groenten zoals selderij en gebruik magere kipfilet zonder vel.",
+    "goedkoper": "Gebruik diepvriesgroenten (ui/paprika mix) in plaats van vers — net zo lekker en veel goedkoper."
+  }
+}
