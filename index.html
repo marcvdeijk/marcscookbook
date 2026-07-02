@@ -230,6 +230,48 @@
   .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-strong); }
   .dot.filled { background: var(--text); }
 
+  /* aA-knop: tekstgrootte-cluster */
+  .fontsize-cluster { display: flex; gap: 6px; }
+  .fontsize-btn {
+    border-radius: 6px;
+    padding: 4px 10px;
+    background: transparent;
+    border: 0.5px solid var(--border);
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .fontsize-btn.active { background: var(--text); color: var(--surface); border-color: var(--text); }
+
+  /* aA-knop: drie standen, uitsluitend binnen #recipe-grid. !important nodig om
+     bestaande breakpoint-regels (o.a. regel ~742/758) te overstemmen op mobiel. */
+  #recipe-grid .card-title { font-size: 20px !important; }
+  #recipe-grid .tag { font-size: 13px !important; padding: 4px 10px !important; }
+  #recipe-grid .kcal-badge { font-size: 11px !important; padding: 2px 8px !important; }
+  #recipe-grid .effort-dots { gap: 3px !important; }
+  #recipe-grid .dot { width: 7px !important; height: 7px !important; }
+  #recipe-grid .card-thumb { height: 72px !important; }
+  #recipe-grid .card-thumb-inner { padding: 10px 12px 10px !important; }
+
+  body[data-fontsize="small"] #recipe-grid .card-title { font-size: 17px !important; }
+  body[data-fontsize="small"] #recipe-grid .tag { font-size: 11px !important; padding: 3px 8px !important; }
+  body[data-fontsize="small"] #recipe-grid .kcal-badge { font-size: 9px !important; padding: 1px 6px !important; }
+  body[data-fontsize="small"] #recipe-grid .effort-dots { gap: 2px !important; }
+  body[data-fontsize="small"] #recipe-grid .dot { width: 5px !important; height: 5px !important; }
+  body[data-fontsize="small"] #recipe-grid .card-thumb { height: 60px !important; }
+  body[data-fontsize="small"] #recipe-grid .card-thumb-inner { padding: 8px 10px !important; }
+
+  body[data-fontsize="large"] #recipe-grid .card-title { font-size: 24px !important; }
+  body[data-fontsize="large"] #recipe-grid .tag { font-size: 15px !important; padding: 5px 12px !important; }
+  body[data-fontsize="large"] #recipe-grid .kcal-badge { font-size: 13px !important; padding: 3px 10px !important; }
+  body[data-fontsize="large"] #recipe-grid .effort-dots { gap: 4px !important; }
+  body[data-fontsize="large"] #recipe-grid .dot { width: 10px !important; height: 10px !important; }
+  body[data-fontsize="large"] #recipe-grid .card-thumb { height: 86px !important; }
+  body[data-fontsize="large"] #recipe-grid .card-thumb-inner { padding: 12px 14px !important; }
+
   .traffic-light { display: flex; gap: 4px; align-items: center; margin-top: 2px; }
   .light { width: 10px; height: 10px; border-radius: 50%; opacity: 0.25; }
   .light.active { opacity: 1; }
@@ -1146,7 +1188,11 @@
 
     <div style="padding: 8px 20px 0; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;">
       <div class="results-count" id="results-count"></div>
-      
+      <div class="fontsize-cluster" id="fontsize-cluster">
+        <button class="fontsize-btn" data-size="small" onclick="setFontSize('small')" title="Klein">A</button>
+        <button class="fontsize-btn" data-size="normal" onclick="setFontSize('normal')" title="Normaal">A</button>
+        <button class="fontsize-btn" data-size="large" onclick="setFontSize('large')" title="Groot">A</button>
+      </div>
     </div>
     <div id="loading-state" class="loading">
       <div class="loading-spinner"></div>
@@ -1472,6 +1518,24 @@ function toggleTheme() {
   document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'dark' : '');
   document.getElementById('theme-btn').textContent = currentTheme === 'dark' ? '☀️' : '🌙';
   localStorage.setItem('theme', currentTheme);
+}
+
+function setFontSize(size) {
+  document.body.setAttribute('data-fontsize', size);
+  localStorage.setItem('mc_fontsize', size);
+  updateFontSizeButtons(size);
+}
+
+function updateFontSizeButtons(size) {
+  document.querySelectorAll('.fontsize-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.size === size);
+  });
+}
+
+function initFontSize() {
+  const saved = localStorage.getItem('mc_fontsize') || 'normal';
+  document.body.setAttribute('data-fontsize', saved);
+  updateFontSizeButtons(saved);
 }
 
 function toggleLang() {
@@ -2839,6 +2903,7 @@ const savedTheme = localStorage.getItem('theme');
 const savedLang = localStorage.getItem('lang');
 if (savedTheme === 'dark') { currentTheme = 'dark'; document.documentElement.setAttribute('data-theme','dark'); document.getElementById('theme-btn').textContent = '☀️'; }
 if (savedLang === 'en') { currentLang = 'en'; document.getElementById('lang-btn').textContent = '🌐 NL'; }
+initFontSize();
 loadRecipes();
 checkMobile();
 </script>
