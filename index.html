@@ -1741,6 +1741,12 @@ function bouwDynamischeFilters() {
 // ─────────────────────────────────────────
 // RENDER GRID
 // ─────────────────────────────────────────
+function scoreDotClass(score) {
+  if (score >= 75) return 'green';
+  if (score >= 50) return 'yellow';
+  return 'red';
+}
+
 function effortDots(n) {
   let html = '<div class="effort-dots">';
   for (let i = 1; i <= 5; i++) html += `<div class="dot ${i <= n ? 'filled' : ''}"></div>`;
@@ -1778,7 +1784,7 @@ function renderGrid() {
     <div class="card" onclick="openModal('${r.id}')">
       <div class="card-thumb">
         <span>${r.emoji || '🍽'}</span>
-        <div class="score-dot ${r.nutrition.score}"></div>
+        <div class="score-dot ${scoreDotClass(r.voedingsscore)}"></div>
       </div>
       <div class="card-thumb-inner">
         <div class="card-title">
