@@ -212,9 +212,9 @@
   .tag {
   background: var(--tag-bg);
   border: 0.5px solid var(--border);
-  border-radius: 3px;
-  padding: 2px 6px;
-  font-size: 10px;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11px;
   color: var(--text-muted);
   font-weight: 500;
 }
@@ -321,6 +321,21 @@
     transition: all 0.15s;
   }
   .close-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .modal-back {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+  .modal-back:hover { color: var(--accent); }
   .modal-body { padding: 24px 32px; }
   .modal-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
 
@@ -757,6 +772,9 @@
     font-family: 'Inter', sans-serif;
     outline: none;
     transition: border-color 0.15s;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
   }
   .search-input:focus { border-color: var(--accent); }
     .filter-pills-2::-webkit-scrollbar { display: none; }
@@ -1067,12 +1085,14 @@
     .cooktips-panel { grid-template-columns: 1fr 1fr; }
   }
   .cooktip-item {
-    border-radius: 8px;
-    padding: 12px 14px;
-    background: var(--surface2);
-    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    border: none;
   }
   .cooktip-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -1085,13 +1105,23 @@
     color: var(--text);
     line-height: 1.5;
   }
-  /* Accentkleuren per categorie */
-  .cooktip-item:has(.cooktip-label:first-child) { border-left: 3px solid var(--border); }
-  .cooktip-van8 { border-left: 3px solid var(--score-green) !important; }
-  .cooktip-nogo  { border-left: 3px solid var(--red) !important; }
-  .cooktip-alt   { border-left: 3px solid var(--orange) !important; }
-  .cooktip-gezonder { border-left: 3px solid var(--accent2) !important; }
-  .cooktip-goedkoper { border-left: 3px solid var(--text-muted) !important; }
+  .cooktip-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.06);
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  /* Getinte achtergrond per categorie */
+  .cooktip-van8      { background: rgba(34,197,94,0.08); }
+  .cooktip-nogo      { background: rgba(226,75,74,0.08); }
+  .cooktip-alt       { background: rgba(245,158,11,0.08); }
+  .cooktip-gezonder  { background: rgba(122,158,126,0.08); }
+  .cooktip-goedkoper { background: rgba(136,136,132,0.08); }
   /* Alternatieven */
   .alternatieven-grid { display: flex; flex-direction: column; gap: 4px; }
   .alternatief-row { font-size: 13px; color: var(--text); line-height: 1.4; }
@@ -1968,11 +1998,11 @@ function renderModalBody(r) {
       ).join('');
     }
     const tipBlokken = [
-      ct.van8naar10 ? '<div class="cooktip-item cooktip-van8"><div class="cooktip-label">&#127942; Van een 8 naar een 10</div><div class="cooktip-text">' + ct.van8naar10 + '</div></div>' : '',
-      ct.noGo ? '<div class="cooktip-item cooktip-nogo"><div class="cooktip-label">&#128683; No-go combinaties</div><div class="cooktip-text">' + ct.noGo + '</div></div>' : '',
-      altHtml ? '<div class="cooktip-item cooktip-alt"><div class="cooktip-label">&#128260; Alternatieven</div><div class="alternatieven-grid">' + altHtml + '</div></div>' : '',
-      ct.gezonder ? '<div class="cooktip-item cooktip-gezonder"><div class="cooktip-label">&#129367; Gezonder maken</div><div class="cooktip-text">' + ct.gezonder + '</div></div>' : '',
-      ct.goedkoper ? '<div class="cooktip-item cooktip-goedkoper"><div class="cooktip-label">&#128176; Goedkoper maken</div><div class="cooktip-text">' + ct.goedkoper + '</div></div>' : '',
+      ct.van8naar10 ? '<div class="cooktip-item cooktip-van8"><div class="cooktip-label"><span class="cooktip-icon">&#127942;</span> Van een 8 naar een 10</div><div class="cooktip-text">' + ct.van8naar10 + '</div></div>' : '',
+      ct.noGo ? '<div class="cooktip-item cooktip-nogo"><div class="cooktip-label"><span class="cooktip-icon">&#128683;</span> No-go combinaties</div><div class="cooktip-text">' + ct.noGo + '</div></div>' : '',
+      altHtml ? '<div class="cooktip-item cooktip-alt"><div class="cooktip-label"><span class="cooktip-icon">&#128260;</span> Alternatieven</div><div class="alternatieven-grid">' + altHtml + '</div></div>' : '',
+      ct.gezonder ? '<div class="cooktip-item cooktip-gezonder"><div class="cooktip-label"><span class="cooktip-icon">&#129367;</span> Gezonder maken</div><div class="cooktip-text">' + ct.gezonder + '</div></div>' : '',
+      ct.goedkoper ? '<div class="cooktip-item cooktip-goedkoper"><div class="cooktip-label"><span class="cooktip-icon">&#128176;</span> Goedkoper maken</div><div class="cooktip-text">' + ct.goedkoper + '</div></div>' : '',
     ].join('');
     cooktipsHtml = '<p class="section-title">Kooktips</p><div class="cooktips-panel">' + tipBlokken + '</div>';
   }
