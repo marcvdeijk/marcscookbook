@@ -321,21 +321,6 @@
     transition: all 0.15s;
   }
   .close-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .modal-back {
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
-    transition: color 0.15s;
-  }
-  .modal-back:hover { color: var(--accent); }
   .modal-body { padding: 24px 32px; }
   .modal-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
 
@@ -737,6 +722,25 @@
     .tab-bar-bottom { display: none; }
   }
 
+
+  /* Zoekbalk — basisstijl, geldt op alle viewports (was voorheen alleen binnen mobile media query) */
+  .search-bar { padding: 10px 16px 0; }
+  .search-input {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    padding: 12px 16px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.15s;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  .search-input:focus { border-color: var(--accent); }
 
   /* ── STAP 2: BIBLIOTHEEK MOBIEL ── */
   @media (max-width: 640px) {
@@ -2059,8 +2063,7 @@ function renderModalBody(r) {
   }
 
 
-  const backBtn = `<button class="modal-back" onclick="closeModal()">${t('back')}</button>`;
-  document.getElementById('modal-body').innerHTML = backBtn + tagsHtml + ingBtnHtml + ingHtml + stepsHtml + cooktipsHtml + nutritionHtml;
+  document.getElementById('modal-body').innerHTML = tagsHtml + ingBtnHtml + ingHtml + stepsHtml + cooktipsHtml + nutritionHtml;
 }
 
 
