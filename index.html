@@ -141,6 +141,8 @@
     gap: 14px;
     width: 100%;
   }
+  body[data-fontsize="small"]  .grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+  body[data-fontsize="large"]  .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 
   .card {
   background: var(--surface);
@@ -625,6 +627,7 @@
     .main { padding: 10px 12px; }
     .search-bar { padding: 10px 16px 0; }
     .grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; padding: 0 0 16px !important; }
+    body[data-fontsize="large"] .grid { grid-template-columns: repeat(1, 1fr) !important; }
     .card { padding: 0; }
     .card-title { font-size: 12px; margin-bottom: 6px; }
     .card-stats { display: none !important; }
