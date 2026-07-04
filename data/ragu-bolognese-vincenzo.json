@@ -1,0 +1,99 @@
+{
+  "id": "ragu-bolognese-vincenzo",
+  "name": "Ragù alla Bolognese (Vincenzo's Plate)",
+  "cuisine": "Italiaans",
+  "protein": "Rund",
+  "carbs": "Pasta",
+  "effort": 3,
+  "timeMin": 270,
+  "timeCategory": "lang",
+  "complete": true,
+  "servings": 6,
+  "source": "eigen",
+  "nutrition": {
+    "kcal": 640,
+    "protein": 34,
+    "fat": 32,
+    "carbs": 52,
+    "score": "orange",
+    "scoreNote": "LEGACY VELD — nog aanwezig in bestaande recepten maar niet meer bijwerken. Vervangen door voedingsscore/tldr/voedingsanalyse hieronder. Wordt verwijderd bij de cleanup-sprint (backlogpunt 6)."
+  },
+  "voedingsscore": 52,
+  "tldr": "Een diepe, langzaam gesudderde ragù met veel umami en romige afwerking, maar zwaar door het vette rundergehakt en de beperkte hoeveelheid groenten.",
+  "voedingsanalyse": "De lange sudderpartij bouwt smaak op zonder extra vet toe te voegen, wat een pluspunt is. Verdubbel de wortel en bleekselderij voor meer vezels en een lichter eindresultaat, en houd de portie fusilli in bedwang om de koolhydraatlast te beperken.",
+  "ingredientGroups": [
+    {
+      "label": "Vlees",
+      "items": [
+        {
+          "naam": "Rundergehakt",
+          "naar_smaak": false,
+          "hoeveelheid": 1,
+          "eenheid": "kg",
+          "opmerking": "Aangepast: uitsluitend rundergehakt i.p.v. de mix van varkens-, runder- en kalfsgehakt uit het origineel"
+        }
+      ]
+    },
+    {
+      "label": "Groenten",
+      "items": [
+        { "naam": "Rode ui", "naar_smaak": false, "hoeveelheid": 1 },
+        { "naam": "Stengels bleekselderij", "naar_smaak": false, "hoeveelheid": 3 },
+        { "naam": "Wortels", "naar_smaak": false, "hoeveelheid": 3 }
+      ]
+    },
+    {
+      "label": "Tomaat",
+      "items": [
+        { "naam": "Tomatenpuree", "naar_smaak": false, "hoeveelheid": 150, "eenheid": "g" },
+        { "naam": "Gepelde tomaten", "naar_smaak": false, "hoeveelheid": 400, "eenheid": "g" },
+        { "naam": "Passata", "naar_smaak": false, "hoeveelheid": 1, "eenheid": "l" }
+      ]
+    },
+    {
+      "label": "Vloeistoffen",
+      "items": [
+        { "naam": "Rode wijn", "naar_smaak": false, "hoeveelheid": 150, "eenheid": "ml", "opmerking": "In twee delen toevoegen: bij de groenten en bij het gehakt" },
+        { "naam": "Halfvolle melk", "naar_smaak": false, "hoeveelheid": 250, "eenheid": "ml", "opmerking": "Aangepast: halfvolle melk i.p.v. volle melk uit het origineel" },
+        { "naam": "Water", "naar_smaak": false, "hoeveelheid": 1, "eenheid": "l", "opmerking": "Plus extra warm water naar behoefte tijdens het sudderen" }
+      ]
+    },
+    {
+      "label": "Smaakmakers",
+      "items": [
+        { "naam": "Extra vierge olijfolie", "naar_smaak": true },
+        { "naam": "Zeezout", "naar_smaak": true },
+        { "naam": "Zwarte peper", "naar_smaak": true }
+      ]
+    },
+    {
+      "label": "Pasta & garnering",
+      "items": [
+        { "naam": "Fusilli", "naar_smaak": false, "hoeveelheid": 500, "eenheid": "g", "opmerking": "Bewuste afwijking van de culinaire standaard (pappardelle/tagliatelle/rigatoni), akkoord gegeven door opdrachtgever op 4 juli 2026" },
+        { "naam": "Parmigiano Reggiano", "naar_smaak": true, "opmerking": "Vers geraspt" }
+      ]
+    }
+  ],
+  "steps": [
+    "**SOFFRITTO MAKEN:** Snijd de **rode ui**, **wortels** en **bleekselderij** fijn. Verhit de **extra vierge olijfolie** in een grote pan en fruit de ui 2 minuten. Voeg de wortel en bleekselderij toe en bak 4–5 minuten mee.",
+    "**AFBLUSSEN:** Voeg de helft van de **rode wijn** toe aan de groenten en laat de alcohol volledig verdampen.",
+    "**VLEES BAKKEN:** Voeg het **rundergehakt** toe. Breng direct op smaak met **zeezout** en **zwarte peper**. Bak het vlees rul tot het grijs kleurt en al het vocht is verdwenen.",
+    "**TWEEDE KEER WIJN:** Voeg de rest van de **rode wijn** toe aan het vlees en laat weer verdampen.",
+    "**TOMATEN TOEVOEGEN:** Voeg de **passata**, **tomatenpuree** en **gepelde tomaten** toe. Spoel de fles van de passata om met wat water en voeg dit toe (gebruik geen bouillon). Prik de gepelde tomaten een beetje stuk.",
+    "**PRUTTELEN (DE ESSENTIE):** Voeg het **water** toe en zet het vuur heel laag. Laat de saus minstens 4 uur zachtjes koken zonder deksel. Voeg na circa 1,5 à 2 uur extra warm water toe als de saus te droog wordt. Proef tussendoor op zout en peper.",
+    "**DE GEHEIME FINALE:** Als de saus dik en klaar is, roer je de **halfvolle melk** erdoor. Laat dit nog 5 minuten zachtjes meekoken voor een romige, zachte smaak.",
+    "**PASTA KOKEN:** Kook de **fusilli** in ruim water met grof zeezout. Bewaar voor het afgieten een beetje pastawater.",
+    "**MENGEN EN SERVEREN:** Meng de pasta in een pan met een flinke schep saus en het bewaarde kookvocht zodat de saus goed aan de pasta hecht. Serveer met extra saus en een gulle hoeveelheid geraspte **Parmigiano Reggiano**."
+  ],
+  "cooktips": {
+    "van8naar10": "Bak het gehakt in kleine porties in plaats van alles tegelijk, zodat het echt dichtschroeit en rul bakt in plaats van stooft.",
+    "noGo": "Niet roeren op hoog vuur en niet met deksel laten sudderen — dan verdampt te weinig vocht en blijft de saus waterig.",
+    "alternatieven": {
+      "Fusilli": "Tagliatelle, pappardelle of rigatoni voor een klassiekere binding met de saus",
+      "Rundergehakt": "Combinatie van rund-, varkens- en kalfsgehakt voor meer diepte",
+      "Halfvolle melk": "Volle melk voor een romiger resultaat"
+    },
+    "gezonder": "Verdubbel de hoeveelheid wortel en bleekselderij en halveer de portie fusilli per bord voor meer vezels en minder koolhydraten.",
+    "goedkoper": "Vervang het rundergehakt gedeeltelijk door goedkoper varkensgehakt zonder veel smaakverlies."
+  }
+}
