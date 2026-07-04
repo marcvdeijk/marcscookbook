@@ -1,0 +1,79 @@
+{
+  "id": "parelcouscous-salade",
+  "name": "Parelcouscous Salade met Citroendressing",
+  "cuisine": "Mediterraans",
+  "protein": "Geen",
+  "carbs": "Couscous",
+  "effort": 2,
+  "timeMin": 60,
+  "timeCategory": "middel",
+  "complete": true,
+  "servings": 4,
+  "source": "eigen",
+  "nutrition": {
+    "kcal": 477,
+    "protein": 16,
+    "fat": 18,
+    "carbs": 67,
+    "score": "orange",
+    "scoreNote": "LEGACY VELD — nog aanwezig in bestaande recepten maar niet meer bijwerken. Vervangen door voedingsscore/tldr/voedingsanalyse hieronder. Wordt verwijderd bij de cleanup-sprint (backlogpunt 6)."
+  },
+  "voedingsscore": 68,
+  "tldr": "Een frisse, groentedichte salade met gezonde vetten uit olijfolie, maar de geraffineerde parelcouscous en het beperkte eiwit houden de score gematigd.",
+  "voedingsanalyse": "De combinatie van veel verse kruiden, komkommer en tomaat levert goede vezels en micronutriënten op zonder extra bewerkte ingrediënten. Voeg kikkererwten of feta toe voor meer eiwit, en vervang een deel van de couscous door bulgur of quinoa voor meer vezels en een lagere glykemische impact.",
+  "ingredientGroups": [
+    {
+      "label": "Couscous",
+      "items": [
+        { "naam": "Olijfolie", "naar_smaak": false, "hoeveelheid": 2, "eenheid": "tl" },
+        { "naam": "Knoflookteen", "naar_smaak": true },
+        { "naam": "Ui", "naar_smaak": true, "opmerking": "Half kleine ui, fijngesneden" },
+        { "naam": "Parelcouscous", "naar_smaak": false, "hoeveelheid": 250, "eenheid": "g", "opmerking": "Ook bekend als Israëlische of gourmet couscous" },
+        { "naam": "Groente- of kippenbouillon", "naar_smaak": false, "hoeveelheid": 375, "eenheid": "ml", "opmerking": "Bij voorkeur laag in zout" },
+        { "naam": "Water", "naar_smaak": false, "hoeveelheid": 250, "eenheid": "ml" }
+      ]
+    },
+    {
+      "label": "Salade",
+      "items": [
+        { "naam": "Komkommers", "naar_smaak": false, "hoeveelheid": 2, "opmerking": "In blokjes gesneden" },
+        { "naam": "Cherrytomaten", "naar_smaak": false, "hoeveelheid": 250, "eenheid": "g", "opmerking": "Gehalveerd" },
+        { "naam": "Babyspinazie", "naar_smaak": false, "hoeveelheid": 50, "eenheid": "g", "opmerking": "Fijngesneden" },
+        { "naam": "Verse koriander", "naar_smaak": true, "opmerking": "Fijngehakt, evt. vervangen door peterselie" },
+        { "naam": "Verse dille", "naar_smaak": true, "opmerking": "Fijngehakt" }
+      ]
+    },
+    {
+      "label": "Citroendressing",
+      "items": [
+        { "naam": "Citroenrasp", "naar_smaak": false, "hoeveelheid": 2, "eenheid": "tl" },
+        { "naam": "Citroensap", "naar_smaak": false, "hoeveelheid": 2, "eenheid": "el" },
+        { "naam": "Extra vierge olijfolie", "naar_smaak": false, "hoeveelheid": 60, "eenheid": "ml" },
+        { "naam": "Dijonmosterd", "naar_smaak": false, "hoeveelheid": 1, "eenheid": "tl" },
+        { "naam": "Knoflookteen", "naar_smaak": true },
+        { "naam": "Suiker", "naar_smaak": false, "hoeveelheid": 1, "eenheid": "tl", "opmerking": "Optioneel" },
+        { "naam": "Zeezout", "naar_smaak": false, "hoeveelheid": 0.75, "eenheid": "tl" },
+        { "naam": "Zwarte peper", "naar_smaak": false, "hoeveelheid": 0.5, "eenheid": "tl" }
+      ]
+    }
+  ],
+  "steps": [
+    "**UI EN KNOFLOOK AANFRUITEN:** Verhit de **olijfolie** in een ruime pan op middelhoog vuur. Fruit de **ui** en **knoflook** tot de ui glazig is en licht begint te kleuren.",
+    "**COUSCOUS TOEVOEGEN:** Voeg de **parelcouscous** toe en roer 1 minuut mee zodat de korrels in de olie worden gehuld. Giet de **bouillon** en het **water** erbij en breng aan de kook.",
+    "**GAAR LATEN STOVEN:** Doe het deksel op de pan, zet het vuur laag en laat 10 minuten zachtjes koken tot de vloeistof is opgenomen en de couscous gaar maar nog stevig is.",
+    "**AFKOELEN:** Maak de couscous los met een vork en schep het over in een grote kom om af te koelen. De korrels plakken eerst samen tot een klontje, maar dat lost vanzelf op zodra je straks de dressing erdoor mengt.",
+    "**DRESSING MAKEN:** Doe de **citroenrasp**, **citroensap**, **extra vierge olijfolie**, **Dijonmosterd**, **knoflookteen**, **suiker**, **zeezout** en **zwarte peper** in een afsluitbaar potje en schud goed door elkaar.",
+    "**MENGEN EN SERVEREN:** Voeg de **komkommers**, **cherrytomaten**, **babyspinazie**, **koriander** en **dille** toe aan de afgekoelde couscous. Giet de dressing erover en meng goed door. Serveer op kamertemperatuur."
+  ],
+  "cooktips": {
+    "van8naar10": "Rooster de droge parelcouscous eerst een paar minuten mee in de pan voordat je de bouillon toevoegt voor een nog nootachtiger smaak.",
+    "noGo": "Niet warm serveren met de dressing erdoorheen — de salade wordt dan snel papperig en de kruiden verwelken direct.",
+    "alternatieven": {
+      "Verse koriander": "Peterselie in gelijke hoeveelheid, of munt en peterselie voor een frissere toon",
+      "Babyspinazie": "Rucola of fijngesneden boerenkool (eerst kort marineren)",
+      "Citroensap": "Appelazijn of witte wijnazijn"
+    },
+    "gezonder": "Voeg kikkererwten of witte bonen toe voor extra eiwit en vezels, en vervang een deel van de parelcouscous door volkoren couscous of bulgur.",
+    "goedkoper": "Vervang de cherrytomaten door gewone tomaten in blokjes en laat de dille weg als die niet voorhanden is — extra peterselie vult de smaak prima aan."
+  }
+}
