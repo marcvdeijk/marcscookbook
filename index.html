@@ -2048,8 +2048,8 @@ function toggleVoedingswijzer(id) {
   if (header) header.classList.toggle('vw-header-open', !isOpen);
 }
 function vwScoreTegel(score) {
-  if (score >= 80) return {bg:'#7ED957',kleur:'#1C3A0E'};
-  if (score >= 60) return {bg:'#FFEC3D',kleur:'#4A3D00'};
+  if (score >= 75) return {bg:'#7ED957',kleur:'#1C3A0E'};
+  if (score >= 50) return {bg:'#FFEC3D',kleur:'#4A3D00'};
   return {bg:'#FF0000',kleur:'#FFFFFF'};
 }
 function setNutritionMode(id, mode) {
