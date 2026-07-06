@@ -228,9 +228,9 @@
   .stat-label { font-size: 10px; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; }
   .stat-value { font-size: 13px; font-weight: 600; color: var(--text); }
 
-  .effort-dots { display: flex; gap: 2px; align-items: center; }
-  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-strong); }
-  .dot.filled { background: var(--text); }
+  .effort-badge { display: inline-flex; align-items: center; gap: 4px; border-radius: 12px; padding: 4px 8px; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; white-space: nowrap; }
+  .effort-badge--filter { padding: 8px 14px; border-radius: 16px; font-size: 13px; cursor: pointer; }
+  .effort-badge--filter.active { color: #FFFFFF !important; }
 
   /* aA-knop: tekstgrootte-cluster */
   .fontsize-cluster { display: flex; gap: 6px; }
@@ -253,24 +253,21 @@
   #recipe-grid .card-title { font-size: 20px !important; }
   #recipe-grid .tag { font-size: 13px !important; padding: 4px 10px !important; }
   #recipe-grid .kcal-badge { font-size: 11px !important; padding: 2px 8px !important; }
-  #recipe-grid .effort-dots { gap: 3px !important; }
-  #recipe-grid .dot { width: 7px !important; height: 7px !important; }
+  #recipe-grid .effort-badge { font-size: 12px !important; padding: 4px 8px !important; }
   #recipe-grid .card-thumb { height: 72px !important; }
   #recipe-grid .card-thumb-inner { padding: 10px 12px 10px !important; }
 
   body[data-fontsize="small"] #recipe-grid .card-title { font-size: 17px !important; }
   body[data-fontsize="small"] #recipe-grid .tag { font-size: 11px !important; padding: 3px 8px !important; }
   body[data-fontsize="small"] #recipe-grid .kcal-badge { font-size: 9px !important; padding: 1px 6px !important; }
-  body[data-fontsize="small"] #recipe-grid .effort-dots { gap: 2px !important; }
-  body[data-fontsize="small"] #recipe-grid .dot { width: 5px !important; height: 5px !important; }
+  body[data-fontsize="small"] #recipe-grid .effort-badge { font-size: 10px !important; padding: 3px 6px !important; }
   body[data-fontsize="small"] #recipe-grid .card-thumb { height: 60px !important; }
   body[data-fontsize="small"] #recipe-grid .card-thumb-inner { padding: 8px 10px !important; }
 
   body[data-fontsize="large"] #recipe-grid .card-title { font-size: 24px !important; }
   body[data-fontsize="large"] #recipe-grid .tag { font-size: 15px !important; padding: 5px 12px !important; }
   body[data-fontsize="large"] #recipe-grid .kcal-badge { font-size: 13px !important; padding: 3px 10px !important; }
-  body[data-fontsize="large"] #recipe-grid .effort-dots { gap: 4px !important; }
-  body[data-fontsize="large"] #recipe-grid .dot { width: 10px !important; height: 10px !important; }
+  body[data-fontsize="large"] #recipe-grid .effort-badge { font-size: 14px !important; padding: 5px 10px !important; }
   body[data-fontsize="large"] #recipe-grid .card-thumb { height: 86px !important; }
   body[data-fontsize="large"] #recipe-grid .card-thumb-inner { padding: 12px 14px !important; }
 
@@ -627,7 +624,6 @@
     .tag { font-size: 11px; padding: 3px 7px; white-space: nowrap; flex-shrink: 0; }
     .stat-label { font-size: 10px; }
     .stat-value { font-size: 13px; }
-    .dot { width: 7px; height: 7px; }
     .results-count { font-size: 13px; }
     .boodschappen-main { padding: 16px; }
     .boodschappen-title { font-size: 22px; }
@@ -1162,11 +1158,9 @@
     <div class="filter-group">
       <span class="filter-label" data-tkey="effort">Inspanning</span>
       <button class="filter-btn active" data-filter="effort" data-value="all">Alle</button>
-      <button class="filter-btn" data-filter="effort" data-value="1">● Minimaal</button>
-      <button class="filter-btn" data-filter="effort" data-value="2">●● Licht</button>
-      <button class="filter-btn" data-filter="effort" data-value="3">●●● Gemiddeld</button>
-      <button class="filter-btn" data-filter="effort" data-value="4">●●●● Intensief</button>
-      <button class="filter-btn" data-filter="effort" data-value="5">●●●●● Zwaar</button>
+      <button class="filter-btn" data-filter="effort" data-value="snel">🔥 Snel</button>
+      <button class="filter-btn" data-filter="effort" data-value="normaal">🔥🔥 Normaal</button>
+      <button class="filter-btn" data-filter="effort" data-value="bewerkelijk">🔥🔥🔥 Bewerkelijk</button>
     </div>
     <div class="filter-group">
       <span class="filter-label" data-tkey="prepTime">Bereidingstijd</span>
@@ -1764,7 +1758,7 @@ function applyFilters() {
   return recipes.filter(r => {
     if (filters.cuisine !== 'all' && r.cuisine !== filters.cuisine) return false;
     if (filters.protein !== 'all' && r.protein !== filters.protein) return false;
-    if (filters.effort !== 'all' && r.effort !== parseInt(filters.effort)) return false;
+    if (filters.effort !== 'all' && effortBucket(r.effort) !== filters.effort) return false;
     if (filters.time !== 'all' && r.timeCategory !== filters.time) return false;
     if (searchQuery) {
       const ingredientNamen = (r.ingredientGroups || [])
@@ -1833,10 +1827,25 @@ function scoreDotClass(score) {
   return 'red';
 }
 
-function effortDots(n) {
-  let html = '<div class="effort-dots">';
-  for (let i = 1; i <= 5; i++) html += `<div class="dot ${i <= n ? 'filled' : ''}"></div>`;
-  return html + '</div>';
+const EFFORT_META = {
+  snel:        { fire: 1, label: 'Snel',        color: '#00A8B8', bg: '#E0F7F9' },
+  normaal:     { fire: 2, label: 'Normaal',      color: '#FF8A00', bg: '#FFF3E0' },
+  bewerkelijk: { fire: 3, label: 'Bewerkelijk',  color: '#D6006D', bg: '#FDE0EC' }
+};
+
+function effortBucket(n) {
+  if (n <= 2) return 'snel';
+  if (n === 3) return 'normaal';
+  return 'bewerkelijk';
+}
+
+function effortBadge(n, variant) {
+  const meta = EFFORT_META[effortBucket(n)];
+  const cls = variant === 'filter' ? 'effort-badge effort-badge--filter' : 'effort-badge';
+  const style = variant === 'filter'
+    ? `background:${meta.color};color:#FFFFFF;`
+    : `background:${meta.bg};color:${meta.color};`;
+  return `<div class="${cls}" style="${style}">${'🔥'.repeat(meta.fire)} <span>${meta.label}</span></div>`;
 }
 
 function formatTime(min) {
@@ -1876,7 +1885,7 @@ function renderGrid() {
           ${r.carbs !== 'Geen' ? `<span class="tag">${r.carbs}</span>` : ''}
         </div>
         <div class="card-footer-row">
-          ${effortDots(r.effort)}
+          ${effortBadge(r.effort, 'card')}
           <span class="kcal-badge">${r.nutrition.kcal} kcal</span>
         </div>
       </div>
@@ -1915,7 +1924,7 @@ function renderModalBody(r) {
       <span class="tag cuisine">${r.cuisine}</span>
       <span class="tag protein">${r.protein}</span>
       ${r.carbs !== 'Geen' ? `<span class="tag">${r.carbs}</span>` : ''}
-      <span class="tag">Inspanning: ${'●'.repeat(r.effort)}${'○'.repeat(5-r.effort)}</span>
+      ${effortBadge(r.effort, 'card')}
       <span class="tag">${formatTime(r.timeMin)}</span>
     </div>`;
 
@@ -2459,12 +2468,12 @@ function openFilterModal() {
   }
 
   var tijden = ['Alle', 'Snel (< 30 min)', 'Middel (30-90 min)', 'Lang (> 90 min)'];
-  var effortLabels = ['Alle', '● Eenvoudig', '●● Gemiddeld', '●●● Bewerkelijk'];
+  var effortLabels = ['Alle', '🔥 Snel', '🔥🔥 Normaal', '🔥🔥🔥 Bewerkelijk'];
 
   maakPillen('fm-protein', proteins, 'protein', 'var(--accent2)');
   maakPillen('fm-cuisine', cuisines, 'cuisine', 'var(--accent)');
   maakPillenCustom('fm-tijd', tijden, ['all','snel','middel','lang'], 'time', 'var(--accent)');
-  maakPillenCustom('fm-effort', effortLabels, ['all','1-2','3','4-5'], 'effort', 'var(--accent)');
+  maakPillenCustom('fm-effort', effortLabels, ['all','snel','normaal','bewerkelijk'], 'effort', 'var(--accent)');
 
   document.getElementById('filter-modal').style.display = 'flex';
 }
