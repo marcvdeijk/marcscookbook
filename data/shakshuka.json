@@ -1,0 +1,80 @@
+{
+  "id": "shakshuka",
+  "name": "Shakshuka",
+  "cuisine": "Mediterraans",
+  "protein": "Ei",
+  "carbs": "Brood",
+  "effort": 3,
+  "timeMin": 35,
+  "timeCategory": "middel",
+  "complete": true,
+  "servings": 4,
+  "source": "eigen",
+  "nutrition": {
+    "kcal": 420,
+    "protein": 20,
+    "fat": 30,
+    "carbs": 14,
+    "score": "orange",
+    "scoreNote": "LEGACY VELD — nog aanwezig in bestaande recepten maar niet meer bijwerken. Vervangen door voedingsscore/tldr/voedingsanalyse hieronder. Wordt verwijderd bij de cleanup-sprint (backlogpunt 6)."
+  },
+  "voedingsscore": 68,
+  "tldr": "Shakshuka is een eiwitrijk en groentevol ontbijtgerecht, maar de boter en feta houden de score net onder het echt gezonde niveau.",
+  "voedingsanalyse": "De eieren, paprika en tomaat leveren samen goede eiwitten en vezels, terwijl boter en feta de belangrijkste bronnen van verzadigd vet zijn. Vervang de boter door extra olijfolie en ga spaarzaam om met de kaas om dichter bij een groene score te komen.",
+  "ingredientGroups": [
+    {
+      "label": "Basis",
+      "items": [
+        { "naam": "Olijfolie", "naar_smaak": false, "hoeveelheid": 2, "eenheid": "el" },
+        { "naam": "Boter", "naar_smaak": false, "hoeveelheid": 15, "eenheid": "g" }
+      ]
+    },
+    {
+      "label": "Groenten en aromaten",
+      "items": [
+        { "naam": "Ui", "naar_smaak": true },
+        { "naam": "Knoflook", "naar_smaak": true },
+        { "naam": "Groene paprika's, grof gesneden met zaadjes", "naar_smaak": false, "hoeveelheid": 300, "eenheid": "g" },
+        { "naam": "Verse tomaten, ontveld en in blokjes", "naar_smaak": false, "hoeveelheid": 500, "eenheid": "g" }
+      ]
+    },
+    {
+      "label": "Kruiden",
+      "items": [
+        { "naam": "Zout", "naar_smaak": true },
+        { "naam": "Komijn", "naar_smaak": true },
+        { "naam": "Tijm", "naar_smaak": true },
+        { "naam": "Rode pepervlokken", "naar_smaak": true }
+      ]
+    },
+    {
+      "label": "Eieren en afwerking",
+      "items": [
+        { "naam": "Eieren", "naar_smaak": false, "hoeveelheid": 5 },
+        { "naam": "Verse koriander of peterselie", "naar_smaak": true },
+        { "naam": "Witte kaas, zoals feta of Turkse witte kaas", "naar_smaak": false, "hoeveelheid": 100, "eenheid": "g" },
+        { "naam": "Vers brood", "naar_smaak": true }
+      ]
+    }
+  ],
+  "steps": [
+    "**PAN OPWARMEN:** Kies een pan die snel warmte opneemt en afgeeft, zoals koper of geëmailleerd gietijzer. Smelt de **boter** met een scheut **olijfolie** op middelhoog vuur.",
+    "**UI LATEN SMOREN:** Voeg de **ui** toe en zorg dat alle stukjes bedekt zijn met het vet. Breng op smaak met **zout**, doe de deksel op de pan en laat 3-4 minuten zachtjes smoren tot de ui zoetjes begint te worden.",
+    "**KNOFLOOK EN PAPRIKA TOEVOEGEN:** Roer de **knoflook** en de **groene paprika's** erdoor. Doe de deksel terug en laat een paar minuten meestoven tot de ui glazig oogt.",
+    "**TOMATEN AANBAKKEN:** Voeg de **verse tomaten** toe en zet het vuur iets hoger zodat de randen kort kunnen aanbakken voor extra diepte. Breng opnieuw op smaak met **zout**, sluit de deksel en laat 4-5 minuten sudderen tot de tomaten zacht zijn.",
+    "**KRUIDEN EN INDIKKEN:** Breng de saus op smaak met **komijn**, **tijm** en **rode pepervlokken**. Druk het mengsel grof met een aardappelstamper of vork zodat de saus indikt.",
+    "**EIEREN TOEVOEGEN:** Haal de pan even van het vuur. Maak met een lepel 4-5 kuiltjes in de saus en breek daar de **eieren** in. Strooi een beetje **zout** over het eiwit, niet over de dooiers, en roer het eiwit voorzichtig met een vork iets door de saus zonder de dooiers te raken.",
+    "**GAREN:** Zet de pan terug op het vuur, doe de deksel erop en laat circa anderhalve minuut stevig doorkoken. Haal de deksel eraf en laat verder garen tot het eiwit net gestold is en de dooiers nog romig zijn.",
+    "**SERVEREN:** Werk af met versgemalen zwarte peper, de **verse koriander of peterselie** en verkruimelde **witte kaas**. Serveer direct uit de pan met **vers brood** om te soppen."
+  ],
+  "cooktips": {
+    "van8naar10": "Gebruik buiten tomatenseizoen goede gepelde tomaten uit blik in plaats van verse, en maak op het laatst een klein beetje kruidenolie om overheen te druppelen voor extra glans en smaak.",
+    "noGo": "Laat de eieren niet te lang doorgaren zonder deksel — de dooiers moeten romig blijven. Sla ook het smoren van de ui met deksel niet over, dat bouwt de zoetige basis van de saus op.",
+    "alternatieven": {
+      "Witte kaas, zoals feta of Turkse witte kaas": "Zachte witte geitenkaas",
+      "Verse tomaten, ontveld en in blokjes": "Blik gepelde tomaten, vooral buiten het seizoen"
+    },
+    "gezonder": "Vervang de boter volledig door olijfolie en voeg een handvol spinazie toe bij de paprika voor extra vezels en groenten.",
+    "goedkoper": "Gebruik tomaten uit blik in plaats van vers, en laat de witte kaas weg of vervang door een goedkopere witte kaassoort."
+  }
+}
