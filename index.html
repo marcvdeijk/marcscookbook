@@ -1977,7 +1977,7 @@ function renderModalBody(r) {
     let altHtml = '';
     if (ct.alternatieven && typeof ct.alternatieven === 'object') {
       altHtml = Object.entries(ct.alternatieven).map(([ing, alts]) =>
-        '<div class="alternatief-row"><span class="alternatief-ingredient">' + ing + ':</span><span class="alternatief-opties"> ' + alts.join(', ') + '</span></div>'
+        '<div class="alternatief-row"><span class="alternatief-ingredient">' + ing + ':</span><span class="alternatief-opties"> ' + (Array.isArray(alts) ? alts.join(', ') : alts) + '</span></div>'
       ).join('');
     }
     const tipBlokken = [
