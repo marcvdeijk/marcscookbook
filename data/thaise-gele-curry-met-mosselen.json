@@ -1,0 +1,95 @@
+{
+  "id": "thaise-gele-curry-met-mosselen",
+  "name": "Thaise Gele Curry met Mosselen",
+  "cuisine": "Thais",
+  "protein": "Zeevruchten",
+  "carbs": "Rijst",
+  "effort": 3,
+  "timeMin": 35,
+  "timeCategory": "middel",
+  "complete": true,
+  "servings": 4,
+  "source": "eigen",
+  "nutrition": {
+    "kcal": 430,
+    "protein": 24,
+    "fat": 32,
+    "carbs": 12,
+    "score": "orange",
+    "scoreNote": "LEGACY VELD — niet meer bijwerken."
+  },
+  "voedingsscore": 58,
+  "tldr": "Deze romige mosselcurry levert veel goed eiwit en smaak, maar het ruime kokosmelkgehalte houdt de score in bedwang ondanks de groenten.",
+  "voedingsanalyse": "Mosselen zijn een uitstekende magere eiwitbron, dus de kokosmelk is de plek om te schrappen als je het lichter wilt maken — gebruik light kokosmelk voor de 400ml portie en bewaar volle vet alleen voor de dikke bovenlaag. Serveer met een bescheiden portie jasmijnrijst en voeg sperziebonen of spinazie toe voor extra vezels.",
+  "ingredientGroups": [
+    {
+      "label": "Mosselen",
+      "items": [
+        { "naam": "Verse mosselen, schoongemaakt", "naar_smaak": false, "hoeveelheid": 1.5, "eenheid": "kg" },
+        { "naam": "Zout", "naar_smaak": true, "opmerking": "snufje" },
+        { "naam": "Witte peper", "naar_smaak": true, "opmerking": "snufje" }
+      ]
+    },
+    {
+      "label": "Curry basis",
+      "items": [
+        { "naam": "Volvette kokosmelk (dikke bovenkant blik)", "naar_smaak": false, "hoeveelheid": 60, "eenheid": "ml", "opmerking": "kookvet" },
+        { "naam": "Thaise gele currypasta", "naar_smaak": false, "hoeveelheid": 4, "eenheid": "el", "opmerking": "bijv. Aroy-D" },
+        { "naam": "Knoflook", "naar_smaak": true, "opmerking": "fijngehakt" },
+        { "naam": "Gember", "naar_smaak": true, "opmerking": "geraspt" },
+        { "naam": "Bagoong", "naar_smaak": false, "hoeveelheid": 0.5, "eenheid": "tl", "opmerking": "voor extra zeedepte, maximaal een halve tl" },
+        { "naam": "Stengels citroengras", "naar_smaak": false, "hoeveelheid": 2, "opmerking": "gehalveerd en gekneusd, aan het eind verwijderen" },
+        { "naam": "Kaffir limoenbladeren", "naar_smaak": false, "hoeveelheid": 3, "opmerking": "optioneel - Aroy-D bevat al kaffir limoen, aan het eind verwijderen" },
+        { "naam": "Verse kurkuma, geraspt", "naar_smaak": false, "hoeveelheid": 1, "eenheid": "tl", "opmerking": "of 0,5 tl gedroogd" }
+      ]
+    },
+    {
+      "label": "Groenten",
+      "items": [
+        { "naam": "Ui", "naar_smaak": true, "opmerking": "grote ui, in grove partjes gesneden" },
+        { "naam": "Gele paprika", "naar_smaak": false, "hoeveelheid": 1, "opmerking": "in reepjes gesneden" },
+        { "naam": "Courgette", "naar_smaak": false, "hoeveelheid": 1, "opmerking": "in halve plakjes van 1cm gesneden" }
+      ]
+    },
+    {
+      "label": "Vocht en smaakmakers",
+      "items": [
+        { "naam": "Volvette kokosmelk", "naar_smaak": false, "hoeveelheid": 400, "eenheid": "ml", "opmerking": "rest van het blik" },
+        { "naam": "Vissaus (nam pla)", "naar_smaak": false, "hoeveelheid": 15, "eenheid": "ml", "opmerking": "mosselen geven eigen zout af, voorzichtig doseren en na het openen proeven" },
+        { "naam": "Liquid palm sugar", "naar_smaak": false, "hoeveelheid": 1, "eenheid": "el", "opmerking": "verkrijgbaar bij de toko" },
+        { "naam": "Limoen, sap van", "naar_smaak": false, "hoeveelheid": 1, "opmerking": "vers, pas toevoegen nadat het vuur uit is" },
+        { "naam": "Water of lichte visbouillon", "naar_smaak": false, "hoeveelheid": 100, "eenheid": "ml", "opmerking": "alleen indien de saus te dik wordt" }
+      ]
+    },
+    {
+      "label": "Afwerking",
+      "items": [
+        { "naam": "Verse Thaise basilicum (horapa)", "naar_smaak": true, "opmerking": "groot handvol, op het allerlaatste moment erdoor" },
+        { "naam": "Rode chilipepers", "naar_smaak": true, "opmerking": "in ringetjes, voor kleurcontrast op het geel" },
+        { "naam": "Gekookte jasmijnrijst", "naar_smaak": true, "opmerking": "bijgerecht, geen onderdeel van de curry" }
+      ]
+    }
+  ],
+  "steps": [
+    "**KOKOSMELKVET ACTIVEREN:** Schep de dikke bovenkant van het kokosmelkblik in een droge wok of grote pan. Middelhoog vuur, laat 2 minuten pruttelen tot het vet loslaat van de melk.",
+    "**PASTA EN KURKUMA:** Voeg de **gele currypasta** en **verse kurkuma** toe aan het hete kokosvet. Bak 2-3 minuten al roerend tot de keuken geel kleurt.",
+    "**KNOFLOOK, GEMBER, BAGOONG EN CITROENGRAS:** **Knoflook** en **gember** direct in de pasta, 1 minuut meebakken. Dan **bagoong** erbij en goed doorroeren, gevolgd door **citroengras** en **kaffirlimoenbladeren**. Nog 30 seconden meebakken.",
+    "**UI AANFRUITEN:** **Ui** toevoegen aan de pasta, 3 minuten meebakken tot glazig en goudrandig.",
+    "**KOKOSMELK ERIN:** De resterende **kokosmelk** erbij gieten, eventueel aangevuld met **water of visbouillon**. Goed doorroeren, aan de kook brengen, vuur laag zetten en 3-4 minuten laten sudderen zonder deksel.",
+    "**PAPRIKA EN COURGETTE:** **Paprika** en **courgette** tegelijk toevoegen, 4-5 minuten zachtjes meesudderen en beetgaar houden.",
+    "**DE FUIYUUU STAP - MOSSELEN ERIN:** Vuur hoog zetten. **Mosselen** direct in de kokende curry, deksel erop (de enige keer dat je een deksel gebruikt). 3-4 minuten stomen, halverwege de pan schudden. Klaar zodra alle mosselen open zijn; gesloten mosselen na 4 minuten weggooien.",
+    "**AFMAKEN:** Deksel eraf. Proef de saus eerst voordat je **vissaus** toevoegt. Vissaus en **palm sugar** voorzichtig toevoegen en balanceren, vuur uit. Dan pas het **limoensap** erover. Citroengras en kaffirlimoenbladeren verwijderen. **Thaise basilicum** op het allerlaatste moment erdoor.",
+    "**SERVEREN:** Direct serveren. Garneren met **chilipeper**, serveren met **jasmijnrijst**."
+  ],
+  "cooktips": {
+    "van8naar10": "Gebruik verse kaffirlimoenbladeren in plaats van de kant-en-klare pasta erop te vertrouwen, en laat de chilipepers even meebakken in het kokosvet voor extra dieptesmaak voordat je ze als garnering gebruikt.",
+    "noGo": "Voeg nooit vissaus toe voordat je de saus geproefd hebt - de mosselen geven al veel zout af en je kunt het gerecht makkelijk te zout maken.",
+    "alternatieven": {
+      "Mosselen": "Vervang door garnalen of een mix van zeevruchten, pas de gaartijd aan naar 2-3 minuten.",
+      "Bagoong": "Weglaten of vervangen door een extra scheutje vissaus voor umami.",
+      "Kaffir limoenbladeren": "Weglaten indien niet beschikbaar, de currypasta bevat vaak al kaffir limoen."
+    },
+    "gezonder": "Gebruik light kokosmelk voor de 400ml portie en bewaar volle vet kokosmelk alleen voor de dikke bovenlaag, dit scheelt aanzienlijk in verzadigd vet zonder veel smaakverlies.",
+    "goedkoper": "Gebruik diepvriesmosselen in plaats van vers, en laat de bagoong en kaffirlimoenbladeren achterwege - de currypasta blijft de smaakdrager."
+  }
+}
